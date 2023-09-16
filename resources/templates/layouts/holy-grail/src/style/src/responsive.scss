@@ -10,10 +10,10 @@
             "mobile-nav";
         
         .sidebar {
-            &.minimized,
             &.maximized,
-            &.visible,
-            &.hidden {
+            &.maximized.hidden,
+            &.minimized,
+            &.minimized.visible {
                 height: 0;
                 width: 0;
                 overflow: hidden;
