@@ -1,0 +1,69 @@
+@import './src/reset';
+
+$main-content: lightblue;
+$button: #00000025;
+$button-hover: #00000050;
+
+#content {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    position: relative;
+    
+    #main-content {
+        min-height: 100vh;
+        height: auto;
+        width: 100%;
+        background-color: $main-content;
+        padding: 75px;
+    }
+
+    #fixed-header,
+    #fixed-footer{
+        position: fixed;
+        z-index: 1000;
+        height: 75px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 25px;
+        padding-right: 25px;
+        background-color: #00000010;
+
+        .icons-container {
+            height: 100%;
+            width: 100%;
+            max-width: 2000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    #fixed-header {
+        top: 0;
+    }
+
+    #fixed-footer {
+        bottom: 0;
+    }
+}
+
+button {
+    height: 40px;
+    width: 40px;
+    background-color: $button;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 120ms ease-in-out;
+
+    &:hover {
+        background-color: $button-hover;
+    }
+
+    img {
+        height: auto;
+        width: auto;
+    }
+}
