@@ -29,8 +29,8 @@ function buildLayout() {
     html="$1/dist/index.html"
     src="$1/src"
     dest=$(pwd)
-    cp "$html" "$dest/dist/index.html"
-    cp -r "$src/"* "$dest/src/"
+    cp "$html" "$dest/dist/index.html" || exit 1
+    cp -r "$src/"* "$dest/src/" || exit 1
 }
 
 echo -e "\033[33m[WARNING]\033[0m running this script will erase all work in the current project"
@@ -42,7 +42,8 @@ if [ "$answer" = 'yes' ] || [ "$answer" = 'Yes' ]; then
     printTemplates
     echo -n "Enter the number of the layout to copy: "
     read answer
-    chooseLayout "$answer"
+    chooseLayout "$answer" || exit 1
+    printf "\nLayout created successfully\n"           
 fi
 
 
