@@ -1,12 +1,12 @@
 export class Layout {
     static minimizeSidebar(): void {
-        (document.querySelector('#sidebar.maximized') as HTMLDivElement).classList.add('hidden');
-        (document.querySelector('#sidebar.minimized') as HTMLDivElement).classList.add('visible');
+        (document.querySelector('.sidebar.maximized') as HTMLDivElement).classList.add('hidden');
+        (document.querySelector('.sidebar.minimized') as HTMLDivElement).classList.add('visible');
     }
 
     static maximizeSidebar(): void {
-        (document.querySelector('#sidebar.maximized') as HTMLDivElement).classList.remove('hidden');
-        (document.querySelector('#sidebar.minimized') as HTMLDivElement).classList.remove('visible');
+        (document.querySelector('.sidebar.maximized') as HTMLDivElement).classList.remove('hidden');
+        (document.querySelector('.sidebar.minimized') as HTMLDivElement).classList.remove('visible');
     }
 }
 

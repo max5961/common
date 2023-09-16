@@ -3,6 +3,7 @@
 $header: #f6f8fa;
 $sidebar: #1f2328;
 $content: #ffffff;
+$hover-icon: #56585b;
 
 // layout
 #content {
@@ -15,30 +16,57 @@ $content: #ffffff;
         "sidebar-maximized sidebar-minimized header"
         "sidebar-maximized sidebar-minimized main-content"
         "mobile-nav mobile-nav mobile-nav";
-}
+
     #header {
         grid-area: header;
         height: 75px;
         background-color: $header;
         border-bottom: 1px solid #b7b7b7;
     }
-    #sidebar.maximized {
-        grid-area: sidebar-maximized;
-        width: 300px;
+
+    .sidebar {
+        display: grid;
+        grid-template-rows: 40px 1fr;
+        background-color: $sidebar;
+        overflow: hidden;
+        transition: width 120ms ease-in-out;
+         
+        &.maximized {
+            grid-area: sidebar-maximized;
+            width: 300px;
+
+            &.hidden {
+                width: 0;
+            }
+        }
+        &.minimized {
+            grid-area: sidebar-minimized;
+            width: 0;
+
+            &.visible {
+                width: 40px;
+            }
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px;
+            height: auto;
+        }
     }
-    #sidebar.minimized {
-        grid-area: sidebar-minimized;
-        width: 0;
-    }
+
     #main-content {
         grid-area: main-content;
         background-color: $content;
     }
+
     #mobile-nav {
         grid-area: mobile-nav;
         height: 0;
         background-color: $sidebar;
     }
+}
 
 // navigation buttons
 button.nav-icon {
@@ -49,38 +77,20 @@ button.nav-icon {
     padding: 5px;
     height: 30px;
     width: 30px;
-}
+    transition: background-color 120ms ease-in-out;
+
+    &:hover {
+        background-color: $hover-icon;
+    }
+
     img.nav-icon {
         height: auto;
         width: auto;
     }
-button.nav-icon:hover {
-    background-color: gray;
 }
     
-// sidebar
-#sidebar {
-    display: grid;
-    grid-template-rows: 40px 1fr;
-    background-color: $sidebar;
-    overflow: hidden;
-    transition: width 120ms ease-in-out;
-}
-    .sidebar-header {
-        display: flex;
-        justify-content: flex-end;
-        padding: 5px;
-    }
-#sidebar.maximized.hidden {
-    width: 0;
-}
-#sidebar.minimized.visible {
-    width: 40px;
-}
-
-
-
-
+@import "./src/responsive"
+ 
 
 
 
