@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="content">
+            <div id="header"></div>
+            
+            <div id="sidebar" class="maximized">
+                <div class="sidebar-header">
+                    <button class="nav-icon minimize-sidebar">
+                        <img class="nav-icon minimize-sidebar" src="../src/media/icons/align-right.svg" alt="" />
+                    </button>
+                </div>
+                <div class="sidebar-content"></div>
+            </div>
+
+            <div id="sidebar" class="minimized">
+                <div class="sidebar-header">
+                    <button class="nav-icon maximize-sidebar">
+                        <img class="nav-icon maximize-sidebar" src="../src/media/icons/align-left.svg" alt="" />
+                    </button>
+                </div>
+                <div class="sidebar-content"></div>
+            </div>
+
+            <div id="main-content"></div>
+            <div id="mobile-nav"></div>
+        </div>
+
+        <script src="bundle.js"></script>
+    </body>
+</html>
