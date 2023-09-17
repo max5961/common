@@ -108,7 +108,7 @@ inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.config/nvim/emmet-snippets/snippets.json')), "\n"))
 
 " exit a 'pair' of something (quotes, parens, curly braces..)
-function! JumpOut()
+function! ExitPair()
     if col('.') == col('$') - 2
         startinsert!
     else
@@ -116,5 +116,5 @@ function! JumpOut()
         startinsert
     endif
 endfunction
-nnoremap <leader>m :call JumpOut()<CR>
+nnoremap <leader>m :call ExitPair()<CR>
 
