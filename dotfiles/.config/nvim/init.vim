@@ -109,9 +109,12 @@ let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.config/n
 
 " exit a 'pair' of something (quotes, parens, curly braces..)
 function! JumpOut()
-    call search("[\"'`)>}]", "W")
-    startinsert!
+    if col('.') == col('$') - 2
+        startinsert!
+    else
+        normal ll
+        startinsert
+    endif
 endfunction
 nnoremap <leader>m :call JumpOut()<CR>
-
 
