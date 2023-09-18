@@ -29,3 +29,10 @@ gcc to comment out a line
 gc to comment out the target of a motion
 gcap to comment out a paragraph
 
+Search and replace within a file
+:%s/searchWord/replaceWord/g
+
+COC Tsserver switch between args in function autocomplete
+<C-j> move to the next arg
+<C-k> move to the previous arg
+
