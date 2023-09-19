@@ -29,10 +29,17 @@ gcc to comment out a line
 gc to comment out the target of a motion
 gcap to comment out a paragraph
 
-Search and replace within a file
+Search and replace within an entire file
 :%s/searchWord/replaceWord/g
+
+Search and replace within a visually selected block
+visual select, then :s/searchWord/replaceWord/
 
 COC Tsserver switch between args in function autocomplete
 <C-j> move to the next arg
 <C-k> move to the previous arg
+
+:sp /path/to/file - split screen horizontally
+:vsp /path/to/file - split screen vertically
+<C-w> h | j | k | l - navigate between windows.  Do not hold w
 
