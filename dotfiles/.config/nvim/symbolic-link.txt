@@ -1,3 +1,0 @@
-ln -s ~/environment/dotfiles/.config/nvim ~/.config/nvim
-
-*will not work unless the absolute path is specified using the ~

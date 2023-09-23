@@ -14,6 +14,7 @@ Plug 'mattn/webapi-vim'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -117,4 +118,15 @@ function! ExitPair()
     endif
 endfunction
 nnoremap <leader>m :call ExitPair()<CR>
+
+" prettier
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'css': ['prettier'],
+\   'scss': ['prettier'],
+\   'html': ['prettier']
+\}
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
 

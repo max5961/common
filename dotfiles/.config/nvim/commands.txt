@@ -42,4 +42,6 @@ COC Tsserver switch between args in function autocomplete
 :sp /path/to/file - split screen horizontally
 :vsp /path/to/file - split screen vertically
 <C-w> h | j | k | l - navigate between windows.  Do not hold w
+<leader>h - go to next open window
+
 
