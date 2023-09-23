@@ -34,7 +34,7 @@ inject_css_reset() {
     if [ ! -f "$css_reset" ]; then
         echo -e "\033[33mCannot locate CSS reset template.  Using default reset\033[0m"
     else
-        cd "$(pwd)" && cat "$css_reset" > ./src/style/src/reset.css
+        cd "$(pwd)" && cat "$css_reset" > ./src/style/reset.css
     fi
 }
 
@@ -56,11 +56,18 @@ install_basic() {
     cp "$config_files_dir/basic-webpack.config.js" "$(pwd)/webpack.config.js"
 }
 
+insert_prettierrc() {
+    template="$HOME/environment/resources/templates/prettier/.prettierrc.json"
+    cp "$template" "$(pwd)/.prettierrc.json"
+}
+
+
 install_advanced() {
     npm install --save-dev style-loader css-loader csv-loader xml-loader babel-loader @babel/core @babel/preset-env eslint eslint-config-prettier
     npm install --save-dev --save-exact prettier
     config_files_dir="$HOME/environment/resources/templates/webpack/webpack-config-files"
     cp "$config_files_dir/basic-webpack.config.js" "$(pwd)/webpack.config.js"
+    insert_prettierrc
 }
 
 install_sass() {
