@@ -61,6 +61,14 @@ insert_prettierrc() {
     cp "$template" "$(pwd)/.prettierrc.json"
 }
 
+insert_eslintrc() {
+    template_dir="$HOME/environment/resources/templates/eslint"
+    if [ "$1" = "typescript" ]; then 
+        cp "$template_dir/.typescriptrc.json" "$(pwd)/.eslintrc.json"
+    elif [ "$1" = "javascript" ]; then
+        cp "$template_dir/.javascriptrc.json" "$(pwd)/.eslintrc.json"
+    fi
+}
 
 install_advanced() {
     npm install --save-dev style-loader css-loader csv-loader xml-loader babel-loader @babel/core @babel/preset-env eslint eslint-config-prettier
@@ -78,6 +86,7 @@ install_sass() {
 install_typescript() {
     echo "Installing TypeScript dependencies"
     npm install --save-dev typescript ts-loader
+    npm isntall --sav-dev @typescript-eslint/parser
 }
 
 yes_sass() {
@@ -119,7 +128,7 @@ check_valid_args() {
     if [ "$1" == "--help" ]; then
         echo "Arguments may be the following:"
         echo "  --basic: Intialize basic webpack directory"
-        echo "  --advanced: Initialize heavier webpack directory (ESlint, Prettier)"
+        echo "  --advanced: Initialize heavier webpack directory: ESlint, Prettier"
         echo ""
         echo "  The following are valid arguments for specific assets"
         echo "      --sass: Download necessary SASS modules and modify the file structure"
@@ -215,6 +224,7 @@ elif [ "$advanced" = true ] && [ "$typescript" = true ] && [ "$sass" = true ]; t
     yes_sass
     yes_typescript
     get_config_files "typescript_sass"
+    insert_eslintrc "typescript"
 elif [ "$advanced" = true ] && [ "$typescript" = true ]; then
     echo "Initializing advanced configuration with TypeScript"
     copy_parent_file_structure "$HOME/environment/resources/templates/webpack/advanced/" 
@@ -222,17 +232,20 @@ elif [ "$advanced" = true ] && [ "$typescript" = true ]; then
     install_advanced
     yes_typescript
     get_config_files "typescript"
+    insert_eslintrc "typescript"
 elif [ "$advanced" = true ] && [ "$sass" = true ]; then
     echo "Initializing advanced configuration with SASS"
     copy_parent_file_structure "$HOME/environment/resources/templates/webpack/advanced/" 
     install_sass
     install_advanced
     get_config_files "sass"
+    insert_eslintrc "javascript"
 elif [ "$advanced" = true ]; then
     echo "Initializing advanced configuration"
     copy_parent_file_structure "$HOME/environment/resources/templates/webpack/advanced/" 
     install_advanced
     get_config_files "basic"
+    insert_eslintrc "javascript"
 fi
 
 npm run build

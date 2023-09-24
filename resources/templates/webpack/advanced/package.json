@@ -5,7 +5,9 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
+    "lint:fix": "eslint --ext .ts,.tsx,.js,.jsx . --fix"
   },
   "keywords": [],
   "author": "",
