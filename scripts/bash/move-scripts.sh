@@ -13,13 +13,13 @@ function update() {
     fi
 }
 
-function find_scripts() {
+function find_and_update() {
     local source="${1}"
     
     for dir_or_script in "${source}"*
     do
         if [ -d "${dir_or_script}" ]; then
-            find_scripts "${dir_or_script}/"
+            find_and_update "${dir_or_script}/"
         elif [ -f "${dir_or_script}" ]; then
             update "${dir_or_script}"
         fi
@@ -44,10 +44,10 @@ elif [ "${1}" = "-s" ]; then
     
 elif [ "${1}" = "-d" ]; then
     if [ -d "${2}" ]; then
-        find_scripts "${2}"
+        find_and_update "${2}"
     fi
 
 else
-    find_scripts "/home/max/environment/scripts/bash/"
+    find_and_update "/home/max/environment/scripts/bash/"
 fi
 
