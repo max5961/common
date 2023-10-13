@@ -29,6 +29,8 @@ gcc to comment out a line
 gc to comment out the target of a motion
 gcap to comment out a paragraph
 
+<C-y> + j Emmet HTML autocomplete
+
 Search and replace within an entire file
 :%s/searchWord/replaceWord/g
 
@@ -41,6 +43,14 @@ COC Tsserver switch between args in function autocomplete
 
 :sp /path/to/file - split screen horizontally
 :vsp /path/to/file - split screen vertically
+:bot 7sp | term - open a terminal in the bottom of the window with a height of 7 lines
+:resize +N
+:resize -N
+    - resize a horizontally split window
+:vertical resize +N
+:vertical resize -N
+    - resize a vertically split window
+
 <C-w> h | j | k | l - navigate between windows.  Do not hold w
 <leader>h - go to next open window
 
