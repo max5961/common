@@ -32,6 +32,9 @@ function dl_single_album() {
 
     # set the metadata of each song 
     python3 ~/environment/scripts/python/albumdl/set-metadata.py "${artist}" "${album}"
+
+    # add album, artist, URL to a download log at: ~/environment/scripts/python/albumdl/dl-log.csv
+    python3 ~/environment/scripts/python/albumdl/add-to-csv.py "${artist}" "${album}" "${URL}"
 }
 
 function dl_from_csv() {
