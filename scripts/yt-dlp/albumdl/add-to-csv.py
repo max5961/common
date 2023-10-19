@@ -6,7 +6,7 @@ artist = sys.argv[1]
 album = sys.argv[2]
 URL = sys.argv[3]
 
-csvLog = os.path.expanduser("~/environment/scripts/python/albumdl/dl-log.csv")
+csvLog = os.path.expanduser("~/environment/scripts/yt-dlp/albumdl/dl-log.csv")
 
 with open(csvLog, mode = "r+", newline = "") as file:
     isAlreadyLogged = False

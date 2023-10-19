@@ -2,14 +2,18 @@
 
 function update() {
     local script="${1}"
-    local script_name=$(basename "${script}")
-    local stripped_name=$(basename "${script_name}" .sh)
-    sudo cp "${script}" /usr/local/bin/"${stripped_name}" && sudo chmod +x /usr/local/bin/"${stripped_name}"
     
-    if [ $? -eq 0 ]; then
-        echo "Successfully updated: ${script_name}"
-    else
-        echo "Unsuccessful update of: ${script_name}"
+    # only move bash scripts
+    if [ "${script: -3}" == ".sh" ]; then 
+        local script_name=$(basename "${script}")
+        local stripped_name=$(basename "${script_name}" .sh)
+        sudo cp "${script}" /usr/local/bin/"${stripped_name}" && sudo chmod +x /usr/local/bin/"${stripped_name}"
+        
+        if [ $? -eq 0 ]; then
+            echo "Successfully updated: ${script_name}"
+        else
+            echo "Unsuccessful update of: ${script_name}"
+        fi
     fi
 }
 
@@ -48,6 +52,6 @@ elif [ "${1}" = "-d" ]; then
     fi
 
 else
-    find_and_update "/home/max/environment/scripts/bash/"
+    find_and_update "/home/max/environment/scripts/"
 fi
 
