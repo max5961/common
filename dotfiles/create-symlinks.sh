@@ -3,7 +3,6 @@
 # .bashrc
 if [ ! -f "$HOME/.bashrc" ]; then
     ln -s ~/environment/dotfiles/bash/.bashrc ~/.bashrc
-    check_completion ${?} ".bashrc"
 fi
 
 # alacritty
