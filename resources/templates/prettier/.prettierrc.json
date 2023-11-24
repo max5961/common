@@ -1,5 +1,4 @@
 {
-    "printWidth": "Infinity",
-    "spaceBeforeFunctionParent": true,
+    "printWidth": 999999,
     "tabWidth": 4
 }

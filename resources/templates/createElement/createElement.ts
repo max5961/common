@@ -37,33 +37,33 @@ export function createElement(type: string, attributes: Attributes = {}, ...chil
     return element;
 }
 
-// example
-function buildHeader() {
-    return  (
-        createElement(
-            'div', {class: "header default"},
-            createElement(
-                'p', {class: 'hello-world', tc: 'hello world'}
-            ),
-            createElement(
-                'span', {tc:' hello world'}
-            )
-        )
-    );
-}
+// EXAMPLES
+//
+// function buildHeader() {
+//     return  (
+//         createElement(
+//             'div', {class: "header default"},
+//             createElement(
+//                 'p', {class: 'hello-world', tc: 'hello world'}
+//             ),
+//             createElement(
+//                 'span', {tc:' hello world'}
+//             )
+//         )
+//     );
+// }
 
-
-function buildHeader2() {
-    return  (
-        createElement(
-            'div', {class: "header default"},
-            createElement(
-                'p', {class: 'hello-world', tc: 'hello world'}
-            ),
-            createElement(
-                'span', {tc:' hello world'}
-            )
-        )
-    );
-}
+// function buildHeader2() {
+//     return  (
+//         createElement(
+//             'div', {class: "header default"},
+//             createElement(
+//                 'p', {class: 'hello-world', tc: 'hello world'}
+//             ),
+//             createElement(
+//                 'span', {tc:' hello world'}
+//             )
+//         )
+//     );
+// }
 
