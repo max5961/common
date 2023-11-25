@@ -1,16 +1,28 @@
 #!/bin/bash
 
-# .bashrc
-if [ ! -f "$HOME/.bashrc" ]; then
-    ln -s ~/environment/dotfiles/bash/.bashrc ~/.bashrc
-fi
+function link_dir_to_XDG_CONFIG_HOME() {
+    path="$HOME/.config"
+    if [ ! -d "${path}/${1}" ]; then
+        if [ ! -L "${path}/${1}" ]; then
+            ln -s ~/environment/dotfiles/${1} ~/.config/${1}
+        fi
+    fi
+}
 
-# alacritty
-if [ ! -d "$HOME/alacritty" ]; then
-    ln -s ~/environment/dotfiles/alacritty ~/.config/alacritty
-fi
+function link_file_to_HOME() {
+    if [ ! -f "$HOME/${2}" ]; then
+        if [ ! -L "$HOME/${2}" ]; then
+            ln -s ~/environment/dotfiles/${1}/${2} ~/${2}
+        fi
+    fi
+}
 
-# nvim
-if [ ! -d "$HOME/.config/nvim" ]; then
-    ln -s ~/environment/dotfiles/nvim ~/.config/nvim
-fi
+# directories in ~/.config
+link_dir_to_XDG_CONFIG_HOME "alacritty"
+link_dir_to_XDG_CONFIG_HOME "nvim"
+link_dir_to_XDG_CONFIG_HOME "ncmpcpp"
+link_dir_to_XDG_CONFIG_HOME "mpd"
+link_dir_to_XDG_CONFIG_HOME "mpv"
+
+# files in ~/
+link_file_to_HOME "bash" ".bashrc"
