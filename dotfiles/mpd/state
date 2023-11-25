@@ -1,8 +1,8 @@
 sw_volume: 100
 audio_device_state:1:default detected output
-state: play
-current: 21
-time: 120.014000
+state: pause
+current: 30
+time: 69.652000
 random: 0
 repeat: 0
 single: 0
@@ -11,37 +11,42 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Suffocation/Pierced From Within/1 <<>> Pierced from Within.m4a
-1:Suffocation/Pierced From Within/2 <<>> Thrones of Blood.opus
-2:Suffocation/Pierced From Within/3 <<>> Depths of Depravity.opus
-3:Suffocation/Pierced From Within/4 <<>> Suspended in Tribulation.opus
-4:Suffocation/Pierced From Within/5 <<>> Torn into Enthrallment.opus
-5:Suffocation/Pierced From Within/6 <<>> The Invoking.opus
-6:Suffocation/Pierced From Within/7 <<>> Synthetically Revived.opus
-7:Suffocation/Pierced From Within/8 <<>> Brood of Hatred.opus
-8:Suffocation/Pierced From Within/9 <<>> Breeding the Spawn (Pierced Version).opus
-9:Abyssal/Antikatastaseis/1 <<>> I Am the Alpha and the Omega.opus
-10:Abyssal/Antikatastaseis/2 <<>> The Cornucopian.opus
-11:Abyssal/Antikatastaseis/3 <<>> Veil of Transcendence.opus
-12:Abyssal/Antikatastaseis/4 <<>> Telomeric Erosion.opus
-13:Abyssal/Antikatastaseis/5 <<>> A Casual Landscape.opus
-14:Abyssal/Antikatastaseis/6 <<>> Chrysalis.opus
-15:Abyssal/Antikatastaseis/7 <<>> Delere Auctorem Rerum Ut Universum Infinitum Noscas.opus
-16:Abyssal/Denouement/1 <<>> Abyssal - The Moss upon Our Ruins.opus
-17:Abyssal/Denouement/2 <<>> Abyssal - Celestial Dictatorship.opus
-18:Abyssal/Denouement/3 <<>> Abyssal - Deus Vult.opus
-19:Abyssal/Denouement/4 <<>> Abyssal - Detritivore.opus
-20:Abyssal/Denouement/5 <<>> Abyssal - When Paradigms Supplant Gods.opus
-21:Abyssal/Denouement/6 <<>> Abyssal - Swansong of a Dying Race.opus
-22:Demilich/Nespithe/01 <<>> Demilich - When the Sun Drank the Weight of Water.opus
-23:Demilich/Nespithe/02 <<>> Demilich - The Sixteenth Six-Tooth Son of Fourteen Four-Regional Dimensions (Still Unnamed).opus
-24:Demilich/Nespithe/03 <<>> Demilich - Inherited Bowel Levitation - Reduced Without Any Effort.opus
-25:Demilich/Nespithe/04 <<>> Demilich - The Echo (Replacement).opus
-26:Demilich/Nespithe/05 <<>> Demilich - The Putrefying Road in the Nineteenth Extremity.opus
-27:Demilich/Nespithe/06 <<>> Demilich - (Within) The Chamber of Whispering Eyes.opus
-28:Demilich/Nespithe/07 <<>> Demilich - And You'll Remain... (In Pieces in Nothingness).opus
-29:Demilich/Nespithe/08 <<>> Demilich - Erecshyrinol.opus
-30:Demilich/Nespithe/09 <<>> Demilich - The Planet That Once Used to Absorb Flesh in Order to Achieve Divinity and Immortality.opus
-31:Demilich/Nespithe/10 <<>> Demilich - The Cry.opus
-32:Demilich/Nespithe/11 <<>> Demilich - Raped Embalmed Beauty Sleep.opus
+0:Exhorder/Slaughter in the Vatican/1 <<>> Death in Vain.opus
+1:Exhorder/Slaughter in the Vatican/2 <<>> Homicide.opus
+2:Exhorder/Slaughter in the Vatican/3 <<>> Desecrator.opus
+3:Exhorder/Slaughter in the Vatican/4 <<>> Exhorder.opus
+4:Exhorder/Slaughter in the Vatican/5 <<>> The Tragic Period.opus
+5:Exhorder/Slaughter in the Vatican/6 <<>> Legions of Death.opus
+6:Exhorder/Slaughter in the Vatican/7 <<>> Anal Lust.opus
+7:Exhorder/Slaughter in the Vatican/8 <<>> Slaughter in the Vatican.opus
+8:Exhorder/The Law/1 <<>> Soul Search Me.opus
+9:Exhorder/The Law/2 <<>> Unforgiven.opus
+10:Exhorder/The Law/3 <<>> I Am the Cross.opus
+11:Exhorder/The Law/4 <<>> Un-Born Again.opus
+12:Exhorder/The Law/5 <<>> Into the Void.opus
+13:Exhorder/The Law/6 <<>> The Truth.opus
+14:Exhorder/The Law/7 <<>> The Law.opus
+15:Exhorder/The Law/8 <<>> Incontinence.opus
+16:Exhorder/The Law/9 <<>> [Cadence Of] The Dirge.opus
+17:Sarpanitum/Blessed Be My Brothers/01 <<>> Komenos.opus
+18:Sarpanitum/Blessed Be My Brothers/02 <<>> By Virtuous Reclamation.opus
+19:Sarpanitum/Blessed Be My Brothers/03 <<>> Truth.opus
+20:Sarpanitum/Blessed Be My Brothers/04 <<>> Glorification Upon The Powdered Bones Of The Sundered Dead.opus
+21:Sarpanitum/Blessed Be My Brothers/05 <<>> Immortalised As Golden Spires.opus
+22:Sarpanitum/Blessed Be My Brothers/06 <<>> Thy Sermon Lies Forever Tarnished.opus
+23:Sarpanitum/Blessed Be My Brothers/07 <<>> I Defy For I Am Free.opus
+24:Sarpanitum/Blessed Be My Brothers/08 <<>> Homeland.opus
+25:Sarpanitum/Blessed Be My Brothers/09 <<>> Malek al-Inkitar.opus
+26:Sarpanitum/Blessed Be My Brothers/10 <<>> Blessed Be My Brothers.opus
+27:Demilich/Nespithe/01 <<>> Demilich - When the Sun Drank the Weight of Water.opus
+28:Demilich/Nespithe/02 <<>> Demilich - The Sixteenth Six-Tooth Son of Fourteen Four-Regional Dimensions (Still Unnamed).opus
+29:Demilich/Nespithe/03 <<>> Demilich - Inherited Bowel Levitation - Reduced Without Any Effort.opus
+30:Demilich/Nespithe/04 <<>> Demilich - The Echo (Replacement).opus
+31:Demilich/Nespithe/05 <<>> Demilich - The Putrefying Road in the Nineteenth Extremity.opus
+32:Demilich/Nespithe/06 <<>> Demilich - (Within) The Chamber of Whispering Eyes.opus
+33:Demilich/Nespithe/07 <<>> Demilich - And You'll Remain... (In Pieces in Nothingness).opus
+34:Demilich/Nespithe/08 <<>> Demilich - Erecshyrinol.opus
+35:Demilich/Nespithe/09 <<>> Demilich - The Planet That Once Used to Absorb Flesh in Order to Achieve Divinity and Immortality.opus
+36:Demilich/Nespithe/10 <<>> Demilich - The Cry.opus
+37:Demilich/Nespithe/11 <<>> Demilich - Raped Embalmed Beauty Sleep.opus
 playlist_end

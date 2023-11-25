@@ -7379,3 +7379,54 @@ Nov 24 18:32 : player: played "Abyssal/Denouement/2 <<>> Abyssal - Celestial Dic
 Nov 24 18:40 : player: played "Abyssal/Denouement/3 <<>> Abyssal - Deus Vult.opus"
 Nov 24 18:45 : player: played "Abyssal/Denouement/4 <<>> Abyssal - Detritivore.opus"
 Nov 24 18:56 : player: played "Abyssal/Denouement/5 <<>> Abyssal - When Paradigms Supplant Gods.opus"
+Nov 24 19:07 : player: played "Abyssal/Denouement/6 <<>> Abyssal - Swansong of a Dying Race.opus"
+Nov 24 19:11 : player: played "Demilich/Nespithe/01 <<>> Demilich - When the Sun Drank the Weight of Water.opus"
+Nov 24 19:14 : player: played "Demilich/Nespithe/02 <<>> Demilich - The Sixteenth Six-Tooth Son of Fourteen Four-Regional Dimensions (Still Unnamed).opus"
+Nov 24 19:18 : player: played "Demilich/Nespithe/03 <<>> Demilich - Inherited Bowel Levitation - Reduced Without Any Effort.opus"
+Nov 24 19:22 : player: played "Demilich/Nespithe/04 <<>> Demilich - The Echo (Replacement).opus"
+Nov 24 19:24 : player: played "Demilich/Nespithe/05 <<>> Demilich - The Putrefying Road in the Nineteenth Extremity.opus"
+Nov 24 19:24 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:13 : player: played "Indesinence/III/Desert Trail [a_7u2dvXvHk].opus"
+Nov 24 20:17 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:19 : player: played "Indesinence/III/Desert Trail [a_7u2dvXvHk].opus"
+Nov 24 20:19 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:20 : player: played "Dissection/Rebirth of Dissection (Live 2006)/01 <<>> Dissection - At the Fathomless Depths ⧸ Night's Blood.opus"
+Nov 24 20:20 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:24 : player: played "Children of Bodom/Relentless Reckless Forever/3 <<>> Roundtrip to Hell and Back.opus"
+Nov 24 20:28 : player: played "Children of Bodom/Relentless Reckless Forever/4 <<>> Pussyfoot Miss Suicide.opus"
+Nov 24 20:29 : player: played "Children of Bodom/Relentless Reckless Forever/5 <<>> Relentless, Reckless Forever.opus"
+Nov 24 20:29 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:32 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:35 : player: played "Black Sabbath/Black Sabbath/1 <<>> Black Sabbath (2014 Remaster).opus"
+Nov 24 20:35 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:36 : player: played "Pestilence/Spheres/01 <<>> Mind Reflections (Original).opus"
+Nov 24 20:36 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:36 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 24 20:36 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:37 : player: played "Bekor Qilish/The Flesh of a New God/6 <<>> The Flesh Of Terror.opus"
+Nov 24 20:38 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 20:41 : player: played "D.R.I./Thrash Zone/01 <<>> Thrashard.opus"
+Nov 24 20:46 : player: played "D.R.I./Thrash Zone/02 <<>> D.R.I. - Beneath the WheeL - Thrash Zone -.opus"
+Nov 24 20:51 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 21:00 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 21:00 : player: played "Death/Human/1 <<>> Flattening of Emotions.opus"
+Nov 24 21:00 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 21:13 : player: played "Blut Aus Nord/777 - Cosmosophy/1 <<>> Epitome XIV.opus"
+Nov 24 21:19 : player: played "Blut Aus Nord/777 - Cosmosophy/2 <<>> Epitome XV.opus"
+Nov 24 21:29 : player: played "Blut Aus Nord/777 - Cosmosophy/3 <<>> Epitome XVI.opus"
+Nov 24 21:39 : player: played "Blut Aus Nord/777 - Cosmosophy/4 <<>> Epitome XVII.opus"
+Nov 24 21:50 : player: played "Blut Aus Nord/777 - Cosmosophy/5 <<>> Epitome XVIII.opus"
+Nov 24 21:51 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 21:55 : player: played "Exhorder/Slaughter in the Vatican/1 <<>> Death in Vain.opus"
+Nov 24 21:58 : player: played "Exhorder/Slaughter in the Vatican/2 <<>> Homicide.opus"
+Nov 24 22:01 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 22:05 : player: played "Demilich/Nespithe/01 <<>> Demilich - When the Sun Drank the Weight of Water.opus"
+Nov 24 22:08 : player: played "Demilich/Nespithe/02 <<>> Demilich - The Sixteenth Six-Tooth Son of Fourteen Four-Regional Dimensions (Still Unnamed).opus"
+Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 22:12 : player: played "Demilich/Nespithe/03 <<>> Demilich - Inherited Bowel Levitation - Reduced Without Any Effort.opus"
