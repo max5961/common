@@ -14,7 +14,7 @@ function print_success_message() {
 function link_dir_to_XDG_CONFIG_HOME() {
     path="$HOME/.config"
     if [ -d "${path}/${1}" ] || [ -L "${path}/${1}" ]; then
-        echo "Directory already exists in ${path}/${1}"
+        echo "symlink not created - directory already exists in ${path}/${1}"
     else
         ln -s "${dotfiles_dir}/${1}" ~/.config/${1}
         print_success_message "${?}" "${1}"
@@ -24,7 +24,7 @@ function link_dir_to_XDG_CONFIG_HOME() {
 
 function link_file_to_HOME() {
     if [ -f "$HOME/${2}" ] || [ -L "$HOME/${2}" ]; then
-        echo "File already exists in $HOME/${2}";
+        echo "symlink not created - file already exists in $HOME/${2}";
     else
         ln -s ${dotfiles_dir}/${1}/${2} ~/${2}
         print_success_message "${?}" "${2}"
