@@ -3,22 +3,31 @@
 # this script will not overwrite pre existing symlinks or normal files/dirs
 # manually remove the config directories/files you want to symlink to
 
-dotfiles_dir="~/environment/dotfiles"
+dotfiles_dir="$HOME/environment/dotfiles"
 
-function link_dir_to_XDG_CONFIG_HOME() {
-    path="$HOME/.config"
-    if [ ! -d "${path}/${1}" ]; then
-        if [ ! -L "${path}/${1}" ]; then
-            ln -s "${dotfiles_dir}"/"${1}" ~/.config/"${1}"
-        fi
+function print_success_message() {
+    if [ "${1}" -eq 0 ]; then
+        echo "Successfully created symlink for ${2}"
     fi
 }
 
+function link_dir_to_XDG_CONFIG_HOME() {
+    path="$HOME/.config"
+    if [ -d "${path}/${1}" ] || [ -L "${path}/${1}" ]; then
+        echo "Directory already exists in ${path}/${1}"
+    else
+        ln -s "${dotfiles_dir}/${1}" ~/.config/${1}
+        print_success_message "${?}" "${1}"
+    fi
+
+}
+
 function link_file_to_HOME() {
-    if [ ! -f "$HOME/${2}" ]; then
-        if [ ! -L "$HOME/${2}" ]; then
-            ln -s "${dotfiles_dir}"/"${1}"/"${2}" ~/"${2}"
-        fi
+    if [ -f "$HOME/${2}" ] || [ -L "$HOME/${2}" ]; then
+        echo "File already exists in $HOME/${2}";
+    else
+        ln -s ${dotfiles_dir}/${1}/${2} ~/${2}
+        print_success_message "${?}" "${2}"
     fi
 }
 
