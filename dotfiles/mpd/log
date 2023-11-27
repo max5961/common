@@ -7548,3 +7548,13 @@ Nov 26 16:17 : output: Failed to open mixer for 'default detected output': no su
 Nov 26 16:20 : player: played "Atheist/Jupiter/4 <<>> Live and Live Again.opus"
 Nov 26 19:07 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
 Nov 26 19:07 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 20:39 : player: played "Erik Satie/Gymnopedies/NA <<>> Erik Satie - Gymnopédies.opus"
+Nov 26 22:16 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 26 22:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 27 01:07 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 27 01:11 : player: played "Atheist/Jupiter/1 <<>> Second to Sun.opus"
+Nov 27 01:16 : player: played "Atheist/Jupiter/2 <<>> Fictitious Glide.opus"
+Nov 27 01:19 : player: played "Atheist/Jupiter/3 <<>> Fraudulent Cloth.opus"
+Nov 27 12:27 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 27 12:29 : player: played "Atheist/Jupiter/4 <<>> Live and Live Again.opus"
+Nov 27 12:33 : player: played "Atheist/Jupiter/5 <<>> Faux King Christ.opus"

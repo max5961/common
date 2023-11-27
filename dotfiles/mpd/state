@@ -1,8 +1,8 @@
 sw_volume: 100
 audio_device_state:1:default detected output
 state: pause
-current: 8
-time: 6.106000
+current: 5
+time: 65.523000
 random: 0
 repeat: 0
 single: 0
@@ -37,4 +37,31 @@ playlist_begin
 23:Erik Satie/The Essential Collection/15 <<>> Ogives.opus
 24:Erik Satie/The Essential Collection/16 <<>> Sonatine Burocratique.opus
 25:Erik Satie/The Essential Collection/17 <<>> En Habit De Cheval.opus
+26:Balmorhea/Constellations/1 <<>> To the Order of Night.opus
+27:Balmorhea/Constellations/2 <<>> Bowsprit.opus
+28:Balmorhea/Constellations/3 <<>> Winter Circle.opus
+29:Balmorhea/Constellations/4 <<>> Herons.opus
+30:Balmorhea/Constellations/5 <<>> Constellations.opus
+31:Balmorhea/Constellations/6 <<>> Steerage and the Lamp.opus
+32:Balmorhea/Constellations/7 <<>> Night Squall.opus
+33:Balmorhea/Constellations/8 <<>> On the Weight of Night.opus
+34:Balmorhea/Constellations/9 <<>> Palestrina.opus
+35:Balmorhea/River Arms/01 <<>> San Solomon.opus
+36:Balmorhea/River Arms/02 <<>> Lament.opus
+37:Balmorhea/River Arms/03 <<>> The Summer.opus
+38:Balmorhea/River Arms/04 <<>> The Winter.opus
+39:Balmorhea/River Arms/05 <<>> Greyish Tapering Ash.opus
+40:Balmorhea/River Arms/06 <<>> Baleen Morning.opus
+41:Balmorhea/River Arms/07 <<>> Barefoot Pilgrims.opus
+42:Balmorhea/River Arms/08 <<>> Context.opus
+43:Balmorhea/River Arms/09 <<>> Process.opus
+44:Balmorhea/River Arms/10 <<>> Divisadero.opus
+45:Balmorhea/River Arms/11 <<>> Limmat.opus
+46:Balmorhea/River Arms/12 <<>> Theme No. 1.opus
+47:Balmorhea/River Arms/13 <<>> Windansea.opus
+48:Balmorhea/River Arms/14 <<>> San Solomon (reprise).opus
+49:Balmorhea/River Arms/15 <<>> A Circumnavigation (Live at San Solomon Springs in Balmorhea, TX).opus
+50:Balmorhea/River Arms/16 <<>> We Will Rebuild With Smooth Stones (Live at San Solomon Springs in Balmorhea, TX).opus
+51:Balmorhea/River Arms/17 <<>> Theme (Live in Vienna, Austria).opus
+52:Balmorhea/River Arms/18 <<>> San Solomon (full band Version).opus
 playlist_end
