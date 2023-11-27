@@ -15,8 +15,7 @@ function fast_scroll(lines, down_mapping, up_mapping)
     vim.keymap.set("n", down_mapping, function() vim.cmd("normal!" .. lines .. "j") end, { noremap = true, silent = true })
     vim.keymap.set("n", up_mapping, function() vim.cmd("normal!" .. lines .. "k") end, { noremap = true, silent = true })
 end
-
 fast_scroll(5, "J", "K")
-fast_scroll(20, "<C-j>", "<C-k>")
+fast_scroll(20, "H", "L")
 
 

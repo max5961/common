@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('xiyaowong/transparent.nvim')
+  use('christoomey/vim-tmux-navigator')
 
 use {
   'VonHeikemen/lsp-zero.nvim',
