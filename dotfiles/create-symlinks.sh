@@ -11,6 +11,7 @@ function print_success_message() {
     fi
 }
 
+# takes 1 argument: name of directory
 function link_dir_to_XDG_CONFIG_HOME() {
     path="$HOME/.config"
     if [ -d "${path}/${1}" ] || [ -L "${path}/${1}" ]; then
@@ -22,6 +23,7 @@ function link_dir_to_XDG_CONFIG_HOME() {
 
 }
 
+# takes 2 arguments: name of directory, name of file
 function link_file_to_HOME() {
     if [ -f "$HOME/${2}" ] || [ -L "$HOME/${2}" ]; then
         echo "symlink not created - file already exists in $HOME/${2}";

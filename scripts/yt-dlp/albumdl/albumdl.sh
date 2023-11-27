@@ -26,7 +26,7 @@ function dl_single_album() {
     navigate_to_dir "${album}"
     
     # download the tracks
-    yt-dlp -x -f bestaudio --embed-thumbnail -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "${URL}"
+    yt-dlp -x -f bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "${URL}"
 
     # set the metadata of each song 
     python3 ~/environment/scripts/yt-dlp/albumdl/set-metadata.py "${artist}" "${album}"

@@ -7430,3 +7430,121 @@ Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no su
 Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
 Nov 24 22:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
 Nov 24 22:12 : player: played "Demilich/Nespithe/03 <<>> Demilich - Inherited Bowel Levitation - Reduced Without Any Effort.opus"
+Nov 24 23:18 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 23:18 : player: played "Sarpanitum/Blessed Be My Brothers/01 <<>> Komenos.opus"
+Nov 24 23:19 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 23:22 : player: played "Element/Aeons Past/1 <<>> Cursed Through Time.opus"
+Nov 24 23:28 : player: played "Element/Aeons Past/2 <<>> Kronor Vii.opus"
+Nov 24 23:31 : player: played "Element/Aeons Past/3 <<>> Sentiment Dissolve.opus"
+Nov 24 23:34 : player: played "Element/Aeons Past/4 <<>> Destiny of Illusion.opus"
+Nov 24 23:37 : player: played "Element/Aeons Past/5 <<>> Ethnological Cybernetics.opus"
+Nov 24 23:41 : player: played "Element/Aeons Past/6 <<>> Inception of the Flagitious.opus"
+Nov 24 23:43 : player: played "Element/Aeons Past/7 <<>> Dying Sund Descend.opus"
+Nov 24 23:46 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 24 23:46 : player: played "Element/Aeons Past/7 <<>> Dying Sund Descend.opus"
+Nov 24 23:46 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 23:55 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 24 23:58 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/01 <<>> Nocturne in C Minor, Op. 48 No. 1： ＂A Mademoiselle Laure Duperré＂.opus"
+Nov 25 11:49 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 11:54 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/02 <<>> Nocturne in F Sharp Minor, Op. 48 No. 2： ＂A Mademoiselle Laure Duperré＂.opus"
+Nov 25 11:58 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/03 <<>> Nocturne in F Major, Op. 15 No. 1： ＂A Monsieur F. Hiller＂.opus"
+Nov 25 12:02 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/04 <<>> Nocturne in F Sharp Major, Op. 15 No. 2： ＂A Monsieur F. Hiller＂.opus"
+Nov 25 12:06 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/05 <<>> Nocturne in G Minor, Op. 15 No. 3： ＂A Monsieur F. Hiller＂.opus"
+Nov 25 12:12 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/06 <<>> Nocturne in C Sharp Minor, Op. 27 No. 1： ＂A la Comtesse d'Appony＂.opus"
+Nov 25 12:16 : player: played "Frederic Chopin/Chopin: Nocturnes - Francois Chaplin/07 <<>> Nocturne in D Flat Major, Op. 27 No. 2： ＂A la Comtesse d'Appony＂.opus"
+Nov 25 12:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 13:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 13:16 : player: played "Pyrexia/Sermon of Mockery/01 <<>> PYREXIA - Sermon Of Mockery (Album Track).opus"
+Nov 25 13:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 13:16 : player: played "Static Abyss/Aborted From Reality/Aborted From Reality [8ddk9wHeHUc].opus"
+Nov 25 13:19 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 25 13:19 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 13:19 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 13:21 : player: played "Static Abyss/Aborted From Reality/Aborted From Reality [8ddk9wHeHUc].opus"
+Nov 25 21:58 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 25 21:58 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:01 : player: played "Static Abyss/Aborted From Reality/Aborted From Reality [8ddk9wHeHUc].opus"
+Nov 25 22:01 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:01 : player: played "Static Abyss/Aborted From Reality/Aborted From Reality [8ddk9wHeHUc].opus"
+Nov 25 22:06 : player: played "Static Abyss/Aborted From Reality/Cerebral Ghost [K0byNspPiqY].opus"
+Nov 25 22:09 : player: played "Static Abyss/Aborted From Reality/Crosses And Coffins [5VsASoQMiUw].opus"
+Nov 25 22:10 : player: played "Static Abyss/Aborted From Reality/Dehumanized [tlWTSslZZDI].opus"
+Nov 25 22:14 : player: played "Static Abyss/Aborted From Reality/Horizon Of Cremains [L_xdWr0b7yo].opus"
+Nov 25 22:26 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:27 : player: played "Static Abyss/Aborted From Reality/Mind Tentacles [1jtCM_IDpOM].opus"
+Nov 25 22:28 : player: played "Static Abyss/Aborted From Reality/Poisoned Limbs [Xc4-9abGxAw].opus"
+Nov 25 22:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:34 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:35 : player: played "Static Abyss/Aborted From Reality/Aborted From Reality [8ddk9wHeHUc].opus"
+Nov 25 22:35 : player: played "Static Abyss/Aborted From Reality/Cerebral Ghost [K0byNspPiqY].opus"
+Nov 25 22:35 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:36 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 25 22:37 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:37 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 25 22:37 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:41 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 25 22:41 : output: Failed to play on "default detected output" (alsa): snd_pcm_poll_descriptors_revents() failed: Input/output error
+Nov 25 22:41 : exception: Failed to open audio output
+Nov 25 22:47 : player: played "...and Oceans/As in Gardens, So in Tombs/02 <<>> ...AND OCEANS - 'The Collector and His Construct' (official music video) 2022.opus"
+Nov 25 22:49 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:49 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 22:53 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 25 22:58 : player: played "...and Oceans/As in Gardens, So in Tombs/02 <<>> ...AND OCEANS - 'The Collector and His Construct' (official music video) 2022.opus"
+Nov 25 23:00 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 23:00 : output: Failed to play on "default detected output" (alsa): snd_pcm_poll_descriptors_revents() failed: Input/output error
+Nov 25 23:00 : exception: Failed to open audio output
+Nov 25 23:00 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 23:02 : player: played "...and Oceans/As in Gardens, So in Tombs/03 <<>> ...AND OCEANS - 'Within Fire and Crystal' (official music video) 2022.opus"
+Nov 25 23:03 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 23:03 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 25 23:03 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 23:05 : player: played "Balmorhea/Constellations/1 <<>> To the Order of Night.opus"
+Nov 25 23:11 : player: played "Balmorhea/Constellations/2 <<>> Bowsprit.opus"
+Nov 25 23:13 : player: played "Balmorhea/Constellations/3 <<>> Winter Circle.opus"
+Nov 25 23:16 : player: played "Balmorhea/Constellations/4 <<>> Herons.opus"
+Nov 25 23:17 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 25 23:20 : player: played "Balmorhea/Constellations/5 <<>> Constellations.opus"
+Nov 25 23:27 : player: played "Balmorhea/Constellations/6 <<>> Steerage and the Lamp.opus"
+Nov 25 23:31 : player: played "Balmorhea/Constellations/7 <<>> Night Squall.opus"
+Nov 25 23:36 : player: played "Balmorhea/Constellations/8 <<>> On the Weight of Night.opus"
+Nov 25 23:41 : player: played "Balmorhea/Constellations/9 <<>> Palestrina.opus"
+Nov 25 23:45 : player: played "Balmorhea/River Arms/01 <<>> San Solomon.opus"
+Nov 25 23:48 : player: played "Balmorhea/River Arms/02 <<>> Lament.opus"
+Nov 25 23:53 : player: played "Balmorhea/Constellations/3 <<>> Winter Circle.opus"
+Nov 25 23:56 : player: played "Balmorhea/Constellations/4 <<>> Herons.opus"
+Nov 26 00:00 : player: played "Balmorhea/Constellations/5 <<>> Constellations.opus"
+Nov 26 01:06 : player: played "Balmorhea/Constellations/6 <<>> Steerage and the Lamp.opus"
+Nov 26 01:08 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 26 01:18 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 01:20 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 11:51 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/03 <<>> Fusion Programmed Minds.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/10 <<>> Paled Empty Sphere.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/07 <<>> Paranormal Mysteria.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/04 <<>> Elastic Inverted Vision.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/05 <<>> Reversed Reflections.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/08 <<>> Time Warp.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/09 <<>> Disconnected Magnetic Corridors.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/06 <<>> Until the End.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/02 <<>> Apocalyptic Hybrid.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/11 <<>> Selfinflicted Overload.opus
+Nov 26 13:16 : update: added Hypocrisy/Hypocrisy/01 <<>> Fractured Millennium.opus
+Nov 26 13:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 13:22 : player: played "Hypocrisy/Hypocrisy/01 <<>> Fractured Millennium.opus"
+Nov 26 13:26 : player: played "Hypocrisy/Hypocrisy/02 <<>> Apocalyptic Hybrid.opus"
+Nov 26 13:31 : player: played "Hypocrisy/Hypocrisy/03 <<>> Fusion Programmed Minds.opus"
+Nov 26 13:33 : player: played "Hypocrisy/Hypocrisy/04 <<>> Elastic Inverted Vision.opus"
+Nov 26 13:33 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 13:39 : player: played "Indesinence/III/Desert Trail [a_7u2dvXvHk].opus"
+Nov 26 15:17 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 15:17 : player: played "Indesinence/III/Desert Trail [a_7u2dvXvHk].opus"
+Nov 26 15:17 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 15:21 : player: played "Atheist/Jupiter/1 <<>> Second to Sun.opus"
+Nov 26 15:26 : player: played "Atheist/Jupiter/2 <<>> Fictitious Glide.opus"
+Nov 26 15:29 : player: played "Atheist/Jupiter/3 <<>> Fraudulent Cloth.opus"
+Nov 26 16:17 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 16:17 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 26 16:20 : player: played "Atheist/Jupiter/4 <<>> Live and Live Again.opus"
+Nov 26 19:07 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 26 19:07 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM

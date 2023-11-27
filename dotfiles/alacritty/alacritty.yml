@@ -16,9 +16,12 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 12
+  size: 12.5
 
 draw_bold_text_with_bright_colors: true
+
+shell:
+  program: /usr/bin/zsh
 
 # color-scheme
 import:
