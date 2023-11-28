@@ -7565,3 +7565,4 @@ Nov 27 17:07 : player: played "Atheist/Jupiter/8 <<>> Third Person.opus"
 Nov 27 17:23 : player: played "Erik Satie/Gymnopedies/NA <<>> Erik Satie - Gymnopédies.opus"
 Nov 27 17:26 : player: played "Balmorhea/Constellations/1 <<>> To the Order of Night.opus"
 Nov 27 17:31 : player: played "Balmorhea/Constellations/2 <<>> Bowsprit.opus"
+Nov 28 00:02 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
