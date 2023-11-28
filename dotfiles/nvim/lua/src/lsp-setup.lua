@@ -18,7 +18,6 @@ require('mason-lspconfig').setup({
         "cssls",
         "emmet-language-server",
         "bashls",
-        -- clangd: c, cpp, objc, objcpp, cuda, proto
         "clangd",
         "pylsp",
     },
@@ -31,7 +30,6 @@ require('mason-lspconfig').setup({
 -- Alt + j or k to move up/down in drop down menu
 -- Tab to complete highlighted selection
 -- the first item is always preselected
---
 local cmp = require('cmp')
 
 cmp.setup({
