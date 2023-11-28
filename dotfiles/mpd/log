@@ -7558,3 +7558,10 @@ Nov 27 01:19 : player: played "Atheist/Jupiter/3 <<>> Fraudulent Cloth.opus"
 Nov 27 12:27 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
 Nov 27 12:29 : player: played "Atheist/Jupiter/4 <<>> Live and Live Again.opus"
 Nov 27 12:33 : player: played "Atheist/Jupiter/5 <<>> Faux King Christ.opus"
+Nov 27 16:56 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 27 16:58 : player: played "Atheist/Jupiter/6 <<>> Tortoise the Titan.opus"
+Nov 27 17:03 : player: played "Atheist/Jupiter/7 <<>> When the Beast.opus"
+Nov 27 17:07 : player: played "Atheist/Jupiter/8 <<>> Third Person.opus"
+Nov 27 17:23 : player: played "Erik Satie/Gymnopedies/NA <<>> Erik Satie - Gymnopédies.opus"
+Nov 27 17:26 : player: played "Balmorhea/Constellations/1 <<>> To the Order of Night.opus"
+Nov 27 17:31 : player: played "Balmorhea/Constellations/2 <<>> Bowsprit.opus"
