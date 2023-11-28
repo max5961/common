@@ -32,6 +32,14 @@ require('mason-lspconfig').setup({
 -- Tab to complete highlighted selection
 -- the first item is always preselected
 local cmp = require('cmp')
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+-- adds parentheses to the end of completions when applicable
+-- https://github.com/windwp/nvim-autopairs/blob/master/doc/nvim-autopairs.txt
+cmp.event:on(
+    "confirm_done",
+    cmp_autopairs.on_confirm_done()
+)
 
 cmp.setup({
   -- always preselect the first item
@@ -86,3 +94,4 @@ cmp.setup({
     end,
   },
 })
+
