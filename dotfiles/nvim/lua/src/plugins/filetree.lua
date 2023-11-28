@@ -17,6 +17,7 @@ return {
     },
     config = function()
         vim.keymap.set("n", "<A-f>", ":Neotree toggle<CR>")
-        vim.cmd "Neotree toggle"
+        -- vim.cmd "Neotree toggle"
+        -- vim.cmd "Neotree toggle"
     end
 }

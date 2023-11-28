@@ -1,9 +1,6 @@
 vim.g.mapleader = " "
 vim.gmaplocalleader = " "
 
-require("src.remap")
-require("src.set")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -21,3 +18,6 @@ require("lazy").setup({
     { import = 'src.plugins' }
 })
 
+require("src.remap")
+require("src.set")
+require("src.lsp-setup")
