@@ -42,3 +42,4 @@ link_dir_to_XDG_CONFIG_HOME "mpv"
 
 # files in ~/
 link_file_to_HOME "bash" ".bashrc"
+link_file_to_HOME "zsh" ".zshrc"
