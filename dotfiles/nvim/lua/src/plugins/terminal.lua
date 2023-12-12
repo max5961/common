@@ -10,9 +10,8 @@ return {
             
             -- toggle terminal in normal mode
             open_mapping = [[<C-\>]],
-            -- insert_mappings set to true causes the keymap <leader>t to occur in insert mode
-            insert_mappings = false
-
+            -- insert_mappings set to true allows toggling the terminal in insert mode
+            insert_mappings = true
         }
 
         -- set keymappings
@@ -29,7 +28,7 @@ return {
         -- remove *toggleterm# to have keybindings apply to all terminals
         vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
-        -- run scripts with <C-r>
+        -- run scripts with <leader>r
         function run_script()
             local file_path = vim.api.nvim_buf_get_name(0)
 
