@@ -9,7 +9,7 @@ window:
 
   startup_mode: maximized
   decorations: none
-  opacity: 0.92
+  opacity: 0.95
 
 scrolling:
   history: 1000

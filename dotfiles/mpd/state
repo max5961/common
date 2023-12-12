@@ -1,8 +1,8 @@
 sw_volume: 100
 audio_device_state:1:default detected output
 state: pause
-current: 28
-time: 47.205000
+current: 6
+time: 74.860000
 random: 0
 repeat: 0
 single: 0
@@ -11,57 +11,14 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Atheist/Jupiter/1 <<>> Second to Sun.opus
-1:Atheist/Jupiter/2 <<>> Fictitious Glide.opus
-2:Atheist/Jupiter/3 <<>> Fraudulent Cloth.opus
-3:Atheist/Jupiter/4 <<>> Live and Live Again.opus
-4:Atheist/Jupiter/5 <<>> Faux King Christ.opus
-5:Atheist/Jupiter/6 <<>> Tortoise the Titan.opus
-6:Atheist/Jupiter/7 <<>> When the Beast.opus
-7:Atheist/Jupiter/8 <<>> Third Person.opus
-8:Erik Satie/Gymnopedies/NA <<>> Erik Satie - Gymnopédies.opus
-9:Erik Satie/The Essential Collection/01 <<>> Jazzopédie.opus
-10:Erik Satie/The Essential Collection/02 <<>> Gnossienne No.1.opus
-11:Erik Satie/The Essential Collection/03 <<>> Gnossienne No.2.opus
-12:Erik Satie/The Essential Collection/04 <<>> Gnossienne No.3.opus
-13:Erik Satie/The Essential Collection/05 <<>> Du Fils Des Étoiles.opus
-14:Erik Satie/The Essential Collection/06 <<>> Sarabande No.1.opus
-15:Erik Satie/The Essential Collection/07 <<>> Embryons Desséchés.opus
-16:Erik Satie/The Essential Collection/08 <<>> Gymnopédie No.1.opus
-17:Erik Satie/The Essential Collection/09 <<>> Gymnopédie No.2.opus
-18:Erik Satie/The Essential Collection/10 <<>> Gymnopédie No.3.opus
-19:Erik Satie/The Essential Collection/11 <<>> Morceau En Forme De Poire.opus
-20:Erik Satie/The Essential Collection/12 <<>> Je Te Veux.opus
-21:Erik Satie/The Essential Collection/13 <<>> Aperçus Désagréables.opus
-22:Erik Satie/The Essential Collection/14 <<>> Valse Ballet.opus
-23:Erik Satie/The Essential Collection/15 <<>> Ogives.opus
-24:Erik Satie/The Essential Collection/16 <<>> Sonatine Burocratique.opus
-25:Erik Satie/The Essential Collection/17 <<>> En Habit De Cheval.opus
-26:Balmorhea/Constellations/1 <<>> To the Order of Night.opus
-27:Balmorhea/Constellations/2 <<>> Bowsprit.opus
-28:Balmorhea/Constellations/3 <<>> Winter Circle.opus
-29:Balmorhea/Constellations/4 <<>> Herons.opus
-30:Balmorhea/Constellations/5 <<>> Constellations.opus
-31:Balmorhea/Constellations/6 <<>> Steerage and the Lamp.opus
-32:Balmorhea/Constellations/7 <<>> Night Squall.opus
-33:Balmorhea/Constellations/8 <<>> On the Weight of Night.opus
-34:Balmorhea/Constellations/9 <<>> Palestrina.opus
-35:Balmorhea/River Arms/01 <<>> San Solomon.opus
-36:Balmorhea/River Arms/02 <<>> Lament.opus
-37:Balmorhea/River Arms/03 <<>> The Summer.opus
-38:Balmorhea/River Arms/04 <<>> The Winter.opus
-39:Balmorhea/River Arms/05 <<>> Greyish Tapering Ash.opus
-40:Balmorhea/River Arms/06 <<>> Baleen Morning.opus
-41:Balmorhea/River Arms/07 <<>> Barefoot Pilgrims.opus
-42:Balmorhea/River Arms/08 <<>> Context.opus
-43:Balmorhea/River Arms/09 <<>> Process.opus
-44:Balmorhea/River Arms/10 <<>> Divisadero.opus
-45:Balmorhea/River Arms/11 <<>> Limmat.opus
-46:Balmorhea/River Arms/12 <<>> Theme No. 1.opus
-47:Balmorhea/River Arms/13 <<>> Windansea.opus
-48:Balmorhea/River Arms/14 <<>> San Solomon (reprise).opus
-49:Balmorhea/River Arms/15 <<>> A Circumnavigation (Live at San Solomon Springs in Balmorhea, TX).opus
-50:Balmorhea/River Arms/16 <<>> We Will Rebuild With Smooth Stones (Live at San Solomon Springs in Balmorhea, TX).opus
-51:Balmorhea/River Arms/17 <<>> Theme (Live in Vienna, Austria).opus
-52:Balmorhea/River Arms/18 <<>> San Solomon (full band Version).opus
+0:...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus
+1:...and Oceans/As in Gardens, So in Tombs/02 <<>> ...AND OCEANS - 'The Collector and His Construct' (official music video) 2022.opus
+2:...and Oceans/As in Gardens, So in Tombs/03 <<>> ...AND OCEANS - 'Within Fire and Crystal' (official music video) 2022.opus
+3:...and Oceans/As in Gardens, So in Tombs/04 <<>> Carried on Lead Wings.opus
+4:...and Oceans/As in Gardens, So in Tombs/05 <<>> ...AND OCEANS - 'Likt Törnen Genom Kött' (official audio) 2022.opus
+5:...and Oceans/As in Gardens, So in Tombs/06 <<>> ...AND OCEANS - 'Cloud Heads' (official music video) 2022.opus
+6:...and Oceans/As in Gardens, So in Tombs/07 <<>> Wine into Water.opus
+7:...and Oceans/As in Gardens, So in Tombs/08 <<>> Inverse Magnification Matrix.opus
+8:...and Oceans/As in Gardens, So in Tombs/09 <<>> The Earth Canvas.opus
+9:...and Oceans/As in Gardens, So in Tombs/10 <<>> Ambivalent God.opus
 playlist_end

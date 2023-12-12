@@ -7566,3 +7566,546 @@ Nov 27 17:23 : player: played "Erik Satie/Gymnopedies/NA <<>> Erik Satie - Gymno
 Nov 27 17:26 : player: played "Balmorhea/Constellations/1 <<>> To the Order of Night.opus"
 Nov 27 17:31 : player: played "Balmorhea/Constellations/2 <<>> Bowsprit.opus"
 Nov 28 00:02 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 29 19:52 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 29 20:15 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 29 20:19 : player: played "Balmorhea/River Arms/12 <<>> Theme No. 1.opus"
+Nov 30 17:44 : player: played "Balmorhea/River Arms/13 <<>> Windansea.opus"
+Nov 30 17:44 : player: played "Atheist/Jupiter/8 <<>> Third Person.opus"
+Nov 30 22:08 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Nov 30 22:08 : player: played "Atheist/Jupiter/8 <<>> Third Person.opus"
+Nov 30 22:08 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 30 22:08 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Nov 30 22:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 30 22:09 : player: played "Falkenbach/...magni blandinn ok megintiri.../2 <<>> Where Blood Will Soon Be Shed.opus"
+Nov 30 22:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Nov 30 22:17 : player: played "Falkenbach/...magni blandinn ok megintiri.../2 <<>> Where Blood Will Soon Be Shed.opus"
+Nov 30 22:23 : player: played "Falkenbach/...magni blandinn ok megintiri.../3 <<>> Towards the Hall of Bronzen Shields.opus"
+Dec 01 09:53 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 01 09:56 : player: played "Immolation/Unholy Cult/3 <<>> Unholy Cult.opus"
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/5 <<>> Pavor Nocturnus.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/8 <<>> Coveting Elysium.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/2 <<>> In Solitary Ruin.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/4 <<>> The Mournful Refusal.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/7 <<>> The Last of Vitality.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/6 <<>> Antithesis of Light.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/1 <<>> Intro.opus
+Dec 01 10:20 : update: added Evoken/Antithesis of Light/3 <<>> Accursed Premonition.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/7 <<>> The Unechoing Dread.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/1 <<>> Atra Mors.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/2 <<>> Descent Into Chaotic Dream.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/8 <<>> Into Aphotic Devastation.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/6 <<>> Requies Aeterna.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/5 <<>> An Extrinsic Divide.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/3 <<>> A Tenebrous Vision.opus
+Dec 01 10:20 : update: added Evoken/Atra Mors/4 <<>> Grim Eloquence.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/07 <<>> Embrace the Emptiness.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/08 <<>> Outro.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/04 <<>> Towers of Frozen Dusk.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/03 <<>> Shades of Night Descending.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/02 <<>> In Graven Image.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/06 <<>> The Hills of Arctic Stillness.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/05 <<>> Into the Autumn Shade.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/09 <<>> Among the Whispering Spirits.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/01 <<>> Intro.opus
+Dec 01 10:20 : update: added Evoken/Shades of Night Descending/10 <<>> Outro-1.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/7 <<>> Curse the Sunrise.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/4 <<>> Lost Kingdom of Darkness.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/6 <<>> To Sleep Eternally.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/3 <<>> Chime the Centuries End.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/5 <<>> Ascend into the Maelstrom.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/2 <<>> Tragedy Eternal.opus
+Dec 01 10:20 : update: added Evoken/Embrace the Emptiness/1 <<>> Intro.opus
+Dec 01 10:20 : update: added Evoken/Quietus/2 <<>> Withering Indignation.opus
+Dec 01 10:20 : update: added Evoken/Quietus/5 <<>> Quietus.opus
+Dec 01 10:20 : update: added Evoken/Quietus/7 <<>> Altrementous Journey.opus
+Dec 01 10:20 : update: added Evoken/Quietus/4 <<>> Where Ghosts Fall Silent.opus
+Dec 01 10:20 : update: added Evoken/Quietus/6 <<>> Embrace the Emptiness.opus
+Dec 01 10:20 : update: added Evoken/Quietus/3 <<>> Tending the Dire Hatred.opus
+Dec 01 10:20 : update: added Evoken/Quietus/1 <<>> In Pestilence, Burning.opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/6 <<>> Suffer a Martyr's Trial (Procession at Dusk).opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/4 <<>> Astray in Eternal Night.opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/1 <<>> A Caress of the Void.opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/2 <<>> Mare Erythraeum.opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/3 <<>> Of Purest Absolution.opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/7 <<>> Orogeny.opus
+Dec 01 10:20 : update: added Evoken/A Caress of the Void/5 <<>> Descend the Lifeless Womb.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/5 <<>> Hypnagogia.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/1 <<>> The Fear After.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/8 <<>> The Weald of Perished Men.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/7 <<>> Hypnopompic.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/4 <<>> Too Feign Ebullience.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/3 <<>> Schadenfreude.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/2 <<>> Valorous Consternation.opus
+Dec 01 10:20 : update: added Evoken/Hypnagogia/6 <<>> Ceremony of Bleeding.opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/6 <<>> Monotone Black (Part 1).opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/3 <<>> Vestigial Fears.opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/1 <<>> Omniscient.opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/4 <<>> Into the Primal Shrine.opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/5 <<>> Ironlung.opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/7 <<>> Monotone Black (Part 2).opus
+Dec 01 10:20 : update: added Evoken/Beneath the Frozen Soil/2 <<>> The Pleistocene Epoch.opus
+Dec 01 10:20 : update: added Feared/Vinter/03 <<>> Your God.opus
+Dec 01 10:20 : update: added Feared/Vinter/02 <<>> Needle Effect.opus
+Dec 01 10:20 : update: added Feared/Vinter/05 <<>> Mass Destruction.opus
+Dec 01 10:20 : update: added Feared/Vinter/04 <<>> Hate is Everything.opus
+Dec 01 10:20 : update: added Feared/Vinter/10 <<>> My Shadow World.opus
+Dec 01 10:20 : update: added Feared/Vinter/01 <<>> Sun Awake (Instrumental).opus
+Dec 01 10:20 : update: added Feared/Vinter/06 <<>> FEARED 土 Erased (Lyric Video).opus
+Dec 01 10:20 : update: added Feared/Vinter/11 <<>> Vinter.opus
+Dec 01 10:20 : update: added Feared/Vinter/09 <<>> Mylingen.opus
+Dec 01 10:20 : update: added Feared/Vinter/08 <<>> Invidia.opus
+Dec 01 10:20 : update: added Feared/Vinter/07 <<>> Huldra.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/05 <<>> Possessed.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/07 <<>> Warbound.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/10 <<>> Impending Doom.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/08 <<>> Devil in White.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/09 <<>> Neverlasting.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/03 <<>> Psycho Logic.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/11 <<>> Forever Old.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/12 <<>> End.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/06 <<>> Satan.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/01 <<>> Live in You.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/04 <<>> Vintersol.opus
+Dec 01 10:20 : update: added Feared/Furor Incarnatus/02 <<>> Breathing Failure.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/02 <<>> Synthesized Instinct.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/04 <<>> Estranged from Orbit.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/05 <<>> Infrared Horizon.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/09 <<>> Graveyard of Lightless Planets.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/03 <<>> Static Shattering.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/08 <<>> Vacant Explorer.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/07 <<>> Mist Like Mercury.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/01 <<>> Floating in Delirium.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/06 <<>> Anchored to the Inlayed Arc.opus
+Dec 01 10:20 : update: added Artificial Brain/Infrared Horizon/10 <<>> Ash Eclipse.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/05 <<>> Frozen Planets.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/03 <<>> Wired Opposites.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/07 <<>> Bastard Planet.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/04 <<>> Worm Harvester.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/01 <<>> Brain Transplant.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/10 <<>> Moon Funeral.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/08 <<>> Labyrinth Constellation.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/06 <<>> Orbital Gait.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/09 <<>> Hormone's Echo.opus
+Dec 01 10:20 : update: added Artificial Brain/Labyrinth Constellation/02 <<>> Absorbing Black Ignition.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/05 <<>> Tome of the Exiled Engineer.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/10 <<>> Last Words of the Wobbling Sun.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/02 <<>> Glitch Cannon.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/04 <<>> A Lofty Grave.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/03 <<>> Celestial Cyst.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/01 <<>> Artificial Brain.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/07 <<>> Parasite Signal.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/06 <<>> Embalmed with Magma.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/09 <<>> Insects and Android Eyes.opus
+Dec 01 10:20 : update: added Artificial Brain/Artificial Brain/08 <<>> Cryogenic Dreamworld.opus
+Dec 01 10:20 : update: added The Templars/Return of Jacques de Molay/NA <<>> The Templars - Return Of Jacque DeMolay LP.opus
+Dec 01 10:20 : update: added The Templars/The Horns of Hattin/NA <<>> Templars - The Horns of Hattin - 2001 (FULL ALBUM).opus
+Dec 01 10:20 : update: added The Templars/Phase II/NA <<>> The Templars - Phase II (FULL ALBUM) - 1997.opus
+Dec 01 10:20 : update: added The Templars/Dans Les Catacombs/NA <<>> The Templars ‎– Dans Les Catacombs 1993-1995 (FULL ALBUM) - 1997.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/6 <<>> Fossil Record.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/4 <<>> In Vivid Monochrome.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/8 <<>> As If Bathed in Excellence.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/3 <<>> By Which We're Cemented.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/5 <<>> Momentary Senses.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/1 <<>> A Thimble's Worth.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/2 <<>> The Prospects of Rejection.opus
+Dec 01 10:20 : update: added Flourishing/The Sum of All Fossils/7 <<>> Summary.opus
+Dec 01 10:20 : update: added Lustre/A Thirst for Summer Rain/2 <<>> Faith.opus
+Dec 01 10:20 : update: added Lustre/A Thirst for Summer Rain/4 <<>> Alleviation.opus
+Dec 01 10:20 : update: added Lustre/A Thirst for Summer Rain/1 <<>> Quiescence.opus
+Dec 01 10:20 : update: added Lustre/A Thirst for Summer Rain/3 <<>> Thirst.opus
+Dec 01 10:45 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 01 12:42 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 01 13:37 : player: played "Falkenbach/...magni blandinn ok megintiri.../2 <<>> Where Blood Will Soon Be Shed.opus"
+Dec 01 15:46 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Dec 01 16:21 : player: played "Falkenbach/...magni blandinn ok megintiri.../2 <<>> Where Blood Will Soon Be Shed.opus"
+Dec 02 13:09 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Dec 02 13:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 13:10 : player: played "Entombed/Wolverine Blues/01 <<>> Entombed - Eyemaster (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 02 13:10 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 13:13 : player: played "Entombed/Wolverine Blues/01 <<>> Entombed - Eyemaster (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 02 13:16 : player: played "Entombed/Wolverine Blues/02 <<>> Entombed - Rotten Soil (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 02 13:19 : player: played "Entombed/Wolverine Blues/03 <<>> Entombed - Wolverine Blues [Official Video].opus"
+Dec 02 15:36 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 15:37 : player: played "Entombed/Wolverine Blues/04 <<>> Entombed - Demon (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 02 15:41 : player: played "Entombed/Wolverine Blues/05 <<>> Entombed - Contempt (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 02 15:47 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 15:49 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 18:29 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 18:33 : player: played "Kayo Dot/Gamma Knife/2 <<>> Rite of Goetic Evocation.opus"
+Dec 02 18:55 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 19:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 19:15 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 21:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 02 21:12 : player: played "Kayo Dot/Gamma Knife/2 <<>> Rite of Goetic Evocation.opus"
+Dec 04 15:18 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 04 15:19 : player: played "Kayo Dot/Gamma Knife/2 <<>> Rite of Goetic Evocation.opus"
+Dec 04 15:20 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 04 15:20 : player: played "Kayo Dot/Gamma Knife/2 <<>> Rite of Goetic Evocation.opus"
+Dec 04 15:20 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 04 15:24 : player: played "...and Oceans/As in Gardens, So in Tombs/01 <<>> As in Gardens so in Tombs.opus"
+Dec 04 17:13 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/3 <<>> Dry Stone At Fields Edge.opus
+Dec 04 17:13 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/1 <<>> Guilt Lingers At Sunrise.m4a
+Dec 04 17:13 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/2 <<>> My Candle Is Gone But I Do Not Move.opus
+Dec 04 17:13 : update: added Yellow Eyes/Immersion Trench Reverie/6 <<>> Jubilat.opus
+Dec 04 17:13 : update: added Yellow Eyes/Immersion Trench Reverie/3 <<>> Shrillness in the Heated Grass.opus
+Dec 04 17:13 : update: added Yellow Eyes/Immersion Trench Reverie/1 <<>> Old Alpine Pang.opus
+Dec 04 17:13 : update: added Yellow Eyes/Immersion Trench Reverie/4 <<>> Velvet on the Horns.opus
+Dec 04 17:13 : update: added Yellow Eyes/Immersion Trench Reverie/2 <<>> Blue as Blue.opus
+Dec 04 17:13 : update: added Yellow Eyes/Immersion Trench Reverie/5 <<>> Immersion Trench Reverie.opus
+Dec 04 17:13 : player: played "...and Oceans/As in Gardens, So in Tombs/02 <<>> ...AND OCEANS - 'The Collector and His Construct' (official music video) 2022.opus"
+Dec 04 17:13 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 04 17:21 : player: played "Yellow Eyes/Immersion Trench Reverie/1 <<>> Old Alpine Pang.opus"
+Dec 04 17:23 : update: added Yellow Eyes/Rare Field Ceiling/5 <<>> Rare Field Ceiling.opus
+Dec 04 17:23 : update: added Yellow Eyes/Rare Field Ceiling/4 <<>> Nutrient Painting.opus
+Dec 04 17:23 : update: added Yellow Eyes/Rare Field Ceiling/1 <<>> Warmth Trance Reversal.opus
+Dec 04 17:23 : update: added Yellow Eyes/Rare Field Ceiling/3 <<>> Light Delusion Curtain.opus
+Dec 04 17:23 : update: added Yellow Eyes/Rare Field Ceiling/2 <<>> No Dust.opus
+Dec 04 17:23 : update: added Yellow Eyes/Rare Field Ceiling/6 <<>> Maritime Flare.opus
+Dec 04 17:23 : update: added Yellow Eyes/Split/2 <<>> Unlit Kingdom.opus
+Dec 04 17:23 : update: added Yellow Eyes/Split/3 <<>> Milchama (Wound) ⧸Coughing Up The Blood Of Hope And Love.opus
+Dec 04 17:23 : update: added Yellow Eyes/Split/4 <<>> Gaping Orifices In the Floor of Heaven⧸Milchama (Relieve).opus
+Dec 04 17:23 : update: added Yellow Eyes/Split/1 <<>> The Solid Chime of Matching Bone With Harder Strength.opus
+Dec 04 17:23 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/4 <<>> No More Than A Soaked Plank.opus
+Dec 04 17:23 : update: updating Yellow Eyes/Silence Threads the Evening's Cloth/3 <<>> Dry Stone At Fields Edge.opus
+Dec 04 17:23 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/6 <<>> Silence Threads The Evening's Cloth.opus
+Dec 04 17:23 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/8 <<>> Rotted Wheat.m4a
+Dec 04 17:23 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/7 <<>> Meadow Withdrawn.opus
+Dec 04 17:23 : update: updating Yellow Eyes/Silence Threads the Evening's Cloth/1 <<>> Guilt Lingers At Sunrise.m4a
+Dec 04 17:23 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/9 <<>> Cathedral.opus
+Dec 04 17:23 : update: added Yellow Eyes/Silence Threads the Evening's Cloth/5 <<>> Warm Lake Under A Lifeless Sky.opus
+Dec 04 17:23 : update: updating Yellow Eyes/Silence Threads the Evening's Cloth/2 <<>> My Candle Is Gone But I Do Not Move.opus
+Dec 04 17:23 : update: added Yellow Eyes/The Desert Mourns/1 <<>> The Desert Mourns.opus
+Dec 04 17:23 : update: added Yellow Eyes/The Desert Mourns/2 <<>> One Rock for the Wild Dog.opus
+Dec 04 17:23 : update: added Yellow Eyes/Hammer of Night/4 <<>> Ice Knell.opus
+Dec 04 17:23 : update: added Yellow Eyes/Hammer of Night/6 <<>> Cabin Filled With Smoke and Flies.opus
+Dec 04 17:23 : update: added Yellow Eyes/Hammer of Night/5 <<>> Hammer of Night.opus
+Dec 04 17:23 : update: added Yellow Eyes/Hammer of Night/1 <<>> Light Has Fallen.opus
+Dec 04 17:23 : update: added Yellow Eyes/Hammer of Night/2 <<>> In This Stillness.opus
+Dec 04 17:23 : update: added Yellow Eyes/Hammer of Night/3 <<>> Many Long Fingers Bent in Pain.opus
+Dec 04 17:23 : update: added Yellow Eyes/Sick With Bloom/4 <<>> The Mangrove, The Preserver.opus
+Dec 04 17:23 : update: added Yellow Eyes/Sick With Bloom/5 <<>> Fallen Snag.opus
+Dec 04 17:23 : update: added Yellow Eyes/Sick With Bloom/6 <<>> Ice in the Spring.opus
+Dec 04 17:23 : update: added Yellow Eyes/Sick With Bloom/2 <<>> Streaming from the Undergrowth.opus
+Dec 04 17:23 : update: added Yellow Eyes/Sick With Bloom/1 <<>> Sick with Bloom.opus
+Dec 04 17:23 : update: added Yellow Eyes/Sick With Bloom/3 <<>> What Filters Through the Copper Stain.opus
+Dec 04 17:23 : update: added Yellow Eyes/No Dust/1 <<>> No Dust.opus
+Dec 04 17:23 : update: added Yellow Eyes/Stillicide/1 <<>> Stillicide.opus
+Dec 04 17:23 : update: added Yellow Eyes/Stillicide/2 <<>> Heat From Other Days.opus
+Dec 04 17:27 : player: played "Yellow Eyes/Immersion Trench Reverie/2 <<>> Blue as Blue.opus"
+Dec 04 18:49 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 04 18:54 : player: played "Yellow Eyes/Immersion Trench Reverie/3 <<>> Shrillness in the Heated Grass.opus"
+Dec 04 22:25 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 04 22:31 : player: played "Yellow Eyes/Immersion Trench Reverie/4 <<>> Velvet on the Horns.opus"
+Dec 05 20:33 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 05 20:44 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 14:51 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 14:57 : player: played "Yellow Eyes/Immersion Trench Reverie/5 <<>> Immersion Trench Reverie.opus"
+Dec 07 15:08 : player: played "Yellow Eyes/Immersion Trench Reverie/6 <<>> Jubilat.opus"
+Dec 07 15:14 : player: played "Yellow Eyes/Immersion Trench Reverie/1 <<>> Old Alpine Pang.opus"
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 15:16 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 16:25 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 18:07 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 18:15 : player: played "Maudlin of the Well/Bath/01 <<>> The Blue Ghost ⧸ Shedding Qliphoth.opus"
+Dec 07 18:21 : player: played "Maudlin of the Well/Bath/02 <<>> They Aren't All Beautifull.opus"
+Dec 07 18:29 : player: played "Maudlin of the Well/Bath/03 <<>> Heaven and Weak.opus"
+Dec 07 18:30 : player: played "Maudlin of the Well/Bath/04 <<>> Interlude 1.opus"
+Dec 07 18:38 : player: played "Maudlin of the Well/Bath/05 <<>> The Ferryman.opus"
+Dec 07 18:42 : player: played "Maudlin of the Well/Bath/06 <<>> Marid's Gift of Art.opus"
+Dec 07 18:50 : player: played "Maudlin of the Well/Bath/07 <<>> Girl With a Watering Can.opus"
+Dec 07 19:01 : player: played "Maudlin of the Well/Bath/08 <<>> Birth Pains of Astral Projection.opus"
+Dec 07 20:01 : player: played "Maudlin of the Well/Bath/09 <<>> Interlude 2.opus"
+Dec 07 20:02 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/6 <<>> Cannabis Corpse - I Will Smoke You.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/7 <<>> Cannabis Corpse - When Weed Replaces Life.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/5 <<>> I Cum Bud.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/3 <<>> Cannabis Corpse - Reefer Stashed Place.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/4 <<>> Cannabis Corpse - Force Fed Shitty Grass.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/1 <<>> Cannabis Corpse - Blunted at Birth.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Blunted at Birth/2 <<>> Cannabis Corpse - Staring Through My Eyes That Are Red.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/04 <<>> Cannabis Corpse - Chronic Breed (official premiere).opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/02 <<>> Cannabis Corpse - In Dank Purity (official premiere).opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/09 <<>> Cannabis Corpse - Papyrus Containing the Spell to Protect Its Possessor Against Attacks From He Who.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/07 <<>> Cannabis Corpse - Left Hand Pass (official premiere).opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/01 <<>> Cannabis Corpse - The 420th Crusade.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/05 <<>> Cannabis Corpse - In Battle There Is No Pot.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/10 <<>> The Fiends That Come to Steal the Weed of the Deceased.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/03 <<>> Final Exhalation.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/06 <<>> Grass Oblit.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Left Hand Pass/08 <<>> Effigy of the Forgetful.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/07 <<>> Cannabis Corpse - Blaze of Torment.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/09 <<>> Cannabis Corpse - Where the Kind Lives.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/04 <<>> Cannabis Corpse - Chapel of Bowls.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/06 <<>> Cannabis Corpse - Immortal Pipes.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/12 <<>> Cannabis Corpse - Beneath Grow Lights Thou Shalt Rise.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/03 <<>> Cannabis Corpse - Blame It on Bud.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/02 <<>> Lunatic of Pot's Creation.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/01 <<>> Cannabis Corpse - Visions from the Dankside.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/08 <<>> Cannabis Corpse - Sworn to the Bag.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/05 <<>> Cannabis Corpse - Dead by Bong.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/11 <<>> Cannabis Corpse - Slave to the Chron.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Beneath Grow Lights Thou Shalt Rise/10 <<>> Cannabis Corpse - Gateways to Inhalation.opus
+Dec 07 20:24 : update: added Cannabis Corpse/The Weeding/2 <<>> Cannabis Corpse - Vaporized.opus
+Dec 07 20:24 : update: added Cannabis Corpse/The Weeding/3 <<>> Cannabis Corpse - Skull Full of Bong Hits.opus
+Dec 07 20:24 : update: added Cannabis Corpse/The Weeding/1 <<>> Cannabis Corpse - Shit of Pot Seeds.opus
+Dec 07 20:24 : update: added Cannabis Corpse/The Weeding/4 <<>> Cannabis Corpse - Sickening Photosynthesis.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/05 <<>> Cannabis Corpse - Pull The Carb.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/02 <<>> CANNABIS CORPSE - Zero Weed Tolerance (Official).opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/01 <<>> Cannabis Corpse - Baptized In Bud.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/06 <<>> Cannabis Corpse - Considered Dank.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/11 <<>> Cannabis Corpse - Medicinal Healing.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/08 <<>> Cannabis Corpse - THC Crystal Mountain.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/04 <<>> Cannabis Corpse - Individual Pot Patterns.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/10 <<>> From Wisdom to Baked.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/03 <<>> Cannabis Corpse - Weedless Ones.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/07 <<>> Cannabis Corpse - Voice Of The Bowl.opus
+Dec 07 20:24 : update: added Cannabis Corpse/From Wisdom to Baked/09 <<>> Cannabis Corpse - With Their Hash He Will Create.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/9 <<>> Cannabis Corpse - Gallery of Stupid High.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/7 <<>> Cannabis Corpse - Fucked with Northern Lights.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/6 <<>> Cannabis Corpse - Addicted to Hash in a Tin.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/8 <<>> Cannabis Corpse - Experiment in Horticulture.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/2 <<>> Cannabis Corpse - Mummified in Bong Water.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/4 <<>> Cannabis Corpse - Every Bud Smoken.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/3 <<>> Cannabis Corpse - Disposal of the Baggy.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/1 <<>> Cannabis Corpse - Chronolith.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Tube of the Resinated/5 <<>> Cannabis Corpse - Sentenced to Burn One.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/11 <<>> From Enslavement to Hydrobliteration.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/04 <<>> Cannabis Corpse - Cylinders of Madness (Official Music Video).opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/02 <<>> Nug so Vile.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/07 <<>> Edibles Autopsy.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/09 <<>> The Cone is Red (Long Live the Cone).opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/06 <<>> Cheeba Jigsore Quandary.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/01 <<>> Conquerors of Chronageddon.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/10 <<>> The Ultimate Indicantation.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/03 <<>> CANNABIS CORPSE - ＂Blunt Force Domain＂ Official Lyric Video (2019).opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/05 <<>> Blasphemy Made Hash.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Nug So Vile/08 <<>> Dawn of Weed Possession.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Splatterhash (Ghoul Split)/3 <<>> Ghoul SPLATTERHASH 12＂ vinyl split EP with Cannabis Corpse： INTO THE CATACOMBS ⧸ SPILL YOUR GUTS.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Splatterhash (Ghoul Split)/2 <<>> Shatter Their Bongs.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Splatterhash (Ghoul Split)/1 <<>> The Inhalation Plague.opus
+Dec 07 20:24 : update: added Cannabis Corpse/Splatterhash (Ghoul Split)/4 <<>> Spill Your Guts.opus
+Dec 07 20:24 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 20:24 : player: played "Califone/All My Friends are Funeral Singers/08 <<>> A WISH MADE WHILE BURNING ONIONS WILL COME TRUE.opus"
+Dec 07 20:43 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 07 20:44 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 11:08 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 12:08 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 12:13 : player: played "Suffocation/Pierced From Within/8 <<>> Brood of Hatred.opus"
+Dec 08 12:14 : player: played "Califone/All My Friends are Funeral Singers/08 <<>> A WISH MADE WHILE BURNING ONIONS WILL COME TRUE.opus"
+Dec 08 12:17 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 13:14 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 18:33 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 18:36 : player: played "Cannabis Corpse/From Wisdom to Baked/02 <<>> CANNABIS CORPSE - Zero Weed Tolerance (Official).opus"
+Dec 08 18:40 : player: played "Cannabis Corpse/From Wisdom to Baked/03 <<>> Cannabis Corpse - Weedless Ones.opus"
+Dec 08 18:43 : player: played "Cannabis Corpse/From Wisdom to Baked/04 <<>> Cannabis Corpse - Individual Pot Patterns.opus"
+Dec 08 18:47 : player: played "Cannabis Corpse/From Wisdom to Baked/05 <<>> Cannabis Corpse - Pull The Carb.opus"
+Dec 08 18:47 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 08 18:51 : player: played "Falkenbach/Heralding - The Fireblade/2 <<>> ... Of Forests Unknown....opus"
+Dec 09 11:14 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 09 12:14 : update: added Enslaved/Vikingligr Veldi/1 <<>> Lifandi Lif Undir Hamri.opus
+Dec 09 12:14 : update: added Enslaved/Vikingligr Veldi/2 <<>> Vetranott.opus
+Dec 09 12:14 : update: added Enslaved/Vikingligr Veldi/5 <<>> Norvegr.opus
+Dec 09 12:14 : update: added Enslaved/Vikingligr Veldi/3 <<>> Midgards Eldar.opus
+Dec 09 12:14 : update: added Enslaved/Vikingligr Veldi/4 <<>> Heimdallr.opus
+Dec 09 12:14 : update: added Enslaved/Caravans to the Outer Worlds/4 <<>> Intermezzo II： The Navigator.opus
+Dec 09 12:14 : update: added Enslaved/Caravans to the Outer Worlds/3 <<>> ENSLAVED - Ruun II - The Epitaph (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Caravans to the Outer Worlds/1 <<>> ENSLAVED - Caravans To The Outer Worlds (OFFICAL VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Caravans to the Outer Worlds/2 <<>> Intermezzo I： Lonnlig. Gudlig..opus
+Dec 09 12:14 : update: added Enslaved/In Times/6 <<>> Daylight.opus
+Dec 09 12:14 : update: added Enslaved/In Times/3 <<>> ENSLAVED - One Thousand Years Of Rain (OFFICIAL LYRIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/In Times/2 <<>> Building with Fire.opus
+Dec 09 12:14 : update: added Enslaved/In Times/1 <<>> ENSLAVED - Thurisaz Dreaming - (OFFICIAL LYRIC-VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/In Times/4 <<>> Nauthir Bleeding.opus
+Dec 09 12:14 : update: added Enslaved/In Times/5 <<>> In Times.opus
+Dec 09 12:14 : update: added Enslaved/Isa/09 <<>> Neogenesis.opus
+Dec 09 12:14 : update: added Enslaved/Isa/05 <<>> Bounded By Allegiance.opus
+Dec 09 12:14 : update: added Enslaved/Isa/04 <<>> Ascension.opus
+Dec 09 12:14 : update: added Enslaved/Isa/02 <<>> Lunar Force.opus
+Dec 09 12:14 : update: added Enslaved/Isa/08 <<>> Secrets of the Flesh (Instrumental).opus
+Dec 09 12:14 : update: added Enslaved/Isa/06 <<>> Violet Drawning.opus
+Dec 09 12:14 : update: added Enslaved/Isa/07 <<>> Return to Yggdrasil.opus
+Dec 09 12:14 : update: added Enslaved/Isa/03 <<>> ENSLAVED - Isa.opus
+Dec 09 12:14 : update: added Enslaved/Isa/01 <<>> Intro： ＂Green Reflection＂.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/8 <<>> Night Sight.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/3 <<>> Waruun.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/1 <<>> ENSLAVED - Ethica Odini (OFFICIAL VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/4 <<>> The Beacon.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/7 <<>> Singular.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/6 <<>> Giants.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/5 <<>> Axioma.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/2 <<>> Raidho.opus
+Dec 09 12:14 : update: added Enslaved/Axioma Ethica Odini/9 <<>> Lightening.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/4 <<>> Ruun.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/1 <<>> Entroper.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/6 <<>> Essence.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/3 <<>> Fusion of Sense and Earth.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/7 <<>> Api-vat.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/2 <<>> Path to Vanir.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/8 <<>> Heir to the Cosmic Seed.opus
+Dec 09 12:14 : update: added Enslaved/Ruun/5 <<>> Tides of Chaos.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/5 <<>> New Dawn.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/4 <<>> Vertebrae.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/7 <<>> Center.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/1 <<>> Clouds.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/2 <<>> To the Coast.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/3 <<>> Ground.opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/8 <<>> ENSLAVED - The Watcher (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Vertebrae/6 <<>> Reflection.opus
+Dec 09 12:14 : update: added Enslaved/Eld/4 <<>> Kvasirs Blod.opus
+Dec 09 12:14 : update: added Enslaved/Eld/5 <<>> For Lenge Siden.opus
+Dec 09 12:14 : update: added Enslaved/Eld/3 <<>> Alfablot.opus
+Dec 09 12:14 : update: added Enslaved/Eld/6 <<>> Glemt.opus
+Dec 09 12:14 : update: added Enslaved/Eld/2 <<>> Hordalendingen.opus
+Dec 09 12:14 : update: added Enslaved/Eld/7 <<>> Eld.opus
+Dec 09 12:14 : update: added Enslaved/Eld/1 <<>> 793 (slaget Om Lindisfarne).opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/2 <<>> ENSLAVED - Congelia (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/6 <<>> ENSLAVED - Caravans To The Outer Worlds (OFFICAL VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/3 <<>> ENSLAVED - Forest Dweller (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/7 <<>> Heimdal.opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/4 <<>> ENSLAVED - Kingdom (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/1 <<>> Behind The Mirror.opus
+Dec 09 12:14 : update: added Enslaved/Heimdal/5 <<>> ENSLAVED - The Eternal Sea (OFFICIAL LYRIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Frost/1 <<>> Frost.opus
+Dec 09 12:14 : update: added Enslaved/Frost/8 <<>> Wotan.opus
+Dec 09 12:14 : update: added Enslaved/Frost/5 <<>> Yggdrasil.opus
+Dec 09 12:14 : update: added Enslaved/Frost/7 <<>> Gylfaginning.opus
+Dec 09 12:14 : update: added Enslaved/Frost/4 <<>> Svarte Vidder.opus
+Dec 09 12:14 : update: added Enslaved/Frost/9 <<>> Isoders Dronning.opus
+Dec 09 12:14 : update: added Enslaved/Frost/2 <<>> Loke.opus
+Dec 09 12:14 : update: added Enslaved/Frost/3 <<>> Fenris.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/5 <<>> Utgarđr.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/8 <<>> Storms of Utgard.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/7 <<>> Flight of Thought and Memory.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/4 <<>> ENSLAVED - Homebound (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Utgard/6 <<>> ENSLAVED - Urjotun (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Utgard/3 <<>> Sequence.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/9 <<>> Distant Seasons.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/1 <<>> Fires in the Dark.opus
+Dec 09 12:14 : update: added Enslaved/Utgard/2 <<>> ENSLAVED - Jettegryta (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Yggdrasill (Demo 1992)/6 <<>> Enslaved (Bonus Track).opus
+Dec 09 12:14 : update: added Enslaved/Yggdrasill (Demo 1992)/1 <<>> Heimdallr.opus
+Dec 09 12:14 : update: added Enslaved/Yggdrasill (Demo 1992)/3 <<>> Hal Valr.opus
+Dec 09 12:14 : update: added Enslaved/Yggdrasill (Demo 1992)/4 <<>> Niunda Heim.opus
+Dec 09 12:14 : update: added Enslaved/Yggdrasill (Demo 1992)/5 <<>> Resound of Gjallarhorn.opus
+Dec 09 12:14 : update: added Enslaved/Yggdrasill (Demo 1992)/2 <<>> Allfǫðr Oðinn.opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/6 <<>> Materal.opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/4 <<>> Roots of the Mountain.opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/8 <<>> Forsaken.opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/5 <<>> ENSLAVED -  Riitiir (OFFICIAL VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/1 <<>> ENSLAVED - Thoughts Like Hammers (OFFICIAL LYRIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/3 <<>> ENSLAVED - Veilburner (OFFICIAL LYRIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/7 <<>> Storm of Memories.opus
+Dec 09 12:14 : update: added Enslaved/RIITIR/2 <<>> Death in the Eyes of Dawn.opus
+Dec 09 12:14 : update: added Enslaved/Nema (Demo 1991)/NA <<>> Enslaved- Nema (Demo 1991).opus
+Dec 09 12:14 : update: added Enslaved/Monumension/01 <<>> Convoys To Nothingness.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/02 <<>> The Voices.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/05 <<>> The Cromlech Gate.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/09 <<>> Outro： Self-Zero.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/04 <<>> Hollow Inside.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/10 <<>> Sigmundskavadet.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/03 <<>> Vision ： Sphere Of The Elements - A Monument Part Ii.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/07 <<>> Smirr.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/08 <<>> The Sleep： Floating Diversity - A Monument Part III.opus
+Dec 09 12:14 : update: added Enslaved/Monumension/06 <<>> Enemy I.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/03 <<>> Entrance- Escape.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/07 <<>> Det Endelege Riket.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/06 <<>> Mardraum.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/08 <<>> Ormgard Ii -kvalt I Kysk Hogsong.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/10 <<>> Stjerneheimen.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/09 <<>> Krigaren Eg Ikkie Kjende.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/01 <<>> Storre Enn Tid.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/02 <<>> Daudningekvida.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/05 <<>> Aeges Draum.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/11 <<>> Froyas Smykke.opus
+Dec 09 12:14 : update: added Enslaved/Mardraum - Beyond the Within/04 <<>> Ormgard.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/3 <<>> The Crossing.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/2 <<>> The Dead Stare.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/6 <<>> Ridicule Swarm.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/7 <<>> A Darker Place.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/5 <<>> Havenless.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/1 <<>> As Fire Swept Clean The Earth.opus
+Dec 09 12:14 : update: added Enslaved/Below the Lights/4 <<>> Queen Of Night.opus
+Dec 09 12:14 : update: added Enslaved/E/4 <<>> Axis of the Worlds.opus
+Dec 09 12:14 : update: added Enslaved/E/5 <<>> Feathers of Eolh.opus
+Dec 09 12:14 : update: added Enslaved/E/6 <<>> Hiindsiight.opus
+Dec 09 12:14 : update: added Enslaved/E/1 <<>> ENSLAVED - Storm Son (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/E/2 <<>> ENSLAVED - The River's Mouth (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/E/7 <<>> Djupet (Bonus Version).opus
+Dec 09 12:14 : update: added Enslaved/E/3 <<>> Sacred Horse.opus
+Dec 09 12:14 : update: added Enslaved/E/8 <<>> ENSLAVED - What Else Is There？  (OFFICIAL MUSIC VIDEO).opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/3 <<>> Urtical Gods.opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/4 <<>> Ansuz Astral.opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/1 <<>> Intro ： Audlumla. Birth Of The Worlds.opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/7 <<>> Blodhemn.opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/9 <<>> Suttungs Mjod (suttungs Mead) (- Including Outro Perkulator).opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/2 <<>> I Lenker Til Ragnarok (in Chains Until Ragnarok).opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/8 <<>> Brisinghamen.opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/6 <<>> Eit Auga Til Mimir (an Eye For Mimir).opus
+Dec 09 12:14 : update: added Enslaved/Blodhemn/5 <<>> Nidingaslakt.opus
+Dec 09 16:11 : update: added Aspid/Extravasation/01 <<>> Aspid (Аспид) - Intro - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/06 <<>> Aspid (Аспид) - Where The Night⧸Там, где ночь - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/04 <<>> Aspid (Аспид) - Give Me (Play For A Ballet)⧸Дай мне (Пьеса для балета) - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/07 <<>> Aspid (Аспид) - Comatose State⧸Коматозное состояние - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/02 <<>> Aspid (Аспид) - It Came (Aspid)⧸Он пришёл (Аспид) - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/05 <<>> Aspid (Аспид) - Hey, You!⧸Эй, ты - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/03 <<>> Aspid (Аспид) - Towards One Goal⧸К цели одной - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/09 <<>> Aspid (Аспид) - Where The Night⧸Там, где ночь (1992 Demo Version) [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/10 <<>> Aspid (Аспид) - War⧸Война (2010) [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : update: added Aspid/Extravasation/08 <<>> Aspid (Аспид) - Extravasation⧸Кровоизлияние - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:11 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 09 16:14 : update: updating Aspid/Extravasation/01 <<>> Aspid (Аспид) - Intro - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/06 <<>> Aspid (Аспид) - Where The Night⧸Там, где ночь - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/04 <<>> Aspid (Аспид) - Give Me (Play For A Ballet)⧸Дай мне (Пьеса для балета) - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/07 <<>> Aspid (Аспид) - Comatose State⧸Коматозное состояние - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/02 <<>> Aspid (Аспид) - It Came (Aspid)⧸Он пришёл (Аспид) - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/05 <<>> Aspid (Аспид) - Hey, You!⧸Эй, ты - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/03 <<>> Aspid (Аспид) - Towards One Goal⧸К цели одной - [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/09 <<>> Aspid (Аспид) - Where The Night⧸Там, где ночь (1992 Demo Version) [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/10 <<>> Aspid (Аспид) - War⧸Война (2010) [ORIGINAL VERSION-HQ].opus
+Dec 09 16:14 : update: updating Aspid/Extravasation/08 <<>> Aspid (Аспид) - Extravasation⧸Кровоизлияние - [ORIGINAL VERSION-HQ].opus
+Dec 09 22:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 11:27 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 11:28 : player: played "Jesu/Terminus/Don't Wake Me Up [-F4Y9JkklFw].opus"
+Dec 10 11:28 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 11:34 : player: played "Artificial Brain/Artificial Brain/05 <<>> Tome of the Exiled Engineer.opus"
+Dec 10 11:40 : player: played "Blut Aus Nord/Memoria Vetusta II - Dialogue With The Stars/6 <<>> ... the Meditant (Dialogue with the Stars).opus"
+Dec 10 11:40 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 11:41 : player: played "Gargoyl/Gargoyl/05 <<>> GARGOYL, ＂Wraith＂ (Official Song Premiere) 2020.opus"
+Dec 10 11:42 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 11:46 : player: played "Entombed/Wolverine Blues/09 <<>> Entombed - Heavens Die (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 10 11:49 : player: played "Entombed/Wolverine Blues/10 <<>> Entombed - Out of Hand (Full Dynamic Range Edition) (Official Audio).opus"
+Dec 10 11:54 : player: played "Suffocation/Human Waste/3 <<>> Mass Obliteration.opus"
+Dec 10 11:58 : player: played "Suffocation/Human Waste/4 <<>> Catatonia.opus"
+Dec 10 12:01 : player: played "Suffocation/Human Waste/5 <<>> Jesus Wept.opus"
+Dec 10 12:03 : player: played "Suffocation/Human Waste/6 <<>> Human Waste.opus"
+Dec 10 12:03 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 12:09 : player: played "Enslaved/Ruun/1 <<>> Entroper.opus"
+Dec 10 12:14 : player: played "Enslaved/Ruun/2 <<>> Path to Vanir.opus"
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/10 <<>> Satanic Rites.m4a
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/07 <<>> Perturbator - ＂She Is Young, She Is Beautiful ... ＂ [Music Video - Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/02 <<>> Perturbator - ＂Perturbator's Theme＂ [＂Dangerous Days＂ Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/06 <<>> Perturbator - ＂Hard Wired (feat. Isabella Goloversic)＂ [＂Dangerous Days＂ - Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/08 <<>> Perturbator - ＂Humans Are Such Easy Prey＂ [＂Dangerous Days＂ Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/13 <<>> Perturbator - ＂Dangerous Days＂ [＂Dangerous Days＂ Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/09 <<>> Perturbator - ＂Minuit (feat. Dead Astronauts)＂ [＂Dangerous Days＂ Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/12 <<>> Perturbator - ＂Last Kiss＂ [＂Dangerous Days＂ - Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/05 <<>> Perturbator - ＂War Against Machines＂ [＂Dangerous Days＂ Official].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/01 <<>> Welcome Back.m4a
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/11 <<>> Perturbator ＂Complete Domination＂ [Music Video - Official] - feat. Carpenter Brut.opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/04 <<>> Perturbator - ＂Future Club＂ [Dangerous Days Premiere - 2014].opus
+Dec 10 14:09 : update: added Perturbator/Dangerous Days/03 <<>> Perturbator - ＂Raw Power＂ [＂Dangerous Days＂ Official].opus
+Dec 10 14:09 : player: played "Enslaved/Ruun/3 <<>> Fusion of Sense and Earth.opus"
+Dec 10 14:09 : ffmpeg/aac: Could not update timestamps for skipped samples.
+Dec 10 14:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 14:09 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 16:34 : player: played "Perturbator/Dangerous Days/02 <<>> Perturbator - ＂Perturbator's Theme＂ [＂Dangerous Days＂ Official].opus"
+Dec 10 16:42 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 10 17:31 : player: played "Jesu/Jesu/Walk on Water [INBFL8faZNc].opus"
+Dec 10 17:35 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
+Dec 10 17:36 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 11 18:55 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
