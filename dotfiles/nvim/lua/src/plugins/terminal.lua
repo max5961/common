@@ -39,12 +39,20 @@ return {
                 cmd = "node " .. file_path
 
             -- cpp
-            elseif file_ext == "cpp" then
+            elseif file_ext == "cpp"  or "c" then
                 local cwd = vim.fn.getcwd()
                 local file_dir = vim.fn.expand("%:p:h")
                 local file_name = vim.fn.expand("%:t")
+
+                local compiler = "";
+                if file_ext == "cpp" then
+                    compiler = "g++"
+                else
+                    compiler = "gcc"
+                end
+
                 cmd = 
-                    "g++ -o " .. file_dir .. "/compiled_" .. file_name .. " " .. file_dir .. "/" .. file_name ..
+                    compiler .. " -o " .. file_dir .. "/compiled_" .. file_name .. " " .. file_dir .. "/" .. file_name ..
                     " && " .. file_dir .. "/compiled_" .. file_name
             else
                 print("Cannot run run_script function on invalid file type: " .. file_ext)
