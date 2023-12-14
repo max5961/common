@@ -4,10 +4,10 @@ return {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = function()
-        local builtin = require("toggleterm").setup{
+        require("toggleterm").setup{
             shade_terminals = false,
             size = 10,
-            
+
             -- toggle terminal in normal mode
             open_mapping = [[<C-\>]],
             -- insert_mappings set to true allows toggling the terminal in insert mode
@@ -29,7 +29,7 @@ return {
         vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
         -- run scripts with <leader>r
-        function run_script()
+        function Run_script()
             local file_path = vim.api.nvim_buf_get_name(0)
             local file_ext = vim.fn.expand("%:e");
             local cmd = ""
@@ -39,8 +39,7 @@ return {
                 cmd = "node " .. file_path
 
             -- cpp
-            elseif file_ext == "cpp"  or "c" then
-                local cwd = vim.fn.getcwd()
+            elseif file_ext == "cpp"  or file_ext == "c" then
                 local file_dir = vim.fn.expand("%:p:h")
                 local file_name = vim.fn.expand("%:t")
 
@@ -51,18 +50,35 @@ return {
                     compiler = "gcc"
                 end
 
-                cmd = 
+                cmd =
                     compiler .. " -o " .. file_dir .. "/compiled_" .. file_name .. " " .. file_dir .. "/" .. file_name ..
                     " && " .. file_dir .. "/compiled_" .. file_name
+
+            -- bash
+            elseif file_ext == "sh" then
+                cmd = "chmod +x " .. file_path .. " && " .. file_path
             else
-                print("Cannot run run_script function on invalid file type: " .. file_ext)
+                if file_ext == nil or file_ext == "" then
+                    file_ext = "current buffer is not a file"
+                end
+
+                print("Cannot run 'run_script' function on invalid file type: " .. file_ext)
                 return
             end
 
             require("toggleterm").exec(cmd)
         end
 
-        vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua run_script()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua Run_script()<CR>", {noremap = true, silent = true})
+
+        -- send commands to the terminal with <leader>t
+        function Send_command_to_terminal()
+            local terminal_cmd = vim.fn.input("Enter terminal command: ");
+            local nvim_command = "2TermExec cmd=" .. "'" .. terminal_cmd .. "'"
+            vim.cmd(nvim_command)
+        end
+
+        vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>lua Send_command_to_terminal()<CR>", {noremap = true, silent = true})
 
     end
 }

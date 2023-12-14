@@ -19,5 +19,19 @@ return {
         vim.keymap.set("n", "<A-f>", ":Neotree toggle<CR>")
         -- vim.cmd "Neotree toggle"
         -- vim.cmd "Neotree toggle"
+        
+        local builtin = require("neo-tree").setup({
+            filesystem = {
+                filtered_items = {
+                    hide_dotfiles = false,
+                }
+            },
+            event_handlers = {
+                symlink_target = {
+                    enabled = false
+                }
+            },
+        })
+
     end
 }

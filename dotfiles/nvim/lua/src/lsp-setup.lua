@@ -21,11 +21,20 @@ require('mason-lspconfig').setup({
         "bashls",
         "clangd",
         "pylsp",
+        "lua_ls",
     },
     handlers = {
         lsp_zero.default_setup,
     },
 })
+
+-- configure lua_ls for nvim
+local lsp = require('lsp-zero').preset({})
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+end)
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lsp.setup()
 
 -- setup autocomplete
 -- Alt + j or k to move up/down in drop down menu
