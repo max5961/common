@@ -15,9 +15,14 @@ alias trr='trash-restore'
 
 # git aliases
 alias g='git'
-alias gst='git status'
-alias gc='git commit'
+alias gs='git status'
 alias ga='git add'
+# git commit -m
+gc() {
+    read "message?Enter commit message: "
+    git commit -m "${message}"
+}
+
 
 # CUSTOM COMMANDS
 mkcd() {
