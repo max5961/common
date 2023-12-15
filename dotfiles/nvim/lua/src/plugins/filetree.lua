@@ -1,4 +1,5 @@
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
+-- ? in NeoTree buffer for list of mappings
 
 -- disable netrw on open
 vim.g.loaded_netrw = 1
@@ -10,17 +11,15 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
         vim.keymap.set("n", "<A-f>", ":Neotree toggle<CR>")
-        -- vim.cmd "Neotree toggle"
-        -- vim.cmd "Neotree toggle"
-        
-        local builtin = require("neo-tree").setup({
+
+        require("neo-tree").setup({
             filesystem = {
                 filtered_items = {
                     hide_dotfiles = false,
@@ -32,6 +31,5 @@ return {
                 }
             },
         })
-
     end
 }

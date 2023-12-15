@@ -8,7 +8,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    
+
     -- list of language servers
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     ensure_installed = {
@@ -66,7 +66,7 @@ cmp.setup({
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
   },
-  
+
   -- define custom mappings while keeping the defaults
   mapping = {
     -- confirm selection
