@@ -1,0 +1,12 @@
+tmux-resurrect & tpope/obsession
+--------------------------------------------------------------------------------
+    tpope/obsession creates a Session.vim file in the cwd and tracks buffer
+    changes
+
+    prefix + s: save tmux session
+    prefix + C-r: restore tmux session
+    vmd.cmd("Obsession"): start tracking a session
+
+
+
+
