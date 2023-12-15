@@ -14,14 +14,20 @@ return {
                 'EndOfBuffer',
             },
             extra_groups = {
-                "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
-                "NvimTreeNormal", -- NvimTree
+                "NormalFloat",        -- plugins which have float panel such as Lazy, Mason, LspInfo
+                "NeoTreeFloatNormal", -- removing this removes highlighting on neotree selections
+                "FloatBorder",        -- removing this adds an ugly border on nvim-cmp windows
+                "NvimTreeNormal",     -- NvimTree
                 "TelescopeNormal",
                 "TelescopeBorder",
                 "TelescopePromptNormal",
             },
             exclude_groups = {
-
+                -- "NeoTreeNormal",
+                -- "NeoTreeNormalNC",
+                -- "NeoTreeFileName",
+                -- "NeoTreeFloatBorder",
+                -- "NeoTreePreview",
             },
         })
     end
@@ -31,5 +37,3 @@ return {
 -- :TransparentEnable
 -- :TransparentDisable
 -- :TransparentToggle
-
-
