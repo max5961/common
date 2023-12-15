@@ -1,1 +1,9 @@
 dotfiles/tmux/plugins
+dotfiles/mpd/database
+dotfiles/mpd/log
+dotfiles/mpd/state
+dotfiles/mpd/sticker.sql
+dotfiles/ncmpcpp/error.log
+Session.vim
+
+
