@@ -3,6 +3,7 @@ dotfiles/mpd/database
 dotfiles/mpd/log
 dotfiles/mpd/state
 dotfiles/mpd/sticker.sql
+dotfiles/mpd/pid
 dotfiles/ncmpcpp/error.log
 Session.vim
 
