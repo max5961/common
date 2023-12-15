@@ -1,12 +1,17 @@
 tmux-resurrect & tpope/obsession
 --------------------------------------------------------------------------------
-tpope/obsession creates a Session.vim file in the cwd and tracks buffer
-changes
+-- obsession creates a Session.vim file to track changes
+-- obsession automatically saves sessions on buffer changes
+-- resurrect allows persistence of tmux sessions between reboots
+-- resurrect requires manual saving/reloading of sessions
 
-prefix + s: save tmux session
-prefix + C-r: restore tmux session
-vmd.cmd("Obsession"): start tracking a session
-
+keymaps
+    -- tmux
+    [prefix + C-s] = save tmux environment
+    [prefix + C-r] = restore tmux environment
+    -- nvim
+    [cmd Obsession] = start tracking session
+    [cmd Obsession!] = stop tracking session and delete the Session.vim file
 
 
 
