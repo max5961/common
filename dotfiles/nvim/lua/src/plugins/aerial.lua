@@ -1,5 +1,8 @@
 -- https://github.com/stevearc/aerial.nvim
 -- (full list of options) https://github.com/stevearc/aerial.nvim#options
+-- aerial opens a menu that allows you to quickly navigate between blocks of code
+-- custom keymaps are set to j,k,J,K for navigation
+-- manage folds in menu using normal fold commands
 
 return {
     "stevearc/aerial.nvim",

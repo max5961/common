@@ -28,7 +28,7 @@ mkcd() {
 mt() {
     prompt="empty contents of current directory to trash?: [y/n] "
 
-    # options -p: rm -rf contents of current directory 
+    # options -p: rm -rf contents of current directory
     if [ "${1}" = "-p" ]; then
         prompt="Permanently remove contents of current directory?: [y/n] "
     fi
@@ -97,7 +97,7 @@ zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 ### if not sorted in alphabetical order, backspace until the prompt is empty
 zstyle ':completion:*' sort true
 
-#zstyle ':completion:*complete:-comamand:*:*' group-order \ 
+#zstyle ':completion:*complete:-comamand:*:*' group-order \
 #    builtins functions commands
 
 # Clone additional Git repositories from GitHub.

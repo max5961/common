@@ -39,6 +39,7 @@ link_dir_to_XDG_CONFIG_HOME "nvim"
 link_dir_to_XDG_CONFIG_HOME "ncmpcpp"
 link_dir_to_XDG_CONFIG_HOME "mpd"
 link_dir_to_XDG_CONFIG_HOME "mpv"
+link_dir_to_XDG_CONFIG_HOME "tmux"
 
 # files in ~/
 link_file_to_HOME "bash" ".bashrc"

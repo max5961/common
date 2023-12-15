@@ -9,7 +9,7 @@ window:
 
   startup_mode: maximized
   decorations: none
-  opacity: 0.95
+  opacity: 0.93
 
 scrolling:
   history: 1000
@@ -29,7 +29,7 @@ import:
   - ~/.config/alacritty/dist/rose-pine.yml
 
 
-      
+
 
 
 

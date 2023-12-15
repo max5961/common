@@ -11,8 +11,8 @@ return {
         local ui = require("harpoon.ui")
 
         vim.keymap.set(
-            "n", 
-            "<leader>a", 
+            "n",
+            "<leader>a",
             function()
                 mark.add_file()
                 print("File added to Harpoon menu")

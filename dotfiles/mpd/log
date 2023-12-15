@@ -8109,3 +8109,74 @@ Dec 10 17:31 : player: played "Jesu/Jesu/Walk on Water [INBFL8faZNc].opus"
 Dec 10 17:35 : mixer: Failed to read mixer for 'default detected output': no such mixer control: PCM
 Dec 10 17:36 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
 Dec 11 18:55 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/11 <<>> Walk Don't Run (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/05 <<>> Pythagoras's Trousers (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/14 <<>> Harmonic Necklace (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/10 <<>> The Ecstasy Of Dancing Fleas (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/15 <<>> Steady State (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/02 <<>> Yodel 1 (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/08 <<>> Salty Bean Fumble (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/04 <<>> Cutting Branches For A Temporary Shelter (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/13 <<>> Simon's Dream (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/12 <<>> Flux (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/07 <<>> Yodel 2 (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/01 <<>> Air À Danser (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/06 <<>> Numbers 1-4 (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/03 <<>> Telephone And Rubber Band (Remastered 2008).opus
+Dec 14 13:13 : update: added Penguin Cafe Orchestra/Penguin Cafe Orchestra/09 <<>> Paul's Dance (Remastered 2008).opus
+Dec 14 13:13 : player: played "...and Oceans/As in Gardens, So in Tombs/07 <<>> Wine into Water.opus"
+Dec 14 13:13 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 17:26 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 17:31 : player: played "Penguin Cafe Orchestra/Penguin Cafe Orchestra/04 <<>> Cutting Branches For A Temporary Shelter (Remastered 2008).opus"
+Dec 14 17:31 : player: played "Penguin Cafe Orchestra/Penguin Cafe Orchestra/05 <<>> Pythagoras's Trousers (Remastered 2008).opus"
+Dec 14 17:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 17:35 : player: played "Pyrexia/System of the Animal 25/1 <<>> Confrontation.opus"
+Dec 14 17:39 : player: played "Pyrexia/System of the Animal 25/2 <<>> Downsized.opus"
+Dec 14 17:41 : player: played "Pyrexia/System of the Animal 25/3 <<>> System of the Animal.opus"
+Dec 14 17:43 : player: played "Pyrexia/System of the Animal 25/4 <<>> Closure.opus"
+Dec 14 17:45 : player: played "Pyrexia/System of the Animal 25/5 <<>> Purging the Nemesis.opus"
+Dec 14 18:23 : update: added My Vitriol/Finelines/07 <<>> C.O.R..opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/16 <<>> Under The Wheels.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/03 <<>> The Gentle Art Of Choking.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/04 <<>> Kohlstream.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/11 <<>> Windows & Walls.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/13 <<>> Losing Touch.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/15 <<>> Falling Off The Floor.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/08 <<>> My Vitriol - Infantile (2016 Master).opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/12 <<>> Taprobane.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/02 <<>> Always： Your Way.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/14 <<>> Pieces.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/05 <<>> Cemented Shoes.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/06 <<>> My Vitriol - Grounded.m4a
+Dec 14 18:23 : update: added My Vitriol/Finelines/09 <<>> Ode To The Red Queen.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/01 <<>> Alpha Waves.opus
+Dec 14 18:23 : update: added My Vitriol/Finelines/10 <<>> Tongue Tied.opus
+Dec 14 18:23 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 18:30 : player: played "Pyrexia/System of the Animal 25/6 <<>> Day One.opus"
+Dec 14 18:31 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 18:38 : player: played "Ulcerate/Stare Into Death And Be Still/1 <<>> The Lifeless Advance.opus"
+Dec 14 18:44 : player: played "Ulcerate/Stare Into Death And Be Still/2 <<>> Exhale The Ash.opus"
+Dec 14 18:52 : player: played "Ulcerate/Stare Into Death And Be Still/3 <<>> Stare Into Death And Be Still.opus"
+Dec 14 18:55 : player: played "Ulcerate/Stare Into Death And Be Still/4 <<>> There Is No Horizon.opus"
+Dec 14 19:27 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 19:27 : player: played "Ulcerate/Stare Into Death And Be Still/4 <<>> There Is No Horizon.opus"
+Dec 14 19:28 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 21:51 : player: played "Children of Bodom/Are You Dead Yet/1 <<>> Living Dead Beat.opus"
+Dec 14 21:51 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 14 21:56 : player: played "Georgie Sweet/Misunderstood/01 <<>> Misunderstood.opus"
+Dec 14 22:00 : player: played "Georgie Sweet/Misunderstood/02 <<>> What I Had Done.opus"
+Dec 14 22:03 : player: played "Georgie Sweet/Misunderstood/03 <<>> I Am Living.opus"
+Dec 14 22:07 : player: played "Georgie Sweet/Misunderstood/04 <<>> Here.opus"
+Dec 14 22:11 : player: played "Georgie Sweet/Misunderstood/05 <<>> Deserve Something.opus"
+Dec 14 22:17 : player: played "Georgie Sweet/Misunderstood/06 <<>> Sorry.opus"
+Dec 14 22:20 : player: played "Georgie Sweet/Misunderstood/07 <<>> The One.opus"
+Dec 14 22:25 : player: played "Georgie Sweet/Misunderstood/08 <<>> Stories.opus"
+Dec 14 22:28 : player: played "Georgie Sweet/Misunderstood/09 <<>> Half Human.opus"
+Dec 14 22:33 : player: played "Georgie Sweet/Misunderstood/10 <<>> Flower.opus"
+Dec 14 22:35 : player: played "Georgie Sweet/Misunderstood/11 <<>> Untold.opus"
+Dec 14 22:39 : player: played "Georgie Sweet/Misunderstood/12 <<>> F.E.A.R..opus"
+Dec 14 22:41 : player: played "Georgie Sweet/Misunderstood/13 <<>> Misunderstood Reprise.opus"
+Dec 14 22:46 : player: played "Georgie Sweet/Misunderstood/14 <<>> Sorry (Live @ Futuristica HQ).opus"
+Dec 14 23:23 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 15 11:43 : output: Failed to open mixer for 'default detected output': no such mixer control: PCM
+Dec 15 13:56 : player: played "Flourishing/The Sum of All Fossils/1 <<>> A Thimble's Worth.opus"
