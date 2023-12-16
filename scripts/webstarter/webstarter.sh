@@ -26,3 +26,4 @@ echo -e "\033[32mSuccessfully created HTML, CSS, JS template\033[0m"
 
 
 
+

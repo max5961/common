@@ -4,7 +4,7 @@ return {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = function()
-        require("toggleterm").setup{
+        require("toggleterm").setup {
             shade_terminals = false,
             size = 10,
 
@@ -16,10 +16,10 @@ return {
 
         -- set keymappings
         function _G.set_terminal_keymaps()
-            local opts = {buffer = 0}
+            local opts = { buffer = 0 }
             vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-            local modes = {"t", "n"}
-            for i,mode in ipairs(modes) do
+            local modes = { "t", "n" }
+            for i, mode in ipairs(modes) do
                 vim.keymap.set(mode, '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
                 vim.keymap.set(mode, '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
                 vim.keymap.set(mode, '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
@@ -36,12 +36,18 @@ return {
             local file_ext = vim.fn.expand("%:e");
             local cmd = ""
 
-            -- js/ts
-            if file_ext == "js" or file_ext == "ts" then
+            -- js
+            if file_ext == "js" then
                 cmd = "node " .. file_path
 
-            -- cpp
-            elseif file_ext == "cpp"  or file_ext == "c" then
+                -- ts
+            elseif file_ext == "ts" then
+                local stripped_file_name = string.sub(file_path, 1, string.len(file_path) - 2)
+                local js_file_name = stripped_file_name .. "js"
+                cmd = "tsc " .. file_path .. " && node " .. js_file_name
+
+                -- cpp
+            elseif file_ext == "cpp" or file_ext == "c" then
                 local file_dir = vim.fn.expand("%:p:h")
                 local file_name = vim.fn.expand("%:t")
 
@@ -56,11 +62,11 @@ return {
                     compiler .. " -o " .. file_dir .. "/compiled_" .. file_name .. " " .. file_dir .. "/" .. file_name ..
                     " && " .. file_dir .. "/compiled_" .. file_name
 
-            -- bash
+                -- bash
             elseif file_ext == "sh" then
                 cmd = "chmod +x " .. file_path .. " && " .. file_path
 
-            -- invalid file_ext/non-file buffer 
+                -- invalid file_ext/non-file buffer
             else
                 if file_ext == nil or file_ext == "" then
                     file_ext = "current buffer is not a file and may be the terminal itself"
@@ -73,7 +79,7 @@ return {
             require("toggleterm").exec(cmd)
         end
 
-        vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua Run_script()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua Run_script()<CR>", { noremap = true, silent = true })
 
         -- send commands to the terminal with <leader>t
         Terminal_number = "1"
@@ -91,25 +97,7 @@ return {
             vim.cmd(nvim_command)
         end
 
-        vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>lua Send_command_to_terminal()<CR>", {noremap = true, silent = true})
-
+        vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>lua Send_command_to_terminal()<CR>",
+            { noremap = true, silent = true })
     end
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

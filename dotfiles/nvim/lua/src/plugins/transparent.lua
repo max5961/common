@@ -23,11 +23,11 @@ return {
                 "TelescopePromptNormal",
             },
             exclude_groups = {
-                "NeoTreeNormal",
-                "NeoTreeNormalNC",
-                "NeoTreeFileName",
-                "NeoTreeFloatBorder",
-                "NeoTreePreview",
+                -- "NeoTreeNormal",
+                -- "NeoTreeNormalNC",
+                -- "NeoTreeFileName",
+                -- "NeoTreeFloatBorder",
+                -- "NeoTreePreview",
             },
         })
     end

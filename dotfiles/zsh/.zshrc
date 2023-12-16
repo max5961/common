@@ -23,6 +23,8 @@ gc() {
     git commit -m "${message}"
 }
 
+# browser sync
+alias bsynch="browser-sync start --server --file --watch '*'"
 
 # CUSTOM COMMANDS
 mkcd() {
