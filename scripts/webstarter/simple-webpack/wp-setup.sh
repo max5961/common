@@ -30,7 +30,7 @@ function copyFiles() {
 
     # copy main file structure
     source_dir="$HOME/environment/scripts/webstarter/simple-webpack/file-structure/"
-    cp -r "${source_dir}." "${cwd}"
+    cp -r "${source_dir}". "${cwd}"
     
     # copy css reset
     css_reset="$HOME/environment/resources/templates/css-resets/reset.css"
