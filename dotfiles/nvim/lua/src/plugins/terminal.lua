@@ -69,7 +69,7 @@ return {
                 -- invalid file_ext/non-file buffer
             else
                 if file_ext == nil or file_ext == "" then
-                    file_ext = "current buffer is not a file and may be the terminal itself"
+                    file_ext = "current buffer is not a file"
                 end
 
                 print("Cannot run 'run_script' function on invalid file type: " .. file_ext)
@@ -99,5 +99,12 @@ return {
 
         vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>lua Send_command_to_terminal()<CR>",
             { noremap = true, silent = true })
+
+        -- to create a new terminal ToggleTerm<number>
+        -- map T<number> to ToggleTerm<number>
+        -- create/kill terminals with T<number>
+        for num = 1, 5, 1 do
+            vim.api.nvim_create_user_command("T" .. num, "ToggleTerm" .. num, {})
+        end
     end
 }

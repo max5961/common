@@ -14,6 +14,16 @@ return {
         vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+        -- show dotfiles
+        -- local telescope = require("telescope")
+        -- telescope.setup {
+        --     pickers = {
+        --         find_files = {
+        --             hidden = true,
+        --         }
+        --     }
+        -- }
+
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "TelescopeResults",
             command = "setlocal nofoldenable"

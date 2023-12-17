@@ -73,14 +73,14 @@ return {
                 ["<C-v>"] = "actions.jump_vsplit",
                 ["<C-s>"] = "actions.jump_split",
                 ["p"] = "actions.scroll",
-                ["<C-j>"] = "actions.down_and_scroll",
-                ["<C-k>"] = "actions.up_and_scroll",
+                -- ["<C-j>"] = "actions.down_and_scroll",
+                -- ["<C-k>"] = "actions.up_and_scroll",
                 -- ["{"] = "actions.prev",
                 -- ["}"] = "actions.next",
                 -- ["[["] = "actions.prev_up",
                 -- ["]]"] = "actions.next_up",
-                ["k"] = "actions.prev",
-                ["j"] = "actions.next",
+                ["k"] = "actions.up_and_scroll",
+                ["j"] = "actions.down_and_scroll",
                 ["K"] = "actions.prev_up",
                 ["J"] = "actions.next_up",
 
@@ -370,7 +370,7 @@ return {
         })
 
         -- AerialToggle! With ! cursor stays in current window
-        vim.keymap.set("n", "<leader>p", "<cmd>AerialToggle<CR>")
+        vim.keymap.set("n", "<A-a>", "<cmd>AerialToggle<CR>")
     end
 
 }
