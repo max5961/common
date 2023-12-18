@@ -27,10 +27,8 @@ local function fast_scroll(lines, down_mapping, up_mapping)
         { noremap = true, silent = true }
     )
 end
--- overwrite the default J/K keymaps which append lines of text to the next line
--- the default maps conflict with the visual J/K key maps as well
-fast_scroll(5, "J", "K")
-fast_scroll(20, "<A-j>", "<A-k>")
+fast_scroll(5, "<A-j>", "<A-k>")
+fast_scroll(20, "<C-j>", "<C-k>")
 
 -- keep search terms in the middle
 vim.keymap.set("n", "n", "nzzzv")
@@ -38,3 +36,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- place cursor over a word and replace very instance of that word in the file
 vim.keymap.set("n", "<leader>ca", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- same as default J keymap, but keep cursor in same position
+vim.keymap.set("n", "J", "mzJ`z")
