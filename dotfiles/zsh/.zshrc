@@ -17,6 +17,7 @@ alias trr='trash-restore'
 alias g='git'
 alias gs='git status'
 alias ga='git add'
+alias gp='git push'
 # git commit -m
 gc() {
     read "message?Enter commit message: "
