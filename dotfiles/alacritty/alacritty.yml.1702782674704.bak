@@ -30,4 +30,3 @@ shell:
 # alacritty-themes will >> themes to alacritty.yml
 import:
   - ~/.config/alacritty/dist/themes/rose-pine.yml
-

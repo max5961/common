@@ -15,9 +15,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = 'src.plugins' }
+    { import = 'plugins' }
 })
 
-require("src.remap")
-require("src.set")
-require("src.lsp-setup")
+require("remap")
+require("set")
+require("lsp-setup")

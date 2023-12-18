@@ -25,9 +25,8 @@ shell:
   program: /usr/bin/zsh
 
 # color-scheme
-# can also run the command alacritty-themes
+# can also run the command alacritty-themes <theme> to change themes
 # alacritty-themes is installed globally from npm and contains themes in .yml files
 # alacritty-themes will >> themes to alacritty.yml
 import:
   - ~/.config/alacritty/dist/themes/rose-pine.yml
-
