@@ -18,8 +18,8 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- split window preferences
-vim.opt.splitright = true -- split vertical window to the right
-vim.opt.splitbelow = true -- split horizontal window to the bottom
+-- vim.opt.splitright = true -- split vertical window to the right
+-- vim.opt.splitbelow = true -- split horizontal window to the bottom
 
 -- search
 vim.opt.hlsearch = false
