@@ -1,4 +1,4 @@
--- see all key mappings
+-- show all key mappings
 -- :map, :nmap, :vmap, :imap, :cmap (all, n, v, i, cmd)
 
 -- move between window splits
