@@ -1,8 +1,4 @@
--- rectangle cursor
-vim.opt.guicursor = ""
-
--- disable mouse
-vim.opt.mouse = ""
+-- https://neovim.io/doc/user/options.html
 
 -- tabs / indents
 vim.opt.tabstop = 4
@@ -11,30 +7,34 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
--- line numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
--- disable linewrap
-vim.opt.textwidth = 0
-
--- enable backspace but not allow backspace into the line above
-vim.opt.backspace = { "indent", "start" }
-
-vim.opt.wrap = false
-
+-- swapfile/backup/undo
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+-- line numbers
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+-- split window preferences
+vim.opt.splitright = true -- split vertical window to the right
+vim.opt.splitbelow = true -- split horizontal window to the bottom
+
+-- search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+-- formatting
+vim.opt.wrap = false                      -- disable linewrap
+vim.opt.colorcolumn = "100"               -- text can extend past but add margin column as a guide
+vim.opt.textwidth = 0                     -- disable max width of text being inserted
+
+vim.opt.scrolloff = 12                    -- keeps at least x lines padding when scrolling up/down
+vim.opt.clipboard = "unnamedplus"         -- enable pasting yanked text outside of neovim
+vim.opt.backspace = { "indent", "start" } -- enable backspace but no backspace into the above line
+vim.opt.guicursor = ""                    -- rectangle cursor
+vim.opt.mouse = ""                        -- disable mouse
+vim.opt.cursorline = true
 vim.opt.termguicolors = true
-
--- keep at least 12 lines below when scrolling down
-vim.opt.scrolloff = 12
-
--- allow yanking text into different environments other than neovim
-vim.opt.clipboard = "unnamedplus"
+vim.opt.updatetime = 500
