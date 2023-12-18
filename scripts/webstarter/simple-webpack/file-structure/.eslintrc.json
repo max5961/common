@@ -18,6 +18,9 @@
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
-    "ignorePatterns": ["node_modules/", "dist/", "webpack.config.js"]
+    "ignorePatterns": ["node_modules/", "dist/", "webpack.config.js"],
+    "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+    }
 }
 
