@@ -79,6 +79,7 @@ return {
             require("toggleterm").exec(cmd)
         end
 
+        -- map command to Run_script
         vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua Run_script()<CR>", { noremap = true, silent = true })
 
         -- send commands to the terminal with <leader>t
@@ -106,5 +107,22 @@ return {
         for num = 1, 5, 1 do
             vim.api.nvim_create_user_command("T" .. num, "ToggleTerm" .. num, {})
         end
+
+        -- run lint
+        function Run_lint()
+            local file_path = vim.api.nvim_buf_get_name(0)
+            local file_ext = vim.fn.expand("%:e");
+            local cmd = ""
+
+            if file_ext == "js" or file_ext == "ts" then
+                cmd = "npx eslint " .. file_path
+            end
+
+            -- send lint command to ToggleTerm
+            require("toggleterm").exec(cmd)
+        end
+
+        -- run function with :Run lint
+        vim.api.nvim_create_user_command("RunLint", "lua Run_lint()<CR>", {})
     end
 }
