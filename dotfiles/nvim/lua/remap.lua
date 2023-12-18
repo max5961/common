@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- fast scroll: move X amount of lines up or down with capital J or K
+-- scroll faster - move x amount of lines up/down in n
 local function fast_scroll(lines, down_mapping, up_mapping)
     vim.keymap.set(
         "n",
