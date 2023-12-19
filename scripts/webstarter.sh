@@ -16,14 +16,9 @@ if [ ! -f "$css_reset" ]; then
     echo -e "\033[33mCannot locate css reset\033[0m"
     echo "style.css file will be left empty"
 else
-    cat "$css_reset" > ./style.css
+    cat "$css_reset" >./style.css
 fi
 
-echo -e "\033[32mSuccessfully created HTML, CSS, JS template\033[0m"
-
-
-
-
-
-
-
+echo "Created HTML, CSS, JS template"
+echo "For live website reloads run:"
+echo "browser-sync start --server --file --watch '*'"

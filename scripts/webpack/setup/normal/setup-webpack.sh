@@ -29,7 +29,7 @@ function copyFiles() {
     cwd="$(pwd)"
 
     # copy main file structure
-    source_dir="$HOME/environment/scripts/webstarter/simple-webpack/file-structure/"
+    source_dir="$HOME/environment/scripts/webpack/setup/normal/file-structure/"
     cp -r "${source_dir}". "${cwd}"
 
     # copy css reset
