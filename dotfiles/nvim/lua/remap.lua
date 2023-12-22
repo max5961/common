@@ -2,7 +2,6 @@
 -- :map, :nmap, :vmap, :imap, :cmap (all, n, v, i, cmd)
 
 -- move between window splits
-vim.keymap.set("n", "<A-w>", "<C-w>w") -- quickly cycle windows
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -27,8 +26,8 @@ local function fast_scroll(lines, down_mapping, up_mapping)
         { noremap = true, silent = true }
     )
 end
-fast_scroll(5, "<A-j>", "<A-k>")
-fast_scroll(20, "<C-j>", "<C-k>")
+fast_scroll(5, "<C-j>", "<C-k>")
+fast_scroll(20, "<A-j>", "<A-k>")
 
 -- keep search terms in the middle
 vim.keymap.set("n", "n", "nzzzv")

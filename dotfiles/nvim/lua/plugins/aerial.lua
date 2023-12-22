@@ -81,8 +81,8 @@ return {
                 -- ["]]"] = "actions.next_up",
                 ["k"] = "actions.up_and_scroll",
                 ["j"] = "actions.down_and_scroll",
-                ["K"] = "actions.prev_up",
-                ["J"] = "actions.next_up",
+                ["<C-k>"] = "actions.prev_up",
+                ["<C-j>"] = "actions.next_up",
 
                 ["q"] = "actions.close",
                 ["o"] = "actions.tree_toggle",

@@ -22,6 +22,16 @@ function installNodeModules() {
     npm install --save-dev babel-loader @babel/core @babel/preset-env
     # data
     # npm install --save-dev csv-loader xml-loader
+
+    # react specific
+    npm install react react-dom
+    # typescript
+    npm install --save-dev @types/react @types/react-dom
+    # babel
+    npm install --save-dev @babel/preset-react @babel/preset-typescript
+    # eslint
+    npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks
+
 }
 
 function copyFiles() {
@@ -29,7 +39,7 @@ function copyFiles() {
     cwd="$(pwd)"
 
     # copy main file structure
-    source_dir="$HOME/common/scripts/webpack/setup/normal/file-structure/"
+    source_dir="$HOME/common/scripts/webpack/setup/react/file-structure/"
     cp -r "${source_dir}". "${cwd}"
 
     # copy css reset

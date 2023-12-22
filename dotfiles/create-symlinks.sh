@@ -3,7 +3,7 @@
 # this script will not overwrite pre existing symlinks or normal files/dirs
 # manually remove the config directories/files you want to symlink to
 
-dotfiles_dir="$HOME/environment/dotfiles"
+dotfiles_dir="$HOME/common/dotfiles"
 
 function print_success_message() {
     if [ "${1}" -eq 0 ]; then

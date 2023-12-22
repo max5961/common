@@ -29,10 +29,10 @@ function dl_single_album() {
     yt-dlp -x -f bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "${URL}"
 
     # set the metadata of each song 
-    python3 ~/environment/scripts/yt-dlp/albumdl/set-metadata.py "${artist}" "${album}"
+    python3 ~/common/scripts/yt-dlp/albumdl/set-metadata.py "${artist}" "${album}"
 
-    # add album, artist, URL to a download log at: ~/environment/scripts/python/albumdl/dl-log.csv
-    python3 ~/environment/scripts/yt-dlp/albumdl/add-to-csv.py "${artist}" "${album}" "${URL}"
+    # add album, artist, URL to a download log at: ~/common/scripts/python/albumdl/dl-log.csv
+    python3 ~/common/scripts/yt-dlp/albumdl/add-to-csv.py "${artist}" "${album}" "${URL}"
 }
 
 function dl_from_csv() {
@@ -48,7 +48,7 @@ function dl_from_csv() {
     # with values from the csv passed as args
     # iterating over the csv file in python due to better handling
     # of csv files
-    python3 ~/environment/scripts/yt-dlp/albumdl/dl-from-csv.py "${CSV}"
+    python3 ~/common/scripts/yt-dlp/albumdl/dl-from-csv.py "${CSV}"
 }
 
 function check_args() {

@@ -328,7 +328,7 @@ current_item_inactive_column_prefix = $(white)$r
 #
 ##
 ## Note: Custom command that will be executed each time player state
-## changes. The environment variable MPD_PLAYER_STATE is set to the current
+## changes. The common variable MPD_PLAYER_STATE is set to the current
 ## state (either unknown, play, pause, or stop) for its duration.
 ##
 #

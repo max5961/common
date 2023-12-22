@@ -81,7 +81,7 @@ return {
                     end,
                     -- Exit codes that indicate success (default { 0 })
                     exit_codes = { 0, 1 },
-                    -- Environment variables. This can also be a function that returns a table.
+                    -- environment variables. This can also be a function that returns a table.
                     env = {
                         VAR = "value",
                     },
