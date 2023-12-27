@@ -10,7 +10,7 @@ function printTemplates() {
 }
 
 function chooseLayout() {
-    templateDir="$HOME/common/resources/templates/layouts"
+    templateDir="$HOME/common/templates/layouts"
     case $1 in
         "1")
             template="$templateDir/holy-grail"

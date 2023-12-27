@@ -1,12 +1,8 @@
 import "./style/index.scss";
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./app";
 
-const root: HTMLElement | null = document.getElementById("root");
-if (root) {
-    root.style.height = "100vh";
-    root.style.width = "100vw";
-}
-
-ReactDOM.render(<App />, root);
+const container: HTMLElement = document.getElementById("root")!;
+const root = createRoot(container);
+root.render(<App />);

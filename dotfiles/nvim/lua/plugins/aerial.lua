@@ -6,7 +6,8 @@
 
 return {
     "stevearc/aerial.nvim",
-    opts = {},
+    opts = {
+    },
     -- Optional dependencies
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
@@ -52,7 +53,7 @@ return {
             -- Determines how the aerial window decides which buffer to display symbols for
             --   window - aerial window will display symbols for the buffer in the window from which it was opened
             --   global - aerial window will display symbols for the current window
-            attach_mode = "window",
+            attach_mode = "global",
 
             -- List of enum values that configure when to auto-close the aerial window
             --   unfocus       - close aerial when you leave the original source window
@@ -258,7 +259,7 @@ return {
             close_on_select = false,
 
             -- The autocmds that trigger symbols update (not used for LSP backend)
-            update_events = "TextChanged,InsertLeave",
+            update_events = "TextChanged,InsertLeave,BufWritePost,BufWritePre",
 
             -- Show box drawing characters for the tree hierarchy
             show_guides = false,
@@ -336,7 +337,7 @@ return {
             lsp = {
                 -- Fetch document symbols when LSP diagnostics update.
                 -- If false, will update on buffer changes.
-                diagnostics_trigger_update = true,
+                diagnostics_trigger_update = false,
 
                 -- Set to false to not update the symbols when there are LSP errors
                 update_when_errors = true,

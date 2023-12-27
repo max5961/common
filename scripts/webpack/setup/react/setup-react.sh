@@ -43,8 +43,12 @@ function copyFiles() {
     cp -r "${source_dir}". "${cwd}"
 
     # copy css reset
-    css_reset="$HOME/common/resources/templates/css-resets/reset.css"
+    css_reset="$HOME/common/templates/css-resets/reset.css"
     cat "${css_reset}" >"${cwd}"/src/style/reset.css
+
+    # copy .prettierrc.json
+    prettier_config="$HOME/common/templates/prettier/.prettierrc.json"
+    cp "${prettier_config}" "${cwd}"/.prettierrc.json
 
     if [ "${?}" -eq 0 ]; then
         echo "Successfully created files"

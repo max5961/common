@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dest="$(pwd)"
-webstarter="$HOME/common/resources/templates/webstarter/"
-css_reset="$HOME/common/resources/templates/css-resets/reset.css"
+webstarter="$HOME/common/scripts/webstarter/file-structure"
+css_reset="$HOME/common/templates/css-resets/reset.css"
 
 if [ ! -d "$webstarter" ]; then
     echo -e "\033[31mError: webstarter template does not exist in: $webstarter\033[0m"
