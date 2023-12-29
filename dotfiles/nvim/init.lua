@@ -21,12 +21,4 @@ require("lazy").setup({
 require("remap")
 require("set")
 require("lsp-setup")
-
--- :E reload buffer when switching git branches
-vim.api.nvim_create_user_command(
-    "E", function()
-        vim.cmd("e")          -- reload the buffer
-        vim.cmd("LspRestart") -- lsp errors do not reset between git branches
-    end,
-    {}
-)
+require("user-commands")

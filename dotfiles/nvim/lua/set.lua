@@ -27,7 +27,7 @@ vim.opt.incsearch = true
 
 -- formatting
 vim.opt.wrap = false                      -- disable linewrap
-vim.opt.colorcolumn = "100"               -- text can extend past but add margin column as a guide
+vim.opt.colorcolumn = "80"                -- text can extend past but add margin column as a guide
 vim.opt.textwidth = 0                     -- disable max width of text being inserted
 
 vim.opt.scrolloff = 12                    -- keeps at least x lines padding when scrolling up/down
