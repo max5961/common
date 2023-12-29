@@ -50,15 +50,15 @@ systemctl-check-if-reboot() {
     if [ "${1}" = "reboot" ]; then
         save-tmux-environment
         echo Rebooting...
-        command systemctl reboot
+        command sudo systemctl reboot
     else
-        command systemctl "${@}"
+        command sudo systemctl "${@}"
     fi
 }
 reboot-save-tmux() {
     save-tmux-environment
     echo Rebooting...
-    command reboot
+    command sudo reboot
 }
 alias systemctl='systemctl-check-if-reboot'
 alias reboot='reboot-save-tmux'
