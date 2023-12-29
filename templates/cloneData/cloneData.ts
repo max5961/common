@@ -2,6 +2,7 @@ function cloneData(data: any): any {
     let clone: any;
     if (
         typeof data === "object" &&
+        data !== null &&
         !(data instanceof Array) &&
         !(data instanceof Set) &&
         !(data instanceof Map)
@@ -11,10 +12,7 @@ function cloneData(data: any): any {
             clone[key] = cloneData(data[key]);
         }
     } else if (data instanceof Array) {
-        clone = [];
-        for (let i = 0; i < data.length; i++) {
-            clone[i] = cloneData(data[i]);
-        }
+        clone = data.map((item: any) => cloneData(item));
     } else if (data instanceof Set) {
         clone = new Set();
         const setValues = data.values();
@@ -32,4 +30,3 @@ function cloneData(data: any): any {
 
     return clone;
 }
-
