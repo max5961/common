@@ -32,6 +32,37 @@ mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+# save tmux sessions on reboot with the reboot command
+save-tmux-environment() {
+    echo Saving tmux environment...
+
+    # send tmux command prefix + <C-s> to the first window
+    # t1 instead of t0 - tmux.conf is set to start windows and panes at 1
+    tmux send-keys -t1 A-s C-s
+
+    if [ "${?}" -eq 0 ]; then
+        sleep 2
+    else
+        echo no current tmux environment
+    fi
+}
+systemctl-check-if-reboot() {
+    if [ "${1}" = "reboot" ]; then
+        save-tmux-environment
+        echo Rebooting...
+        command systemctl reboot
+    else
+        command systemctl "${@}"
+    fi
+}
+reboot-save-tmux() {
+    save-tmux-environment
+    echo Rebooting...
+    command reboot
+}
+alias systemctl='systemctl-check-if-reboot'
+alias reboot='reboot-save-tmux'
+
 # change alacritty theme
 set-alacritty-theme() {
     if [ -z "${1}" ]; then
