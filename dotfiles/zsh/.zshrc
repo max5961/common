@@ -1,11 +1,11 @@
 ### PERSONAL CONFIGURATION
-# DEFAULT APPS
+# default apps
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
 
-# SETTINGS FOR COMMON COMMANDS
+# settings for common commands
 alias vim='nvim'
 alias vimd='nvim .'
 alias ls='ls --color=auto'
@@ -30,6 +30,31 @@ alias bsynch="browser-sync start --server --file --watch '*'"
 # CUSTOM COMMANDS
 mkcd() {
     mkdir -p "$1" && cd "$1"
+}
+
+# change alacritty theme
+set-alacritty-theme() {
+    if [ -z "${1}" ]; then
+        return 1
+    fi
+
+    theme="${1}.yml"
+    themesDir="$HOME/.config/alacritty/dist/themes/"
+    ymlFile="$HOME/.config/alacritty/alacritty.yml"
+
+    themeExists=false
+    for f in "${themesDir}"*; do
+        if [ "${theme}" = "$(basename ${f})" ]; then
+            themeExists=true
+        fi
+    done;
+
+    if [ "$themeExists" = false ]; then
+        echo "Alacritty theme does not exist"
+        return 1
+    fi
+
+    sed -i "s|~/.config/alacritty/dist/themes/.*|~/.config/alacritty/dist/themes/${theme}|" "${ymlFile}"
 }
 
 # empty contents of current working directory
