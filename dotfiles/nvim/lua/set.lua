@@ -1,4 +1,5 @@
 -- https://neovim.io/doc/user/options.html
+-- :h set
 
 -- tabs / indents
 vim.opt.tabstop = 4
@@ -26,15 +27,17 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- formatting
-vim.opt.wrap = false                      -- disable linewrap
-vim.opt.colorcolumn = "80"                -- text can extend past but add margin column as a guide
-vim.opt.textwidth = 0                     -- disable max width of text being inserted
+vim.opt.wrap = false       -- disable linewrap
+vim.opt.colorcolumn = "80" -- text can extend past but add margin column as a guide
+vim.opt.textwidth = 0      -- disable max width of text being inserted
 
+-- other
 vim.opt.scrolloff = 12                    -- keeps at least x lines padding when scrolling up/down
 vim.opt.clipboard = "unnamedplus"         -- enable pasting yanked text outside of neovim
 vim.opt.backspace = { "indent", "start" } -- enable backspace but no backspace into the above line
 vim.opt.guicursor = ""                    -- rectangle cursor
 vim.opt.mouse = ""                        -- disable mouse click
+vim.opt.cmdheight = 0                     -- remove gap for cmd line (cmdheight=0 is considered experimental)
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 500
