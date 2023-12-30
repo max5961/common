@@ -32,6 +32,15 @@ mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+# oapp - open apps in terminal with nohup
+oapp() {
+    if [ -z "${1}" ]; then
+        nohup
+    else
+        nohup "${1}" > /dev/null 2>&1 &
+    fi
+}
+
 # save tmux sessions on reboot with the reboot command
 save-tmux-environment() {
     echo Saving tmux environment...
@@ -69,13 +78,13 @@ set-alacritty-theme() {
         return 1
     fi
 
-    theme="${1}.yml"
+    theme="${1}"
     themesDir="$HOME/.config/alacritty/dist/themes/"
-    ymlFile="$HOME/.config/alacritty/alacritty.yml"
+    configFile="$HOME/.config/alacritty/alacritty.toml"
 
     themeExists=false
     for f in "${themesDir}"*; do
-        if [ "${theme}" = "$(basename ${f})" ]; then
+        if [ "${theme}.yml" = "$(basename ${f})" ]; then
             themeExists=true
         fi
     done;
@@ -85,7 +94,7 @@ set-alacritty-theme() {
         return 1
     fi
 
-    sed -i "s|~/.config/alacritty/dist/themes/.*|~/.config/alacritty/dist/themes/${theme}|" "${ymlFile}"
+    sed -i 's|/.config/alacritty/dist/themes/.*|/.config/alacritty/dist/themes/${theme}.toml]' "${configFile}"
 }
 
 # empty contents of current working directory

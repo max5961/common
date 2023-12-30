@@ -1,0 +1,30 @@
+import = ["/home/max/.config/alacritty/dist/themes/rose-pine-moon.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 12.5
+
+[font.normal]
+family = "MesloLGS NF"
+
+[scrolling]
+history = 1000
+multiplier = 3
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+decorations = "none"
+opacity = 0.85
+startup_mode = "maximized"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 10
+y = 10
