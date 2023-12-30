@@ -1,5 +1,10 @@
 -- https://github.com/rose-pine/neovim
 
+function SetColorScheme(color)
+    vim.cmd("colorscheme " .. color)
+    vim.cmd("!change-alacritty-theme " .. color)
+end
+
 return {
     {
         'rose-pine/neovim',
