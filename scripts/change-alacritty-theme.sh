@@ -24,6 +24,5 @@ if [ "${themeFile}" == "" ]; then
     exit 1
 fi
 
-# import = ["/home/max/.config/alacritty/dist/themes/rose-pine-moon.toml"]
 # replace the line colorscheme import path
 sed -i "s|.config/alacritty/dist/themes/.*|.config/alacritty/dist/themes/${themeFile}\"]|" "${alacrittyConfigDir}/alacritty.toml"
