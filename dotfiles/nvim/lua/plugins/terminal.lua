@@ -66,6 +66,10 @@ return {
             elseif file_ext == "sh" then
                 cmd = "chmod +x " .. file_path .. " && " .. file_path
 
+                -- python
+            elseif file_ext == "py" then
+                cmd = "python " .. file_path
+
                 -- invalid file_ext/non-file buffer
             else
                 if file_ext == nil or file_ext == "" then
