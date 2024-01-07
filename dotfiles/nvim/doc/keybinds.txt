@@ -13,5 +13,9 @@ keymaps
     [cmd Obsession] = start tracking session
     [cmd Obsession!] = stop tracking session and delete the Session.vim file
 
-
-
+Nvim keymaps
+--------------------------------------------------------------------------------
+[C-w + C--] = decrease font size
+[C-w + C-=] = increase font size
+[C-w + +] = increase split window size
+[C-w + _] = decrease split window size

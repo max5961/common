@@ -5,6 +5,7 @@ import sys
 artist = sys.argv[1]
 album = sys.argv[2]
 
+
 def removeLeadingName(trackTitle, artist, album):
     if len(trackTitle.split("-")) > 1:
         firstIndex = trackTitle.split("-")[0].strip().casefold()
