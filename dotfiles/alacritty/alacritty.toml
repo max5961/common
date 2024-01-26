@@ -18,7 +18,7 @@ program = "/usr/bin/zsh"
 
 [window]
 decorations = "none"
-opacity = 0.85
+opacity = 0.89
 startup_mode = "maximized"
 
 [window.class]
@@ -26,5 +26,5 @@ general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 10
-y = 10
+#x = 10
+#y = 10

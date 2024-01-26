@@ -14,8 +14,18 @@ keymaps
     [cmd Obsession!] = stop tracking session and delete the Session.vim file
 
 Nvim keymaps
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 [C-w + C--] = decrease font size
 [C-w + C-=] = increase font size
 [C-w + +] = increase split window size
 [C-w + _] = decrease split window size
+[C-v + I + repeatableChar(s) + ESC] = add repeatable in first line
+[C-a] = increment number
+[C-v + g + C-a] = increment numbers with visual block mode
+[K] = shows LSP definitons for word under cursor
+
+
+
+
+
+

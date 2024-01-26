@@ -37,7 +37,7 @@ vim.opt.clipboard = "unnamedplus"         -- enable pasting yanked text outside 
 vim.opt.backspace = { "indent", "start" } -- enable backspace but no backspace into the above line
 vim.opt.guicursor = ""                    -- rectangle cursor
 vim.opt.mouse = ""                        -- disable mouse click
-vim.opt.cmdheight = 0                     -- remove gap for cmd line (cmdheight=0 is considered experimental)
+vim.opt.cmdheight = 1                     -- remove gap for cmd line (cmdheight=0 is considered experimental)
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 500

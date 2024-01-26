@@ -5,6 +5,7 @@ return {
     "xiyaowong/transparent.nvim",
     config = function()
         vim.cmd "TransparentEnable"
+
         require("transparent").setup({
             groups = {
                 'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
@@ -14,8 +15,9 @@ return {
                 'EndOfBuffer',
             },
             extra_groups = {
-                "NormalFloat",    -- plugins which have float panel such as Lazy, Mason, LspInfo
-                -- "NeoTreeFloatNormal", -- adding this removes highlighting on neotree selections
+                "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
+                "NeoTreeFloatNormal",
+                "NeoTreeNormal",
                 "FloatBorder",    -- removing this adds an ugly border on nvim-cmp windows
                 "NvimTreeNormal", -- NvimTree
                 "TelescopeNormal",

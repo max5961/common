@@ -6,7 +6,8 @@ return {
     opts = {
         options = {
             icons_enabled = false,
-            theme = "rose-pine",
+            -- theme = "rose-pine",
+            theme = "terafox",
             component_separators = "|",
             selection_separators = "",
         }

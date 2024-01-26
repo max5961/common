@@ -1,3 +1,5 @@
+#https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/bindings
+
 def_key "j"
     scroll_down
 def_key "k"
@@ -6,3 +8,10 @@ def_key "h"
     previous_column
 def_key "l"
     next_column
+def_key "space"
+    pause
+def_key "right"
+    seek_forward
+def_key "left"
+    seek_backward
+

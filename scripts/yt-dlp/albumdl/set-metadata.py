@@ -20,22 +20,20 @@ albumDir = os.path.expanduser(f"~/Music/{artist}/{album}")
 for song in sorted(os.listdir(albumDir)):
     # track number
     trackNumber = song.split("<<>>")[0]
-    
+
     # title
     trackTitle = os.path.splitext(song)[0].split("<<>>")[1].strip()
     trackTitle = removeLeadingName(trackTitle, artist, album)
-    
+
     # absolute path to file
     trackPath = os.path.join(albumDir, song)
-    
+
     # set the metadata using kid3-cli
     subprocess.run([
-        "kid3-cli", 
-        "-c", f'set track "{trackNumber}"', 
-        "-c", f'set title "{trackTitle}"', 
+        "kid3-cli",
+        "-c", f'set track "{trackNumber}"',
+        "-c", f'set title "{trackTitle}"',
         "-c", f'set artist "{artist}"',
         "-c", f'set album "{album}"',
         trackPath
-    ]) 
-
-
+    ])
