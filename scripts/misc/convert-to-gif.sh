@@ -10,4 +10,4 @@ fi
 
 output_file="${source_file%.*}"
 
-ffmpeg -i ${source_file} -vf "fps=10,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop -1 ${output_file}.gif
+ffmpeg -i ${source_file} -vf "fps=30,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop -1 ${output_file}.gif
