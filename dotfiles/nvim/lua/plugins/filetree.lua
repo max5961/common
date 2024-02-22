@@ -31,6 +31,11 @@ return {
                     enabled = false
                 }
             },
+            window = {
+                mappings = {
+                    ["s"] = { "open_rightbelow_vs" },
+                }
+            }
         })
     end
 }

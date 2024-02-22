@@ -32,13 +32,30 @@ vim.opt.colorcolumn = "80" -- text can extend past but add margin column as a gu
 vim.opt.textwidth = 0      -- disable max width of text being inserted
 
 -- other
-vim.opt.scrolloff = 12                    -- keeps at least x lines padding when scrolling up/down
-vim.opt.clipboard = "unnamedplus"         -- enable pasting yanked text outside of neovim
-vim.opt.backspace = { "indent", "start" } -- enable backspace but no backspace into the above line
-vim.opt.guicursor = ""                    -- rectangle cursor
-vim.opt.mouse = ""                        -- disable mouse click
-vim.opt.cmdheight = 1                     -- remove gap for cmd line (cmdheight=0 is considered experimental)
+vim.opt.scrolloff = 12            -- keeps at least x lines padding when scrolling up/down
+vim.opt.clipboard = "unnamedplus" -- enable pasting yanked text outside of neovim
+vim.opt.guicursor = ""            -- rectangle cursor
+vim.opt.mouse = ""                -- disable mouse click
+vim.opt.cmdheight = 1             -- remove gap for cmd line (cmdheight=0 is considered experimental)
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 500
 vim.opt.autoread = true
+
+
+-- set options for textwidth, wrap, and backspace based on file type
+-- note: backspace can only be set globally
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*" },
+    callback = function()
+        local file_ext = vim.fn.expand("%:t"):match(".+%.(%w+)$")
+        if file_ext == "txt" or file_ext == "md" then
+            vim.opt_local.textwidth = 80
+            vim.opt_local.wrap = true
+            -- enable backspace functionality like you would expect in a normal text document
+            vim.opt.backspace = { "indent", "eol", "start" }
+        else
+            vim.opt.backspace = { "indent", "start" } -- enable backspace but no backspace into the above line
+        end
+    end
+})

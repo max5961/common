@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# this script will not overwrite pre existing symlinks or normal files/dirs
-# manually remove the config directories/files you want to symlink to
+# This script will not overwrite pre existing symlinks or normal files/dirs
+# Manually remove the config directories/files you want to symlink to
 
 dotfiles_dir="$HOME/common/dotfiles"
 
@@ -26,7 +26,7 @@ function link_dir_to_XDG_CONFIG_HOME() {
 # takes 2 arguments: name of directory, name of file
 function link_file_to_HOME() {
     if [ -f "$HOME/${2}" ] || [ -L "$HOME/${2}" ]; then
-        echo "symlink not created - file already exists in $HOME/${2}";
+        echo "symlink not created - file already exists in $HOME/${2}"
     else
         ln -s ${dotfiles_dir}/${1}/${2} ~/${2}
         print_success_message "${?}" "${2}"

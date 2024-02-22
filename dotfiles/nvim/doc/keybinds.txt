@@ -1,28 +1,37 @@
-tmux-resurrect & tpope/obsession
---------------------------------------------------------------------------------
--- obsession creates a Session.vim file to track changes
--- obsession automatically saves sessions on buffer changes
--- resurrect allows persistence of tmux sessions between reboots
--- resurrect requires manual saving/reloading of sessions
-
-keymaps
-    -- tmux
-    [prefix + C-s] = save tmux environment
-    [prefix + C-r] = restore tmux environment
-    -- nvim
-    [cmd Obsession] = start tracking session
-    [cmd Obsession!] = stop tracking session and delete the Session.vim file
-
-Nvim keymaps
+KEYMAPS DOCUMENTATION
 -------------------------------------------------------------------------------
-[C-w + C--] = decrease font size
-[C-w + C-=] = increase font size
-[C-w + +] = increase split window size
-[C-w + _] = decrease split window size
-[C-v + I + repeatableChar(s) + ESC] = add repeatable in first line
-[C-a] = increment number
-[C-v + g + C-a] = increment numbers with visual block mode
-[K] = shows LSP definitons for word under cursor
+Font Size Adjustments:
+- Decrease: [Ctrl + w, Ctrl + -]
+- Increase: [Ctrl + w, Ctrl + =]
+
+Window Sizing:
+- Increase Split Size: [Ctrl + Up] or [Ctrl + w, +]
+- Decrease Split Size: [Ctrl + Down] or [Ctrl + w, -]
+- Toggle Full Screen: [Leader + fs]
+
+Editing:
+- Add Repeatable Character(s) in Visual Block: [Ctrl + v, I, <character(s)>, Esc]
+- Increment Number: [Ctrl + a]
+- Increment Numbers in Visual Block: [Ctrl + v, g, Ctrl + a]
+
+Tools:
+- Show Completion Path/File: [Ctrl + x, Ctrl + f]
+- Show LSP Definitions for Word Under Cursor: [K]
+
+Tmux Integration:
+- Start Tracking Vim Session: [:Obsession]
+- Stop Tracking Vim Session (and delete the Session.vim file): [:Obsession!]
+- Save Tmux Environment: [prefix + C-s]
+- Restore Tmux Environment: [prefix + C-r]
+
+***Note on tmux-resurrect & tpope/obsession
+    -- obsession creates a Session.vim file to track changes
+    -- obsession automatically saves sessions on buffer changes
+    -- resurrect allows persistence of tmux sessions between reboots
+    -- resurrect requires manual saving/reloading of sessions
+
+
+
 
 
 

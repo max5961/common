@@ -36,6 +36,19 @@ end)
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
+require("lspconfig").stylelint_lsp.setup({
+    filetypes = { "css", "scss" },
+    root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
+    settings = {
+        stylelintplus = {
+            -- see available options in stylelint-lsp documentation
+        },
+    },
+    on_attach = function(client)
+        client.server_capabilities.document_formatting = false
+    end,
+})
+
 -- setup autocomplete
 -- Alt + j or k to move up/down in drop down menu
 -- Tab to complete highlighted selection

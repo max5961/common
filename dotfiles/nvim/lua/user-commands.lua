@@ -9,3 +9,10 @@ vim.api.nvim_create_user_command(
     end,
     {}
 )
+
+vim.api.nvim_create_user_command(
+    "Help", function()
+        vim.cmd("12split ~/common/dotfiles/nvim/doc/keybinds.txt")
+    end,
+    {}
+)
