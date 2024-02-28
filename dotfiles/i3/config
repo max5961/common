@@ -58,9 +58,6 @@ set $active-window #9ac6e2
 font pango:NerdFont 10
 
 # gaps
-# gaps inner 6
-# gaps left 7
-# gaps right 7
 gaps inner 10
 
 # change border for focused windows
@@ -219,7 +216,6 @@ bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/dual-monitor/cycl
 bindsym $alt+Shift+l exec --no-startup-id ~/.config/i3/scripts/dual-monitor/cycle-r.sh
 
 # move focused window to specified workspace
-# mode "move" {
 # monitor 1
 bindsym $alt+1 move container to workspace number $ws1
 bindsym $alt+2 move container to workspace number $ws2
@@ -230,7 +226,6 @@ bindsym $alt+6 move container to workspace number $ws6
 bindsym $alt+7 move container to workspace number $ws7
 bindsym $alt+8 move container to workspace number $ws8
 bindsym $alt+9 move container to workspace number $ws9
-
 # monitor 2
 bindsym $alt+Shift+1 move container to workspace number $ws11
 bindsym $alt+Shift+2 move container to workspace number $ws12
@@ -241,14 +236,6 @@ bindsym $alt+Shift+6 move container to workspace number $ws16
 bindsym $alt+Shift+7 move container to workspace number $ws17
 bindsym $alt+Shift+8 move container to workspace number $ws18
 bindsym $alt+Shift+9 move container to workspace number $ws19
-
-# back to normal: Enter or Escape or $mod+t
-# bindsym Return mode "default"
-# bindsym Escape mode "default"
-# bindsym $mod+m mode "default"
-# bindsym m mode "default"
-# }
-# bindsym $mod+m mode "move"
 
 
 # EVERYTHING BELOW THIS COMMENT CAME WITH THE DEFAULT I3 CONFIG
