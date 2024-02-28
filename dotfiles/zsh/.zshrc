@@ -17,6 +17,7 @@ alias grep='grep --color=auto'
 alias tr='trash-put'
 alias trr='trash-restore'
 alias journalctl='journalctl --reverse'
+alias bat='bat --theme=Visual\ Studio\ Dark+'
 
 # git aliases
 alias g='git'
