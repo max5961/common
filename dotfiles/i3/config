@@ -10,8 +10,10 @@ bindsym $mod+Shift+r restart
 # STARTUP
 # -----------------------------------------------------------------------------
 exec_always --no-startup-id ~/.config/i3/scripts/monitor-settings.sh
+exec_always --no-startup-id ~/.config/i3/scripts/create-tmp-ws-file.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom &
+
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # -----------------------------------------------------------------------------
@@ -52,7 +54,8 @@ bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
 #  VISUAL
 # -----------------------------------------------------------------------------
 set $main-color #c2c8ea
-set $active-window #9ac6e2
+set $active-window #79c6e2
+
 
 # font
 font pango:NerdFont 10
@@ -72,6 +75,7 @@ bar {
         workspace_min_width 50
         position top
         strip_workspace_numbers yes
+        strip_workspace_name no
         colors {
             background #19191950
                 focused_workspace #000000 $main-color #000000
@@ -147,14 +151,6 @@ bindsym $mod+Shift+space focus mode_toggle
 # -----------------------------------------------------------------------------
 # WORKSPACES
 # -----------------------------------------------------------------------------
-# Workspaces on separate monitors are all tightly coupled via custom scripts.
-#   ws1: m1 -> ws1, m2 -> ws11
-#   ws2: m1 -> ws2, m2 -> ws12
-#   ws3: m1 -> ws3, m2 -> ws13
-#   ...
-# monitor1: 1-9, monitor2: 11-19
-# There are 9 coupled workspaces, but technically 18 total workspaces
-
 set $m1 eDP-1
 set $m2 HDMI-1-0
 
@@ -201,19 +197,19 @@ set $ws18 "18"
 set $ws18 "19"
 
 # set keymaps
-bindsym $mod+1 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-1.sh
-bindsym $mod+2 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-2.sh
-bindsym $mod+3 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-3.sh
-bindsym $mod+4 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-4.sh
-bindsym $mod+5 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-5.sh
-bindsym $mod+6 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-6.sh
-bindsym $mod+7 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-7.sh
-bindsym $mod+8 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-8.sh
-bindsym $mod+9 exec --no-startup-id ~/.config/i3/scripts/dual-monitor/ws-9.sh
+bindsym $mod+1 workspace 1; workspace 11: 1; exec --no-startup-id echo "1" >/tmp/current-workspace-number
+bindsym $mod+2 workspace 2; workspace 12: 2; exec --no-startup-id echo "2" >/tmp/current-workspace-number
+bindsym $mod+3 workspace 3; workspace 13: 3; exec --no-startup-id echo "3" >/tmp/current-workspace-number
+bindsym $mod+4 workspace 4; workspace 14: 4; exec --no-startup-id echo "4" >/tmp/current-workspace-number
+bindsym $mod+5 workspace 5; workspace 15: 5; exec --no-startup-id echo "5" >/tmp/current-workspace-number
+bindsym $mod+6 workspace 6; workspace 16: 6; exec --no-startup-id echo "6" >/tmp/current-workspace-number
+bindsym $mod+7 workspace 7; workspace 17: 7; exec --no-startup-id echo "7" >/tmp/current-workspace-number
+bindsym $mod+8 workspace 8; workspace 18: 8; exec --no-startup-id echo "8" >/tmp/current-workspace-number
+bindsym $mod+9 workspace 9; workspace 19: 9; exec --no-startup-id echo "9" >/tmp/current-workspace-number
 
 # cycle workspaces left/right
-bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/dual-monitor/cycle-l.sh
-bindsym $alt+Shift+l exec --no-startup-id ~/.config/i3/scripts/dual-monitor/cycle-r.sh
+bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/cycle-ws-l.sh
+bindsym $alt+Shift+l exec --no-startup-id ~/.config/i3/scripts/cycle-ws-r.sh
 
 # move focused window to specified workspace
 # monitor 1
@@ -227,15 +223,15 @@ bindsym $alt+7 move container to workspace number $ws7
 bindsym $alt+8 move container to workspace number $ws8
 bindsym $alt+9 move container to workspace number $ws9
 # monitor 2
-bindsym $alt+Shift+1 move container to workspace number $ws11
-bindsym $alt+Shift+2 move container to workspace number $ws12
-bindsym $alt+Shift+3 move container to workspace number $ws13
-bindsym $alt+Shift+4 move container to workspace number $ws14
-bindsym $alt+Shift+5 move container to workspace number $ws15
-bindsym $alt+Shift+6 move container to workspace number $ws16
-bindsym $alt+Shift+7 move container to workspace number $ws17
-bindsym $alt+Shift+8 move container to workspace number $ws18
-bindsym $alt+Shift+9 move container to workspace number $ws19
+bindsym $alt+Shift+1 move container to workspace "11: 1"
+bindsym $alt+Shift+2 move container to workspace "12: 2"
+bindsym $alt+Shift+3 move container to workspace "13: 3"
+bindsym $alt+Shift+4 move container to workspace "14: 4"
+bindsym $alt+Shift+5 move container to workspace "15: 5"
+bindsym $alt+Shift+6 move container to workspace "16: 6"
+bindsym $alt+Shift+7 move container to workspace "17: 7"
+bindsym $alt+Shift+8 move container to workspace "18: 8"
+bindsym $alt+Shift+9 move container to workspace "19: 9"
 
 
 # EVERYTHING BELOW THIS COMMENT CAME WITH THE DEFAULT I3 CONFIG
