@@ -25,6 +25,8 @@ vim.opt.relativenumber = true
 -- search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true -- makes the search case sensitive if it includes uppercase letters
 
 -- formatting
 vim.opt.wrap = false       -- disable linewrap

@@ -40,6 +40,9 @@ link_dir_to_XDG_CONFIG_HOME "ncmpcpp"
 link_dir_to_XDG_CONFIG_HOME "mpd"
 link_dir_to_XDG_CONFIG_HOME "mpv"
 link_dir_to_XDG_CONFIG_HOME "tmux"
+link_dir_to_XDG_CONFIG_HOME "i3"
+link_dir_to_XDG_CONFIG_HOME "lf"
+link_dir_to_XDG_CONFIG_HOME "rofi"
 
 # files in ~/
 link_file_to_HOME "bash" ".bashrc"

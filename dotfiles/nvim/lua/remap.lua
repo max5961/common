@@ -1,5 +1,5 @@
--- show all key mappings
--- :map, :nmap, :vmap, :imap, :cmap (all, n, v, i, cmd)
+-- show key mappings (:map shows all, :nmap shows normal mode, :vmap visual mode....)
+-- :map :nmap :vmap :imap, :cmap
 
 -- move between window splits
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -11,7 +11,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- scroll faster - move x amount of lines up/down in n
+-- scroll faster - move x amount of lines up/down in normal mode
 local function fast_scroll(lines, down_mapping, up_mapping)
     vim.keymap.set(
         "n",
@@ -46,7 +46,7 @@ vim.keymap.set("n", "<C-Down>", function() vim.cmd("resize -1") end)
 vim.keymap.set("n", "<C-Right>", function() vim.cmd("vertical resize +1") end);
 vim.keymap.set("n", "<C-Left>", function() vim.cmd("vertical resize -1") end);
 
--- toggle current window between fullscreen
+-- toggle current window between fullscreen with leader + fs
 Window_state = {}
 vim.keymap.set(
     "n",

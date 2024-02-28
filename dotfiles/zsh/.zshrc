@@ -1,4 +1,8 @@
 ### PERSONAL CONFIGURATION
+
+# prefix for aliases to prevent potential naming conflicts
+prefix="_"
+
 # default apps
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
@@ -12,6 +16,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias tr='trash-put'
 alias trr='trash-restore'
+alias journalctl='journalctl --reverse'
 
 # git aliases
 alias g='git'
@@ -23,6 +28,23 @@ gc() {
     read "message?Enter commit message: "
     git commit -m "${message}"
 }
+
+# fzf utilities
+# find files (normal, dotfiles, root files)
+alias "$prefix"ff='fzf-open-file'
+alias "$prefix"ffd='fzf-open-file --hidden'
+alias "$prefix"ffr='fzf-open-file --root'
+# find grep (for the root option, as long as the file has a normal name it should always work)
+alias "$prefix"fg='fzf-grep-contents-open'
+alias "$prefix"fgd='fzf-grep-contents-open --hidden'
+alias "$prefix"fgr='fzf-grep-contents-open --root'
+# cd into (normal, start search from home, start search in root)
+alias "$prefix"cd='source fzf-cd-into'
+alias "$prefix"cdh='cd && source fzf-cd-into'
+alias "$prefix"cdr='cd / && source fzf-cd-into'
+
+# lfimg (runs lfrun on opening lf)
+alias lf='lfrun'
 
 # browser sync
 alias bsynch="browser-sync start --server --file --watch '*'"
@@ -115,6 +137,7 @@ zstyle ':z4h:' term-shell-integration 'yes'
 # Right-arrow key accepts one character ('partial-accept') from
 # command autosuggestions or the whole thing ('accept')?
 zstyle ':z4h:autosuggestions' forward-char 'accept'
+# zstyle ':z4h:autosuggestions' tab 'accept'
 
 # Recursively traverse directories when TAB-completing files.
 zstyle ':z4h:fzf-complete' recurse-dirs 'yes'

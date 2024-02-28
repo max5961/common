@@ -1,12 +1,14 @@
-KEYMAPS DOCUMENTATION
+KEYMAPS
 -------------------------------------------------------------------------------
 Font Size Adjustments:
 - Decrease: [Ctrl + w, Ctrl + -]
 - Increase: [Ctrl + w, Ctrl + =]
 
 Window Sizing:
-- Increase Split Size: [Ctrl + Up] or [Ctrl + w, +]
-- Decrease Split Size: [Ctrl + Down] or [Ctrl + w, -]
+- Increase Split Height: [Ctrl + Up]
+- Decrease Split Height: [Ctrl + Down]
+- Increase Split Width: [Ctrl + Right]
+- Decrease Split Width: [Ctrl + Left]
 - Toggle Full Screen: [Leader + fs]
 
 Editing:
@@ -15,8 +17,11 @@ Editing:
 - Increment Numbers in Visual Block: [Ctrl + v, g, Ctrl + a]
 
 Tools:
-- Show Completion Path/File: [Ctrl + x, Ctrl + f]
+- Show Completion Path/To/File: [Ctrl + x, Ctrl + f]
 - Show LSP Definitions for Word Under Cursor: [K]
+
+Format
+- Visual select all lines to format [gq] to format
 
 Tmux Integration:
 - Start Tracking Vim Session: [:Obsession]

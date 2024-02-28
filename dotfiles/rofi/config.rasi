@@ -1,0 +1,83 @@
+configuration {
+    display-drun: "Applications:";
+    display-window: "Windows:";
+    drun-display-format: "{icon} {name}";
+    font: "JetBrainsMOno Nerd Font Medium 12";
+    modi: "window,run,drun";
+    show-icons: true;
+    icon-theme: "Papirus";
+
+    kb-mode-next: "Alt+l";
+    kb-mode-previous: "Alt+h";
+    kb-row-up: "Alt+k,Up";
+    kb-row-down: "Alt+j,Down";
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #11121D80;
+    bg-alt: #444b6a;
+    fg: #FFFFFF;
+    fg-alt: #787c99;
+
+    background-color: @bg;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    width: 45%;
+}
+
+element {
+    text-color: @fg-alt;
+}
+
+element selected {
+    text-color: @fg;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    padding: 12;
+}
+
+element-icon {
+    size: 30;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    vertical-align: 0.5;
+}
+
+entry {
+    padding: 12;
+    text-color: inherit;
+}
+
+prompt {
+    vertical-align: 0.5;
+    padding: 12;
+    text-color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

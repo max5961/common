@@ -40,6 +40,8 @@ function copyFiles() {
     prettier_config="$HOME/common/templates/prettier/.prettierrc.json"
     cp "${prettier_config}" "${cwd}"/.prettierrc.json
 
+    # copy .stylelintrc.json
+
     if [ "${?}" -eq 0 ]; then
         echo "Successfully created files"
     fi

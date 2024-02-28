@@ -4,7 +4,7 @@ import = ["/home/max/.config/alacritty/dist/themes/rose-pine-moon.toml"]
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 12.5
+size = 12
 
 [font.normal]
 family = "MesloLGS NF"
@@ -17,7 +17,7 @@ multiplier = 3
 program = "/usr/bin/zsh"
 
 [window]
-decorations = "none"
+# decorations = "none"
 opacity = 0.89
 startup_mode = "maximized"
 
