@@ -35,7 +35,7 @@ vim.api.nvim_create_user_command(
         local category = vim.fn.input("Enter one of the above: ")
 
         if category == "cpp" then
-            openSplitWindow("~/notes/cpp/cpp-tutorial/notes.txt");
+            openSplitWindow("~/notes/cpp/notes.txt");
         end
     end,
     {}

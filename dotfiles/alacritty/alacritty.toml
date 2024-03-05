@@ -18,7 +18,7 @@ program = "/usr/bin/zsh"
 
 [window]
 # decorations = "none"
-opacity = 0.89
+opacity = 0.75
 startup_mode = "maximized"
 
 [window.class]

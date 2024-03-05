@@ -33,7 +33,7 @@ case $chosen in
         open_app "bitwarden-desktop"
         ;;
     $calc)
-        open_app "kcalc"
+        open_app "gnome-calculator"
         ;;
     $pulseaudio)
         open_app "pavucontrol"

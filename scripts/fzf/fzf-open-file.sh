@@ -21,7 +21,7 @@ else
     file=$(find . -name 'node_modules' -prune -o -name '.git' -prune -o -name 'bundle.js' -prune -o -print | fzf -i)
 fi
 
-if [ -f "$file" ]; then
+if [ -e "$file" ]; then
     if [ "$1" == "-r" ] || [ "$1" == "--root" ]; then
         # fzf outputs without the preceding /
         cd $(dirname "/$file")

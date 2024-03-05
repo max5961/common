@@ -30,7 +30,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # mouse speed
 # scale of: -1 <---> 1
-exec_always --no-startup-id xinput set-prop 12 328 -0.5
+exec_always --no-startup-id xinput set-prop 12 328 -0.7
 
 # -----------------------------------------------------------------------------
 #  APPS
@@ -43,8 +43,8 @@ bindsym $mod+b exec --no-startup-id open-browser
 
 # rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $alt+d exec --no-startup-id ~/.config/rofi/scripts/favorites.sh
 bindsym $mod+w exec --no-startup-id rofi -show window
-bindsym $mod+s exec --no-startup-id ~/.config/rofi/scripts/favorites.sh
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
 
 # mpd
@@ -54,18 +54,22 @@ bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
 #  VISUAL
 # -----------------------------------------------------------------------------
 set $main-color #c2c8ea
-set $active-window #79c6e2
+# set $active-window #79c6e2
+set $active-window #799ce2
+set $inactive-window #000000
 
 
 # font
 font pango:NerdFont 10
 
 # gaps
-gaps inner 10
+gaps inner 12
 
 # change border for focused windows
 default_border pixel 3
-client.focused              $active-window $active-window $active-window $active-window
+client.focused $active-window $active-window $active-window $active-window
+client.focused_inactive $inactive-window $inactive-window $inactive-window $inactive-window
+
 
 # i3-bar
 bar {
@@ -114,15 +118,20 @@ bindsym $mod+Shift+Right move right
 # resize windows
 mode "resize" {
     bindsym Left resize shrink width 1 px or 1 ppt
-        bindsym Down resize grow height 1 px or 1 ppt
-        bindsym Up resize shrink height 1 px or 1 ppt
-        bindsym Right resize grow width 1 px or 1 ppt
+    bindsym Down resize grow height 1 px or 1 ppt
+    bindsym Up resize shrink height 1 px or 1 ppt
+    bindsym Right resize grow width 1 px or 1 ppt
+
+    bindsym h resize shrink width 1 px or 1 ppt
+    bindsym k resize grow height 1 px or 1 ppt
+    bindsym j resize shrink height 1 px or 1 ppt
+    bindsym l resize grow width 1 px or 1 ppt
 
 # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-        bindsym r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+    bindsym r mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -131,7 +140,12 @@ bindsym $alt+h split h
 bindsym $alt+v split v
 
 # toggle current split direction
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
+# bindsym $mod+e layout toggle splith
 
 # fullscreen
 bindsym $mod+f fullscreen toggle
@@ -249,9 +263,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
 
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
