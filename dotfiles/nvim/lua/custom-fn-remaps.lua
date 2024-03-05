@@ -95,21 +95,19 @@ local function makeCurrFullscreen()
     vim.api.nvim_feedkeys(full_w_keys, "n", false)
 end
 
--- Make the current buffer fullscreen
 local function handleNotFs()
     storePreState()
     makeCurrFullscreen()
 end
 
--- Make the current buffer not fullscreen
 local function handleRevertFs()
     resizeToPreState()
     ToggleState.fullscreen = false
     ToggleState.currId = nil
 end
 
--- if ToggleState.fullscreen, make the current buffer fullscreen
--- and update ToggleState.currId to the new buffer
+-- if the toggling on a window OTHER THAN the window which is currently
+-- fullscreened
 local function handleMakeOtherFs()
     makeCurrFullscreen()
 end
