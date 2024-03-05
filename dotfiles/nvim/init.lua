@@ -19,6 +19,7 @@ require("lazy").setup({
 })
 
 require("remap")
+require("custom-fn-remaps")
 require("set")
 require("lsp-setup")
 require("user-commands")
