@@ -48,15 +48,11 @@ vim.keymap.set("n", "<C-Left>", function() vim.cmd("vertical resize -1") end);
 
 
 -- toggle window fullscreen
--- When the terminal window is maximized this successfully toggles windows
--- fullscreen and returns all windows back to their original size.  While a
--- window is fullscreen, usually there is a single line for all other windows
--- and these can be toggled fullscreen as well.
---
--- Behavior becomes less predictable when the terminal window is not fullscreen
--- or if the monitor is squishes text at all.  Also, if a new buffer is opened
--- while in fullscreen this causes unpredictable behavior as well, which could
--- be possibly fixed with an autocmd for the right Event
+-- While a window is fullscreen, usually there is a single line for all other
+-- windows and these can be toggled fullscreen as well. If a new window is
+-- opened while in fullscreen this causes unpredictable behavior.  While this
+-- could be fixed with an autocmd for the right event its not worth the trouble
+-- as this is a rare edge case to perform
 WindowState = {}
 ToggleState = {
     fullscreen = false,
@@ -68,37 +64,70 @@ local function storePreState()
     for _, v in ipairs(vim.fn.getwininfo()) do
         if vim.api.nvim_buf_is_loaded(v.bufnr) then
             WindowState[v.winid] = {}
+            WindowState[v.winid].bufnr = v.bufnr
             WindowState[v.winid].winid = v.winid
             WindowState[v.winid].height = v.height
             WindowState[v.winid].width = v.width
-            WindowState[v.winid].is_fullscreen = false
         end
     end
 end
 
+local function resizeToPreState()
+    -- Resizing NEEDS to be done in ascending for respective height / width
+    -- dimensions.  Otherwise, the growing of windows to fill dead space causes
+    -- undesired effects.
+    local ascendingHeights = {}
+    local ascendingWidths = {}
+
+    -- get the properties for each window
+    for k, _ in pairs(WindowState) do
+        if vim.api.nvim_buf_is_loaded(WindowState[k].bufnr) then
+            local dict = {
+                winid = WindowState[k].winid,
+                bufnr = WindowState[k].bufnr,
+                height = WindowState[k].height,
+                width = WindowState[k].width,
+            }
+            table.insert(ascendingHeights, dict)
+            table.insert(ascendingWidths, dict)
+        end
+    end
+
+    -- sort the tables in ascending order
+    table.sort(ascendingHeights, function(a, b)
+        return a.height < b.height
+    end)
+    table.sort(ascendingWidths, function(a, b)
+        return a.height < b.height
+    end)
+
+    -- iterate through the sorted lists and set the heights and widths of each
+    -- window
+    for _, item in ipairs(ascendingHeights) do
+        vim.api.nvim_win_set_height(item.winid, item.height)
+    end
+    for _, item in ipairs(ascendingWidths) do
+        vim.api.nvim_win_set_width(item.winid, item.width)
+    end
+end
+
 local function makeCurrFullscreen()
+    ToggleState.currId = vim.api.nvim_get_current_win()
+    ToggleState.fullscreen = true
+
+    -- vim.api.nvim_win_set_height(ToggleState.currId, 100)
+    -- vim.api.nvim_win_set_width(ToggleState.currId, 100)
+
     local full_h_keys = vim.api.nvim_replace_termcodes("<C-w>_", true, false, true)
     local full_w_keys = vim.api.nvim_replace_termcodes("<C-w>|", true, false, true)
     vim.api.nvim_feedkeys(full_h_keys, "n", false)
     vim.api.nvim_feedkeys(full_w_keys, "n", false)
 end
 
-local function resizeToPreState()
-    for k, _ in pairs(WindowState) do
-        local winid = WindowState[k].winid
-        local height = WindowState[k].height
-        local width = WindowState[k].width
-        vim.api.nvim_win_set_height(winid, height)
-        vim.api.nvim_win_set_width(winid, width)
-    end
-end
-
 -- make the current buffer fullscreen
 local function handleNotFs()
     storePreState()
     makeCurrFullscreen()
-    ToggleState.currId = vim.api.nvim_get_current_win()
-    ToggleState.fullscreen = true
 end
 
 -- make the current buffer not fullscreen
@@ -112,7 +141,6 @@ end
 -- and update ToggleState.currId to the new buffer
 local function handleMakeOtherFs()
     makeCurrFullscreen()
-    ToggleState.currId = vim.api.nvim_get_current_win()
 end
 
 -- rather than simply have two conditions to check for (fullscreen vs not
