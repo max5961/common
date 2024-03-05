@@ -46,44 +46,95 @@ vim.keymap.set("n", "<C-Down>", function() vim.cmd("resize -1") end)
 vim.keymap.set("n", "<C-Right>", function() vim.cmd("vertical resize +1") end);
 vim.keymap.set("n", "<C-Left>", function() vim.cmd("vertical resize -1") end);
 
--- toggle current window between fullscreen with leader + fs
-Window_state = {}
+
+-- toggle window fullscreen
+-- When the terminal window is maximized this successfully toggles windows
+-- fullscreen and returns all windows back to their original size.  While a
+-- window is fullscreen, usually there is a single line for all other windows
+-- and these can be toggled fullscreen as well.
+--
+-- Behavior becomes less predictable when the terminal window is not fullscreen
+-- or if the monitor is squishes text at all.  Also, if a new buffer is opened
+-- while in fullscreen this causes unpredictable behavior as well, which could
+-- be possibly fixed with an autocmd for the right Event
+WindowState = {}
+ToggleState = {
+    fullscreen = false,
+    currId = nil
+}
+
+local function storePreState()
+    WindowState = {}
+    for _, v in ipairs(vim.fn.getwininfo()) do
+        if vim.api.nvim_buf_is_loaded(v.bufnr) then
+            WindowState[v.winid] = {}
+            WindowState[v.winid].winid = v.winid
+            WindowState[v.winid].height = v.height
+            WindowState[v.winid].width = v.width
+            WindowState[v.winid].is_fullscreen = false
+        end
+    end
+end
+
+local function makeCurrFullscreen()
+    local full_h_keys = vim.api.nvim_replace_termcodes("<C-w>_", true, false, true)
+    local full_w_keys = vim.api.nvim_replace_termcodes("<C-w>|", true, false, true)
+    vim.api.nvim_feedkeys(full_h_keys, "n", false)
+    vim.api.nvim_feedkeys(full_w_keys, "n", false)
+end
+
+local function resizeToPreState()
+    for k, _ in pairs(WindowState) do
+        local winid = WindowState[k].winid
+        local height = WindowState[k].height
+        local width = WindowState[k].width
+        vim.api.nvim_win_set_height(winid, height)
+        vim.api.nvim_win_set_width(winid, width)
+    end
+end
+
+-- make the current buffer fullscreen
+local function handleNotFs()
+    storePreState()
+    makeCurrFullscreen()
+    ToggleState.currId = vim.api.nvim_get_current_win()
+    ToggleState.fullscreen = true
+end
+
+-- make the current buffer not fullscreen
+local function handleRevertFs()
+    resizeToPreState()
+    ToggleState.fullscreen = false
+    ToggleState.currId = nil
+end
+
+-- if ToggleState.fullscreen, make the current buffer fullscreen
+-- and update ToggleState.currId to the new buffer
+local function handleMakeOtherFs()
+    makeCurrFullscreen()
+    ToggleState.currId = vim.api.nvim_get_current_win()
+end
+
+-- rather than simply have two conditions to check for (fullscreen vs not
+-- fullscreen), there needs to be 3 to allow for other windows to be toggled
+-- while another is already fullscreen.
+local function toggleFullScreen()
+    local currWindow = vim.api.nvim_get_current_win();
+
+    if not ToggleState.fullscreen then
+        handleNotFs()
+    elseif ToggleState.currId == currWindow then
+        handleRevertFs()
+    else
+        handleMakeOtherFs()
+    end
+end
+
 vim.keymap.set(
     "n",
     "<leader>fs",
     function()
-        local function makeWinNormal(win)
-            vim.cmd("resize " .. Window_state[win].height)
-            vim.cmd("vertical resize " .. Window_state[win].width)
-        end
-
-        local function makeWinFullScreen()
-            local full_h_keys = vim.api.nvim_replace_termcodes("<C-w>_", true, false, true)
-            local full_w_keys = vim.api.nvim_replace_termcodes("<C-w>|", true, false, true)
-            vim.api.nvim_feedkeys(full_h_keys, "n", false)
-            vim.api.nvim_feedkeys(full_w_keys, "n", false)
-        end
-
-        local win = vim.api.nvim_get_current_win();
-        if not Window_state[win] then
-            Window_state[win] = {}
-            Window_state[win].is_fullscreen = false
-        end
-
-        if not Window_state[win].is_fullscreen then
-            Window_state[win].is_fullscreen = true
-
-            local height = vim.fn.winheight(0)
-            local width = vim.fn.winwidth(0)
-            Window_state[win].height = height
-            Window_state[win].width = width
-
-            makeWinFullScreen()
-        else
-            Window_state[win].is_fullscreen = false
-
-            makeWinNormal(win)
-        end
+        toggleFullScreen()
     end,
     { desc = "Toggle current window fullscreen" }
 )
