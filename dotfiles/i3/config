@@ -11,7 +11,7 @@ bindsym $mod+Shift+r restart
 # -----------------------------------------------------------------------------
 exec_always --no-startup-id ~/.config/i3/scripts/monitor-settings.sh
 exec_always --no-startup-id ~/.config/i3/scripts/create-tmp-ws-file.sh
-exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id sleep 1 && nitrogen --restore
 exec_always --no-startup-id picom &
 
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -81,7 +81,7 @@ bar {
         strip_workspace_numbers yes
         strip_workspace_name no
         colors {
-            background #19191950
+            background #19191985
                 focused_workspace #000000 $main-color #000000
                 active_workspace #000000 $main-color #000000
         }
@@ -136,8 +136,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # change next split direction
-bindsym $alt+h split h
-bindsym $alt+v split v
+# NOTE: vim vsplit (vertical split) opens a window with the delineator running
+# vertically, while in i3 a v split is the opposite.  Given that I'm used to the
+# vim convention, the v and h bindings are opposite here to reflect what I'm
+# used to
+bindsym $alt+v split h
+bindsym $alt+h split v
 
 # toggle current split direction
 bindsym $mod+t layout toggle split
@@ -211,15 +215,15 @@ set $ws18 "18"
 set $ws18 "19"
 
 # set keymaps
-bindsym $mod+1 workspace 1; workspace 11: 1; exec --no-startup-id echo "1" >/tmp/current-workspace-number
-bindsym $mod+2 workspace 2; workspace 12: 2; exec --no-startup-id echo "2" >/tmp/current-workspace-number
-bindsym $mod+3 workspace 3; workspace 13: 3; exec --no-startup-id echo "3" >/tmp/current-workspace-number
-bindsym $mod+4 workspace 4; workspace 14: 4; exec --no-startup-id echo "4" >/tmp/current-workspace-number
-bindsym $mod+5 workspace 5; workspace 15: 5; exec --no-startup-id echo "5" >/tmp/current-workspace-number
-bindsym $mod+6 workspace 6; workspace 16: 6; exec --no-startup-id echo "6" >/tmp/current-workspace-number
-bindsym $mod+7 workspace 7; workspace 17: 7; exec --no-startup-id echo "7" >/tmp/current-workspace-number
-bindsym $mod+8 workspace 8; workspace 18: 8; exec --no-startup-id echo "8" >/tmp/current-workspace-number
-bindsym $mod+9 workspace 9; workspace 19: 9; exec --no-startup-id echo "9" >/tmp/current-workspace-number
+bindsym $mod+1 workspace 1; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "1"; exec --no-startup-id echo "1" >/tmp/current-workspace-number
+bindsym $mod+2 workspace 2; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "2"; exec --no-startup-id echo "2" >/tmp/current-workspace-number
+bindsym $mod+3 workspace 3; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "3"; exec --no-startup-id echo "3" >/tmp/current-workspace-number
+bindsym $mod+4 workspace 4; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "4"; exec --no-startup-id echo "4" >/tmp/current-workspace-number
+bindsym $mod+5 workspace 5; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "5"; exec --no-startup-id echo "5" >/tmp/current-workspace-number
+bindsym $mod+6 workspace 6; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "6"; exec --no-startup-id echo "6" >/tmp/current-workspace-number
+bindsym $mod+7 workspace 7; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "7"; exec --no-startup-id echo "7" >/tmp/current-workspace-number
+bindsym $mod+8 workspace 8; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "8"; exec --no-startup-id echo "8" >/tmp/current-workspace-number
+bindsym $mod+9 workspace 9; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "9"; exec --no-startup-id echo "9" >/tmp/current-workspace-number
 
 # cycle workspaces left/right
 bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/cycle-ws-l.sh

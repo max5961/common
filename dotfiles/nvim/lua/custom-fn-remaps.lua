@@ -58,6 +58,18 @@ local function getLoadedBufsCount()
     return count;
 end
 
+local function makeCurrFullscreen()
+    ToggleState.currId = vim.api.nvim_get_current_win()
+    ToggleState.fullscreen = true
+
+    local full_h_keys = vim.api.nvim_replace_termcodes("<C-w>_", true, false, true)
+    local full_w_keys = vim.api.nvim_replace_termcodes("<C-w>|", true, false, true)
+
+    vim.api.nvim_feedkeys(full_h_keys, "n", false)
+    vim.api.nvim_feedkeys(full_w_keys, "n", false)
+end
+
+
 local function resizeToPreState()
     -- Resizing NEEDS to be done in ascending order for respective height / width
     -- dimensions.  Otherwise, the growing of windows to fill dead space causes
@@ -90,10 +102,14 @@ local function resizeToPreState()
     -- iterate through the sorted lists and set the heights and widths of each
     -- window
     for _, item in ipairs(ascendingHeights) do
-        vim.api.nvim_win_set_height(item.winid, item.height)
+        if vim.api.nvim_win_is_valid(item.winid) then
+            vim.api.nvim_win_set_height(item.winid, item.height)
+        end
     end
     for _, item in ipairs(ascendingWidths) do
-        vim.api.nvim_win_set_width(item.winid, item.width)
+        if vim.api.nvim_win_is_valid(item.winid) then
+            vim.api.nvim_win_set_width(item.winid, item.width)
+        end
     end
 end
 
@@ -134,16 +150,6 @@ local function createAutoCmds()
     })
 end
 
-local function makeCurrFullscreen()
-    ToggleState.currId = vim.api.nvim_get_current_win()
-    ToggleState.fullscreen = true
-
-    local full_h_keys = vim.api.nvim_replace_termcodes("<C-w>_", true, false, true)
-    local full_w_keys = vim.api.nvim_replace_termcodes("<C-w>|", true, false, true)
-
-    vim.api.nvim_feedkeys(full_h_keys, "n", false)
-    vim.api.nvim_feedkeys(full_w_keys, "n", false)
-end
 
 local function handleNotFs()
     if getLoadedBufsCount() < 2 then
@@ -189,4 +195,23 @@ vim.keymap.set(
         toggleFullScreen()
     end,
     { desc = "Toggle current window fullscreen" }
+)
+
+-- COLOR PICKER
+-- ----------------------------------------------------------------------------
+-- need xcolor color picker for this to work
+-- https://github.com/Soft/xcolor/tree/master
+local function colorPicker()
+    local color = vim.fn.system("xcolor")
+    color = color:gsub("%s+", "")
+    color = color .. ";"
+    vim.api.nvim_put({ color }, "", true, true);
+end
+
+vim.keymap.set(
+    "n",
+    "<leader>xc",
+    function()
+        colorPicker()
+    end
 )

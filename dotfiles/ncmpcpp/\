@@ -1,19 +1,13 @@
 # An example configuration file for MPD.
 # Read the user manual for documentation: http://www.musicpd.org/doc/user/
 
-audio_output {
-        type          "alsa"
-        name          "ALSA sound card"
-        # Optional
-        #device        "iec958:CARD=Intel,DEV=0"
-        #mixer_control "PCM"
-}
-audio_output {
-    type                    "fifo"
-    name                    "my_fifo"
-    path                    "/tmp/mpd.fifo"
-    format                  "44100:16:2"
-}
+# audio_output {
+#     type                    "fifo"
+#     name                    "my_fifo"
+#     path                    "/tmp/mpd.fifo"
+#     format                  "44100:16:2"
+# }
+
 # Files and directories #######################################################
 #
 # This setting controls the top directory which MPD will search to discover the
