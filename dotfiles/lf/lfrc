@@ -9,6 +9,7 @@ set cleaner ~/.config/lf/cleaner
 map d
 map m
 map u
+map n
 cmd open # prevent leaf nodes from opening on l or <right>
 
 # Basic settings
@@ -31,7 +32,80 @@ map yy copy
 map p paste
 map x cut
 cmd chmod %{{ chmod +x "$f" }}
-cmd run %{{ "$f" }}
+cmd run %{{ nohup "$f" > /dev/null 2>&1 & }}
+cmd sudoedit ${{ sudoedit "$f" }}
+cmd ro ${{ bat "$f" }}
+
+map nn cycle-session-bookmarks -n
+map bb cycle-session-bookmarks -b
+map mm mark-session-bookmark
+map bc %{{ rm -r "$HOME/.config/lf/session-bookmarks/$id" }}
+cmd on-quit %{{ rm -r "$HOME/.config/lf/session-bookmarks/$id"}}
+
+cmd mark-session-bookmark %{{
+    bmDir="$HOME/.config/lf/session-bookmarks"
+
+    if [ ! -d "$bmDir" ]; then
+        mkdir "$bmDir"
+    fi
+
+    if [ ! -d "$bmDir/$id/" ]; then
+        mkdir "$bmDir/$id"
+        touch "$bmDir/$id/bookmarks"
+        touch "$bmDir/$id/index"
+    fi
+
+    currLoc=""
+    if [ ! -d "$f" ]; then
+        currLoc=$(dirname "$f")
+    else
+        currLoc="$f"
+    fi
+
+    if ! grep "$currLoc" "$bmDir/$id/bookmarks"; then
+        echo "$currLoc" >> "$bmDir/$id/bookmarks"
+        echo "Temp bookmark created: $currLoc"
+    else
+        echo "Bookmark already exists: $currLoc"
+    fi
+}}
+
+cmd cycle-session-bookmarks %{{
+    bmDir="$HOME/.config/lf/session-bookmarks"
+
+    if [ ! -d "$bmDir/$id" ]; then
+        echo "No bookmarks 1"
+        exit 0;
+    fi
+
+    lines=$(wc -l "$bmDir/$id/bookmarks" | awk -F " " '{print $1}')
+    index=$(cat "$bmDir/$id/index")
+
+    if [ "$1" == "-n" ]; then
+        index=$((++index))
+        if ((index > lines - 1)); then
+            index=0
+        fi
+    fi
+    if [ "$1" == "-b" ]; then
+        index=$((--index))
+        if ((index < 0)); then
+            index=$((lines - 1))
+        fi
+    fi
+
+    echo "$index" > "$bmDir/$id/index"
+
+    currLine="0"
+    while read line; do
+        if ((currLine == index)); then
+            lf -remote "send $id cd $line"
+            echo "Session Bookmark: $currLine"
+            exit 0
+        fi
+        ((++currLine))
+    done < "$bmDir/$id/bookmarks"
+}}
 
 cmd fn-add %{{
     printf "Directory or file name: "
