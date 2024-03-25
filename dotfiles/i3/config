@@ -37,6 +37,8 @@ exec_always --no-startup-id xinput set-prop 12 328 -0.7
 # -----------------------------------------------------------------------------
 # terminal
 bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+ minus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-opacity.sh -d
+bindsym $mod+ plus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-opacity.sh -i
 
 # browser
 bindsym $mod+b exec --no-startup-id open-browser
@@ -48,14 +50,29 @@ bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
 
 # mpd
-bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
+bindsym $mod+Shift+p exec --no-startup-id mpc toggle
+mode "mpd" {
+    bindsym l exec --no-startup-id mpc next
+    bindsym h exec --no-startup-id mpc prev
+    bindsym p exec --no-startup-id mpc toggle
+    bindsym f exec --no-startup-id mpc seek +00:00:01
+    bindsym b exec --no-startup-id mpc seek -00:00:01
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
+    bindsym m mode "default"
+}
+bindsym $mod+m mode "mpd"
+
 
 # -----------------------------------------------------------------------------
 #  VISUAL
 # -----------------------------------------------------------------------------
 set $main-color #c2c8ea
 # set $active-window #79c6e2
-set $active-window #799ce2
+# set $active-window #799ce2
+set $active-window #22bae2
 set $inactive-window #000000
 
 
@@ -182,6 +199,7 @@ workspace 6 output $m1
 workspace 7 output $m1
 workspace 8 output $m1
 workspace 9 output $m1
+workspace 10 output $m1
 # monitor 2
 workspace 11 output $m2
 workspace 12 output $m2
@@ -203,6 +221,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+set $ws10 "10"
 # top monitor
 set $ws11 "11"
 set $ws12 "12"
@@ -215,19 +234,19 @@ set $ws18 "18"
 set $ws18 "19"
 
 # set keymaps
-bindsym $mod+1 workspace 1; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "1"; exec --no-startup-id echo "1" >/tmp/current-workspace-number
-bindsym $mod+2 workspace 2; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "2"; exec --no-startup-id echo "2" >/tmp/current-workspace-number
-bindsym $mod+3 workspace 3; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "3"; exec --no-startup-id echo "3" >/tmp/current-workspace-number
-bindsym $mod+4 workspace 4; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "4"; exec --no-startup-id echo "4" >/tmp/current-workspace-number
-bindsym $mod+5 workspace 5; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "5"; exec --no-startup-id echo "5" >/tmp/current-workspace-number
-bindsym $mod+6 workspace 6; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "6"; exec --no-startup-id echo "6" >/tmp/current-workspace-number
-bindsym $mod+7 workspace 7; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "7"; exec --no-startup-id echo "7" >/tmp/current-workspace-number
-bindsym $mod+8 workspace 8; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "8"; exec --no-startup-id echo "8" >/tmp/current-workspace-number
-bindsym $mod+9 workspace 9; exec --no-startup-id ~/.config/i3/scripts/ext-mtr-sw-ws.sh "9"; exec --no-startup-id echo "9" >/tmp/current-workspace-number
+bindsym $mod+1 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "1"; exec --no-startup-id echo "1" >/tmp/current-workspace-number
+bindsym $mod+2 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "2"; exec --no-startup-id echo "2" >/tmp/current-workspace-number
+bindsym $mod+3 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "3"; exec --no-startup-id echo "3" >/tmp/current-workspace-number
+bindsym $mod+4 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "4"; exec --no-startup-id echo "4" >/tmp/current-workspace-number
+bindsym $mod+5 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "5"; exec --no-startup-id echo "5" >/tmp/current-workspace-number
+bindsym $mod+6 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "6"; exec --no-startup-id echo "6" >/tmp/current-workspace-number
+bindsym $mod+7 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "7"; exec --no-startup-id echo "7" >/tmp/current-workspace-number
+bindsym $mod+8 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "8"; exec --no-startup-id echo "8" >/tmp/current-workspace-number
+bindsym $mod+9 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "9"; exec --no-startup-id echo "9" >/tmp/current-workspace-number
 
 # cycle workspaces left/right
-bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/cycle-ws-l.sh
-bindsym $alt+Shift+l exec --no-startup-id ~/.config/i3/scripts/cycle-ws-r.sh
+bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/workspaces/cycle-ws-l.sh
+bindsym $alt+Shift+l exec --no-startup-id ~/.config/i3/scripts/workspaces/cycle-ws-r.sh
 
 # move focused window to specified workspace
 # monitor 1
@@ -251,6 +270,10 @@ bindsym $alt+Shift+7 move container to workspace "17: 7"
 bindsym $alt+Shift+8 move container to workspace "18: 8"
 bindsym $alt+Shift+9 move container to workspace "19: 9"
 
+# minimize all windows on current workspace or toggle back all windows that
+# have been minimized
+bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3/scripts/minimize/minimize-curr-screen.sh
+bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/minimize/move-back.sh
 
 # EVERYTHING BELOW THIS COMMENT CAME WITH THE DEFAULT I3 CONFIG
 
