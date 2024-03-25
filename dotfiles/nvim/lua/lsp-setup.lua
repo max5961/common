@@ -16,6 +16,7 @@ require('mason-lspconfig').setup({
         "eslint",
         "html",
         "cssls",
+        "cssmodules_ls",
         "emmet_language_server",
         "emmet_ls",
         "bashls",
@@ -49,6 +50,23 @@ require("lspconfig").stylelint_lsp.setup({
     end,
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- CSS Language Server
+require('lspconfig').cssls.setup({
+    -- capabilities = capabilities,
+    filetypes = { "css", "scss" },
+    cmd = { "vscode-css-language-server", "--stdio" }
+})
+
+-- CSS Modules Language Server (if additional configuration is needed)
+-- Adjust as necessary based on the server's requirements
+require('lspconfig').cssmodules_ls.setup({
+    -- capabilities = capabilities,
+    filetypes = { "css", "scss" },
+    cmd = { "vscode-css-language-server", "--stdio" }
+})
+
 -- setup autocomplete
 -- Alt + j or k to move up/down in drop down menu
 -- Tab to complete highlighted selection
@@ -72,7 +90,26 @@ cmp.setup({
 
     sources = {
         { name = 'nvim_lsp' },
+        {
+            name = 'scss',
+            option = {
+                -- folders = { "src/style" }
+                folders = { "src" }
+            }
+        }
     },
+
+    -- formatting = {
+    --     fields = { "abbr", "kind", "menu" },
+    --     format = function(entry, vim_item)
+    --         local source = entry.source.name
+    --         if source == "scss" then
+    --             vim_item.dup = 0
+    --         end
+    --
+    --         return vim_item
+    --     end
+    -- },
 
     -- add border to the completion and documentation menu
     window = {

@@ -4,6 +4,13 @@ Font Size Adjustments:
 - Decrease: [Ctrl + w, Ctrl + -]
 - Increase: [Ctrl + w, Ctrl + =]
 
+Show Key Mappings
+- Show All Mappings: [:map]
+- Show Normal Mappings: [:nmap]
+- Show Visual Mappings: [:vmap]
+- Show Insert Mappings: [:imap]
+- Show Command Mode Mappings [:cmap]
+
 Window Sizing:
 - Increase Split Height: [Ctrl + Up]
 - Decrease Split Height: [Ctrl + Down]

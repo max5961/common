@@ -18,6 +18,7 @@ alias tr='trash-put'
 alias trr='trash-restore'
 alias journalctl='journalctl --reverse'
 alias bat='bat --theme=Visual\ Studio\ Dark+'
+alias ta='tmux attach -t'
 
 # git aliases
 alias g='git'

@@ -50,7 +50,7 @@ return {
             elseif file_ext == "cpp" or file_ext == "c" then
                 local file_dir = vim.fn.expand("%:p:h")
                 local file_name = vim.fn.expand("%:t")
-                local stripped_file_name = vim.fn.expand("%:r")
+                local stripped_file_name = vim.fn.expand("%:t:r")
 
                 local compiler = "";
                 if file_ext == "cpp" then
@@ -59,13 +59,10 @@ return {
                     compiler = "gcc"
                 end
 
-                -- cmd =
-                --     compiler .. " -o " .. file_dir .. "/compiled_" .. file_name .. " " .. file_dir .. "/" .. file_name ..
-                --     " && " .. file_dir .. "/compiled_" .. file_name
                 cmd =
                     compiler ..
-                    " -o " ..
-                    stripped_file_name .. ".o " .. stripped_file_name .. ".cpp " .. "&& " .. stripped_file_name .. ".o"
+                    " -o " .. file_dir .. "/" .. stripped_file_name .. ".o " .. file_dir .. "/" .. file_name ..
+                    " && " .. file_dir .. "/" .. stripped_file_name .. ".o"
 
                 -- bash
             elseif file_ext == "sh" then

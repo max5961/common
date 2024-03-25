@@ -24,19 +24,35 @@ vim.api.nvim_create_user_command(
 )
 
 -- opens a split window of notes as a way to quick reference
-vim.api.nvim_create_user_command(
-    "Notes", function()
-        local categories = { "bash", "css", "cpp", "typescript" }
-        for _, v in ipairs(categories) do
-            print(v)
-        end
-        print(" ")
+local function openNotes()
+    local categories = { "bash", "cpp", "css", "git", "javascript", "linux-ref", "nodejs", "react", "scss",
+        "typescript", "vim" }
+    for i, v in ipairs(categories) do
+        print(i .. ": " .. v)
+    end
+    print(" ")
 
-        local category = vim.fn.input("Enter one of the above: ")
+    local category = vim.fn.input("Enter one of the above: ")
 
-        if category == "cpp" then
-            openSplitWindow("~/notes/cpp/notes.txt");
+    if "number" == type(tonumber(category)) then
+        if categories[tonumber(category)] then
+            openSplitWindow("~/notes/" .. categories[tonumber(category)] .. "/notes.txt")
+        else
+            print(" Invalid entry")
         end
-    end,
-    {}
-)
+    else
+        local isValid = false
+        for i, v in ipairs(categories) do
+            if category == v then
+                isValid = true
+            end
+        end
+        if isValid then
+            openSplitWindow("~/notes/" .. category .. "/notes.txt");
+        else
+            print(" Invalid entry")
+        end
+    end
+end
+
+vim.api.nvim_create_user_command("Notes", openNotes, {})
