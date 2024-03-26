@@ -18,6 +18,8 @@ function installNodeModules() {
     npm install --save-dev eslint eslint-config-prettier
     # prettier
     npm install --save-dev --save-exact prettier
+    # stylelint
+    npm install --save-dev stylelint stylelint-scss
     # babel
     npm install --save-dev babel-loader @babel/core @babel/preset-env
     # data
@@ -40,24 +42,28 @@ function copyFiles() {
 
     # copy main file structure
     source_dir="$HOME/common/scripts/webpack/setup/react/file-structure/"
-    cp -r "${source_dir}". "${cwd}"
+    cp -r "$source_dir". "$cwd"
 
     # copy css reset
     css_reset="$HOME/common/templates/css-resets/reset.css"
-    cat "${css_reset}" >"${cwd}"/src/style/reset.css
+    cat "$css_reset" >"$cwd"/src/style/reset.css
 
     # copy .prettierrc.json
-    prettier_config="$HOME/common/templates/prettier/.prettierrc.json"
-    cp "${prettier_config}" "${cwd}"/.prettierrc.json
+    prettier_config="$HOME/common/templates/dotfiles/.prettierrc.json"
+    cp "$prettier_config" "$cwd"/.prettierrc.json
 
-    if [ "${?}" -eq 0 ]; then
+    # copy .stylelintrc.json
+    stylelintConfig="$HOME/common/templates/dotfiles/.stylelintrc.json"
+    cp "$stylelintConfig" "$cwd/.stylelintrc.json"
+
+    if [ "$?" -eq 0 ]; then
         echo "Successfully created files"
     fi
 }
 
 function initializeGitRepository() {
     read -rp "Initialize empty git repository? [y/n]: " answer
-    if [ "${answer}" = "y" ] || [ "${answer}" == "Y"] || [ "${answer}" == "" ]; then
+    if [ "$answer" = "y" ] || [ "$answer" == "Y"] || [ "$answer" == "" ]; then
         git init
         echo /node_modules >>.gitignore
         git add *

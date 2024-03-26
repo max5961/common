@@ -30,17 +30,19 @@ function copyFiles() {
 
     # copy main file structure
     source_dir="$HOME/common/scripts/webpack/setup/normal/file-structure/"
-    cp -r "${source_dir}". "${cwd}"
+    cp -r "$source_dir". "$cwd"
 
     # copy css reset
     css_reset="$HOME/common/templates/css-resets/reset.css"
-    cat "${css_reset}" >"${cwd}"/src/style/reset.css
+    cat "$css_reset" >"$cwd"/src/style/reset.css
 
     # copy .prettierrc.json
-    prettier_config="$HOME/common/templates/prettier/.prettierrc.json"
-    cp "${prettier_config}" "${cwd}"/.prettierrc.json
+    prettier_config="$HOME/common/templates/dotfiles/.prettierrc.json"
+    cp "$prettier_config" "$cwd"/.prettierrc.json
 
     # copy .stylelintrc.json
+    stylelintConfig="$HOME/common/templates/dotfiles/.stylelintrc.json"
+    cp "$stylelintConfig" "$cwd/.stylelintrc.json"
 
     if [ "${?}" -eq 0 ]; then
         echo "Successfully created files"
@@ -49,7 +51,7 @@ function copyFiles() {
 
 function initializeGitRepository() {
     read -rp "Initialize empty git repository? [y/n]: " answer
-    if [ "${answer}" = "y" ] || [ "${answer}" == "Y"] || [ "${answer}" == "" ]; then
+    if [ "$answer" = "y" ] || [ "$answer" == "Y"] || [ "$answer" == "" ]; then
         git init
         echo /node_modules >>.gitignore
         git add *

@@ -4,10 +4,20 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: grid;
+}
+
 button {
     background-color: inherit;
     color: inherit;
     border: none;
+    cursor: pointer
 }
 
 li {
@@ -26,9 +36,4 @@ input {
     padding-right: 10px;
     background-color: inherit;
     height: 35px;
-}
-
-body {
-    height: 100vh;
-    width: 100vw;
 }
