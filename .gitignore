@@ -4,6 +4,7 @@ dotfiles/mpd/log
 dotfiles/mpd/state
 dotfiles/mpd/sticker.sql
 dotfiles/mpd/pid
+dotfiles/mpd/playlists
 dotfiles/ncmpcpp/error.log
 dotfiles/lf/session-bookmarks
 scripts/yt-dlp/albumdl/dl-log.csv
