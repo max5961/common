@@ -45,6 +45,7 @@ link_dir_to_XDG_CONFIG_HOME "i3"
 link_dir_to_XDG_CONFIG_HOME "lf"
 link_dir_to_XDG_CONFIG_HOME "rofi"
 link_dir_to_XDG_CONFIG_HOME "picom"
+link_dir_to_XDG_CONFIG_HOME "polybar"
 
 # files in ~/
 link_file_to_HOME "bash" ".bashrc"
