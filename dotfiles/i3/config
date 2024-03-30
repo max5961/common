@@ -13,8 +13,7 @@ exec_always --no-startup-id ~/.config/i3/scripts/monitor-settings.sh
 exec_always --no-startup-id ~/.config/i3/scripts/create-tmp-ws-file.sh
 exec_always --no-startup-id sleep 1 && nitrogen --restore
 exec_always --no-startup-id picom &
-
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # -----------------------------------------------------------------------------
 # SYSTEM SETTINGS
@@ -89,20 +88,20 @@ client.focused_inactive $inactive-window $inactive-window $inactive-window $inac
 
 
 # i3-bar
-bar {
-    # output eDP-1
-    i3bar_command i3bar --transparency
-    status_command i3status --config ~/.config/i3/i3status/config
-        workspace_min_width 50
-        position top
-        strip_workspace_numbers yes
-        strip_workspace_name no
-        colors {
-            background #19191985
-                focused_workspace #000000 $main-color #000000
-                active_workspace #000000 $main-color #000000
-        }
-}
+# bar {
+#     # output eDP-1
+#     i3bar_command i3bar --transparency
+#     status_command i3status --config ~/.config/i3/i3status/config
+#         workspace_min_width 50
+#         position top
+#         strip_workspace_numbers yes
+#         strip_workspace_name no
+#         colors {
+#             background #19191985
+#                 focused_workspace #000000 $main-color #000000
+#                 active_workspace #000000 $main-color #000000
+#         }
+# }
 
 # -----------------------------------------------------------------------------
 #  WINDOW MANAGEMENT
