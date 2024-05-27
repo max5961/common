@@ -185,7 +185,7 @@ cmd fn-trash %{{
 }}
 
 cmd wp %{{
-    printf "Change wallpaper on monitor # (1 or 2): "
+    printf "Change wallpaper on monitor #: (1-primary, 2-top, 3-bottom): "
     read monitor
 
     if [ "$monitor" == "1" ]; then
@@ -195,6 +195,11 @@ cmd wp %{{
 
     if [ "$monitor" == "2" ]; then
         nitrogen --head=1 --save --set-zoom-fill "$f"
+        exit 0
+    fi
+
+    if [ "$monitor" == "3" ]; then
+        nitrogen --head=2 --save --set-zoom-fill "$f"
         exit 0
     fi
 }}

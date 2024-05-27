@@ -1,35 +1,124 @@
-### PERSONAL CONFIGURATION
+# -----------------------------------------------------------------------------
+# Makes sure prompt is loaded before plugins
+# -----------------------------------------------------------------------------
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# prefix for aliases to prevent potential naming conflicts
-prefix="_"
+# -----------------------------------------------------------------------------
+# ZINIT PACKAGE MANAGER
+# -----------------------------------------------------------------------------
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-# default apps
+# -----------------------------------------------------------------------------
+# ENV
+# -----------------------------------------------------------------------------
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
 
-# settings for common commands
-alias vim='nvim'
-alias vimd='nvim .'
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias tr='trash-put'
-alias trr='trash-restore'
+# -----------------------------------------------------------------------------
+# PLUGINS
+# -----------------------------------------------------------------------------
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+#
+# #  Init p10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Autosuggest configuration
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=blue"
+
+# Init completion
+autoload -Uz compinit
+compinit
+
+# -----------------------------------------------------------------------------
+# History
+# -----------------------------------------------------------------------------
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# add space before command to prevent it from being added to history
+
+# -----------------------------------------------------------------------------
+# ZSTYLE
+# -----------------------------------------------------------------------------
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
+# Need zsh-ls-colors for colors to work
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ":completion:*" menu no
+zstyle ':completion:*' sort true
+zstyle ':completion:*:git-checkout:*' sort false
+
+# fzf-tab change default bindings:
+# DEFAULT: default_binds=tab:down,btab:up,change:top,ctrl-space:toggle,bspace:backward-delete-char/eof,ctrl-h:backward-delete-char/eof
+# CUSTOM:
+# alt+j/k = down/up
+# tab = down
+# alt+space = add option to list of options which will be added to command on tab or enter
+# alt+l, enter = exit and add option(s) to command
+# esc/backspace = exit (backspace will eventually exit)
+zstyle ":fzf-tab:*" fzf-bindings-default "alt-j:down,alt-k:up,alt-l:accept,alt-space:toggle,tab:down,bspace:backward-delete-char/eof"
+
+# Show preview of cd directories in floating window
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# -----------------------------------------------------------------------------
+# BINDKEY
+# -----------------------------------------------------------------------------
+# \e, \E, = Escape
+# ^[ = Alt key (on some keyboards this is the same as escape)
+# ^? = Delete
+# ^X, ^ = Control
+# ^M = Return
+#
+# If the VISUAL or EDITOR env contain the string "vi", bindkey will default to
+# -v for vi mode.  This sounds great but doesn't work as I would expect.  It won't
+# let me backspace in normal mode past text, so I don't understand it well enough to use yet
+# bindkey -e overwrites the implied bindkey -v
+bindkey -e
+bindkey "^[l" autosuggest-accept
+
+# search up/down any list (ctrl-p, ctrl-n also work)
+bindkey "^[j" down-line-or-search
+bindkey "^[k" up-line-or-search
+# bindkey "^[p" history-search-backward
+# bindkey "^[n" history-search-forward
+
+# -----------------------------------------------------------------------------
+# ALIAS / COMMANDS
+# -----------------------------------------------------------------------------
+# prefix for aliases to prevent potential naming conflicts
+prefix="_"
+
+alias ls="ls --color"
+alias vim="nvim"
+alias ta="tmux attach -t"
 alias journalctl='journalctl --reverse'
 alias bat='bat --theme=Visual\ Studio\ Dark+'
-alias ta='tmux attach -t'
-
-# git aliases
-alias g='git'
-alias gs='git status'
-alias ga='git add'
-alias gp='git push'
-# git commit -m
-gc() {
-    read "message?Enter commit message: "
-    git commit -m "${message}"
-}
+alias grep='grep --color=auto'
+alias tr='trash-put'
+alias rm="trash-put"
+alias trr='trash-restore'
+alias lf="lfrun"
+alias bsynch="browser-sync start --server --file --watch '*'"
 
 # fzf utilities
 # find files (normal, dotfiles, root files)
@@ -45,184 +134,11 @@ alias "$prefix"cd='source fzf-cd-into'
 alias "$prefix"cdh='cd && source fzf-cd-into'
 alias "$prefix"cdr='cd / && source fzf-cd-into'
 
-# lfimg (runs lfrun on opening lf)
-alias lf='lfrun'
 
-# browser sync
-alias bsynch="browser-sync start --server --file --watch '*'"
-
-# CUSTOM COMMANDS
 mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
-# oapp - open apps in terminal with nohup
-oapp() {
-    if [ -z "${1}" ]; then
-        nohup
-    else
-        nohup "${1}" > /dev/null 2>&1 &
-    fi
-}
-
-# change alacritty theme
-set-alacritty-theme() {
-    if [ -z "${1}" ]; then
-        return 1
-    fi
-
-    theme="${1}"
-    themesDir="$HOME/.config/alacritty/dist/themes/"
-    configFile="$HOME/.config/alacritty/alacritty.toml"
-
-    themeExists=false
-    for f in "${themesDir}"*; do
-        if [ "${theme}.yml" = "$(basename ${f})" ]; then
-            themeExists=true
-        fi
-    done;
-
-    if [ "$themeExists" = false ]; then
-        echo "Alacritty theme does not exist"
-        return 1
-    fi
-
-    sed -i 's|/.config/alacritty/dist/themes/.*|/.config/alacritty/dist/themes/${theme}.toml]' "${configFile}"
-}
-
-# empty contents of current working directory
-mt() {
-    prompt="empty contents of current directory to trash?: [y/n] "
-
-    # options -p: rm -rf contents of current directory
-    if [ "${1}" = "-p" ]; then
-        prompt="Permanently remove contents of current directory?: [y/n] "
-    fi
-
-    read "answer?$prompt"
-
-    success_message="Successfully emptied contents of current directory"
-    if [ "${answer}" = "y" ]; then
-        if [ "${1}" = "-p" ]; then
-            rm -rf ./*; if [ "${?}" = 0 ]; then echo "${success_message}"; fi
-        else
-            tr ./*; if [ "${?}" = 0 ]; then echo "${success_message}"; fi
-        fi
-    fi
-}
-
-### CONFIGURATION FROM ZSH FOR HUMANS
-# Personal Zsh configuration file. It is strongly recommended to keep all
-# shell customization and configuration (including exported environment
-# variables such as PATH) in this file or in files sourced from it.
-#
-# Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
-
-# Periodic auto-update on Zsh startup: 'ask' or 'no'.
-# You can manually run `z4h update` to update everything.
-zstyle ':z4h:' auto-update      'no'
-# Ask whether to auto-update this often; has no effect if auto-update is 'no'.
-zstyle ':z4h:' auto-update-days '28'
-
-# Keyboard type: 'mac' or 'pc'.
-zstyle ':z4h:bindkey' keyboard  'pc'
-
-# Start tmux if not already in tmux.
-#zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
-
-# Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
-zstyle ':z4h:' prompt-at-bottom 'no'
-
-# Mark up shell's output with semantic information.
-zstyle ':z4h:' term-shell-integration 'yes'
-
-# Right-arrow key accepts one character ('partial-accept') from
-# command autosuggestions or the whole thing ('accept')?
-zstyle ':z4h:autosuggestions' forward-char 'accept'
-# zstyle ':z4h:autosuggestions' tab 'accept'
-
-# Recursively traverse directories when TAB-completing files.
-zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
-
-# Enable direnv to automatically source .envrc files.
-zstyle ':z4h:direnv'         enable 'no'
-# Show "loading" and "unloading" notifications from direnv.
-zstyle ':z4h:direnv:success' notify 'yes'
-
-# Enable ('yes') or disable ('no') automatic teleportation of z4h over
-# SSH when connecting to these hosts.
-zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
-zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
-# The default value if none of the overrides above match the hostname.
-zstyle ':z4h:ssh:*'                   enable 'no'
-
-# Send these files over to the remote host when connecting over SSH to the
-# enabled hosts.
-zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
-
-### this should make the completion drop down sort in alphabetical order..
-### if not sorted in alphabetical order, backspace until the prompt is empty
-zstyle ':completion:*' sort true
-
-#zstyle ':completion:*complete:-comamand:*:*' group-order \
-#    builtins functions commands
-
-# Clone additional Git repositories from GitHub.
-#
-# This doesn't do anything apart from cloning the repository and keeping it
-# up-to-date. Cloned files can be used after `z4h init`. This is just an
-# example. If you don't plan to use Oh My Zsh, delete this line.
-#z4h install ohmyzsh/ohmyzsh || return
-
-# Install or update core components (fzf, zsh-autosuggestions, etc.) and
-# initialize Zsh. After this point console I/O is unavailable until Zsh
-# is fully initialized. Everything that requires user interaction or can
-# perform network I/O must be done above. Everything else is best done below.
-z4h init || return
-
-# Extend PATH.
-path=(~/bin $path)
-
-# Export environment variables.
-export GPG_TTY=$TTY
-
-# Source additional local files if they exist.
-z4h source ~/.env.zsh
-
-# Use additional Git repositories pulled in with `z4h install`.
-#
-# This is just an example that you should delete. It does nothing useful.
-#z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
-#z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
-
-# Define key bindings.
-z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
-z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
-
-z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
-z4h bindkey redo Alt+/             # redo the last undone command line change
-
-z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
-z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
-z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
-z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
-
-# Autoload functions.
-autoload -Uz zmv
-
-# Define functions and completions.
-function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
-compdef _directories md
-
-# Define named directories: ~w <=> Windows home directory on WSL.
-[[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
-
-# Define aliases.
-alias tree='tree -a -I .git'
-
-# Add flags to existing aliases.
-# alias ls="${aliases[ls]:-ls} -A"
-
-# Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
-setopt glob_dots     # no special treatment for file names with a leading dot
-setopt no_auto_menu  # require an extra TAB press to open the completion menu
+# -----------------------------------------------------------------------------
+# Shell integrations
+eval "$(fzf --zsh)"

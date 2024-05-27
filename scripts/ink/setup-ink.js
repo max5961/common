@@ -63,7 +63,11 @@ const npmCommands = [
     "npm install react @types/react ink",
     "npm install --save-dev typescript",
     "npm install --save-dev --save-exact prettier",
-    "npm install --save-dev @types/node"
+    "npm install --save-dev @types/node",
+    "npm install --save-dev jest",
+    "npm install --save-dev @types/jest",
+    "npm install --save-dev @babel/preset-env",
+    "npm install --save-dev @babel/preset-typescript",
 ];
 
 const fileStructureCommands = [

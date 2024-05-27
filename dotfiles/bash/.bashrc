@@ -12,26 +12,26 @@ alias grep='grep --color=auto'
 
 # CUSTOM COMMANDS
 mkcd() {
-    mkdir -p "$1" && cd "$1"
+	mkdir -p "$1" && cd "$1"
 }
 
 # empty contents of current working directory
 mt() {
-    # options -f: force remove (rm -rf)
-    force=""
-    if [ "${1}" = "-f" ]; then
-        force="force "
-    fi
+	# options -f: force remove (rm -rf)
+	force=""
+	if [ "${1}" = "-f" ]; then
+		force="force "
+	fi
 
-    read -rp "${force}empty contents of current directory?: [y/n] " answer
+	read -rp "${force}empty contents of current directory?: [y/n] " answer
 
-    if [ "${answer}" = "y" ]; then
-        if [ "${1}" = "-f" ]; then
-            rm -rf ./*
-        else
-            rm -r ./*
-        fi
-    fi
+	if [ "${answer}" = "y" ]; then
+		if [ "${1}" = "-f" ]; then
+			rm -rf ./*
+		else
+			rm -r ./*
+		fi
+	fi
 }
 
 # PROMPT
@@ -42,4 +42,3 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # set -o vi
 # If not running interactively, don't do anything
 # [[ $- != *i* ]] && return
-

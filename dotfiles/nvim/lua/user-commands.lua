@@ -10,6 +10,18 @@ vim.api.nvim_create_user_command(
     {}
 )
 
+vim.api.nvim_create_user_command(
+    "Source", function()
+        vim.cmd("so ~/.config/nvim/lua/set.lua")
+        vim.cmd("so ~/.config/nvim/lua/remap.lua")
+        vim.cmd("so ~/.config/nvim/lua/user-commands.lua")
+        vim.cmd("so ~/.config/nvim/lua/custom-fn-remaps.lua")
+        vim.cmd("so ~/.config/nvim/lua/lsp-setup.lua")
+        print("Sourced: set, remap, user-commands, custom-fn-reamps, lsp-setup")
+    end,
+    {}
+)
+
 -- used for user commands below
 local function openSplitWindow(path)
     vim.cmd("12split " .. path)

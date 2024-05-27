@@ -18,6 +18,7 @@ return {
                 print("File added to Harpoon menu")
             end
         )
+
         vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
 
         vim.keymap.set("n", "<A-n>", function() ui.nav_next() end)

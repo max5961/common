@@ -24,6 +24,8 @@ vim.opt.splitright = true -- split vertical window to the right
 
 -- search
 vim.opt.hlsearch = false
+-- vim.opt.hlsearch = true
+-- vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true -- makes the search case sensitive if it includes uppercase letters
@@ -36,10 +38,12 @@ vim.opt.textwidth = 0      -- disable max width of text being inserted
 -- other
 vim.opt.scrolloff = 12            -- keeps at least x lines padding when scrolling up/down
 vim.opt.clipboard = "unnamedplus" -- enable pasting yanked text outside of neovim
-vim.opt.guicursor = ""            -- rectangle cursor
+vim.opt.guicursor = "n:blinkon0"  -- rectangle cursor, no blinking
 vim.opt.mouse = ""                -- disable mouse click
 vim.opt.cmdheight = 1             -- remove gap for cmd line (cmdheight=0 is considered experimental)
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "both"
+vim.opt.cursorcolumn = false
 vim.opt.termguicolors = true
 vim.opt.updatetime = 500
 vim.opt.autoread = true

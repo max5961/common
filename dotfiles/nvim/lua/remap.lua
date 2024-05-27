@@ -16,7 +16,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- place cursor over a word and replace very instance of that word in the file
-vim.keymap.set("n", "<leader>ca", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
+vim.keymap.set("n", "<leader>ca", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- same as default J keymap, but keep cursor in same position
 vim.keymap.set("n", "J", "mzJ`z")
@@ -28,3 +28,7 @@ vim.keymap.set("n", "<C-Down>", function() vim.cmd("resize -1") end)
 -- increase decrease width
 vim.keymap.set("n", "<C-Right>", function() vim.cmd("vertical resize +1") end);
 vim.keymap.set("n", "<C-Left>", function() vim.cmd("vertical resize -1") end);
+
+vim.keymap.set("n", "<F1>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("v", "<F1>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("i", "<F1>", "<Nop>", { noremap = true, silent = true })

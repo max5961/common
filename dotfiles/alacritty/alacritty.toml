@@ -1,4 +1,4 @@
-import = ["/home/max/.config/alacritty/dist/themes/rose-pine-moon.toml"]
+import = ["/home/max/.config/alacritty/dist/themes/nightfox.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -10,7 +10,10 @@ size = 11.75
 # WINIT_X11_SCALE_FACTOR = "1.25"
 
 [font.normal]
-family = "MesloLGS NF"
+family = "MononokiNerdFontMono"
+# family = "SauceCodeProNerdFontMono"
+# family = "MesloLGS NF"
+# family = "LilexNerdFontMono"
 
 [scrolling]
 history = 1000
@@ -21,7 +24,7 @@ program = "/usr/bin/zsh"
 
 [window]
 # decorations = "none"
-opacity = 0.83
+opacity = 0.85
 startup_mode = "maximized"
 
 [window.class]
@@ -31,3 +34,6 @@ instance = "Alacritty"
 [window.padding]
 #x = 10
 #y = 10
+
+[debug]
+print_events = true

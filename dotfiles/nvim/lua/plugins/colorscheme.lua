@@ -26,17 +26,17 @@ return {
         "EdenEast/nightfox.nvim",
         name = "nightfox",
         priority = 998,
-        config = function()
-            vim.cmd("colorscheme terafox")
-        end
+        -- config = function()
+        --     vim.cmd("colorscheme terafox")
+        -- end
     },
     {
         "catppuccin/nvim",
         name = "catpuccin",
         priority = 997,
-        -- config = function()
-        --     vim.cmd("colorscheme catppuccin")
-        -- end
+        config = function()
+            vim.cmd("colorscheme catppuccin")
+        end
     },
     {
         "shaunsingh/nord.nvim",

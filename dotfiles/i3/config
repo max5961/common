@@ -14,6 +14,8 @@ exec_always --no-startup-id ~/.config/i3/scripts/create-tmp-ws-file.sh
 exec_always --no-startup-id sleep 1 && nitrogen --restore
 exec_always --no-startup-id picom &
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id setxkbmap -option caps:none
+exec_always --no-startup-id xrdb ~/.Xresources
 
 # -----------------------------------------------------------------------------
 # SYSTEM SETTINGS
@@ -22,24 +24,35 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # custom script needed for volume up/downbecause alsa doesn't handle mute
 # automatically when the volume reaches 0 in i3
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume/raise-volume.sh && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume/lower-volume.sh && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume/raise-volume.sh && $refresh_i3status
+bindsym F2 exec --no-startup-id ~/.config/i3/scripts/volume/lower-volume.sh && $refresh_i3status
+bindsym F3 exec --no-startup-id ~/.config/i3/scripts/volume/raise-volume.sh && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# mouse speed
-# scale of: -1 <---> 1
-exec_always --no-startup-id xinput set-prop 12 328 -0.7
+# -----------------------------------------------------------------------------
+# MOUSE
+# -----------------------------------------------------------------------------
+# set-prop $1 (id), $2 (setting id) $3 (value)
+# use zsh autocomplete to find the device id
+# mouse speed: scale of: -1 <---> 1
+exec_always --no-startup-id xinput set-prop 26 329 -.25
+# Prevents cursor from changing position on every workspace/monitor change
+mouse_warping none
+focus_follows_mouse no
 
 # -----------------------------------------------------------------------------
 #  APPS
 # -----------------------------------------------------------------------------
 # terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+# bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+ minus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-opacity.sh -d
 bindsym $mod+ plus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-opacity.sh -i
 
 # browser
+bindsym $mod+i exec --no-startup-id open-browser
 bindsym $mod+b exec --no-startup-id open-browser
 
 # rofi
@@ -69,11 +82,8 @@ bindsym $mod+m mode "mpd"
 #  VISUAL
 # -----------------------------------------------------------------------------
 set $main-color #c2c8ea
-# set $active-window #79c6e2
-# set $active-window #799ce2
-set $active-window #22bae2
+set $active-window #8cde8c
 set $inactive-window #000000
-
 
 # font
 font pango:NerdFont 10
@@ -187,6 +197,7 @@ bindsym $mod+Shift+space focus mode_toggle
 # -----------------------------------------------------------------------------
 set $m1 eDP-1
 set $m2 HDMI-1-0
+set $m3 DP-1-0
 
 # monitor 1
 workspace 1 output $m1
@@ -210,7 +221,18 @@ workspace 17 output $m2
 workspace 18 output $m2
 workspace 19 output $m2
 
-# bottom monitor
+# monitor 3
+workspace 21 output $m3
+workspace 22 output $m3
+workspace 23 output $m3
+workspace 24 output $m3
+workspace 25 output $m3
+workspace 26 output $m3
+workspace 27 output $m3
+workspace 28 output $m3
+workspace 29 output $m3
+
+# laptop monitor
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -221,7 +243,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-# top monitor
+
+# bottom monitor
 set $ws11 "11"
 set $ws12 "12"
 set $ws13 "13"
@@ -230,7 +253,18 @@ set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
 set $ws18 "18"
-set $ws18 "19"
+set $ws19 "19"
+
+# top monitor
+set $ws21 "21"
+set $ws22 "22"
+set $ws23 "23"
+set $ws24 "24"
+set $ws25 "25"
+set $ws26 "26"
+set $ws27 "27"
+set $ws28 "28"
+set $ws29 "29"
 
 # set keymaps
 bindsym $mod+1 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "1"; exec --no-startup-id echo "1" >/tmp/current-workspace-number

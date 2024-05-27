@@ -23,6 +23,10 @@ Editing:
 - Increment Number: [Ctrl + a]
 - Increment Numbers in Visual Block: [Ctrl + v, g, Ctrl + a]
 
+Split Window:
+- Split current window vertically: [Ctrl + w + v]
+- Split current window horizontally: [Ctrl + w + s]
+
 Tools:
 - Show Completion Path/To/File: [Ctrl + x, Ctrl + f]
 - Show LSP Definitions for Word Under Cursor: [K]

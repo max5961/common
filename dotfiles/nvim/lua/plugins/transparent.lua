@@ -4,34 +4,33 @@
 return {
     "xiyaowong/transparent.nvim",
     config = function()
-        vim.cmd "TransparentEnable"
-
         require("transparent").setup({
             groups = {
                 'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
                 'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
                 'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-                'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+                'SignColumn', 'StatusLine', 'StatusLineNC',
                 'EndOfBuffer',
             },
             extra_groups = {
                 "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
                 "NeoTreeFloatNormal",
+                "NeoTreeNormalNC",
                 "NeoTreeNormal",
-                "FloatBorder",    -- removing this adds an ugly border on nvim-cmp windows
+                "FloatBorder",    -- removing this adds an wide border on nvim-cmp windows
                 "NvimTreeNormal", -- NvimTree
                 "TelescopeNormal",
                 "TelescopeBorder",
                 "TelescopePromptNormal",
             },
             exclude_groups = {
-                -- "NeoTreeNormal",
-                -- "NeoTreeNormalNC",
-                -- "NeoTreeFileName",
-                -- "NeoTreeFloatBorder",
-                -- "NeoTreePreview",
+                "NeoTreeCursorLine",
+                "CursorLine",
+                "CursorLineNr",
             },
         })
+
+        vim.keymap.set("n", "<leader>O", vim.cmd.TransparentToggle);
     end
 }
 
