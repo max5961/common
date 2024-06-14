@@ -37,14 +37,15 @@ return {
             local cmd = ""
 
             -- js
-            if file_ext == "js" then
+            if file_ext == "js" or file_ext == "mjs" then
                 cmd = "node " .. file_path
 
                 -- ts
             elseif file_ext == "ts" then
                 local stripped_file_name = string.sub(file_path, 1, string.len(file_path) - 2)
                 local js_file_name = stripped_file_name .. "js"
-                cmd = "tsc " .. file_path .. " && node " .. js_file_name
+                cmd = "tsc --target es2015 --moduleResolution nodenext --module NodeNext " ..
+                    file_path .. " && node " .. js_file_name
 
                 -- cpp
             elseif file_ext == "cpp" or file_ext == "c" then

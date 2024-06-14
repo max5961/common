@@ -30,7 +30,7 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>O", vim.cmd.TransparentToggle);
+        vim.keymap.set("n", "<leader>T", vim.cmd.TransparentToggle, { desc = "Toggle transparency" });
     end
 }
 
