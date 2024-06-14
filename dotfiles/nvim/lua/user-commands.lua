@@ -37,7 +37,7 @@ vim.api.nvim_create_user_command(
         for _, i in ipairs(vim.api.nvim_list_bufs()) do
             local canDelete = true
 
-            -- Is the buf is open in a window, don't delete it
+            -- Don't delete any buffers that are currently open
             for _, j in ipairs(vim.fn.getwininfo()) do
                 if i == j.bufnr then
                     canDelete = false
