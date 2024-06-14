@@ -31,9 +31,9 @@ textarea {
 
 input {
     outline: none;
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    border-radius: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
     background-color: inherit;
-    height: 35px;
+    height: 2.25rem;
 }

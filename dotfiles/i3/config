@@ -184,10 +184,10 @@ bindsym $mod+f fullscreen toggle
 floating_modifier $mod
 
 # toggle floating window
-bindsym $mod+space floating toggle
+# bindsym $mod+space floating toggle
 
 # toggle focus between floating / tiled windows
-bindsym $mod+Shift+space focus mode_toggle
+# bindsym $mod+Shift+space focus mode_toggle
 
 # allow left clicking the titlebar to drag and rearrange windows
 # tiling_drag modifier titlebar

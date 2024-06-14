@@ -120,6 +120,13 @@ alias trr='trash-restore'
 alias lf="lfrun"
 alias bsynch="browser-sync start --server --file --watch '*'"
 
+# git
+alias g='git'
+alias gs='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gp='git push'
+
 # fzf utilities
 # find files (normal, dotfiles, root files)
 alias "$prefix"ff='fzf-open-file'
