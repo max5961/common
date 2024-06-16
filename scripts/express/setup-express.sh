@@ -2,6 +2,6 @@
 
 cwd=$(pwd)
 
-cp -r ~/common/scripts/express/template/* "$cwd"
+cp -r ~/common/scripts/express/template/. "$cwd"
 
 npm install

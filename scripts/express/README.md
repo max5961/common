@@ -3,6 +3,20 @@ This is my custom express typescript generator template which is strongly
 influenced by express-generator-ts.  This generator however has less high level
 abstractions and utilizes webpack and scss for styling frontend.
 
+## Usage
+This starts the server in watch mode.  It relies on nodemon and ts-node
+```sh
+npm run start:dev
+```
+
+If you are working on the frontend at all...however, you will still be required
+to manually refresh the page
+```sh
+npx webpack --watch
+```
+
+
+
 ## Directories
 ### ./src/views
 This directory stores .ejs files.  It is also the output directory for the
