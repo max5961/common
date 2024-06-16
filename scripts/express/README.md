@@ -10,10 +10,14 @@ npm run start:dev
 ```
 
 If you are working on the frontend at all...however, you will still be required
-to manually refresh the page
+to manually refresh the page because nodemon only refreshes the server, it
+doesn't automatically send get requests on the client
 ```sh
 npx webpack --watch
 ```
+#### note
+For any ./src/public changes to take effect, you will need to compile with
+webpack
 
 
 
