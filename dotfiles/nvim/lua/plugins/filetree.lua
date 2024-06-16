@@ -2,8 +2,8 @@
 -- ? in NeoTree buffer for list of mappings
 
 -- disable netrw on open
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 

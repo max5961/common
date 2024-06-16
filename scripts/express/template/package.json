@@ -1,0 +1,36 @@
+{
+    "name": "express-template",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "build": "npx webpack && tsc && node ./dist/index.js",
+        "start:server": "tsc && node ./dist/index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "ejs": "latest",
+        "express": "latest"
+    },
+    "devDependencies": {
+        "@babel/core": "latest",
+        "@babel/preset-env": "latest",
+        "@types/express": "latest",
+        "@types/node": "latest",
+        "babel-loader": "latest",
+        "browser-sync-webpack-plugin": "latest",
+        "css-loader": "latest",
+        "dotenv": "latest",
+        "nodemon": "latest",
+        "prettier": "latest",
+        "sass": "latest",
+        "sass-loader": "latest",
+        "style-loader": "latest",
+        "ts-loader": "latest",
+        "typescript": "latest",
+        "webpack": "latest",
+        "webpack-cli": "latest"
+    }
+}

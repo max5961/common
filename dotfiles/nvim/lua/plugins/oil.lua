@@ -21,7 +21,7 @@ return {
             view_options = {
                 show_hidden = true,
             },
-
+            delete_to_trash = true,
         }
 
         -- Open Oil floating window (doesn't allow preview, but shows path)
