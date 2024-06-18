@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import Paths from "./common/Paths";
+import helmet from "helmet";
 import { homeRouter } from "./routes/homepage/index";
 
 const app = express();
@@ -12,7 +13,10 @@ app.use(log);
 
 /* body parser middleware */
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+
+/* Security */
+app.use(helmet());
 
 app.use("/", homeRouter);
 

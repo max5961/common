@@ -10,6 +10,9 @@ const Routes = {
     api: "/api",
 } as const;
 
+/* Serve static assets from webpack */
+homeRouter.use(Routes.root, express.static(Paths.assets));
+
 homeRouter.get(Routes.root, (req, res) => {
     res.render("homepage", {
         scriptPath: "/bundle.js",

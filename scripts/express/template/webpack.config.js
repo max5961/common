@@ -3,13 +3,7 @@ const path = require("path");
 module.exports = {
     /* Any additional front end scripts go here */
     entry: {
-        homepage: path.resolve(
-            __dirname,
-            "src",
-            "public",
-            "homepage",
-            "index.ts",
-        ),
+        root: path.resolve(__dirname, "src", "public", "root", "index.ts"),
         messageBoard: path.resolve(
             __dirname,
             "src",

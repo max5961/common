@@ -14,7 +14,8 @@
     "description": "",
     "dependencies": {
         "ejs": "latest",
-        "express": "latest"
+        "express": "latest",
+        "helmet": "latest"
     },
     "devDependencies": {
         "@babel/core": "latest",

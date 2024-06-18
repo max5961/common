@@ -16,6 +16,8 @@ exec_always --no-startup-id picom &
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap -option caps:none
 exec_always --no-startup-id xrdb ~/.Xresources
+# https://github.com/nwg-piotr/autotiling
+exec_always --no-startup-id autotiling
 
 # -----------------------------------------------------------------------------
 # SYSTEM SETTINGS
@@ -182,6 +184,8 @@ bindsym $mod+f fullscreen toggle
 
 # mod + mouse to drag and rearrange windows
 floating_modifier $mod
+
+for_window [class="*"] floating disable
 
 # toggle floating window
 # bindsym $mod+space floating toggle

@@ -1,25 +1,3 @@
--- SCROLL FASTER
--- ----------------------------------------------------------------------------
--- move x amount of lines up/down in normal mode
-local function fast_scroll(lines, down_mapping, up_mapping)
-    vim.keymap.set(
-        "n",
-        down_mapping,
-        function() vim.cmd("normal!" .. lines .. "j") end,
-        { noremap = true, silent = true }
-    )
-    vim.keymap.set(
-        "n",
-        up_mapping,
-        function() vim.cmd("normal!" .. lines .. "k") end,
-        { noremap = true, silent = true }
-    )
-end
-fast_scroll(10, "<A-j>", "<A-k>")
-
-
--- TOGGLE WINDOW FULLSCREEN
--- ----------------------------------------------------------------------------
 WindowState = {}
 ToggleState = {
     fullscreen = false,
@@ -195,23 +173,4 @@ vim.keymap.set(
         toggleFullScreen()
     end,
     { desc = "Toggle current window fullscreen" }
-)
-
--- COLOR PICKER
--- ----------------------------------------------------------------------------
--- need xcolor color picker for this to work
--- https://github.com/Soft/xcolor/tree/master
-local function colorPicker()
-    local color = vim.fn.system("xcolor")
-    color = color:gsub("%s+", "")
-    color = color .. ";"
-    vim.api.nvim_put({ color }, "", true, true);
-end
-
-vim.keymap.set(
-    "n",
-    "<leader>xc",
-    function()
-        colorPicker()
-    end
 )

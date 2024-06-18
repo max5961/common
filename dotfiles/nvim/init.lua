@@ -19,7 +19,8 @@ require("lazy").setup({
 })
 
 require("remap")
-require("custom-fn-remaps")
 require("set")
 require("lsp-setup")
-require("user-commands")
+
+-- The same as requiring all the files in lua/custom-functions directory
+vim.cmd("runtime! lua/custom/*.lua")
