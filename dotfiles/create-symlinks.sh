@@ -47,6 +47,7 @@ link_dir_to_XDG_CONFIG_HOME "rofi"
 link_dir_to_XDG_CONFIG_HOME "picom"
 link_dir_to_XDG_CONFIG_HOME "polybar"
 link_dir_to_XDG_CONFIG_HOME "kitty"
+link_dir_to_XDG_CONFIG_HOME "cava"
 
 # files in ~/
 link_file_to_HOME "bash" ".bashrc"
