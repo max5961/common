@@ -64,9 +64,9 @@ function copyFiles() {
 
 function initializeGitRepository() {
 	read -rp "Initialize empty git repository? [y/n]: " answer
-	if [ "$answer" = "y" ] || [ "$answer" == "Y"] || [ "$answer" == "" ]; then
+	if [[ "$answer" == "y" ]] || [[ "$answer" == "Y" ]] || [[ "$answer" == "" ]]; then
 		git init
-		echo /node_modules >>.gitignore
+		echo "node_modules/" >>.gitignore
 		git add *
 		git commit -m "Initial commit. Setup webpack"
 		git branch -M main
