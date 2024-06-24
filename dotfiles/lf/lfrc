@@ -1,3 +1,4 @@
+set ratios 1:2:3
 # https://github.com/gokcehan/lf/blob/master/doc.md
 # :doc command to see docs in lf
 # -----------------------------------------------------------------------------
@@ -13,10 +14,11 @@ map n
 cmd open # prevent leaf nodes from opening on l or <right>
 
 # Basic settings
-set hidden false
+# set hidden false
 set ignorecase true
 set icons true
 set filesep " " # default '\n'
+set shell /bin/bash # important! custom scripts won't behave as expected otherwise
 
 # Basic Functions
 map . set hidden!
@@ -55,7 +57,7 @@ cmd bookmark-remove !{{
     currLine="1"
     while read line; do
         echo "$currLine: $line"
-        ((++currLine))
+        currLine=$(($currLine + 1))
     done < "$bmDir/$id/bookmarks"
     totalBookmarks="$((currLine - 1))"
 
@@ -188,17 +190,17 @@ cmd wp %{{
     printf "Change wallpaper on monitor #: (1-primary, 2-top, 3-bottom): "
     read monitor
 
-    if [ "$monitor" == "1" ]; then
+    if [ "$monitor" -eq "1" ]; then
         nitrogen --head=0 --save --set-zoom-fill "$f"
         exit 0
     fi
 
-    if [ "$monitor" == "2" ]; then
+    if [ "$monitor" -eq "2" ]; then
         nitrogen --head=1 --save --set-zoom-fill "$f"
         exit 0
     fi
 
-    if [ "$monitor" == "3" ]; then
+    if [ "$monitor" -eq "3" ]; then
         nitrogen --head=2 --save --set-zoom-fill "$f"
         exit 0
     fi

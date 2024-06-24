@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import Paths from "./common/Paths";
 import helmet from "helmet";
-import { homeRouter } from "./routes/homepage/index";
+import homeRouter from "./routes/homepage/index";
 
 const app = express();
 

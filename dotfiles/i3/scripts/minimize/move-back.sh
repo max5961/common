@@ -10,8 +10,11 @@ for file in /tmp/minimized-i3-windows/*; do
     while read line; do
         if ((wsNum < 11)); then
             i3-msg "[id=$line] move container to workspace $wsNum"
-        else
+        elif ((wsNum < 21)); then
             name=$((wsNum - 10))
+            i3-msg "[id=$line] move container to workspace $wsNum: $name"
+        else
+            name=$((wsNum - 20))
             i3-msg "[id=$line] move container to workspace $wsNum: $name"
         fi
 

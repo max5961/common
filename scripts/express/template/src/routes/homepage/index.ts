@@ -2,7 +2,7 @@ import HttpStatusCodes from "../../common/HttpStatusCodes";
 import Paths from "../../common/Paths";
 import express from "express";
 
-export const homeRouter = express.Router();
+const homeRouter = express.Router();
 
 const Routes = {
     root: "/",
@@ -22,3 +22,5 @@ homeRouter.get(Routes.root, (req, res) => {
 homeRouter.get(Routes.bundle, (req, res) => {
     res.status(HttpStatusCodes.OK).sendFile(Paths.homepage.script);
 });
+
+export default homeRouter;

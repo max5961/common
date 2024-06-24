@@ -7,6 +7,6 @@ export default {
     views: path.resolve(src, "views"),
     assets: path.resolve(src, "views", "bundles"),
     homepage: {
-        script: path.resolve(src, "views", "bundles", "root.bundle.js"),
+        script: path.resolve(src, "views", "bundles", "homepage.bundle.js"),
     },
 };

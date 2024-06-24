@@ -1,28 +1,24 @@
 const path = require("path");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
-    /* Any additional frontend entry points go here. This will create a bundle
-     * named homepage.bundle.js and store it in ./src/views/bundles */
-    entry: {
-        homepage: path.resolve(
-            __dirname,
-            "src",
-            "public",
-            "homepage",
-            "index.ts",
-        ),
-    },
-
-    /* Outputs bundled js from the ./src/public directory. */
-    output: {
-        filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "src", "views", "bundles"),
-    },
+    entry: "./src/index.ts",
     devtool: "inline-source-map",
     mode: "development",
     resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".tsx", ".jsx", ".ts", ".js"],
     },
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "public"),
+    },
+    plugins: [
+        new BrowserSyncPlugin({
+            host: "localhost",
+            port: 3000,
+            server: { baseDir: ["public"] },
+        }),
+    ],
     module: {
         rules: [
             {
@@ -45,6 +41,14 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: "asset/resource",
+            },
+            {
+                test: /\.(csv|tsv)$/i,
+                use: ["csv-loader"],
+            },
+            {
+                test: /\.xml/i,
+                use: ["xml-loader"],
             },
             {
                 test: /\.(?:js|mjs|cjs)$/,

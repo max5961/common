@@ -16,10 +16,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 # -----------------------------------------------------------------------------
 # ENV
 # -----------------------------------------------------------------------------
-export EDITOR="nvim"
-export SUDO_EDITOR="nvim"
+export EDITOR="neovim"
+export SUDO_EDITOR="neovim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
+export PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin:$PATH:/$HOME/go/bin"
 
 # -----------------------------------------------------------------------------
 # PLUGINS
@@ -109,10 +110,10 @@ bindkey "^[k" up-line-or-search
 prefix="_"
 
 alias ls="ls --color"
-alias vim="nvim"
+alias vim="neovim"
 alias ta="tmux attach -t"
 alias journalctl='journalctl --reverse'
-alias bat='bat --theme=Visual\ Studio\ Dark+'
+alias bat='batcat --theme=Visual\ Studio\ Dark+'
 alias grep='grep --color=auto'
 alias tr='trash-put'
 alias rm="trash-put"
@@ -148,4 +149,14 @@ mkcd() {
 
 # -----------------------------------------------------------------------------
 # Shell integrations
-eval "$(fzf --zsh)"
+# not available on this version of fzf
+# eval "$(fzf --zsh)"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/max/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
