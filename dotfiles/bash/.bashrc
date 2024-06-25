@@ -2,7 +2,7 @@
 export EDITOR="neovim"
 export SUDO_EDITOR="neovim"
 export TERMINAL="alacritty"
-export BROWSER="brave"
+export BROWSER="brave-browser"
 export PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin:$PATH:/$HOME/go/bin"
 
 # SETTINGS FOR COMMON COMMANDS

@@ -1,26 +1,40 @@
 {
-    "name": "setup-react",
+    "name": "express-template-react",
     "version": "1.0.0",
-    "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "npx webpack && tsc",
+        "compile": "tsc",
+        "start:server": "npm run build && node ./dist/index.js",
+        "start:dev": "nodemon ./src/index.ts"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "ejs": "latest",
+        "express": "latest",
+        "helmet": "latest",
+        "react": "latest",
+        "react-dom": "latest"
+    },
     "devDependencies": {
+        "@babel/core": "latest",
+        "@babel/preset-env": "latest",
         "@babel/preset-react": "latest",
         "@babel/preset-typescript": "latest",
         "@eslint/js": "latest",
+        "@types/express": "latest",
+        "@types/node": "latest",
         "@types/react": "latest",
         "@types/react-dom": "latest",
         "babel-loader": "latest",
-        "browser-sync-webpack-plugin": "latest",
         "css-loader": "latest",
+        "dotenv": "latest",
         "eslint": "latest",
-        "eslint-plugin-react": "latest",
         "globals": "latest",
+        "nodemon": "latest",
         "prettier": "latest",
         "sass": "latest",
         "sass-loader": "latest",
@@ -28,13 +42,10 @@
         "stylelint": "latest",
         "stylelint-scss": "latest",
         "ts-loader": "latest",
+        "ts-node": "latest",
         "typescript": "latest",
         "typescript-eslint": "latest",
         "webpack": "latest",
         "webpack-cli": "latest"
-    },
-    "dependencies": {
-        "react": "latest",
-        "react-dom": "latest"
     }
 }

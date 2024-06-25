@@ -20,15 +20,15 @@ function dl_single_album() {
         album="${2}"
         URL="${3}"
     fi
-    
+
     cd ~/Music
     navigate_to_dir "${artist}"
     navigate_to_dir "${album}"
-    
+
     # download the tracks
     yt-dlp -x -f bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "${URL}"
 
-    # set the metadata of each song 
+    # set the metadata of each song
     python3 ~/common/scripts/yt-dlp/albumdl/set-metadata.py "${artist}" "${album}"
 
     # add album, artist, URL to a download log at: ~/common/scripts/python/albumdl/dl-log.csv
@@ -43,7 +43,7 @@ function dl_from_csv() {
     else
         CSV="${1}"
     fi
-    
+
     # dl-from-csv.py runs a subprocess that runs single_album_dl
     # with values from the csv passed as args
     # iterating over the csv file in python due to better handling
@@ -60,16 +60,18 @@ function check_args() {
             dl_from_csv "${2}"
         fi
 
-    # ***download single album
-    # args should be passed in the format: artist, album, URL
-    # if no args are passed, the user will be prompted
+        # ***download single album
+        # args should be passed in the format: artist, album, URL
+        # if no args are passed, the user will be prompted
     elif [ -z "${1}" ]; then
         dl_single_album
 
-    # args are passed automatically when downloading from a line in a csv
+        # args are passed automatically when downloading from a line in a csv
     else
         dl_single_album "${1}" "${2}" "${3}"
     fi
 }
 
+# echo "Running yt-dlp version pre-check..."
+# yt-dlp-precheck
 check_args "$@"

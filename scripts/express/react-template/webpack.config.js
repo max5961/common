@@ -9,7 +9,7 @@ module.exports = {
             "src",
             "public",
             "homepage",
-            "index.ts",
+            "index.tsx",
         ),
     },
 
