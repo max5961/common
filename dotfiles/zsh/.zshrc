@@ -142,6 +142,16 @@ alias "$prefix"cd='source fzf-cd-into'
 alias "$prefix"cdh='cd && source fzf-cd-into'
 alias "$prefix"cdr='cd / && source fzf-cd-into'
 
+_lynx() {
+    if [[ -z "$1" ]]; then
+        lynx -cfg=~/.config/lynx/lynx.cfg
+        exit 0
+    fi
+    lynx -cfg=~/.config/lynx/lynx.cfg "https://www.duckduckgo.com?q=${*}"
+}
+
+alias lynx="_lynx"
+
 
 mkcd() {
     mkdir -p "$1" && cd "$1"

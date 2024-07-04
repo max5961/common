@@ -23,11 +23,19 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- resize split windows with arrow keys
 -- increase/decrease height
-vim.keymap.set("n", "<C-Up>", function() vim.cmd("resize +1") end)
-vim.keymap.set("n", "<C-Down>", function() vim.cmd("resize -1") end)
+vim.keymap.set("n", "<C-Up>", function()
+	vim.cmd("resize +1")
+end)
+vim.keymap.set("n", "<C-Down>", function()
+	vim.cmd("resize -1")
+end)
 -- increase decrease width
-vim.keymap.set("n", "<C-Right>", function() vim.cmd("vertical resize +1") end);
-vim.keymap.set("n", "<C-Left>", function() vim.cmd("vertical resize -1") end);
+vim.keymap.set("n", "<C-Right>", function()
+	vim.cmd("vertical resize +1")
+end)
+vim.keymap.set("n", "<C-Left>", function()
+	vim.cmd("vertical resize -1")
+end)
 
 vim.keymap.set("n", "<F1>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("v", "<F1>", "<Nop>", { noremap = true, silent = true })

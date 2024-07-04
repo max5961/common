@@ -57,6 +57,9 @@ bindsym $mod+ plus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-op
 bindsym $mod+i exec --no-startup-id open-browser
 bindsym $mod+b exec --no-startup-id open-browser
 
+# file manager gui
+bindsym $mod+e exec --no-startup-id thunar
+
 # rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $alt+d exec --no-startup-id ~/.config/rofi/scripts/favorites.sh

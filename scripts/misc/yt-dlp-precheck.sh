@@ -5,6 +5,7 @@ current=$(yt-dlp --version)
 latest=${latest:1:$((${#latest} - 2))}
 
 if [[ "$current" == "$latest" ]]; then
+    # echo "yt-dlp is up to date: Current: $current, Latest: $latest"
     exit 0
 fi
 
