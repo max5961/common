@@ -1,25 +1,50 @@
 -- https://github.com/ThePrimeagen/harpoon
 -- quickly add, delete, and move between files in a buffer
+
 local M = {}
 
 -- These are added in the config function
 -- M.mark = require("harpoon.mark")
 -- M.ui = require("harpoon.ui")
 
+M.switchedMsg = function(num, invalid)
+	if invalid == true then
+		print("Invalid buf: " .. num)
+	else
+		local str = "buf: "
+		for idx = 1, M.mark.get_length() do
+			if idx == num then
+				str = str .. "[" .. idx .. "]"
+			else
+				str = str .. " " .. idx .. " "
+			end
+		end
+		print(str)
+	end
+end
+
 M.wrapper = function(cb)
 	local buffer = vim.api.nvim_get_option_value("buftype", { buf = vim.fn.getwininfo().bufnr })
 
 	if buffer ~= "terminal" then
 		cb()
+		return true
 	else
 		print("Harpoon doesn't work well with terminal buffers")
+		return false
+	end
+end
+
+M.switchWrapper = function(cb, num)
+	if M.wrapper(cb) then
+		M.switchedMsg(M.mark.get_current_index())
 	end
 end
 
 M.addFile = function()
 	M.wrapper(function()
 		M.mark.add_file()
-		print("File added to Harpoon menu")
+		print("File added to Harpoon menu " .. "(" .. M.mark.get_length() .. " bufs)")
 	end)
 end
 
@@ -28,11 +53,15 @@ M.toggleQuickMenu = function()
 end
 
 M.navNext = function()
-	M.wrapper(M.ui.nav_next)
+	M.switchWrapper(function()
+		M.wrapper(M.ui.nav_next)
+	end)
 end
 
 M.navPrev = function()
-	M.wrapper(M.ui.nav_prev)
+	M.switchWrapper(function()
+		M.wrapper(M.ui.nav_prev)
+	end)
 end
 
 M.navBufNum = function(num)
@@ -40,9 +69,9 @@ M.navBufNum = function(num)
 		M.wrapper(function()
 			if M.mark.valid_index(num) then
 				M.ui.nav_file(num)
-				print("Switched to harpoon buf: " .. num)
+				M.switchedMsg(num)
 			else
-				print("Invalid harpoon buf: " .. num)
+				M.switchedMsg(num, true)
 			end
 		end)
 	end
