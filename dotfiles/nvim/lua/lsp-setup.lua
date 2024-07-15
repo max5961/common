@@ -58,7 +58,11 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").cssls.setup({
 	capabilities = cssCapabilities,
 	filetypes = { "css", "scss" },
+
+	-- to get css completions, you need to have stylelint-lsp installed LOCALLY
+	-- for some reason
 	cmd = { "vscode-css-language-server", "--stdio" },
+	-- cmd = { "stylelint-lsp", "--stdio" },
 })
 
 -- require("lspconfig").css_variables.setup({})
@@ -90,17 +94,25 @@ cmp.setup({
 		completeopt = "menu,menuone,noinsert",
 	},
 
-	sources = {
+	-- sources = {
+	-- 	{ name = "nvim_lsp" },
+	-- 	{ name = "luasnip" },
+	-- 	{
+	-- 		name = "scss",
+	-- 		option = {
+	-- 			folders = { "src/style" },
+	-- 		},
+	-- 	},
+	-- },
+	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{
-			name = "scss",
-			option = {
-				folders = { "src/style" },
-			},
-		},
-	},
-
+		-- { name = 'vsnip' }, -- For vsnip users.
+		{ name = "luasnip" }, -- For luasnip users.
+		-- { name = 'ultisnips' }, -- For ultisnips users.
+		-- { name = 'snippy' }, -- For snippy users.
+	}, {
+		{ name = "buffer" },
+	}),
 	-- add border to the completion and documentation menu
 	window = {
 		completion = cmp.config.window.bordered(),

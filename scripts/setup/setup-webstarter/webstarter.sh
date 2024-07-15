@@ -22,3 +22,10 @@ fi
 echo "Created HTML, CSS, JS template"
 echo "For live website reloads run:"
 echo "browser-sync start --server --file --watch '*'"
+
+# For some reason, LSP autosuggestions won't work unless stylelist-lsp
+# is installed LOCALLY
+npm init -y
+npm install --save-dev stylelint-lsp
+
+git init

@@ -109,9 +109,8 @@ bindkey "^[k" up-line-or-search
 # prefix for aliases to prevent potential naming conflicts
 prefix="_"
 
-alias ls="ls --color"
+alias ls="ls --color -1"
 alias vim="neovim"
-alias ta="tmux attach -t"
 alias journalctl='journalctl --reverse'
 alias bat='batcat --theme=Visual\ Studio\ Dark+'
 alias grep='grep --color=auto'
@@ -120,6 +119,17 @@ alias rm="trash-put"
 alias trr='trash-restore'
 alias lf="lfrun"
 alias bsynch="browser-sync start --server --file --watch '*'"
+
+# tmux
+tmux_new_session() {
+    if [[ -z "$1" ]]; then
+        echo "Provide a session name"; exit 0
+    fi
+    tmux new-session -t "$1" -c "$2"
+}
+alias ta="tmux attach -t"
+alias tls="tmux list-sessions"
+alias tns=tmux_new_session
 
 # git
 alias g='git'
@@ -141,6 +151,16 @@ alias "$prefix"fgr='fzf-grep-contents-open --root'
 alias "$prefix"cd='source fzf-cd-into'
 alias "$prefix"cdh='cd && source fzf-cd-into'
 alias "$prefix"cdr='cd / && source fzf-cd-into'
+
+# zathura
+open_zathura() {
+    if [[ -z "$1" ]]; then
+        exit 0;
+    fi
+    nohup zathura "$1" > /dev/null 2>&1 &
+}
+alias pdf="open_zathura"
+
 
 _lynx() {
     if [[ -z "$1" ]]; then

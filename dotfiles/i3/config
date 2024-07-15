@@ -65,6 +65,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $alt+d exec --no-startup-id ~/.config/rofi/scripts/favorites.sh
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
+bindsym $alt+r exec --no-startup-id ~/.config/rofi/scripts/reading.sh
 
 # mpd
 bindsym $mod+Shift+p exec --no-startup-id mpc toggle

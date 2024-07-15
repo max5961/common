@@ -23,3 +23,7 @@ end, {})
 vim.keymap.set("n", "<leader>d", function()
 	vim.cmd("lua vim.diagnostic.open_float()")
 end, { desc = "Toggle current window fullscreen" })
+
+vim.keymap.set("n", "<leader>ll", function()
+	vim.api.nvim_set_current_line(string.rep("-", 80))
+end, { desc = "Add a line (for text files)" })

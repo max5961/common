@@ -16,3 +16,4 @@ fi
 
 cp -r "$template" "$cwd"
 npm install
+git init

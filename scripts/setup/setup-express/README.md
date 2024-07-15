@@ -9,16 +9,16 @@ This starts the server in watch mode.  It relies on nodemon and ts-node
 npm run start:dev
 ```
 
-If you are working on the frontend at all...however, you will still be required
-to manually refresh the page because nodemon only refreshes the server, it
-doesn't automatically send get requests on the client
+To work on the frontend files located in ./src/public, you can run 'npx webpack
+--watch' alongside 'npm run start:dev'.  You will still need to to manually
+refresh the apge becuase nodemon only refreshes the server.  It doesn't
+automatically send get requests on the client.
 ```sh
 npx webpack --watch
 ```
 #### note
 For any ./src/public changes to take effect, you will need to compile with
-webpack
-
+webpack.
 
 
 ## Directories

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function App() {
+export default function App(): React.ReactNode {
     const colors: string[] = ["salmon", "green", "lightcoral", "lightblue"];
     const [colorIdx, setColorIdx] = useState<number>(0);
 
