@@ -18,8 +18,19 @@ M.switchedMsg = function(num, invalid)
 			else
 				str = str .. " " .. idx .. " "
 			end
+			-- local name = string.sub(M.mark.get_marked_file_name(idx), -25)
+			-- if idx == num then
+			-- 	str = str .. "[" .. name .. "]"
+			-- else
+			-- 	str = str .. " " .. name .. " "
+			-- end
 		end
-		print(str)
+
+		if M.mark.get_length() == 0 then
+			print(str .. "There are no Harpoon bufs")
+		else
+			print(str)
+		end
 	end
 end
 
@@ -35,7 +46,7 @@ M.wrapper = function(cb)
 	end
 end
 
-M.switchWrapper = function(cb, num)
+M.switchWrapper = function(cb)
 	if M.wrapper(cb) then
 		M.switchedMsg(M.mark.get_current_index())
 	end

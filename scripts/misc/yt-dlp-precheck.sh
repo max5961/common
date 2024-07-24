@@ -11,5 +11,5 @@ fi
 
 echo "$current is not up to date with latest $latest"
 echo "Upgrading..."
-pipx install yt-dlp --force
+pipx install yt-dlp=="$latest" --force
 

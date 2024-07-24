@@ -12,6 +12,7 @@ function dlCommand() {
     if [ -z "$1" ]; then echo "Url not supplied to dlCommand function"; exit 1; fi
 
     yt-dlp -x -f bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "$1"
+    # yt-dlp -x -f bestaudio --extract-audio --audio-format mp3 -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "$1"
 }
 
 # Go to the music directory
