@@ -23,6 +23,10 @@ if [[ ! -d .git ]]; then
     git init > /dev/null 2>&1
 fi
 
+if [[ ! -d node_modules ]]; then
+    npm init -y && npm install --save-dev @types/node
+fi
+
 touch js-test.js ts-test.ts
 
 if [[ "$1" == "-t" || "$1" == "-tn" || "$1" == "-nt" ]]; then
@@ -30,3 +34,4 @@ if [[ "$1" == "-t" || "$1" == "-tn" || "$1" == "-nt" ]]; then
 fi
 
 neovim js-test.js
+

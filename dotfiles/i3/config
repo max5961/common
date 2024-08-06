@@ -48,10 +48,7 @@ focus_follows_mouse no
 #  APPS
 # -----------------------------------------------------------------------------
 # terminal
-# bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Return exec --no-startup-id kitty
-bindsym $mod+ minus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-opacity.sh -d
-bindsym $mod+ plus exec --no-startup-id ~/.config/i3/scripts/handle-alacritty-opacity.sh -i
 
 # browser
 bindsym $mod+i exec --no-startup-id open-browser
@@ -82,6 +79,9 @@ mode "mpd" {
     bindsym m mode "default"
 }
 bindsym $mod+m mode "mpd"
+
+bindsym $mod+minus exec --no-startup-id toggle-transparency
+bindsym $mod+plus exec --no-startup-id toggle-transparency "up"
 
 
 # -----------------------------------------------------------------------------
