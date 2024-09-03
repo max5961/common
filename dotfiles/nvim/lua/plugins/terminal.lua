@@ -136,8 +136,15 @@ return {
 			vim.api.nvim_create_user_command("T" .. num, "ToggleTerm" .. num, {})
 		end
 
+		-- Execute last cmd sent from Send_command_to_terminal <leader>lc
 		function ExecuteLastCommand()
 			local lastCmd = CommandHistory[#CommandHistory]
+
+			if lastCmd == nil then
+				vim.api.nvim_err_writeln("There is no last command.  Enter a command with <leader>t first.")
+				return
+			end
+
 			print("Executing Last Command: " .. lastCmd)
 			local nvim_command = Terminal_number .. "TermExec cmd=" .. "'" .. lastCmd .. "'"
 			vim.cmd(nvim_command)

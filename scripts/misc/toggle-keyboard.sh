@@ -1,12 +1,19 @@
 #!/bin/bash
 
 # Because how else are you going to stack your ergo keyboard on top of your laptop keyboard?
+# Power button disable does not work unfortunately
 
 keyboard_ids=$(xinput list \
         | grep -i "asus keyboard" \
         | awk -F'=' '{print $2}' \
         | awk '{print $1}' \
     )
+
+# powerbutton_ids=$(xinput list \
+    #         | grep -i "power button" \
+    #         | awk -F'=' '{print $2}' \
+    #         | awk '{print $1}' \
+    #     )
 
 function get_current_status() {
     if xinput list-props "$1" \
@@ -29,6 +36,13 @@ for id in $keyboard_ids; do
         "       Asus Keyboard $id: Disabled"
 
 done
+# for id in $powerbutton_ids; do
+#     get_current_status \
+    #         "$id" \
+    #         "       Asus Powerbutton $id: Enabled" \
+    #         "       Asus Powerbutton $id: Disabled"
+#
+# done
 echo ""
 
 echo "0 to disable"
@@ -48,6 +62,14 @@ for id in $keyboard_ids; do
         "Successfully enabled Asus Keyboard $id" \
         "Successfully disabled Asus Keyboard $id"
 done
+
+# for id in $powerbutton_ids; do
+#     xinput set-prop "$id" "Device Enabled" "$enable_or_disable"
+#     get_current_status \
+    #         "$id" \
+    #         "Successfully enabled Power Button $id" \
+    #         "Successfully disabled Power Button $id"
+# done
 
 t1="enabled"
 t2="enable"

@@ -16,10 +16,16 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg: #11121D80;
-    bg-alt: #444b6a;
-    fg: #FFFFFF;
-    fg-alt: #787c99;
+//    bg: #11121D80;
+//    bg-alt: #444b6a;
+//    fg: #FFFFFF;
+//    fg-alt: #787c99;
+
+bg: #28282860;
+bg-alt: #3c383660;
+fg: #fbf1c7;
+fg-alt-1: #d3869b;
+
 
     background-color: @bg;
 
@@ -34,11 +40,12 @@ window {
 }
 
 element {
-    text-color: @fg-alt;
+    text-color: @fg;
+    padding: 0 8 0 8;
 }
 
 element selected {
-    text-color: @fg;
+    text-color: @fg-alt-1;
 }
 
 element-text {

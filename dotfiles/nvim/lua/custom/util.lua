@@ -20,6 +20,14 @@ vim.api.nvim_create_user_command("Help", function()
 	vim.cmd("12split " .. "~/common/dotfiles/nvim/doc/keybinds.txt")
 end, {})
 
+-- Open current buffer in VsCode
+vim.api.nvim_create_user_command("Code", function()
+	local currFile = vim.api.nvim_buf_get_name(0)
+	local cwd = vim.fn.getcwd()
+	os.execute("code --disable-workspace-trust " .. cwd .. " " .. currFile)
+	-- os.execute("code --disable-workspace-trust --folder-uri --disable-feature=sidebar " .. cwd .. " " .. currFile)
+end, {})
+
 vim.keymap.set("n", "<leader>d", function()
 	vim.cmd("lua vim.diagnostic.open_float()")
 end, { desc = "Toggle current window fullscreen" })

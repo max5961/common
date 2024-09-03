@@ -13,7 +13,7 @@ const mut = picom.replace(regex, (match, p) => {
     let num = parseInt(p);
 
     if (direction === "up") {
-        num + 1 < 100 && ++num;
+        num + 1 <= 100 && ++num;
     } else {
         num - 1 > 0 && --num;
     }

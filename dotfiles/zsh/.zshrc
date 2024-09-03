@@ -119,6 +119,7 @@ alias rm="trash-put"
 alias trr='trash-restore'
 alias lf="lfrun"
 alias bsynch="browser-sync start --server --file --watch '*'"
+alias calc="qalc"
 
 # tmux
 tmux_new_session() {

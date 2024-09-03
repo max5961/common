@@ -31,6 +31,7 @@ return {
 		-- Open Oil floating window (doesn't allow preview, but shows path)
 		vim.keymap.set("n", "<leader>o", require("oil").toggle_float)
 
+		-- Make sure that Oil (non-float) opens with preview window automatically
 		vim.keymap.set("n", "<A-o>", function()
 			local filetype = vim.o.filetype
 

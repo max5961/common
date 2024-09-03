@@ -45,7 +45,7 @@ mouse_warping none
 focus_follows_mouse no
 
 # -----------------------------------------------------------------------------
-#  APPS
+#  APPS / SHORTCUTS
 # -----------------------------------------------------------------------------
 # terminal
 bindsym $mod+Return exec --no-startup-id kitty
@@ -67,8 +67,8 @@ bindsym $alt+r exec --no-startup-id ~/.config/rofi/scripts/reading.sh
 # mpd
 bindsym $mod+Shift+p exec --no-startup-id mpc toggle
 mode "mpd" {
-    bindsym l exec --no-startup-id mpc next
-    bindsym h exec --no-startup-id mpc prev
+    bindsym k exec --no-startup-id mpc next
+    bindsym j exec --no-startup-id mpc prev
     bindsym p exec --no-startup-id mpc toggle
     bindsym f exec --no-startup-id mpc seek +00:00:01
     bindsym b exec --no-startup-id mpc seek -00:00:01
@@ -82,6 +82,23 @@ bindsym $mod+m mode "mpd"
 
 bindsym $mod+minus exec --no-startup-id toggle-transparency
 bindsym $mod+plus exec --no-startup-id toggle-transparency "up"
+
+# screenshot
+bindsym $mod+Shift+s exec --no-startup-id maim-screenshot --monitor
+mode "screenshot (m|w|a)" {
+    # focused monitor
+    bindsym m exec --no-startup-id maim-screenshot --monitor
+    # focused window
+    bindsym w exec --no-startup-id maim-screenshot --window
+    # all monitors
+    bindsym a exec --no-startup-id maim-screenshot
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+s mode "default"
+    bindsym s mode "default"
+}
+bindsym $mod+s mode "screenshot (m|w|a)"
 
 
 # -----------------------------------------------------------------------------
