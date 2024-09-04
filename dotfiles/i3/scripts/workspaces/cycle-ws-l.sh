@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+mons="/tmp/connected-monitors"
 rootDir="$HOME/.config/i3/scripts/workspaces"
 
 currMonitor=$("$rootDir/get-curr-monitor.sh")
@@ -18,12 +19,12 @@ m3=$((curr + 19))
 echo "$m2: $m1"
 
 i3-msg workspace number "$m1"
-if ! xrandr | grep 'HDMI-1-0 disconnected'; then
+if grep -w 'HDMI-1-0' $mons; then
     echo "cycle-ws-l: external connected"
     i3-msg workspace "$m2: $m1"
 fi
 
-if ! xrandr | grep 'DP-1-0 disconnected'; then
+if grep -w 'DP-1-0' $mons; then
     echo "cycle-ws-r: external DP-1-1 connected"
     i3-msg workspace "$m3: $m1"
 fi

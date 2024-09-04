@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # needs some time for everything to properly load
 sleep 0.1
