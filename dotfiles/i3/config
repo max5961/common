@@ -54,6 +54,7 @@ bindsym $mod+Return exec --no-startup-id kitty
 # browser
 bindsym $mod+i exec --no-startup-id open-browser
 bindsym $mod+b exec --no-startup-id open-browser
+bindsym $mod+q exec --no-startup-id qutebrowser
 
 # file manager gui
 bindsym $mod+e exec --no-startup-id thunar
@@ -328,6 +329,56 @@ bindsym $alt+Shift+6 move container to workspace "16: 6"
 bindsym $alt+Shift+7 move container to workspace "17: 7"
 bindsym $alt+Shift+8 move container to workspace "18: 8"
 bindsym $alt+Shift+9 move container to workspace "19: 9"
+
+# move windows to different workspaces
+mode "move-windows" {
+    bindsym 1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 1
+    bindsym 2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 2
+    bindsym 3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 3
+    bindsym 4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 4
+    bindsym 5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 5
+    bindsym 6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 6
+    bindsym 7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 7
+    bindsym 8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 8
+    bindsym 9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 9
+
+    bindsym $mod+1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 1 --sw-post
+    bindsym $mod+2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 2 --sw-post
+    bindsym $mod+3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 3 --sw-post
+    bindsym $mod+4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 4 --sw-post
+    bindsym $mod+5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 5 --sw-post
+    bindsym $mod+6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 6 --sw-post
+    bindsym $mod+7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 7 --sw-post
+    bindsym $mod+8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 8 --sw-post
+    bindsym $mod+9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 9 --sw-post
+
+    bindsym Shift+1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 1
+    bindsym Shift+2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 2
+    bindsym Shift+3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 3
+    bindsym Shift+4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 4
+    bindsym Shift+5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 5
+    bindsym Shift+6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 6
+    bindsym Shift+7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 7
+    bindsym Shift+8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 8
+    bindsym Shift+9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 9
+
+    bindsym $mod+Shift+1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 1 --sw-post
+    bindsym $mod+Shift+2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 2 --sw-post
+    bindsym $mod+Shift+3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 3 --sw-post
+    bindsym $mod+Shift+4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 4 --sw-post
+    bindsym $mod+Shift+5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 5 --sw-post
+    bindsym $mod+Shift+6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 6 --sw-post
+    bindsym $mod+Shift+7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 7 --sw-post
+    bindsym $mod+Shift+8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 8 --sw-post
+    bindsym $mod+Shift+9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 9 --sw-post
+
+# back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+o mode "default"
+    bindsym o mode "default"
+}
+bindsym $mod+o mode "move-windows"
 
 # minimize all windows on current workspace or toggle back all windows that
 # have been minimized

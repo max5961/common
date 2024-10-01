@@ -40,10 +40,17 @@ echo $start
 echo $target
 
 for id in $wins; do
-    i3-msg "[id=$id] move container to workspace $target: $targetName"
+    toWorkspace="$target: $targetName"
+
+    if ((target < 10)); then
+        toWorkspace="$target"
+    fi
+
+    i3-msg "[id=$id] move container to workspace $toWorkspace"
 done
 
 if [[ "$3" == "--sw-post" ]]; then
     "$HOME/.config/i3/scripts/workspaces/handle-ws-sw.sh" "$targetName"
+    echo "$targetName" > /tmp/current-workspace-number
 fi
 

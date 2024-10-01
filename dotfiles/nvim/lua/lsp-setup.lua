@@ -12,7 +12,7 @@ require("mason-lspconfig").setup({
 	-- list of language servers
 	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	ensure_installed = {
-		"tsserver",
+		"ts_ls", -- was "tsserver"
 		"eslint",
 		"html",
 		"cssls",
