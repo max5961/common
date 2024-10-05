@@ -138,6 +138,8 @@ alias gs='git status'
 alias gc='git commit'
 alias ga='git add'
 alias gp='git push'
+alias gl="git log --oneline --graph --all --decorate"
+alias lg="lazygit"
 
 # fzf utilities
 # find files (normal, dotfiles, root files)
