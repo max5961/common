@@ -210,14 +210,35 @@ source = /tmp/mpd.fifo
 
 gradient = 1
 
-gradient_color_1 = '#938579'
-gradient_color_2 = '#977f6d'
-gradient_color_3 = '#9c7863'
-gradient_color_4 = '#a2705b'
-gradient_color_5 = '#a76855'
-gradient_color_6 = '#ac5e51'
-gradient_color_7 = '#b15450'
-gradient_color_8 = '#b54851'
+# EVERFOREST
+gradient_color_1 = '#a7c080'
+gradient_color_2 = '#9cc080'
+gradient_color_3 = '#92c080'
+gradient_color_4 = '#84c080'
+gradient_color_5 = '#80c09b'
+gradient_color_6 = '#80c0ae'
+gradient_color_7 = '#83bdad'
+gradient_color_8 = '#83b6af'
+
+# GRUVBOX
+# gradient_color_1 = '#fbf1c7'
+# gradient_color_2 = '#fbf1c7'
+# gradient_color_3 = '#fbf1c7'
+# gradient_color_4 = '#fbf1c7'
+# gradient_color_5 = '#fbf1c7'
+# gradient_color_6 = '#fbf1c7'
+# gradient_color_7 = '#fbf1c7'
+# gradient_color_8 = '#fbf1c7'
+
+
+# gradient_color_1 = '#938579'
+# gradient_color_2 = '#977f6d'
+# gradient_color_3 = '#9c7863'
+# gradient_color_4 = '#a2705b'
+# gradient_color_5 = '#a76855'
+# gradient_color_6 = '#ac5e51'
+# gradient_color_7 = '#b15450'
+# gradient_color_8 = '#b54851'
 
 # gradient_color_1 = '#948694'
 # gradient_color_2 = '#977f97'

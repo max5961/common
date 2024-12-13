@@ -1,5 +1,7 @@
 #!/bin/bash
 
+declare -r OPEN_SCRIPT="$HOME/.config/rofi/scripts/open.sh"
+
 # power options
 opt0="logout"
 opt1="suspend"
@@ -8,7 +10,7 @@ opt3="shutdown"
 
 options="$opt0\n$opt1\n$opt2\n$opt3\n"
 
-chosen=$(echo -en "$options" | rofi -dmenu -p "Power Menu:")
+chosen=$(echo -en "$options" | "$OPEN_SCRIPT" -dmenu -p "Power Menu:")
 case $chosen in
     $opt0)
         i3-msg exit

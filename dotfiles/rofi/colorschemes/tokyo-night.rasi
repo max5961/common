@@ -1,0 +1,8 @@
+* {
+    bg: #1a1b2660;
+    bg-alt: #28344a80;
+    fg: #73daca;
+    selected-fg: #1a1b26;
+    selected-bg: #73daca;
+}
+

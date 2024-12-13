@@ -59,10 +59,10 @@ bindsym $mod+q exec --no-startup-id qutebrowser
 # file manager gui
 bindsym $mod+e exec --no-startup-id thunar
 
-# rofi
-bindsym $mod+d exec --no-startup-id rofi -show drun
+# rofi (open.sh is a wrapper for the 'rofi' command)
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/open.sh -show drun
 bindsym $alt+d exec --no-startup-id ~/.config/rofi/scripts/favorites.sh
-bindsym $mod+w exec --no-startup-id rofi -show window
+bindsym $mod+w exec --no-startup-id ~/.config/rofi/scripts/open.sh -show window
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
 bindsym $alt+r exec --no-startup-id ~/.config/rofi/scripts/reading.sh
 
@@ -106,21 +106,14 @@ bindsym $mod+s mode "screenshot (m|w|a)"
 # -----------------------------------------------------------------------------
 #  VISUAL
 # -----------------------------------------------------------------------------
-set $main-color #c2c8ea
-set $active-window #8cde8c
-set $inactive-window #000000
+
+include $HOME/.config/i3/colors.conf
 
 # font
 font pango:NerdFont 10
 
 # gaps
 gaps inner 12
-
-# change border for focused windows
-default_border pixel 3
-client.focused $active-window $active-window $active-window $active-window
-client.focused_inactive $inactive-window $inactive-window $inactive-window $inactive-window
-
 
 # i3-bar
 # bar {

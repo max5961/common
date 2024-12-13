@@ -1,5 +1,7 @@
 #!/bin/bash
 
+declare -r OPEN_SCRIPT="$HOME/.config/rofi/scripts/open.sh"
+
 function open_app() {
     nohup "$1" >/dev/null 2>&1 &
 }
@@ -18,7 +20,7 @@ network_manager="Network Manager (nmtui)"
 
 options="$brave\n$firefox\n$file_explorer\n$bit_warden\n$calc\n$pulseaudio\n$nitrogen\n$screenshot\n$gimp\n$bluetooth\n$network_manager"
 
-chosen=$(echo -en $options | rofi -dmenu -i -p "Favorite Applications:")
+chosen=$(echo -en $options | "$OPEN_SCRIPT" -dmenu -i -p "Favorite Applications:")
 case $chosen in
     $brave)
         open_app "brave"
