@@ -236,5 +236,53 @@ cmd zip ${{
     rm -rf $1
 }}
 
+# Make a symlink to the same file in a dif folder to organize wp
+# Run without arguments to get prompted for directories
+cmd lwp %{{
+    if [[ ! -f "$f" || -z "$f" || ! -e "$f" ]]; then
+        printf "No valid file selected."
+        exit 1
+    fi
+
+    wpDir="$HOME/Pictures/wallpapers"
+    fileName=$(basename "$f")
+
+    targetDir="$@"
+
+    if [[ -z "$1" ]]; then
+        printf "Link to directory/directories (q to abort): "
+        read targetDir
+        [[ "$targetDir" == "q" ]] && exit 1
+    fi
+
+    for arg in $targetDir; do
+        mkdir -p "$wpDir/$arg"
+
+        if [[ ! -e "$wpDir/$arg/$fileName" ]]; then
+            ln -s "$f" "$wpDir/$arg/."
+            lf -remote "send $id tag c"
+        fi
+    done
+}}
+
+cmd sc %{{
+    wpDir="$HOME/Pictures/wallpapers"
+    fileName=$(basename "$f")
+
+    fileInDirs=""
+
+    appended=false
+    for dir in $wpDir/*; do
+        if [[ -f "$dir/$fileName" ]]; then
+            directoryName=$(basename "$dir")
+            [[ "$appended" == true ]] && directoryName=" $directoryName"
+            fileInDirs+="$directoryName"
+            appended=true
+        fi
+    done
+
+    [[ "$fileInDirs" == "" ]] && fileInDirs="No categories."
+    printf "$fileInDirs"
+}}
 
 

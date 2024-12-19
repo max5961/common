@@ -21,6 +21,7 @@ export SUDO_EDITOR="neovim"
 export TERMINAL="alacritty"
 export BROWSER="brave-browser"
 export PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin:$PATH:/$HOME/go/bin"
+export PAGER="less -R"
 
 # -----------------------------------------------------------------------------
 # PLUGINS
@@ -120,6 +121,8 @@ alias trr='trash-restore'
 alias lf="lfrun"
 alias bsynch="browser-sync start --server --file --watch '*'"
 alias calc="qalc"
+alias glow="glow -p"
+alias cd="file_check_cd"
 
 # tmux
 tmux_new_session() {
@@ -179,6 +182,19 @@ alias lynx="_lynx"
 mkcd() {
     mkdir -p "$1" && cd "$1"
 }
+
+file_check_cd() {
+    if [[ -z "$1" ]]; then
+        builtin cd
+    elif [[ -e "$1" && ! -d "$1" ]]; then
+        echo "Destination is not a directory: '$(basename $1)'. Switching to dirname."
+        builtin cd $(dirname $1)
+        # $EDITOR $1
+    else
+        builtin cd $1
+    fi
+}
+
 
 # -----------------------------------------------------------------------------
 # Shell integrations
