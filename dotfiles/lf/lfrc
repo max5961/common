@@ -244,7 +244,7 @@ cmd lwp %{{
         exit 1
     fi
 
-    wpDir="$HOME/Pictures/wallpapers"
+    wpCategoriesDir="$HOME/Pictures/wallpapers/categories"
     fileName=$(basename "$f")
 
     targetDir="$@"
@@ -256,23 +256,27 @@ cmd lwp %{{
     fi
 
     for arg in $targetDir; do
-        mkdir -p "$wpDir/$arg"
+        mkdir -p "$wpCategoriesDir/$arg"
 
-        if [[ ! -e "$wpDir/$arg/$fileName" ]]; then
-            ln -s "$f" "$wpDir/$arg/."
+        if [[ ! -e "$wpCategoriesDir/$arg/$fileName" ]]; then
+            ln -s "$f" "$wpCategoriesDir/$arg/."
             lf -remote "send $id tag c"
         fi
     done
 }}
 
 cmd sc %{{
-    wpDir="$HOME/Pictures/wallpapers"
+    wpCategoriesDir="$HOME/Pictures/wallpapers/categories"
+    if [[ ! -d "$wpCategoriesDir" ]]; then
+        printf "No categories." && exit 0
+    fi
+
     fileName=$(basename "$f")
 
     fileInDirs=""
 
     appended=false
-    for dir in $wpDir/*; do
+    for dir in $wpCategoriesDir/*; do
         if [[ -f "$dir/$fileName" ]]; then
             directoryName=$(basename "$dir")
             [[ "$appended" == true ]] && directoryName=" $directoryName"

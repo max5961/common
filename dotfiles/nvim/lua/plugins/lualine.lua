@@ -7,7 +7,7 @@ return {
 		options = {
 			icons_enabled = false,
 			-- theme = "rose-pine",
-			theme = "terafox",
+			-- theme = "terafox",
 			component_separators = "|",
 			selection_separators = "",
 		},
