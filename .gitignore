@@ -9,5 +9,11 @@ dotfiles/ncmpcpp/error.log
 dotfiles/lf/session-bookmarks
 scripts/yt-dlp/albumdl/dl-log.csv
 Session.vim
+dotfiles/i3/colors.conf
+dotfiles/kitty/theme.conf
+dotfiles/nvim/lua/colorscheme.lua
+dotfiles/picom/picom.conf
+dotfiles/polybar/theme.ini
+dotfiles/rofi/colors.rasi
 
 
