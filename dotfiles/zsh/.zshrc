@@ -123,6 +123,8 @@ alias bsynch="browser-sync start --server --file --watch '*'"
 alias calc="qalc"
 alias glow="glow -p"
 alias cd="file_check_cd"
+alias ls="eza --long --no-time --icons --octal-permissions --group-directories-first --git"
+alias tree="eza --tree"
 
 # tmux
 tmux_new_session() {
