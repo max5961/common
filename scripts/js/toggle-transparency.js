@@ -21,4 +21,6 @@ const mut = picom.replace(regex, (match, p) => {
     return match.replace(p, num);
 });
 
-fs.writeFileSync(filePath, mut, "utf-8");
+if (mut) {
+    fs.writeFileSync(filePath, mut, "utf-8");
+}
