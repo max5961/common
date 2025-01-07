@@ -15,5 +15,6 @@ dotfiles/nvim/lua/colorscheme.lua
 dotfiles/picom/picom.conf
 dotfiles/polybar/theme.ini
 dotfiles/rofi/colors.rasi
+dotfiles/nvim/lazy-lock.json
 
 
