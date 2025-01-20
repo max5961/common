@@ -16,5 +16,4 @@ dotfiles/picom/picom.conf
 dotfiles/polybar/theme.ini
 dotfiles/rofi/colors.rasi
 dotfiles/nvim/lazy-lock.json
-
-
+**/load-ssh.sh
