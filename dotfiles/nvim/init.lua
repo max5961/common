@@ -23,5 +23,5 @@ require("set")
 require("lsp-setup")
 require("colorscheme")
 
--- The same as requiring all the files in lua/custom-functions directory
+-- The same as requiring all the files in lua/custom directory
 vim.cmd("runtime! lua/custom/*.lua")

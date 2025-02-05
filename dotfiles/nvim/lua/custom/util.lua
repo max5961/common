@@ -42,25 +42,3 @@ end, { desc = "Toggle current window fullscreen" })
 vim.keymap.set("n", "<leader>ll", function()
 	vim.api.nvim_set_current_line(string.rep("-", 80))
 end, { desc = "Add a line (for text files)" })
-
--- Convert md files to pdf (to-pdf is a bash script that creates a pdf with pandoc)
-vim.api.nvim_create_user_command("Pdf", function()
-	local file = vim.api.nvim_buf_get_name(0)
-	local ext = vim.fn.expand("%:e")
-
-	if ext == "md" then
-		vim.notify("Converting md to pdf...", vim.log.levels.INFO)
-		local exitCode = os.execute("to-pdf " .. file .. "> /dev/null 2>&1")
-		if exitCode == true or exitCode == 0 then
-			vim.notify("Successfully converted " .. file .. " to pdf.", vim.log.levels.INFO)
-		else
-			vim.notify("Error converting to pdf", vim.log.levels.ERROR)
-		end
-	else
-		vim.notify("Invalid file type.  Can only convert md files to pdf.", vim.log.levels.ERROR)
-	end
-end, {})
-
-vim.keymap.set("n", "<leader>p", function()
-	vim.cmd("Pdf")
-end)
