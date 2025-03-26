@@ -2,6 +2,7 @@
 
 DIR="$HOME/void/jtest"
 PRETTIER="$HOME/common/templates/dotfiles/.prettierrc.json"
+ESLINT_CONFIG="$HOME/common/templates/eslint.config.js"
 TSCONFIG_BASE="$HOME/common/templates/tsconfig-base.json"
 TSCONFIG='{
     "extends": "./tsconfig-base.json"
@@ -17,16 +18,24 @@ PACKAGE='{
     },
     "scripts": {
         "start": "tsc && node ./dist/index.js",
-        "test": "tsc && npx vitest"
+        "compile": "tsc --noUnusedLocals",
+        "test": "tsc && npx vitest",
+        "lint": "eslint",
+        "fix": "eslint --fix",
+        "dev": "tsc --watch"
     },
     "type": "module",
     "keywords": [],
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@mmorrissey5961/directlink": "^1.0.0",
-        "@types/node": "^22.13.13",
-        "vitest": "^3.0.9"
+        "@mmorrissey5961/directlink": "latest",
+        "@types/node": "latest",
+        "vitest": "latest",
+        "eslint": "latest",
+        "eslint-plugin-react-hooks": "latest",
+        "globals": "latest",
+        "typescript-eslint": "latest"
     }
 }'
 TEST_SUITE='import { describe, test, expect } from "vitest";
@@ -49,6 +58,7 @@ if [[ "$1" == "-n" || "$1" == "--new" || -z "$(ls -A $DIR)" ]]; then
     mkdir "$DIR/test" && touch "$DIR/test/test.spec.ts"
     cp "$PRETTIER" .
     cp "$TSCONFIG_BASE" .
+    cp "$ESLINT_CONFIG" .
     echo "$PACKAGE" > "$DIR/package.json"
     echo "$TSCONFIG" > "$DIR/tsconfig.json"
     echo "$TEST_SUITE" > "$DIR/test/test.spec.ts"
