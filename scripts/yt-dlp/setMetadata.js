@@ -1,38 +1,37 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require("node:fs");
 const os = require("node:os");
-const { exec } = require("node:child_process");
+const path = require("node:path");
+const { execFileSync } = require("node:child_process");
 
 const artist = process.env.ARTIST;
 const album = process.env.ALBUM;
-
 const directory = path.join(os.homedir(), "Music", artist, album);
 
-async function setMetaData() {
-    const files = await fs.readdir(directory);
-    for (const file of files) {
-        const pathToFile = path.join(directory, file);
-        const config = getMetaData(file);
+function setMetaData() {
+    const dcontents = fs.readdirSync(directory);
+    for (const fname of dcontents) {
+        const fpath = path.join(directory, fname);
+        const metadata = getMetaData(file);
 
-        const setTrack = `-c 'set track "${config.trackNumber}"'`;
-        const setTitle = `-c 'set title "${config.songName}"'`;
-        const setArtist = `-c 'set artist "${config.artist}"'`;
-        const setAlbum = `-c 'set album "${config.album}"'`;
-        const command = `kid3-cli ${setTrack} ${setTitle} ${setArtist} ${setAlbum} "${pathToFile}"`;
+        const setTrack = `-c 'set track "${metadata.trackNumber}"'`;
+        const setTitle = `-c 'set title "${metadata.songName}"'`;
+        const setArtist = `-c 'set artist "${metadata.artist}"'`;
+        const setAlbum = `-c 'set album "${metadata.album}"'`;
 
-        exec(command, (err, stdout, stderr) => {
-            if (err) {
-                console.log(
-                    `Error while setting metadata for track '${config.songName}'`,
-                );
-                console.error(err);
-                return;
-            }
-
-            console.log(
-                `Successfully set metadata for track '${config.songName}'`,
+        try {
+            execFileSync(
+                "kid3-cli",
+                [setTrack, setTitle, setArtist, setAlbum, `"${fpath}"`],
+                { stdio: "inherit" },
             );
-        });
+            console.log(
+                `Successfully set metadata for track '${metadata.songName}'`,
+            );
+        } catch (err) {
+            console.log(
+                `Error setting metadata for track '${metadata.songName}'`,
+            );
+        }
     }
 }
 
@@ -83,9 +82,7 @@ function extractSongName(metaData, songName) {
         )
         .trim();
     songName = songName.replace(/\'/g, `'\\''`);
-
     metaData.songName = songName;
-
     metaData.album = metaData.album.replace(/\'/g, `'\\''`);
 }
 

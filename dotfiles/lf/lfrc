@@ -11,6 +11,7 @@ map d
 map m
 map u
 map n
+map e
 cmd open # prevent leaf nodes from opening on l or <right>
 
 # Basic settings
@@ -36,7 +37,9 @@ map x cut
 cmd chmod %{{ chmod +x "$f" }}
 cmd run %{{ nohup "$f" > /dev/null 2>&1 & }}
 cmd sudoedit ${{ sudoedit "$f" }}
-cmd ro ${{ bat "$f" }}
+# r is builtin rename
+map R fn-rename-clear
+# cmd ro ${{ bat "$f" }}
 
 map nn cycle-session-bookmarks -n
 map bb cycle-session-bookmarks -b
@@ -289,4 +292,19 @@ cmd sc %{{
     printf "$fileInDirs"
 }}
 
+cmd fn-rename-clear %{{
+    printf "new name: "
+    read ans
+
+    [[ -z "$ans" ]] && echo -e "\033[30;41mNo input\033[0m" && exit 1
+
+    for file in ./*; do
+        if [[ $(basename "$file") == "$ans" ]]; then
+            echo -e "\033[30;41mFile already exists\033[0m"
+            exit 1
+        fi
+    done
+
+    mv "$f" "$ans"
+}}
 

@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader>p", function()
 	vim.cmd("Pdf")
 end)
 
-M = { formatOnSave = true }
+M = { formatOnSave = false }
 
 -- Format on save
 vim.api.nvim_create_autocmd("BufWritePost", {

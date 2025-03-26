@@ -6,9 +6,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# -----------------------------------------------------------------------------
-# STARTUP
-# -----------------------------------------------------------------------------
+# ---
+
+### STARTUP
 exec_always --no-startup-id ~/.config/i3/scripts/monitor-settings.sh
 exec_always --no-startup-id ~/.config/i3/scripts/create-tmp-ws-file.sh
 exec_always --no-startup-id sleep 1 && nitrogen --restore
@@ -21,9 +21,9 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/i3/scripts/get-connected-monitors.sh
 exec_always --no-startup-id ~/.config/i3/scripts/load-ssh.sh
 
-# -----------------------------------------------------------------------------
-# SYSTEM SETTINGS
-# -----------------------------------------------------------------------------
+# ---
+
+### SYSTEM SETTINGS
 # volume control keybinds
 # custom script needed for volume up/downbecause alsa doesn't handle mute
 # automatically when the volume reaches 0 in i3
@@ -35,26 +35,26 @@ bindsym F3 exec --no-startup-id ~/.config/i3/scripts/volume/raise-volume.sh && $
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# -----------------------------------------------------------------------------
-# MOUSE
-# -----------------------------------------------------------------------------
-# set-prop $1 (id), $2 (setting id) $3 (value)
+# ---
+
+### MOUSE
+# set-prop <devide-id> <setting-id> <value>
 # use zsh autocomplete to find the device id
-# mouse speed: scale of: -1 <---> 1
+# mouse speed: range of [-1, 1]
 exec_always --no-startup-id xinput set-prop 26 329 -.25
 # Prevents cursor from changing position on every workspace/monitor change
 mouse_warping none
 focus_follows_mouse no
 
-# -----------------------------------------------------------------------------
-#  APPS / SHORTCUTS
-# -----------------------------------------------------------------------------
+# ---
+
+### APPS / SHORTCUTS
 # terminal
 bindsym $mod+Return exec --no-startup-id kitty
 
 # browser
-bindsym $mod+i exec --no-startup-id open-browser
-bindsym $mod+b exec --no-startup-id open-browser
+bindsym $mod+i exec --no-startup-id brave-browser
+bindsym $mod+b exec --no-startup-id brave-browser
 bindsym $mod+q exec --no-startup-id qutebrowser
 
 # file manager gui
@@ -83,6 +83,7 @@ mode "mpd" {
 }
 bindsym $mod+m mode "mpd"
 
+# transparency of apps controlled in picom
 bindsym $mod+minus exec --no-startup-id toggle-transparency
 bindsym $mod+plus exec --no-startup-id toggle-transparency "up"
 
@@ -103,11 +104,9 @@ mode "screenshot (m|w|a)" {
 }
 bindsym $mod+s mode "screenshot (m|w|a)"
 
+# ---
 
-# -----------------------------------------------------------------------------
-#  VISUAL
-# -----------------------------------------------------------------------------
-
+### VISUAL
 include $HOME/.config/i3/colors.conf
 
 # font
@@ -132,9 +131,9 @@ gaps inner 12
 #         }
 # }
 
-# -----------------------------------------------------------------------------
-#  WINDOW MANAGEMENT
-# -----------------------------------------------------------------------------
+# ---
+
+### WINDOW MANAGEMENT
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -213,9 +212,9 @@ for_window [class="*"] floating disable
 # allow left clicking the titlebar to drag and rearrange windows
 # tiling_drag modifier titlebar
 
-# -----------------------------------------------------------------------------
-# WORKSPACES
-# -----------------------------------------------------------------------------
+# ---
+
+### WORKSPACES
 set $m1 eDP-1
 set $m2 HDMI-1-0
 set $m3 DP-1-0

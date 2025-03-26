@@ -49,6 +49,7 @@ link_dir_to_XDG_CONFIG_HOME "polybar"
 link_dir_to_XDG_CONFIG_HOME "kitty"
 link_dir_to_XDG_CONFIG_HOME "cava"
 link_dir_to_XDG_CONFIG_HOME "zathura"
+link_dir_to_XDG_CONFIG_HOME "git"
 
 # files in ~/
 link_file_to_HOME "bash" ".bashrc"

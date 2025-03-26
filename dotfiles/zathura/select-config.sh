@@ -24,31 +24,25 @@ function sourceAll() {
     done
 }
 
-count=1
-for theme in $(getThemes); do
-    if [[ $theme == $currTheme ]]; then
-        echo -e "$count) \033[0;32m$theme []\033[0m"
-    else
-        echo "$count) $theme"
-    fi
+theme=$(js-select $(getThemes) \
+        --preSelectedNames="$currTheme" \
+        --focusColor="green" \
+        --underlineFocusText \
+        --blurColor="cyan" \
+        --dimBlurText \
+        --borderStyle="round" \
+        --borderColor="cyan" \
+    )
 
-    ((++count))
-done
 
-echo && read -rp "Enter number: " answer
+if [[ "$theme" == "" ]]; then
+    echo -e "\nNo theme selected" && exit 1
+fi
 
-count=1
-for theme in $(getThemes); do
-    if [[ $count -eq $answer ]]; then
-        cp "$HOME/.config/zathura/themes/$theme" ~/.config/zathura/zathurarc
-        echo "$theme" > ~/.config/zathura/currTheme
-        echo -e "\nChanged theme to '\033[0;32m$theme'\033[0m"
-        echo ":source or reload zathura"
-        sourceAll
-        exit 0
-    fi
-    ((++count))
-done
+cp "$HOME/.config/zathura/themes/$theme" ~/.config/zathura/zathurarc
+echo "$theme" > ~/.config/zathura/currTheme
+echo -e "\nChanged theme to '\033[0;32m$theme'\033[0m"
+echo ":source or reload zathura"
+sourceAll
 
-echo "Theme not changed" && exit 1
 

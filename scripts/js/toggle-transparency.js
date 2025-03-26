@@ -6,10 +6,10 @@ const path = require("node:path");
 
 const direction = process.argv[2];
 
-const filePath = path.join(os.homedir(), ".config", "picom", "picom.conf");
-const picom = fs.readFileSync(filePath, "utf-8");
+const fpath = path.join(os.homedir(), ".config", "picom", "picom.conf");
+const picom = fs.readFileSync(fpath, "utf-8");
 const regex = /\b(\d+):class_g\s*=\s*'[^']+'/gm;
-const mut = picom.replace(regex, (match, p) => {
+const mod = picom.replace(regex, (match, p) => {
     let num = parseInt(p);
 
     if (direction === "up") {
@@ -21,6 +21,6 @@ const mut = picom.replace(regex, (match, p) => {
     return match.replace(p, num);
 });
 
-if (mut) {
-    fs.writeFileSync(filePath, mut, "utf-8");
+if (mod) {
+    fs.writeFileSync(fpath, mod, "utf-8");
 }

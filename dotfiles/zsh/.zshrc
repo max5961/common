@@ -146,28 +146,14 @@ alias gp='git push'
 alias gl="git log --oneline --graph --all --decorate"
 alias lg="lazygit"
 
-# fzf utilities
-# find files (normal, dotfiles, root files)
-alias "$prefix"ff='fzf-open-file'
-alias "$prefix"ffd='fzf-open-file --hidden'
-alias "$prefix"ffr='fzf-open-file --root'
-# find grep (for the root option, as long as the file has a normal name it should always work)
-alias "$prefix"fg='fzf-grep-contents-open'
-alias "$prefix"fgd='fzf-grep-contents-open --hidden'
-alias "$prefix"fgr='fzf-grep-contents-open --root'
-# cd into (normal, start search from home, start search in root)
-alias "$prefix"cd='source fzf-cd-into'
-alias "$prefix"cdh='cd && source fzf-cd-into'
-alias "$prefix"cdr='cd / && source fzf-cd-into'
-
 # zathura
-open_zathura() {
+_zathura() {
     if [[ -z "$1" ]]; then
         exit 0;
     fi
     nohup zathura "$1" > /dev/null 2>&1 &
 }
-alias pdf="open_zathura"
+alias pdf="_zathura"
 
 
 _lynx() {

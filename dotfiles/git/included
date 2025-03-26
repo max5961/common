@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[commit]
+    verbose = true
+[alias]
+	last = log -1 HEAD
+	wipstash = "!$HOME/.config/git/wipstash.sh"

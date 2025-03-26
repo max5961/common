@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-/* 
-    * Replaces the 'latest' value in a package.json with the actual numeric
-    * version of the locally installed package.
-    *
-    * Make sure to run this script in the directory containing to package.json
-    * file */
+/*
+ * Replaces the 'latest' value in a package.json with the actual numeric
+ * version of the locally installed package.
+ */
 
 const fs = require("fs");
 const path = require("path");
@@ -13,7 +11,7 @@ const { execSync } = require("child_process");
 
 if (process.argv[2] === "--help") {
     console.log(
-        fs.readFileSync("/usr/local/bin/update-package-versions", "utf-8")
+        fs.readFileSync("/usr/local/bin/update-package-versions", "utf-8"),
     );
     process.exit(0);
 }
