@@ -44,6 +44,7 @@ mkdir -p "$DIR" && cd "$DIR"
 if [[ "$1" == "-n" || "$1" == "--new" || -z "$(ls -A $DIR)" ]]; then
     cd ../ && rm -rf "$DIR" && mkdir "$DIR" && cd "$DIR"
     npm init -y &> /dev/null
+    git init
     mkdir "$DIR/src" && touch "$DIR/src/index.ts"
     mkdir "$DIR/test" && touch "$DIR/test/test.spec.ts"
     cp "$PRETTIER" .
@@ -51,6 +52,8 @@ if [[ "$1" == "-n" || "$1" == "--new" || -z "$(ls -A $DIR)" ]]; then
     echo "$PACKAGE" > "$DIR/package.json"
     echo "$TSCONFIG" > "$DIR/tsconfig.json"
     echo "$TEST_SUITE" > "$DIR/test/test.spec.ts"
+    echo "node_modules/" >> "$DIR/.gitignore"
+    echo "*.log" >> "$DIR/.gitignore"
     npm install
     npx prettier --write ./*
     update-package-versions
