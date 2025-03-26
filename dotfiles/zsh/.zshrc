@@ -125,6 +125,7 @@ alias glow="glow -p"
 alias cd="file_check_cd"
 alias ls="eza --long --no-time --icons --octal-permissions --group-directories-first --git"
 alias tree="eza --tree"
+alias lock-screen="dm-tool switch-to-greeter"
 
 # tmux
 tmux_new_session() {

@@ -67,8 +67,12 @@ bindsym $mod+w exec --no-startup-id ~/.config/rofi/scripts/open.sh -show window
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
 bindsym $alt+r exec --no-startup-id ~/.config/rofi/scripts/reading.sh
 
+# lockscreen
+bindsym Ctrl+$alt+l exec --no-startup-id dm-tool switch-to-greeter
+
 # mpd
-bindsym $mod+Shift+p exec --no-startup-id mpc toggle
+# Different than mpc toggle (check for mpd connection and start if not connected before toggling)
+bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
 mode "mpd" {
     bindsym k exec --no-startup-id mpc next
     bindsym j exec --no-startup-id mpc prev
