@@ -4,6 +4,8 @@ declare -r screenshotsDir="$HOME/Pictures/screenshots"
 declare -r fileName="screenshot-$(date '+%s%3N').png"
 declare -r output="$screenshotsDir/$fileName"
 
+mkdir -p "$screenshotsDir"
+
 cmdPrefix="maim"
 
 # For best quality but significantly slower screenshot times:
