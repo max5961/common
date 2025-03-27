@@ -22,7 +22,8 @@ PACKAGE='{
         "test": "tsc && npx vitest",
         "lint": "eslint",
         "fix": "eslint --fix",
-        "dev": "tsc --watch"
+        "dev": "tsc --watch",
+        "update": "npx directlink --update"
     },
     "type": "module",
     "keywords": [],
@@ -36,7 +37,8 @@ PACKAGE='{
         "eslint-plugin-react-hooks": "latest",
         "globals": "latest",
         "typescript-eslint": "latest"
-    }
+    },
+    "directlinks": {}
 }'
 TEST_SUITE='import { describe, test, expect } from "vitest";
 
@@ -51,7 +53,11 @@ describe("Foo", () => {
 mkdir -p "$DIR" && cd "$DIR"
 
 if [[ "$1" == "-n" || "$1" == "--new" || -z "$(ls -A $DIR)" ]]; then
-    cd ../ && rm -rf "$DIR" && mkdir "$DIR" && cd "$DIR"
+    rm -rf $DIR/*
+    shopt -s dotglob
+    rm -rf $DIR/*
+    shopt -u dotglob
+
     npm init -y &> /dev/null
     git init
     mkdir "$DIR/src" && touch "$DIR/src/index.ts"
