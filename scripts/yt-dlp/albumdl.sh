@@ -12,112 +12,78 @@ missing=0
 
 yt-dlp-precheck
 
-# Aside from dl_command function, arguments correlate to these
-# $1 artist
-# $2 album
-# $3 url
+DIR="$HOME/Music"
+BACKUP="$HOME/void/music-backup"
+INPUT_ARTIST="$1"
+INPUT_ALBUM="$2"
+INPUT_URL="$3"
+DATA=()
 
-# Pass in the url as the single argument
-function dl_command() {
-    local artist="$1"
-    if [ -z "$1" ]; then echo "Url not supplied to dl_command function"; exit 1; fi
-
+# $1: URL
+function yt_dlp_command() {
+    [[ -z "$1" ]] && echo "URL not provided to download function" && exit 1
     yt-dlp -x -f bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "$1"
 }
 
-# Go to the music directory
-function nav_to_dir() {
-    local artist="$1"
-    local album="$2"
+function download() {
+    i=${#DATA[@]}
+    while (( i >= 3 )); do
+        URL=${DATA[((--i))]}
+        album=${DATA[((--i))]}
+        artist=${DATA[((--i))]}
 
-    target_dir="$HOME/Music/$artist/$album"
-    if_backup_dir="$HOME/void/backup/$artist/$album"
+        mkdir -p "$DIR/$artist/$album"
 
-    mkdir -p "$target_dir" && cd "$target_dir";
+        if [[ ! -z "$(ls "$DIR/$artist/$album")" ]]; then
+            mkdir -p "$BACKUP/$artist/$album"
+            echo "$DIR/$artist/$album not empty.  Moving old contents to $BACKUP/$artist/$album"
+            mv "$DIR/$artist/$album/" . "$BACKUP/$artist/$album"
+        fi
 
-    if [[ $(ls "$target_dir") != "" ]]; then
-        echo "Directory not empty.  Moving directory contents to $if_backup_dir"
+        cd "$DIR/$artist/$album"
 
-        mkdir -p "$if_backup_dir"
-        cd && mv "$target_dir" "$if_backup_dir"
-        mkdir -p "$target_dir" && cd "$target_dir"
-    fi
-}
-
-function dl_album() {
-    local artist="$1"
-    local album="$2"
-    local url="$3"
-
-    # Create and cd into directory
-    nav_to_dir "$@"
-
-    # Run yt-dlp command
-    dl_command "$url"
-
-    # Set metadata (Opens directory $HOME/Music/$ARTIST/$ALBUM)
-    ARTIST="$artist" ALBUM="$album" node ~/common/scripts/yt-dlp/setMetadata.js
-
-    # Append to download log
-    echo "$artist,$album,$url" >> "$HOME/common/scripts/yt-dlp/album_dl_log.csv"
-}
-
-function dl_from_csv() {
-    local artist="$1"
-    local album="$2"
-    local url="$3"
-
-    csv=
-    if [[ -z "$album" ]]; then
-        read -rp "Enter .csv file path: " csv
-    else
-        csv="$album"
-    fi
-
-    python3 ~/common/scripts/yt-dlp/albumdl/dl-from-csv.py "${csv}"
-}
-
-declare albums=();
-
-function dl_albums_from_arr() {
-    local idx=${#albums[@]}
-
-    while ((idx != 0)); do
-        local url=${albums[((--idx))]}
-        local album=${albums[((--idx))]}
-        local artist=${albums[((--idx))]}
-        dl_album "$artist" "$album" "$url"
+        yt_dlp_command "$URL"
+        ARTIST="$artist" ALBUM="$album" node "$HOME/common/scripts/yt-dlp/setMetadata.js"
     done
 }
 
-# Entry point if insufficient arguments provided
-function get_info() {
+function get_data() {
     read -rp "Artist: " artist
     read -rp "Album: " album
-    read -rp "URL: " url
-    read -rp "More? [type yes]: " more
-    albums+=("$artist" "$album" "$url")
+    read -rp "URL: " URL
+    read -rp "more? [type yes]: " more
+
+    DATA+=("$artist" "$album" "$URL")
 
     if [[ "$more" == "yes" ]]; then
-        get_info
+        get_data
     else
-        dl_albums_from_arr
+        download
     fi
 }
 
-# Download from csv file
-if [[ ! -z "$1" ]] && [[ "$1" == "-c" || "$1" == "--csv" ]]; then
-    dl_from_csv "$@"
-    exit 0
-fi
+function dl_from_csv() {
+    csv_file="$INPUT_ALBUM"
+    [[ ! -f "$csv_file" ]] && echo "Invalid or missing csv file argument" && exit 1
 
-# Otherwise pass in arguments or use prompt
-args=("$@")
-args_length=${#args[@]}
-if (( args_length < 3 )); then
-    get_info
-else
-    dl_album "$@"
-fi
+    node "$HOME/common/scripts/yt-dlp/dlFromCsv.js" "$csv_file"
+}
 
+function main() {
+    if [[ "$INPUT_ARTIST" == "--csv" || "$INPUT_ARTIST" == "-c" ]]; then
+        dl_from_csv
+        exit "$?"
+    fi
+
+    if [[ ! -z "$INPUT_ARTIST" && ! -z "$INPUT_ALBUM" && ! -z "$INPUT_URL" ]]; then
+        DATA+=$("$INPUT_ARTIST" "$INPUT_ALBUM" "$INPUT_URL")
+        download
+        exit "$?"
+    fi
+
+    get_data
+    exit "$?"
+}
+
+main
 
