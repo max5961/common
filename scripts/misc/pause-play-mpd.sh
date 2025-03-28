@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if ! mpc status; then
+playing=$(mpc status | grep 'playing')
+paused=$(mpc status | grep 'paused')
+if [[ ! "$playing"  && ! "$paused" ]]; then
     mpd
     mpc play
     exit 0

@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { execFileSync } = require("node:child_process");
+const { execSync } = require("node:child_process");
 
 const artist = process.env.ARTIST;
 const album = process.env.ALBUM;
@@ -11,7 +11,7 @@ function setMetaData() {
     const dcontents = fs.readdirSync(directory);
     for (const fname of dcontents) {
         const fpath = path.join(directory, fname);
-        const metadata = getMetaData(file);
+        const metadata = getMetaData(fname);
 
         const setTrack = `-c 'set track "${metadata.trackNumber}"'`;
         const setTitle = `-c 'set title "${metadata.songName}"'`;
@@ -19,10 +19,8 @@ function setMetaData() {
         const setAlbum = `-c 'set album "${metadata.album}"'`;
 
         try {
-            execFileSync(
-                "kid3-cli",
-                [setTrack, setTitle, setArtist, setAlbum, `"${fpath}"`],
-                { stdio: "inherit" },
+            execSync(
+                `kid3-cli ${setTrack} ${setTitle} ${setArtist} ${setAlbum} "${fpath}"`,
             );
             console.log(
                 `Successfully set metadata for track '${metadata.songName}'`,

@@ -4,8 +4,11 @@
 dep_kid3=$(which kid3-cli)
 dep_yt_dlp=$(which yt-dlp)
 
-if grep "$dep_kid3" "not found"; then echo "Missing dependency kid3-cli" && exit 1
-if grep "$dep_yt_dlp" "not found"; then echo "Missing dependency yt-dlp" && exit 1
+missing=0
+[[ $(echo "$dep_kid3" | grep "not found") ]] && echo "Missing dependency kid3-cli" && ((++missing))
+[[ $(echo "$dep_yt_dlp" | grep "not found") ]] && echo "Missing dependency yt-dlp" && ((++missing))
+(( missing > 0)) && exit 1
+
 
 yt-dlp-precheck
 
@@ -105,7 +108,7 @@ function get_info() {
 # Download from csv file
 if [[ ! -z "$1" ]] && [[ "$1" == "-c" || "$1" == "--csv" ]]; then
     dl_from_csv "$@"
-    exit 0;
+    exit 0
 fi
 
 # Otherwise pass in arguments or use prompt

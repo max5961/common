@@ -139,11 +139,12 @@ alias tls="tmux list-sessions"
 alias tns=tmux_new_session
 
 # git
-alias g='git'
 alias gs='git status'
 alias gc='git commit'
+alias gch="git checkout"
 alias ga='git add'
-alias gp='git push'
+alias gaa='git add .'
+alias gb="git branch -vv"
 alias gl="git log --oneline --graph --all --decorate"
 alias lg="lazygit"
 
