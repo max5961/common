@@ -76,7 +76,7 @@ function main() {
     fi
 
     if [[ ! -z "$INPUT_ARTIST" && ! -z "$INPUT_ALBUM" && ! -z "$INPUT_URL" ]]; then
-        DATA+=$("$INPUT_ARTIST" "$INPUT_ALBUM" "$INPUT_URL")
+        DATA+=("$INPUT_ARTIST" "$INPUT_ALBUM" "$INPUT_URL")
         download
         exit "$?"
     fi
