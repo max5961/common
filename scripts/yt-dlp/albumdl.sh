@@ -17,7 +17,6 @@ BACKUP="$HOME/void/music-backup"
 INPUT_ARTIST="$1"
 INPUT_ALBUM="$2"
 INPUT_URL="$3"
-DATA=()
 
 # $1: URL
 function yt_dlp_command() {
@@ -26,28 +25,29 @@ function yt_dlp_command() {
 }
 
 function download() {
-    i=${#DATA[@]}
-    while (( i >= 3 )); do
-        URL=${DATA[((--i))]}
-        album=${DATA[((--i))]}
-        artist=${DATA[((--i))]}
+    local artist="$1"
+    local album="$2"
+    local URL="$3"
 
-        mkdir -p "$DIR/$artist/$album"
+    mkdir -p "$DIR/$artist/$album"
+    echo "mkdir -p $DIR/$artist/$album"
 
-        if [[ ! -z "$(ls "$DIR/$artist/$album")" ]]; then
-            mkdir -p "$BACKUP/$artist/$album"
-            echo "$DIR/$artist/$album not empty.  Moving old contents to $BACKUP/$artist/$album"
-            mv "$DIR/$artist/$album/" . "$BACKUP/$artist/$album"
-        fi
+    if [[ ! -z "$(ls "$DIR/$artist/$album")" ]]; then
+        mkdir -p "$BACKUP/$artist/$album"
+        echo "$DIR/$artist/$album not empty.  Moving old contents to $BACKUP/$artist/$album"
+        mv "$DIR/$artist/$album/"* "$BACKUP/$artist/$album"
+    fi
 
-        cd "$DIR/$artist/$album"
+    cd "$DIR/$artist/$album"
+    echo "cd $DIR/$artist/$album"
 
-        yt_dlp_command "$URL"
-        ARTIST="$artist" ALBUM="$album" node "$HOME/common/scripts/yt-dlp/setMetadata.js"
-    done
+    yt_dlp_command "$URL"
+    ARTIST="$artist" ALBUM="$album" node "$HOME/common/scripts/yt-dlp/setMetadata.js"
 }
 
 function get_data() {
+    local artist album URL more
+
     printf "\e[34mArtist: "
     read -r artist
 
@@ -60,13 +60,11 @@ function get_data() {
     printf "\e[96mmore? [type yes]: \e[0m"
     read -r more
 
-    DATA+=("$artist" "$album" "$URL")
-
     if [[ "$more" == "yes" ]]; then
         get_data
-    else
-        download
     fi
+
+    download "$artist" "$album" "$URL"
 }
 
 function dl_from_csv() {
@@ -83,8 +81,7 @@ function main() {
     fi
 
     if [[ ! -z "$INPUT_ARTIST" && ! -z "$INPUT_ALBUM" && ! -z "$INPUT_URL" ]]; then
-        DATA+=("$INPUT_ARTIST" "$INPUT_ALBUM" "$INPUT_URL")
-        download
+        download "$INPUT_ARTIST" "$INPUT_ALBUM" "$INPUT_URL"
         exit "$?"
     fi
 
