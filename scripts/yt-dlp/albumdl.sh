@@ -48,10 +48,17 @@ function download() {
 }
 
 function get_data() {
-    read -rp "Artist: " artist
-    read -rp "Album: " album
-    read -rp "URL: " URL
-    read -rp "more? [type yes]: " more
+    printf "\e[34mArtist: "
+    read -r artist
+
+    printf "\e[35mAlbum: "
+    read -r album
+
+    printf "\e[36mURL: "
+    read -r URL
+
+    printf "\e[96mmore? [type yes]: \e[0m"
+    read -r more
 
     DATA+=("$artist" "$album" "$URL")
 

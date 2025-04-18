@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-branch=$(git rev-parse --abbrev-ref HEAD)
+branch=$(git branch --show-current)
 wip_stash="WIP_STASH: $branch"
 
 function exit_if_error() {
