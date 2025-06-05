@@ -62,16 +62,16 @@ element {
 element selected {
     background-color: @selected-bg;
 }
+element-text {
+    background-color: transparent;
+    text-color: @unselected-text;
+}
 element-text selected {
     background-color: transparent;
-    // text-color: @selected-fg;
+    text-color: @selected-text;
 }
 element-icon {
     background-color: transparent;
-}
-element-text {
-    background-color: transparent;
-    // text-color: @fg;
 }
 
 

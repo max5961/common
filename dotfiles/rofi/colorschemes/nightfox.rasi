@@ -2,6 +2,8 @@
     bg: #192330;
     bg-alt: #2b3b51;
     fg: #719cd6;
-    selected-fg: #dbc074;
-    selected-bg: #719cd6;
+    selected-bg: #f4a261;
+    selected-text: #192330;
+    unselected-text: #e0c989;
 }
+
