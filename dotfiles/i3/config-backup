@@ -1,0 +1,406 @@
+set $mod Mod4
+set $alt Mod1
+
+# reload the config/restart i3 inplace
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# ---
+
+### STARTUP
+exec_always --no-startup-id ~/.config/i3/scripts/monitor-settings.sh
+exec_always --no-startup-id ~/.config/i3/scripts/create-tmp-ws-file.sh
+exec_always --no-startup-id sleep 1 && nitrogen --restore
+exec_always --no-startup-id picom &
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id setxkbmap -option caps:none
+exec_always --no-startup-id xrdb ~/.Xresources
+# https://github.com/nwg-piotr/autotiling
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id ~/.config/i3/scripts/get-connected-monitors.sh
+exec_always --no-startup-id ~/.config/i3/scripts/load-ssh.sh
+
+# ---
+
+### SYSTEM SETTINGS
+# volume control keybinds
+# custom script needed for volume up/downbecause alsa doesn't handle mute
+# automatically when the volume reaches 0 in i3
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume/lower-volume.sh && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume/raise-volume.sh && $refresh_i3status
+bindsym F2 exec --no-startup-id ~/.config/i3/scripts/volume/lower-volume.sh && $refresh_i3status
+bindsym F3 exec --no-startup-id ~/.config/i3/scripts/volume/raise-volume.sh && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# ---
+
+### MOUSE
+# set-prop <devide-id> <setting-id> <value>
+# use zsh autocomplete to find the device id
+# mouse speed: range of [-1, 1]
+exec_always --no-startup-id xinput set-prop 26 329 -.25
+# Prevents cursor from changing position on every workspace/monitor change
+mouse_warping none
+focus_follows_mouse no
+
+# ---
+
+### APPS / SHORTCUTS
+# terminal
+bindsym $mod+Return exec --no-startup-id kitty
+
+# browser
+bindsym $mod+i exec --no-startup-id brave-browser
+bindsym $mod+b exec --no-startup-id brave-browser
+bindsym $mod+q exec --no-startup-id qutebrowser
+
+# file manager gui
+bindsym $mod+e exec --no-startup-id thunar
+
+# rofi (open.sh is a wrapper for the 'rofi' command)
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/open.sh -show drun
+bindsym $alt+d exec --no-startup-id ~/.config/rofi/scripts/favorites.sh
+bindsym $mod+w exec --no-startup-id ~/.config/rofi/scripts/open.sh -show window
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
+bindsym $alt+r exec --no-startup-id ~/.config/rofi/scripts/reading.sh
+
+# lockscreen
+bindsym Ctrl+$alt+l exec --no-startup-id dm-tool switch-to-greeter
+
+# mpd
+# Different than mpc toggle (check for mpd connection and start if not connected before toggling)
+bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
+mode "mpd" {
+    bindsym k exec --no-startup-id mpc next
+    bindsym j exec --no-startup-id mpc prev
+    bindsym p exec --no-startup-id mpc toggle
+    bindsym f exec --no-startup-id mpc seek +00:00:01
+    bindsym b exec --no-startup-id mpc seek -00:00:01
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
+    bindsym m mode "default"
+}
+bindsym $mod+m mode "mpd"
+
+# transparency of apps controlled in picom
+bindsym $mod+minus exec --no-startup-id toggle-transparency
+bindsym $mod+plus exec --no-startup-id toggle-transparency "up"
+
+# screenshot
+bindsym $mod+Shift+s exec --no-startup-id maim-screenshot --monitor
+mode "screenshot (m|w|a)" {
+    # focused monitor
+    bindsym m exec --no-startup-id maim-screenshot --monitor
+    # focused window
+    bindsym w exec --no-startup-id maim-screenshot --window
+    # all monitors
+    bindsym a exec --no-startup-id maim-screenshot
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+s mode "default"
+    bindsym s mode "default"
+}
+bindsym $mod+s mode "screenshot (m|w|a)"
+
+# ---
+
+### VISUAL
+include $HOME/.config/i3/colors.conf
+
+# font
+font pango:NerdFont 10
+
+# gaps
+gaps inner 12
+
+# i3-bar
+# bar {
+#     # output eDP-1
+#     i3bar_command i3bar --transparency
+#     status_command i3status --config ~/.config/i3/i3status/config
+#         workspace_min_width 50
+#         position top
+#         strip_workspace_numbers yes
+#         strip_workspace_name no
+#         colors {
+#             background #19191985
+#                 focused_workspace #000000 $main-color #000000
+#                 active_workspace #000000 $main-color #000000
+#         }
+# }
+
+# ---
+
+### WINDOW MANAGEMENT
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus - vim keybinds
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# change focus - arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move window - mod + shift + vim keybinds
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# move window - mod + shift + arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# resize windows
+mode "resize" {
+    bindsym Left resize shrink width 1 px or 1 ppt
+    bindsym Down resize grow height 1 px or 1 ppt
+    bindsym Up resize shrink height 1 px or 1 ppt
+    bindsym Right resize grow width 1 px or 1 ppt
+
+    bindsym h resize shrink width 1 px or 1 ppt
+    bindsym k resize grow height 1 px or 1 ppt
+    bindsym j resize shrink height 1 px or 1 ppt
+    bindsym l resize grow width 1 px or 1 ppt
+
+# back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+    bindsym r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# change next split direction
+# NOTE: vim vsplit (vertical split) opens a window with the delineator running
+# vertically, while in i3 a v split is the opposite.  Given that I'm used to the
+# vim convention, the v and h bindings are opposite here to reflect what I'm
+# used to
+bindsym $alt+v split h
+bindsym $alt+h split v
+
+# toggle current split direction
+bindsym $mod+t layout toggle split
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
+# bindsym $mod+e layout toggle splith
+
+# fullscreen
+bindsym $mod+f fullscreen toggle
+
+# mod + mouse to drag and rearrange windows
+floating_modifier $mod
+
+for_window [class="*"] floating disable
+
+# toggle floating window
+# bindsym $mod+space floating toggle
+
+# toggle focus between floating / tiled windows
+# bindsym $mod+Shift+space focus mode_toggle
+
+# allow left clicking the titlebar to drag and rearrange windows
+# tiling_drag modifier titlebar
+
+# ---
+
+### WORKSPACES
+set $m1 eDP-1
+set $m2 HDMI-1-0
+set $m3 DP-1-0
+
+# monitor 1
+workspace 1 output $m1
+workspace 2 output $m1
+workspace 3 output $m1
+workspace 4 output $m1
+workspace 5 output $m1
+workspace 6 output $m1
+workspace 7 output $m1
+workspace 8 output $m1
+workspace 9 output $m1
+workspace 10 output $m1
+# monitor 2
+workspace 11 output $m2
+workspace 12 output $m2
+workspace 13 output $m2
+workspace 14 output $m2
+workspace 15 output $m2
+workspace 16 output $m2
+workspace 17 output $m2
+workspace 18 output $m2
+workspace 19 output $m2
+
+# monitor 3
+workspace 21 output $m3
+workspace 22 output $m3
+workspace 23 output $m3
+workspace 24 output $m3
+workspace 25 output $m3
+workspace 26 output $m3
+workspace 27 output $m3
+workspace 28 output $m3
+workspace 29 output $m3
+
+# laptop monitor
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# bottom monitor
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+
+# top monitor
+set $ws21 "21"
+set $ws22 "22"
+set $ws23 "23"
+set $ws24 "24"
+set $ws25 "25"
+set $ws26 "26"
+set $ws27 "27"
+set $ws28 "28"
+set $ws29 "29"
+
+# set keymaps
+bindsym $mod+1 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "1"; exec --no-startup-id echo "1" >/tmp/current-workspace-number
+bindsym $mod+2 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "2"; exec --no-startup-id echo "2" >/tmp/current-workspace-number
+bindsym $mod+3 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "3"; exec --no-startup-id echo "3" >/tmp/current-workspace-number
+bindsym $mod+4 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "4"; exec --no-startup-id echo "4" >/tmp/current-workspace-number
+bindsym $mod+5 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "5"; exec --no-startup-id echo "5" >/tmp/current-workspace-number
+bindsym $mod+6 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "6"; exec --no-startup-id echo "6" >/tmp/current-workspace-number
+bindsym $mod+7 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "7"; exec --no-startup-id echo "7" >/tmp/current-workspace-number
+bindsym $mod+8 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "8"; exec --no-startup-id echo "8" >/tmp/current-workspace-number
+bindsym $mod+9 exec --no-startup-id ~/.config/i3/scripts/workspaces/handle-ws-sw.sh "9"; exec --no-startup-id echo "9" >/tmp/current-workspace-number
+
+# cycle workspaces left/right
+bindsym $alt+Shift+h exec --no-startup-id ~/.config/i3/scripts/workspaces/cycle-ws-l.sh
+bindsym $alt+Shift+l exec --no-startup-id ~/.config/i3/scripts/workspaces/cycle-ws-r.sh
+
+# move focused window to specified workspace
+# monitor 1
+bindsym $alt+1 move container to workspace number $ws1
+bindsym $alt+2 move container to workspace number $ws2
+bindsym $alt+3 move container to workspace number $ws3
+bindsym $alt+4 move container to workspace number $ws4
+bindsym $alt+5 move container to workspace number $ws5
+bindsym $alt+6 move container to workspace number $ws6
+bindsym $alt+7 move container to workspace number $ws7
+bindsym $alt+8 move container to workspace number $ws8
+bindsym $alt+9 move container to workspace number $ws9
+# monitor 2
+bindsym $alt+Shift+1 move container to workspace "11: 1"
+bindsym $alt+Shift+2 move container to workspace "12: 2"
+bindsym $alt+Shift+3 move container to workspace "13: 3"
+bindsym $alt+Shift+4 move container to workspace "14: 4"
+bindsym $alt+Shift+5 move container to workspace "15: 5"
+bindsym $alt+Shift+6 move container to workspace "16: 6"
+bindsym $alt+Shift+7 move container to workspace "17: 7"
+bindsym $alt+Shift+8 move container to workspace "18: 8"
+bindsym $alt+Shift+9 move container to workspace "19: 9"
+
+# move windows to different workspaces
+mode "move-windows" {
+    bindsym 1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 1
+    bindsym 2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 2
+    bindsym 3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 3
+    bindsym 4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 4
+    bindsym 5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 5
+    bindsym 6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 6
+    bindsym 7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 7
+    bindsym 8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 8
+    bindsym 9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 9
+
+    bindsym $mod+1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 1 --sw-post
+    bindsym $mod+2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 2 --sw-post
+    bindsym $mod+3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 3 --sw-post
+    bindsym $mod+4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 4 --sw-post
+    bindsym $mod+5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 5 --sw-post
+    bindsym $mod+6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 6 --sw-post
+    bindsym $mod+7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 7 --sw-post
+    bindsym $mod+8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 8 --sw-post
+    bindsym $mod+9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --single 9 --sw-post
+
+    bindsym Shift+1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 1
+    bindsym Shift+2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 2
+    bindsym Shift+3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 3
+    bindsym Shift+4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 4
+    bindsym Shift+5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 5
+    bindsym Shift+6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 6
+    bindsym Shift+7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 7
+    bindsym Shift+8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 8
+    bindsym Shift+9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 9
+
+    bindsym $mod+Shift+1 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 1 --sw-post
+    bindsym $mod+Shift+2 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 2 --sw-post
+    bindsym $mod+Shift+3 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 3 --sw-post
+    bindsym $mod+Shift+4 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 4 --sw-post
+    bindsym $mod+Shift+5 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 5 --sw-post
+    bindsym $mod+Shift+6 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 6 --sw-post
+    bindsym $mod+Shift+7 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 7 --sw-post
+    bindsym $mod+Shift+8 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 8 --sw-post
+    bindsym $mod+Shift+9 exec --no-startup-id ~/.config/i3/scripts/move-windows/move-to-ws.sh --all 9 --sw-post
+
+# back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+o mode "default"
+    bindsym o mode "default"
+}
+bindsym $mod+o mode "move-windows"
+
+# minimize all windows on current workspace or toggle back all windows that
+# have been minimized
+bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3/scripts/minimize/minimize-curr-screen.sh
+bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/minimize/move-back.sh
+
+# EVERYTHING BELOW THIS COMMENT CAME WITH THE DEFAULT I3 CONFIG
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+
+

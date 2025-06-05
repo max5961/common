@@ -185,6 +185,19 @@ file_check_cd() {
     fi
 }
 
+alias fzf="fzf_with_fp_argument"
+
+fzf_with_fp_argument() {
+    if [[ -z "$1" ]] || [[ ! -d "$1" && ! -f "$1" ]]; then
+        command fzf
+    else
+        cwd=$(pwd)
+        file_check_cd "$1"
+        command fzf
+        cd "$cwd"
+    fi
+}
+
 
 # -----------------------------------------------------------------------------
 # Shell integrations

@@ -2,16 +2,16 @@ configuration {
     display-drun: "Applications:";
     display-window: "Windows:";
     drun-display-format: "{icon} {name}";
-    font: "JetBrainsMono Nerd Font Medium 12";
+    font: "JetBrainsMono Nerd Font Medium 11";
     modi: "window,run,drun";
     show-icons: true;
     icon-theme: "Papirus";
+    matching: "fuzzy";
 
     kb-mode-next: "Alt+l";
     kb-mode-previous: "Alt+h";
     kb-row-up: "Alt+k,Up";
     kb-row-down: "Alt+j,Down";
-
 }
 
 @theme "./colors.rasi"
@@ -25,55 +25,54 @@ configuration {
 }
 
 window {
-    width: 45%;
-    border: 2px 2px 2px 2px;
-    border-radius: 8px;
+    height: 224px;
+    width: 600px;
+    border: 2px;
     border-color: @fg;
-
 }
 
-element {
+// INPUT
+inputbar {
+    background-color: @bg;
     text-color: @fg;
-    // padding: 0 8 0 8;
 }
-
-element selected {
-    text-color: @selected-fg;
-    background-color: @selected-bg;
+prompt {
+    padding: 10px 3px 10px 10px;
+    text-color: inherit;
+    background-color: inherit;
 }
-
-element-text {
+entry {
+    text-color: inherit;
+    background-color: inherit;
+    padding: 10px 10px 10px 3px;
+}
+case-indicator  {
     background-color: inherit;
     text-color: inherit;
-    vertical-align: 0.5;
-    padding: 12;
 }
 
-element-icon {
-    size: 30;
+// LIST
+listview {
+    background-color: @bg-alt;
 }
-
-element-icon selected {
+element {
+    padding: 5px;
+    background-color: transparent;
+}
+element selected {
     background-color: @selected-bg;
 }
-
-inputbar {
-    background-color: @bg-alt;
-    text-color: @fg;
-    vertical-align: 0.5;
+element-text selected {
+    background-color: transparent;
+    // text-color: @selected-fg;
 }
-
-entry {
-    padding: 12;
-    text-color: inherit;
+element-icon {
+    background-color: transparent;
 }
-
-prompt {
-    vertical-align: 0.5;
-    padding: 12;
-    text-color: inherit;
+element-text {
+    background-color: transparent;
+    // text-color: @fg;
 }
-
 
 
 

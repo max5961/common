@@ -18,6 +18,15 @@ INPUT_ARTIST="$1"
 INPUT_ALBUM="$2"
 INPUT_URL="$3"
 
+function line() {
+    local cols=$(tput cols)
+    local line=""
+    for ((i = 1; i <= cols; ++i)); do
+        line+="─"
+    done
+    printf "\e[34m\n%s\n\n\e[0m" "$line"
+}
+
 # $1: URL
 function yt_dlp_command() {
     [[ -z "$1" ]] && echo "URL not provided to download function" && exit 1
@@ -30,7 +39,6 @@ function download() {
     local URL="$3"
 
     mkdir -p "$DIR/$artist/$album"
-    echo "mkdir -p $DIR/$artist/$album"
 
     if [[ ! -z "$(ls "$DIR/$artist/$album")" ]]; then
         mkdir -p "$BACKUP/$artist/$album"
@@ -39,13 +47,14 @@ function download() {
     fi
 
     cd "$DIR/$artist/$album"
-    echo "cd $DIR/$artist/$album"
 
     yt_dlp_command "$URL"
-    ARTIST="$artist" ALBUM="$album" node "$HOME/common/scripts/yt-dlp/setMetadata.js"
+    ARTIST="$artist" ALBUM="$album" node "$HOME/common/scripts/yt-dlp/__setMetadata.js"
 }
 
 function get_data() {
+    line
+
     local artist album URL more
 
     printf "\e[34mArtist: "
@@ -64,6 +73,7 @@ function get_data() {
         get_data
     fi
 
+    line
     download "$artist" "$album" "$URL"
 }
 
@@ -71,7 +81,7 @@ function dl_from_csv() {
     csv_file="$INPUT_ALBUM"
     [[ ! -f "$csv_file" ]] && echo "Invalid or missing csv file argument" && exit 1
 
-    node "$HOME/common/scripts/yt-dlp/dlFromCsv.js" "$csv_file"
+    node "$HOME/common/scripts/yt-dlp/__dlFromCsv.js" "$csv_file"
 }
 
 function main() {

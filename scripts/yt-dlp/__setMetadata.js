@@ -22,13 +22,9 @@ function setMetaData() {
             execSync(
                 `kid3-cli ${setTrack} ${setTitle} ${setArtist} ${setAlbum} "${fpath}"`,
             );
-            console.log(
-                `Successfully set metadata for track '${metadata.songName}'`,
-            );
+            console.log(`Setting metadata for: '${metadata.songName}'`);
         } catch (err) {
-            console.log(
-                `Error setting metadata for track '${metadata.songName}'`,
-            );
+            console.log(`Error setting metadata for: '${metadata.songName}'`);
         }
     }
 }
