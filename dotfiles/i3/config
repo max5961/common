@@ -61,18 +61,15 @@ bindsym $mod+q exec --no-startup-id qutebrowser
 # file manager gui
 bindsym $mod+e exec --no-startup-id thunar
 
-# rofi (open.sh is a wrapper for the 'rofi' command)
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/open.sh -show drun
-bindsym $alt+d exec --no-startup-id ~/.config/rofi/scripts/favorites.sh
-bindsym $mod+w exec --no-startup-id ~/.config/rofi/scripts/open.sh -show window
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh
-bindsym $alt+r exec --no-startup-id ~/.config/rofi/scripts/reading.sh
+# rofi
+bindsym $mod+d exec --no-startup-id rofimonitor -show drun
+bindsym $mod+w exec --no-startup-id rofimonitor -show window
+bindsym $alt+d exec --no-startup-id stickynotes
 
 # lockscreen
 bindsym Ctrl+$alt+l exec --no-startup-id dm-tool switch-to-greeter
 
 # mpd
-# Different than mpc toggle (check for mpd connection and start if not connected before toggling)
 bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
 mode "mpd" {
     bindsym k exec --no-startup-id mpc next
@@ -88,7 +85,6 @@ mode "mpd" {
 }
 bindsym $mod+m mode "mpd"
 
-# transparency of apps controlled in picom
 bindsym $mod+minus exec --no-startup-id toggle-transparency
 bindsym $mod+plus exec --no-startup-id toggle-transparency "up"
 

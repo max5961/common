@@ -7,6 +7,8 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("oil").setup({
+			default_file_explorer = true,
+
 			keymaps = {
 				-- Disable <C-h,j,k,l> to nav between windows while in Oil
 				["<C-h>"] = false,

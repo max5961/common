@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# killserver 3000
-
 if [ -z "$1" ]; then
     echo "Enter PORT to kill connection"
     exit 1;

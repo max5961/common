@@ -1,36 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-declare -r screenshotsDir="$HOME/Pictures/screenshots"
-declare -r fileName="screenshot-$(date '+%s%3N').png"
-declare -r output="$screenshotsDir/$fileName"
+PICTURES="$HOME/Pictures/screenshots"
+FILE="screenshot-$(date '+%s%3N').png"
+OUTPUT="$PICTURES/$FILE"
+CMD="maim"
+QUALITY=$(echo "$@" | grep -oP '\-\-quality=\d+' | grep -oP '\d+');
 
-mkdir -p "$screenshotsDir"
+function monitor() {
+    local currmon=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .output')
+    local imageheight=$(xrandr | grep "$currmon" | sed 's/primary//' | awk '{print $3}')
 
-cmdPrefix="maim"
+    CMD="$CMD -g $imageheight"
+}
 
-# For best quality but significantly slower screenshot times:
-# cmdPrefix="maim --quality 10"
+function window() {
+    CMD="$CMD -i $(xdotool getactivewindow)"
+}
 
-if [[ "$1" == "--window" ]]; then
-    cmdPrefix="$cmdPrefix -i $(xdotool getactivewindow)"
-fi
+function quality() {
+    CMD="$CMD --quality $QUALITY"
+}
 
-if [[ "$1" == "--monitor" ]]; then
-    declare -r currMon=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .output')
-
-    declare -r line=$(xrandr | grep "$currMon")
-    declare coords=$(echo $line | awk '{print $3}')
-
-    if echo $line | grep "primary"; then
-        coords=$(echo $line | awk '{print $4}')
-    fi
-    cmdPrefix="$cmdPrefix -g $coords"
-fi
+function screenshot() {
+    $CMD $OUTPUT && exit 0
+}
 
 
-$cmdPrefix $output
-
-
-
-
+mkdir -p $PICTURES
+[[ ! -z "$QUALITY" ]] && quality
+[[ "$@" == "*--window*") ]] && window && screenshot
+[[ ! -z $(echo "$@" | grep -P "\-\-monitor") ]] && monitor && screenshot
 
