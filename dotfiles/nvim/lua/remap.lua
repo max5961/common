@@ -51,6 +51,6 @@ end)
 
 -- Add border to hover lsp-info, which used to be the default
 -- global winborder opt is too broad (distracting when applied to scrollbars)
-vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover({ border = "rounded" })
-end)
+-- vim.keymap.set("n", "K", function()
+-- 	vim.lsp.buf.hover({ border = "rounded" })
+-- end)

@@ -1,10 +1,30 @@
-local lsp_zero = require("lsp-zero")
+-- Not exclusive to LSP servers
+vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>")
+vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
-lsp_zero.on_attach(function(client, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP actions",
+	callback = function(event)
+		local opts = { buffer = event.buf }
+
+		-- these will be buffer-local keybindings
+		-- because they only work if you have an active language server
+
+		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover({border = 'rounded'})<cr>", opts)
+		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+		vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+		vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+		-- vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+		-- vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+		-- vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+		-- vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+		-- vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+		-- vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+	end,
+})
+
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -22,76 +42,43 @@ require("mason-lspconfig").setup({
 		"bashls",
 		"clangd",
 		"pylsp",
+		"stylelint_lsp",
+	},
+	handlers = {
+		function(server_name)
+			require("lspconfig")[server_name].setup({
+				capabilities = lsp_capabilities,
+			})
+		end,
 	},
 })
 
-vim.lsp.enable("lua_ls")
-
-local lsp = require("lsp-zero").preset({})
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
-end)
-
--- require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
--- lsp.setup()
-
-vim.lsp.config("stylelint_lsp", {
-	filetypes = { "css", "scss" },
-	root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
+require("lspconfig").lua_ls.setup({
+	capabilities = lsp_capabilities,
 	settings = {
-		stylelintplus = {
-			-- see available options in stylelint-lsp documentation
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					vim.env.VIMRUNTIME,
+				},
+			},
 		},
 	},
-	on_attach = function(client)
-		client.server_capabilities.document_formatting = false
-	end,
 })
 
--- require("lspconfig").stylelint_lsp.setup({
--- 	filetypes = { "css", "scss" },
--- 	root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
--- 	settings = {
--- 		stylelintplus = {
--- 			-- see available options in stylelint-lsp documentation
--- 		},
--- 	},
--- 	on_attach = function(client)
--- 		client.server_capabilities.document_formatting = false
--- 	end,
--- })
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- CSS Language Server
-require("lspconfig").cssls.setup({
-	capabilities = cssCapabilities,
-	filetypes = { "css", "scss" },
-
-	-- to get css completions, you need to have stylelint-lsp installed LOCALLY
-	-- for some reason
-	cmd = { "vscode-css-language-server", "--stdio" },
-	-- cmd = { "stylelint-lsp", "--stdio" },
+vim.diagnostic.config({
+	virtual_text = true,
+	float = {
+		border = "rounded",
+	},
 })
 
-require("lspconfig").css_variables.setup({})
-
--- This wasn't being used and was possibly causing lag
--- CSS Modules Language Server (if additional configuration is needed)
--- Adjust as necessary based on the server's requirements
--- require("lspconfig").cssmodules_ls.setup({
--- 	capabilities = capabilities,
--- 	filetypes = { "css", "scss" },
--- 	cmd = { "vscode-css-language-server", "--stdio" },
--- })
-
--- setup autocomplete
--- Alt + j or k to move up/down in drop down menu
--- Tab to complete highlighted selection
--- the first item is always preselected
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
@@ -99,6 +86,9 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 -- https://github.com/windwp/nvim-autopairs/blob/master/doc/nvim-autopairs.txt
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
+-- <A-j> and <A-k> move up/down in drop down menu
+-- Tab to complete highlighted selection
+-- the first item is always preselected
 cmp.setup({
 	-- always preselect the first item
 	preselect = "item",
@@ -166,4 +156,31 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+})
+
+require("lspconfig").stylelint_lsp.setup({
+	filetypes = { "css", "scss" },
+	root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
+	settings = {
+		stylelintplus = {
+			-- see available options in stylelint-lsp documentation
+		},
+	},
+	on_attach = function(client)
+		client.server_capabilities.document_formatting = false
+	end,
+})
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- CSS Language Server
+require("lspconfig").cssls.setup({
+	capabilities = cssCapabilities,
+	filetypes = { "css", "scss" },
+
+	-- to get css completions, you need to have stylelint-lsp installed LOCALLY
+	-- for some reason
+	cmd = { "vscode-css-language-server", "--stdio" },
 })

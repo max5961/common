@@ -25,7 +25,3 @@ vim.api.nvim_create_user_command("Code", function()
 	-- os.execute("code --disable-workspace-trust " .. cwd .. " " .. currFile)
 	os.execute("code --disable-workspace-trust --disable-feature=sidebar " .. cwd .. " " .. currFile)
 end, {})
-
-vim.keymap.set("n", "<leader>d", function()
-	vim.cmd("lua vim.diagnostic.open_float()")
-end, { desc = "Show vim lsp diagnostic" })

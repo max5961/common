@@ -22,7 +22,6 @@ function quality() {
 }
 
 function screenshot() {
-    echo "$CMD $OUTPUT"
     $CMD $OUTPUT && exit 0
 }
 
