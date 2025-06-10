@@ -30,148 +30,63 @@ return {
 
 		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
-		-- run scripts with <leader>r
-		function Run_script()
-			local file_path = vim.api.nvim_buf_get_name(0)
-			local file_ext = vim.fn.expand("%:e")
-			local cmd = ""
-
-			-- js
-			if file_ext == "js" or file_ext == "mjs" then
-				cmd = "node " .. file_path
-
-				-- ts
-			elseif file_ext == "ts" then
-				local stripped_file_name = string.sub(file_path, 1, string.len(file_path) - 2)
-				local js_file_name = stripped_file_name .. "js"
-				cmd = "tsc --target es2015 --moduleResolution nodenext --module NodeNext "
-					.. file_path
-					.. " && node "
-					.. js_file_name
-
-				-- cpp
-			elseif file_ext == "cpp" or file_ext == "c" then
-				local file_dir = vim.fn.expand("%:p:h")
-				local file_name = vim.fn.expand("%:t")
-				local stripped_file_name = vim.fn.expand("%:t:r")
-
-				local compiler = ""
-				if file_ext == "cpp" then
-					compiler = "g++"
-				else
-					compiler = "gcc"
-				end
-
-				cmd = compiler
-					.. " -o "
-					.. file_dir
-					.. "/"
-					.. stripped_file_name
-					.. ".o "
-					.. file_dir
-					.. "/"
-					.. file_name
-					.. " && "
-					.. file_dir
-					.. "/"
-					.. stripped_file_name
-					.. ".o"
-
-				-- bash
-			elseif file_ext == "sh" then
-				cmd = "chmod +x " .. file_path .. " && " .. file_path
-
-				-- python
-			elseif file_ext == "py" then
-				cmd = "python " .. file_path
-
-				-- invalid file_ext/non-file buffer
-			else
-				if file_ext == nil or file_ext == "" then
-					file_ext = "current buffer is not a file"
-				end
-
-				print("Cannot run 'run_script' function on invalid file type: " .. file_ext)
-				return
-			end
-
-			require("toggleterm").exec(cmd)
-		end
-
-		-- map command to Run_script
-		vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua Run_script()<CR>", { noremap = true, silent = true })
-
-		-- send commands to the terminal with <leader>t
-		CommandHistory = {}
-		Terminal_number = "1"
-		function Send_command_to_terminal()
-			local prompt = "Enter terminal command: "
-			local terminal_cmd = vim.fn.input(prompt)
-
-			if terminal_cmd ~= "!" then
-				table.insert(CommandHistory, terminal_cmd)
-			end
-
-			-- enter ! to change terminal that commands are sent to
-			if terminal_cmd == "!" then
-				Terminal_number = vim.fn.input("Enter target terminal #: ")
-				terminal_cmd = vim.fn.input(prompt)
-			end
-
-			local nvim_command = Terminal_number .. "TermExec cmd=" .. "'" .. terminal_cmd .. "'"
-			vim.cmd(nvim_command)
-		end
-
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>t",
-			"<cmd>lua Send_command_to_terminal()<CR>",
-			{ noremap = true, silent = true }
-		)
-
-		-- to create a new terminal ToggleTerm<number>
-		-- map T<number> to ToggleTerm<number>
-		-- create/kill terminals with T<number>
+		-- Map T<number> to ToggleTerm<number> which creates/kills terminals
 		for num = 1, 5, 1 do
 			vim.api.nvim_create_user_command("T" .. num, "ToggleTerm" .. num, {})
 		end
 
-		-- Execute last cmd sent from Send_command_to_terminal <leader>lc
-		function ExecuteLastCommand()
-			local lastCmd = CommandHistory[#CommandHistory]
+		local Run_Commands = {}
+		local Last_Cmd = nil
+		local Terminal_Number = "1"
 
-			if lastCmd == nil then
-				vim.api.nvim_err_writeln("There is no last command.  Enter a command with <leader>t first.")
-				return
+		-- Set a cached command to run the current file and execute it
+		function Run_File(opts)
+			local file_path = vim.api.nvim_buf_get_name(0)
+			local dir = vim.fs.dirname(file_path)
+
+			if Run_Commands[file_path] == nil or opts.set then
+				local cmd = vim.fn.input("Set a run command: ")
+				cmd = cmd:gsub("$file", file_path):gsub("$dir", dir)
+				Run_Commands[file_path] = cmd
 			end
 
-			print("Executing Last Command: " .. lastCmd)
-			local nvim_command = Terminal_number .. "TermExec cmd=" .. "'" .. lastCmd .. "'"
+			require("toggleterm").exec(Run_Commands[file_path])
+		end
+
+		-- Read input and run it in the term.  Optional @param input for reusing
+		-- this function from other functions
+		function Run_Input(input)
+			local prompt = "Enter terminal command: "
+			local cmd = input or vim.fn.input(prompt)
+
+			if cmd ~= "!" then
+				Last_Cmd = cmd
+			end
+
+			-- enter ! to change terminal that commands are sent to
+			if cmd == "!" then
+				Terminal_Number = vim.fn.input("Enter target terminal #: ")
+				cmd = vim.fn.input(prompt)
+			end
+
+			local nvim_command = Terminal_Number .. "TermExec cmd=" .. "'" .. cmd .. "'"
 			vim.cmd(nvim_command)
 		end
 
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>lc",
-			"<cmd>lua ExecuteLastCommand()<CR>",
-			{ noremap = true, silent = true }
-		)
-
-		-- run lint
-		function Run_lint()
-			local file_path = vim.api.nvim_buf_get_name(0)
-			local file_ext = vim.fn.expand("%:e")
-			local cmd = ""
-
-			if file_ext == "js" or file_ext == "ts" then
-				cmd = "npx eslint " .. file_path
+		-- Run last cmd sent from Run_Input <leader>lc
+		function Run_Last_Cmd()
+			if Last_Cmd == nil then
+				Last_Cmd = vim.fn.input("No previous command: ")
+			else
+				print("Executing Last Command: " .. Last_Cmd)
 			end
 
-			-- send lint command to ToggleTerm
-			require("toggleterm").exec(cmd)
+			Run_Input(Last_Cmd)
 		end
 
-		-- run function with :Run lint
-		vim.api.nvim_create_user_command("RunLint", "lua Run_lint()<CR>", {})
+		vim.keymap.set("n", "<leader>r", "<cmd>lua Run_File({set = nil})<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>R", "<cmd>lua Run_File({set = true})<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>t", "<cmd>lua Run_Input()<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>lc", "<cmd>lua Run_Last_Cmd()<CR>", { noremap = true, silent = true })
 	end,
 }
