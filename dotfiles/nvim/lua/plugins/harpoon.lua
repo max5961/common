@@ -1,6 +1,3 @@
--- https://github.com/ThePrimeagen/harpoon
--- quickly add, delete, and move between files in a buffer
-
 local M = {}
 
 -- These are added in the config function
@@ -226,6 +223,5 @@ return {
 		vim.api.nvim_create_user_command("ToggleBufferType", function()
 			M.toggleMessageType()
 		end, {})
-		-- vim.keymap.set("n", "<leader>g", M.removeFile)
 	end,
 }

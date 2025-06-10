@@ -1,4 +1,3 @@
--- https://github.com/nvim-lualine/lualine.nvim
 -- status line to replace the default bottom line
 
 return {

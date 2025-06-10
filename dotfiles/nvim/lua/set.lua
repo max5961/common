@@ -47,6 +47,7 @@ vim.opt.cursorcolumn = false
 vim.opt.termguicolors = true
 vim.opt.updatetime = 500
 vim.opt.autoread = true
+-- vim.opt.winborder = "rounded"
 
 -- Adding 'alpha' to this list allows you to treat chars as integers so that
 -- you can increment decrement them with ctrl-a/ctrl-x

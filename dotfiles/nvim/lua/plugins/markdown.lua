@@ -1,5 +1,3 @@
--- https://github.com/MeanderingProgrammer/render-markdown.nvim?tab=readme-ov-file
-
 return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",

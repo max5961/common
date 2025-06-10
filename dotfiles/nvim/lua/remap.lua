@@ -1,6 +1,11 @@
 -- show key mappings (:map shows all, :nmap shows normal mode, :vmap visual mode....)
 -- :map :nmap :vmap :imap, :cmap
 
+-- Override tmux prefix key
+vim.keymap.set("n", "<F1>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("v", "<F1>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("i", "<F1>", "<Nop>", { noremap = true, silent = true })
+
 -- move between window splits
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
@@ -44,7 +49,8 @@ vim.keymap.set("n", "<C-Left>", function()
 	vim.cmd("vertical resize -1")
 end)
 
--- F1 is my Tmux prefix
-vim.keymap.set("n", "<F1>", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("v", "<F1>", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("i", "<F1>", "<Nop>", { noremap = true, silent = true })
+-- Add border to hover lsp-info, which used to be the default
+-- global winborder opt is too broad (distracting when applied to scrollbars)
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end)

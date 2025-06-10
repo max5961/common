@@ -22,12 +22,13 @@ function quality() {
 }
 
 function screenshot() {
+    echo "$CMD $OUTPUT"
     $CMD $OUTPUT && exit 0
 }
 
-
 mkdir -p $PICTURES
 [[ ! -z "$QUALITY" ]] && quality
-[[ "$@" == "*--window*") ]] && window && screenshot
-[[ ! -z $(echo "$@" | grep -P "\-\-monitor") ]] && monitor && screenshot
+echo "$@" | grep -Pq "\-\-window" && window && screenshot
+echo "$@" | grep -Pq "\-\-monitor" && monitor && screenshot
+echo "$@" | grep -Pq "\-\-all" && screenshot
 

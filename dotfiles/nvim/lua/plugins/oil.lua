@@ -1,5 +1,3 @@
--- https://github.com/stevearc/oil.nvim?tab=readme-ov-file#quick-start
-
 return {
 	"stevearc/oil.nvim",
 	opts = {},

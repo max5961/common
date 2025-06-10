@@ -1,5 +1,5 @@
--- https://github.com/kdheepak/lazygit.nvim
 -- Opens lazygit within neovim
+
 return {
 	"kdheepak/lazygit.nvim",
 	lazy = true,

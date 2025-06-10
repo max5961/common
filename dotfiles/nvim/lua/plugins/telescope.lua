@@ -1,5 +1,3 @@
--- https://github.com/nvim-telescope/telescope.nvim
-
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.4",
@@ -17,12 +15,32 @@ return {
 		local telescope = require("telescope")
 		telescope.setup({
 			pickers = {
-				-- find_files = {
-				-- 	hidden = true,
-				-- },
+				find_files = {
+					hidden = true,
+				},
 			},
 			defaults = {
 				borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
+				file_ignore_patterns = {
+					".git",
+					"node_modules",
+					"dist/",
+					"build/",
+					"target/",
+					"%.png",
+					"%.jpg",
+					"%.jpeg",
+					"%.svg",
+					"%.mp4",
+					"%.mp3",
+					"%.mkv",
+					"%.webm",
+					"%.o",
+					"%.out",
+					"%.zip",
+					"%.tar",
+					"%.gz",
+				},
 			},
 		})
 

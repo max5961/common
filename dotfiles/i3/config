@@ -96,7 +96,7 @@ mode "screenshot (m|w|a)" {
     # focused window
     bindsym w exec --no-startup-id maim-screenshot --window
     # all monitors
-    bindsym a exec --no-startup-id maim-screenshot
+    bindsym a exec --no-startup-id maim-screenshot --all
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

@@ -6,12 +6,13 @@ lsp_zero.on_attach(function(client, bufnr)
 	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-require("mason").setup({})
+require("mason").setup()
 require("mason-lspconfig").setup({
 
 	-- list of language servers
-	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 	ensure_installed = {
+		"lua_ls",
 		"ts_ls", -- was "tsserver"
 		"eslint",
 		"html",
@@ -21,22 +22,20 @@ require("mason-lspconfig").setup({
 		"bashls",
 		"clangd",
 		"pylsp",
-		"lua_ls",
-	},
-	handlers = {
-		lsp_zero.default_setup,
 	},
 })
 
--- configure lua_ls for nvim
+vim.lsp.enable("lua_ls")
+
 local lsp = require("lsp-zero").preset({})
 lsp.on_attach(function(client, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
 end)
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-lsp.setup()
 
-require("lspconfig").stylelint_lsp.setup({
+-- require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+-- lsp.setup()
+
+vim.lsp.config("stylelint_lsp", {
 	filetypes = { "css", "scss" },
 	root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
 	settings = {
@@ -48,6 +47,19 @@ require("lspconfig").stylelint_lsp.setup({
 		client.server_capabilities.document_formatting = false
 	end,
 })
+
+-- require("lspconfig").stylelint_lsp.setup({
+-- 	filetypes = { "css", "scss" },
+-- 	root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
+-- 	settings = {
+-- 		stylelintplus = {
+-- 			-- see available options in stylelint-lsp documentation
+-- 		},
+-- 	},
+-- 	on_attach = function(client)
+-- 		client.server_capabilities.document_formatting = false
+-- 	end,
+-- })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -65,16 +77,16 @@ require("lspconfig").cssls.setup({
 	-- cmd = { "stylelint-lsp", "--stdio" },
 })
 
--- require("lspconfig").css_variables.setup({})
+require("lspconfig").css_variables.setup({})
 
 -- This wasn't being used and was possibly causing lag
 -- CSS Modules Language Server (if additional configuration is needed)
 -- Adjust as necessary based on the server's requirements
-require("lspconfig").cssmodules_ls.setup({
-	capabilities = capabilities,
-	filetypes = { "css", "scss" },
-	cmd = { "vscode-css-language-server", "--stdio" },
-})
+-- require("lspconfig").cssmodules_ls.setup({
+-- 	capabilities = capabilities,
+-- 	filetypes = { "css", "scss" },
+-- 	cmd = { "vscode-css-language-server", "--stdio" },
+-- })
 
 -- setup autocomplete
 -- Alt + j or k to move up/down in drop down menu
