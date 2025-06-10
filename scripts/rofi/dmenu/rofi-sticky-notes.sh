@@ -7,10 +7,10 @@ NEW="⎘ new "
 EXPLORER="🌐 explorer"
 LIST="${NEW}\n${EXPLORER}\n$(mkdir -p $STICKYNOTES && ls $STICKYNOTES)"
 
-chosen="$(echo -en "$LIST" | rofimonitor -dmenu -i --matching fuzzy -p "Notes:")"
+chosen=$(echo -en "$LIST" | rofimonitor -dmenu -i --matching fuzzy -p "Notes:") || exit 0
 
 function new_note() {
-    local name=$(rofimonitor -dmenu -p "Name:" --allow-custom true)
+    local name=$(rofi-monitor -dmenu -p "Name:" --allow-custom true)
     [[ -z $name ]] && name=$(date "+%F_%H:%M:%S")
     local file="$STICKYNOTES/${name}.md"
     echo -en "# $name" > $file

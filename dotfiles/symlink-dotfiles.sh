@@ -3,7 +3,7 @@
 DOTFILES="$HOME/common/dotfiles"
 
 function symlink() {
-    [[ $1 == "symlink_dots.sh" ]] && return
+    [[ $1 == "symlink-dotfiles.sh" ]] && return
 
     local path="$HOME/.config/$1"
     [[ -f "$DOTFILES/$1" ]] && path="$HOME/${1}"

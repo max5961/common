@@ -7,10 +7,9 @@ TEMPLATE="$HOME/common/scripts/hatch/ts/template"
 mkdir -p "$DEST" && cd "$DEST"
 
 if [[ "$NEW" || -z "$(ls -A)" ]]; then
-    shopt -s dotglob
-    rm -rf $DEST/*
+    rm -rf "$DEST"/.* "$DEST"/*
     cp -r "$TEMPLATE"/* .
-    shopt -u dotglob
+    cp -r "$TEMPLATE"/.* .
 
     npm init -y &> /dev/null
     git init

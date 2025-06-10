@@ -64,7 +64,7 @@ bindsym $mod+e exec --no-startup-id thunar
 # rofi
 bindsym $mod+d exec --no-startup-id rofimonitor -show drun
 bindsym $mod+w exec --no-startup-id rofimonitor -show window
-bindsym $alt+d exec --no-startup-id stickynotes
+bindsym $alt+d exec --no-startup-id rofi-launcher
 
 # lockscreen
 bindsym Ctrl+$alt+l exec --no-startup-id dm-tool switch-to-greeter
@@ -185,8 +185,8 @@ bindsym $mod+r mode "resize"
 # vertically, while in i3 a v split is the opposite.  Given that I'm used to the
 # vim convention, the v and h bindings are opposite here to reflect what I'm
 # used to
-bindsym $alt+v split h
-bindsym $alt+h split v
+# bindsym $alt+v split h
+# bindsym $alt+h split v
 
 # toggle current split direction
 bindsym $mod+t layout toggle split

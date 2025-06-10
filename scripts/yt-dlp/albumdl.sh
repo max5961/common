@@ -1,30 +1,27 @@
 #!/bin/bash
 
-# dependencies
-dep_kid3=$(which kid3-cli)
-dep_yt_dlp=$(which yt-dlp)
-
-missing=0
-[[ $(echo "$dep_kid3" | grep "not found") ]] && echo "Missing dependency kid3-cli" && ((++missing))
-[[ $(echo "$dep_yt_dlp" | grep "not found") ]] && echo "Missing dependency yt-dlp" && ((++missing))
-(( missing > 0)) && exit 1
-
-
-yt-dlp-precheck
-
 DIR="$HOME/Music"
 BACKUP="$HOME/void/music-backup"
 INPUT_ARTIST="$1"
 INPUT_ALBUM="$2"
 INPUT_URL="$3"
 
-function line() {
+function check_deps() {
+    local ffmpeg="ffmpeg"
+    local yt_dlp="yt-dlp"
+
+    which "$ffmpeg" | grep -q "not found" && echo "Missing dep: $ffmpeg" && ((++missing))
+    which "$yt_dlp" | grep -q "not found" && echo "Missing dep: $yt_dlp" && ((++missing))
+    (( missing > 0 )) && exit 1
+}
+
+function draw_line() {
     local cols=$(tput cols)
-    local line=""
+    local draw_line=""
     for ((i = 1; i <= cols; ++i)); do
-        line+="─"
+        draw_line+="─"
     done
-    printf "\e[34m\n%s\n\n\e[0m" "$line"
+    printf "\e[34m\n%s\n\n\e[0m" "$draw_line"
 }
 
 # $1: URL
@@ -50,10 +47,11 @@ function download() {
 
     yt_dlp_command "$URL"
     ARTIST="$artist" ALBUM="$album" node "$HOME/common/scripts/yt-dlp/__setMetadata.js"
+    echo "${artist},${album},${URL}" >> "$HOME/common/scripts/yt-dlp/album_dl_log.csv"
 }
 
 function get_data() {
-    line
+    draw_line
 
     local artist album URL more
 
@@ -73,18 +71,29 @@ function get_data() {
         get_data
     fi
 
-    line
+    draw_line
     download "$artist" "$album" "$URL"
 }
 
 function dl_from_csv() {
-    csv_file="$INPUT_ALBUM"
-    [[ ! -f "$csv_file" ]] && echo "Invalid or missing csv file argument" && exit 1
+    local csv="$INPUT_ALBUM"
+    [[ ! -f "$csv" ]] && echo "Invalid or missing csv file" && exit 1;
 
-    node "$HOME/common/scripts/yt-dlp/__dlFromCsv.js" "$csv_file"
+    local i=0
+    while IFS=, read -r artist album url; do
+        ((++i))
+        if [[ ! -z "$artist" && ! -z "$album" && ! -z "$url" ]]; then
+            albumdl "$artist" "$album" "$url"
+        else
+            echo "Skipping draw_line $i due to invalid format."
+        fi
+    done < "$csv"
 }
 
 function main() {
+    check_deps
+    yt-dlp-precheck
+
     if [[ "$INPUT_ARTIST" == "--csv" || "$INPUT_ARTIST" == "-c" ]]; then
         dl_from_csv
         exit "$?"
@@ -100,4 +109,3 @@ function main() {
 }
 
 main
-

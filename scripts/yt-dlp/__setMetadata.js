@@ -13,18 +13,23 @@ function setMetaData() {
         const fpath = path.join(directory, fname);
         const metadata = getMetaData(fname);
 
-        const setTrack = `-c 'set track "${metadata.trackNumber}"'`;
-        const setTitle = `-c 'set title "${metadata.songName}"'`;
-        const setArtist = `-c 'set artist "${metadata.artist}"'`;
-        const setAlbum = `-c 'set album "${metadata.album}"'`;
+        const title = `-metadata title='${metadata.songName}'`;
+        const track = `-metadata track='${metadata.trackNumber}'`;
+        const artist = `-metadata artist='${metadata.artist}'`;
+        const album = `-metadata album='${metadata.album}'`;
 
         try {
+            const tmp = path.join(os.tmpdir(), `metadata-${fname}`);
             execSync(
-                `kid3-cli ${setTrack} ${setTitle} ${setArtist} ${setAlbum} "${fpath}"`,
+                `ffmpeg -i "${fpath}" ${track} ${title} ${artist} ${album} -codec copy "${tmp}"`,
+                { stdio: "ignore" },
             );
-            console.log(`Setting metadata for: '${metadata.songName}'`);
+            fs.renameSync(tmp, fpath);
+            console.log(`Metadata set: \x1b[33m${fname}\x1b[0m`);
         } catch (err) {
-            console.log(`Error setting metadata for: '${metadata.songName}'`);
+            console.log(
+                `Error setting metadata for: '${metadata.songName}', ${err.message}`,
+            );
         }
     }
 }

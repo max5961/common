@@ -84,17 +84,17 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # ^M = Return
 #
 # If the VISUAL or EDITOR env contain the string "vi", bindkey will default to
-# -v for vi mode.  This sounds great but doesn't work as I would expect.  It won't
-# let me backspace in normal mode past text, so I don't understand it well enough to use yet
-# bindkey -e overwrites the implied bindkey -v
-bindkey -e
-bindkey "^[l" autosuggest-accept
-
-# search up/down any list (ctrl-p, ctrl-n also work)
-bindkey "^[j" down-line-or-search
-bindkey "^[k" up-line-or-search
-# bindkey "^[p" history-search-backward
-# bindkey "^[n" history-search-forward
+# -v for vi mode.
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
+# bindkey -e
+# bindkey "^[l" autosuggest-accept
+# bindkey "^[j" down-line-or-search
+# bindkey "^[k" up-line-or-search
+# bindkey "^[w" forward-word
+# bindkey "^[b" backward-word
+# bindkey "^[h" backward-char
+# bindkey "^[l" forward-char
 
 # -----------------------------------------------------------------------------
 # Shell integrations

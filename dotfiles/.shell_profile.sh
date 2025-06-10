@@ -16,25 +16,29 @@ function cd_into_file() {
 function cd_fzf() {
     [[ ! -z $1 ]] && cd_into_file $1
     file=$(command fzf)
-    cd_into_file $file
+    [[ -e $file ]] && cd_into_file $file
+}
+
+function _rm() {
+    echo -e "\e[33mUse tr instead\e[0m"
 }
 
 alias cd="cd_into_file"
-alias fzf="cd_fzf"
+alias cdf="cd_fzf"
 alias ta="tmux attach -t"
 alias vim="neovim"
 alias journalctl='journalctl --reverse'
 alias bat='batcat --theme=Visual\ Studio\ Dark+'
+alias cat='bat'
 alias grep='grep --color=auto'
 alias trr='trash-restore'
-alias tr='trash-put'
-alias rm="trash-put"
+alias rm='_rm'
+alias tr="trash-put"
 alias lf="lfrun"
 alias calc="qalc"
 alias glow="glow -p"
 alias ls="eza --long --no-time --icons --octal-permissions --group-directories-first --git"
 alias tree="eza --tree"
-# alias lock-screen="dm-tool switch-to-greeter"
 
 # Git
 alias gs='git status'

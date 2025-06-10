@@ -1,15 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-latest=$(curl -s https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest | jq '.["tag_name"]')
-current=$(yt-dlp --version)
-latest=${latest:1:$((${#latest} - 2))}
+API='https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest'
+LATEST=$(curl -s $API | jq '.["tag_name"]' | sed 's/"//g')
+CURRENT=$(yt-dlp --version)
 
-if [[ "$current" == "$latest" ]]; then
-    # echo "yt-dlp is up to date: Current: $current, Latest: $latest"
-    exit 0
-fi
+[[ $CURRENT == $LATEST ]] && echo "yt-dlp is up to date [$LATEST]" && exit 0
 
-echo "$current is not up to date with latest $latest"
-echo "Upgrading..."
-pipx install yt-dlp=="$latest" --force
+echo "yt-dlp is not up to date [current: $CURRENT, latest: $LATEST]"
+echo "Upgrading"
+pipx install yt-dlp=="$LATEST" --force
 

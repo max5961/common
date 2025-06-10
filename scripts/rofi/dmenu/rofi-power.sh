@@ -6,7 +6,7 @@ REBOOT="⟳    Reboot"
 POWER_OFF="⏻    Power Off"
 
 OPTS="${LOCK_SCREEN}\n${NEW_XSESSION}\n${REBOOT}\n${POWER_OFF}"
-CHOSEN=$(echo -en "$OPTS" | rofimonitor -dmenu -i --matching fuzzy -p "Power Menu:") || exit 0
+CHOSEN=$(echo -en "$OPTS" | rofi-monitor -dmenu -i --matching fuzzy -p "Power Menu:") || exit 0
 
 case $CHOSEN in
     $LOCK_SCREEN)
