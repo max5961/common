@@ -24,6 +24,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+vim.diagnostic.config({
+	virtual_text = true,
+	float = {
+		border = "rounded",
+	},
+})
+
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason").setup()
@@ -46,38 +53,79 @@ require("mason-lspconfig").setup({
 	},
 	handlers = {
 		function(server_name)
-			require("lspconfig")[server_name].setup({
-				capabilities = lsp_capabilities,
+			require("lspconfig")[server_name].setup({ capabilities = lsp_capabilities })
+		end,
+		stylelint_lsp = function() end,
+		cssls = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+			-- CSS Language Server
+			require("lspconfig").cssls.setup({
+				capabilities = cssCapabilities,
+				filetypes = { "css", "scss" },
+
+				-- to get css completions, you need to have stylelint-lsp installed LOCALLY
+				-- for some reason
+				cmd = { "vscode-css-language-server", "--stdio" },
 			})
 		end,
 	},
 })
 
-require("lspconfig").lua_ls.setup({
-	capabilities = lsp_capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				library = {
-					vim.env.VIMRUNTIME,
+local function setup_lang_servers()
+	vim.lsp.config("lua_ls", {
+		capabilities = lsp_capabilities,
+		settings = {
+			Lua = {
+				runtime = {
+					version = "LuaJIT",
+				},
+				diagnostics = {
+					-- Still does not work to recognize the 'vim' global...
+					globals = { "vim" },
+				},
+				workspace = {
+					library = {
+						vim.env.VIMRUNTIME,
+					},
 				},
 			},
 		},
-	},
-})
+	})
 
-vim.diagnostic.config({
-	virtual_text = true,
-	float = {
-		border = "rounded",
-	},
-})
+	require("lspconfig").stylelint_lsp.setup({
+		filetypes = { "css", "scss" },
+		root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
+		settings = {
+			stylelintplus = {
+				-- see available options in stylelint-lsp documentation
+			},
+		},
+		on_attach = function(client)
+			client.server_capabilities.document_formatting = false
+		end,
+	})
+
+	local function css_lang_server_setup()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+		require("lspconfig").cssls.setup({
+			capabilities = cssCapabilities,
+			filetypes = { "css", "scss" },
+
+			-- to get css completions, you need to have stylelint-lsp installed LOCALLY
+			-- for some reason
+			cmd = { "vscode-css-language-server", "--stdio" },
+		})
+	end
+	css_lang_server_setup()
+end
+
+setup_lang_servers()
 
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -156,31 +204,4 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-})
-
-require("lspconfig").stylelint_lsp.setup({
-	filetypes = { "css", "scss" },
-	root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
-	settings = {
-		stylelintplus = {
-			-- see available options in stylelint-lsp documentation
-		},
-	},
-	on_attach = function(client)
-		client.server_capabilities.document_formatting = false
-	end,
-})
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- CSS Language Server
-require("lspconfig").cssls.setup({
-	capabilities = cssCapabilities,
-	filetypes = { "css", "scss" },
-
-	-- to get css completions, you need to have stylelint-lsp installed LOCALLY
-	-- for some reason
-	cmd = { "vscode-css-language-server", "--stdio" },
 })
