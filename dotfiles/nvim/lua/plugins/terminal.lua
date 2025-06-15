@@ -57,6 +57,11 @@ return {
 			local prompt = "Enter terminal command: "
 			local cmd = input or vim.fn.input(prompt)
 
+			-- vim.cmd escapes won't print '<text>' so you need to escape the single
+			-- quotes.  This looks like we replace ' with ', but lua it works so
+			-- lua must being escaping the replacment
+			cmd = cmd:gsub("'", "'")
+
 			if cmd ~= "!" then
 				Last_Cmd = cmd
 			end
