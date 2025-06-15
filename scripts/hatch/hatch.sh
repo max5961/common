@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-EGGS=(ts html)
+FOLDER="$HOME/common/scripts/hatch"
+EGGS=$(fdfind -d 1 -t d . "$FOLDER" | xargs -I {} basename {})
 ARGS="$@"
 HERE=
 DEST=
