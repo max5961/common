@@ -17,6 +17,7 @@ exec_always --no-startup-id picom &
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap -option caps:none
 exec_always --no-startup-id xrdb ~/.Xresources
+exec_always --no-startup-id log-dbus
 # https://github.com/nwg-piotr/autotiling
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/i3/scripts/get-connected-monitors.sh

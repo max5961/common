@@ -63,6 +63,7 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"pylsp",
 		"stylelint_lsp",
+		"marksman",
 	},
 	handlers = {
 		function(server_name)

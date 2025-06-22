@@ -25,3 +25,14 @@ vim.api.nvim_create_user_command("Code", function()
 	-- os.execute("code --disable-workspace-trust " .. cwd .. " " .. currFile)
 	os.execute("code --disable-workspace-trust --disable-feature=sidebar " .. cwd .. " " .. currFile)
 end, {})
+
+vim.keymap.set("n", "gl", function()
+	local file = vim.fn.expand("<cfile>")
+	local isFile = vim.loop.fs_stat(file)
+
+	if not isFile then
+		vim.notify("go to link: invalid file '" .. file .. "'", vim.log.levels.WARN)
+	else
+		vim.cmd("e " .. file)
+	end
+end, { noremap = true, silent = true })
