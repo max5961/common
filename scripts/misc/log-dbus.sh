@@ -28,7 +28,10 @@ while read -r line; do
                 ;;
         esac
     fi
+
+    # Note to self: This syntax is process substitution.  By simply directing or
+    # piping stdout into a while loop, a subshell is spawned.  With process substitution
+    # syntax `< <(command)`, the `command` runs as a background process and its
+    # stdout is piped into the while loop without spawning a new subshell (no separate
+    # process is created).
 done < <(dbus-monitor "interface='org.freedesktop.Notifications'")
-
-
-

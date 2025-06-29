@@ -34,8 +34,10 @@ function set_vars() {
         esac
     done
 
-    if [[ "$NEW" && "$HERE" && ! -z "$(ls -A $DEST)" ]]; then
-        echo -e "Directory not empty\nAborting"; exit 1
+    if "$NEW" && "$HERE"; then
+        if [[ -d "$DEST" && ! -z "$(ls -A $DEST)" ]]; then
+            echo -e "Directory not empty\nAborting"; exit 1
+        fi
     fi
 }
 
@@ -54,7 +56,7 @@ function dispatch_egg() {
         local wiped_dir=false
 
         mkdir -p "$DEST" && cd "$DEST"
-        if [[ "$NEW" || -z "$(ls -A)" ]]; then
+        if "$NEW" || [[ -z "$(ls -A)" ]]; then
             wiped_dir=true
             rm -rf "$DEST"/* "$DEST"/.*
             cp -r "$template"/* . && ls -a "$template"/.* >/dev/null 2>&1 && cp -r "$template"/.* .

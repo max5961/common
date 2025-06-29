@@ -56,7 +56,6 @@ bindsym $mod+Return exec --no-startup-id kitty
 
 # browser
 bindsym $mod+i exec --no-startup-id brave-browser
-bindsym $mod+b exec --no-startup-id brave-browser
 bindsym $mod+q exec --no-startup-id qutebrowser
 
 # file manager gui
