@@ -62,9 +62,10 @@ bindsym $mod+q exec --no-startup-id qutebrowser
 bindsym $mod+e exec --no-startup-id thunar
 
 # rofi
-bindsym $mod+d exec --no-startup-id rofimonitor -show drun
+# bindsym $mod+d exec --no-startup-id rofimonitor -show drun
+# bindsym $alt+d exec --no-startup-id rofi-launcher
+bindsym $mod+d exec --no-startup-id rofi-launcher
 bindsym $mod+w exec --no-startup-id rofimonitor -show window
-bindsym $alt+d exec --no-startup-id rofi-launcher
 
 # lockscreen
 bindsym Ctrl+$alt+l exec --no-startup-id dm-tool switch-to-greeter
