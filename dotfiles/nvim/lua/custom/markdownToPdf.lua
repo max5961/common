@@ -31,7 +31,7 @@ local function convertToPdf(opts)
 		notify("Converting md to pdf...", vim.log.levels.INFO)
 		local exitCode = convert()
 		if exitCode == true or exitCode == 0 then
-			notify("Successfully converted " .. file .. " to pdf.", vim.log.levels.INFO)
+			notify("Converted " .. file .. " to pdf.", vim.log.levels.INFO)
 		else
 			notify("Error converting to pdf", vim.log.levels.ERROR)
 		end

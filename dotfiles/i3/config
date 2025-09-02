@@ -73,8 +73,8 @@ bindsym Ctrl+$alt+l exec --no-startup-id dm-tool switch-to-greeter
 # mpd
 bindsym $mod+Shift+p exec --no-startup-id pause-play-mpd
 mode "mpd" {
-    bindsym k exec --no-startup-id mpc next
-    bindsym j exec --no-startup-id mpc prev
+    bindsym j exec --no-startup-id mpc next
+    bindsym k exec --no-startup-id mpc prev
     bindsym p exec --no-startup-id mpc toggle
     bindsym f exec --no-startup-id mpc seek +00:00:01
     bindsym b exec --no-startup-id mpc seek -00:00:01

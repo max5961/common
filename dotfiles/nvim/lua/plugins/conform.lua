@@ -56,6 +56,10 @@ return {
 			notify_on_error = true,
 			-- Custom formatters and changes to built-in formatters
 			formatters = {
+				prettier = {
+					-- Tell prettier to not ignore anything (except node_modules)
+					append_args = { "--ignore-path", "" },
+				},
 				my_formatter = {
 					-- This can be a string or a function that returns a string.
 					-- When defining a new formatter, this is the only field that is *required*

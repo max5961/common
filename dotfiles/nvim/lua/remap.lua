@@ -23,6 +23,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- place cursor over a word and replace very instance of that word in the file
 vim.keymap.set("n", "<leader>ca", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- easier than typing '<Esc>:Vs/' for search and replace
+vim.keymap.set("n", "<leader>cl", [[:s/]])
+
 -- keep visual selection when moving selections right/left
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
