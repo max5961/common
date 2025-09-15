@@ -30,9 +30,7 @@ function replaceLatest(depType) {
     }
 }
 
-console.log(
-    "...replacing 'latest' in package.json with downloaded version number",
-);
+console.log("...updating package.json with downloaded version number");
 replaceLatest(data.devDependencies);
 replaceLatest(data.dependencies);
 

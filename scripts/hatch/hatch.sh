@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-FOLDER="$HOME/common/scripts/hatch"
-EGGS=$(fdfind -d 1 -t d . "$FOLDER" | xargs -I {} basename {})
+SOURCE="$HOME/common/scripts/hatch"
+DEST_BASE="$HOME/void"
+DEST=
+EGGS=$(fdfind -d 1 -t d . "$SOURCE" | xargs -I {} basename {})
 ARGS="$@"
 HERE=false
 NEW=false
-DEST=
 
 function print_help() {
     echo -e "Usage: hatch [OPTION]... PATTERNS...\n"
@@ -18,10 +19,7 @@ function print_help() {
     exit 0
 }
 
-function set_vars() {
-    local egg="$1"
-    DEST="$HOME/void/${egg}-test"
-
+function set_globals() {
     for arg in $ARGS; do
         case "$arg" in
             --new)
@@ -36,7 +34,7 @@ function set_vars() {
 
     if "$NEW" && "$HERE"; then
         if [[ -d "$DEST" && ! -z "$(ls -A $DEST)" ]]; then
-            echo -e "Directory not empty\nAborting"; exit 1
+            echo -e "Directory not empty\nAborting" && exit 1
         fi
     fi
 }
@@ -50,57 +48,51 @@ function args_includes() {
 }
 
 function dispatch_egg() {
-    set_vars "$egg"
-    if args_includes "--${egg}"; then
-        local template="${FOLDER}/${egg}/template"
-        local wiped_dir=false
+    "$HERE" || DEST="$DEST_BASE/${egg}-test"
 
-        mkdir -p "$DEST" && cd "$DEST"
-        if "$NEW" || [[ -z "$(ls -A)" ]]; then
-            wiped_dir=true
-            rm -rf "$DEST"/* "$DEST"/.*
-            cp -r "$template"/* . && ls -a "$template"/.* >/dev/null 2>&1 && cp -r "$template"/.* .
-        fi
+    ! args_includes "--${egg}" && return 1
 
-        # Specific configurations/chores that need to be ran depending on setup
-        case $egg in
-            ts)
-                if $wiped_dir; then
-                    npm init -y &> /dev/null
-                    git init
-                    echo "node_modules/" >> "$DEST/.gitignore"
-                    echo "*.log" >> "$DEST/.gitignore"
-                    npm install
-                    npx prettier --write ./*
-                    update-package-versions
-                fi
-                $EDITOR src/index.ts && exit 0
-                ;;
-            cpp)
-                $EDITOR src/main.cpp && exit 0
-                ;;
-            sh)
-                chmod +x script.sh
-                $EDITOR script.sh && exit 0
-                ;;
-        esac
+    local template="${SOURCE}/${egg}/template"
+    local dir_is_empty=false
+
+    mkdir -p "$DEST" && cd "$DEST"
+    if "$NEW" || [[ -z "$(ls -A)" ]]; then
+        dir_is_empty=true
+        rm -rf "$DEST"/* "$DEST"/.*
+        cp -r "$template"/* . && cp -r "$template"/.* .
     fi
+
+    case $egg in
+        ts)
+            if $dir_is_empty; then
+                git init
+                npm install
+                npx prettier --write ./*
+                update-package-versions
+                echo -e "node_modules/\n*.log" >> "$DEST/.gitignore"
+            fi
+            $EDITOR src/index.ts && exit 0
+            ;;
+        cpp)
+            $EDITOR src/main.cpp && exit 0
+            ;;
+        sh)
+            chmod +x script.sh
+            $EDITOR script.sh && exit 0
+            ;;
+    esac
+
+    return 0
 }
 
 function main() {
-    args_includes "--help" && print_help
-
-
-    local matched_setup_flag=false
+    set_globals && args_includes "--help" && print_help && return 0
 
     for egg in ${EGGS[@]}; do
-        dispatch_egg
-        args_includes "--${egg}" && matched_setup_flag=true
+        dispatch_egg && return 0
     done
 
-    if ! "$matched_setup_flag"; then
-        echo "Invalid flags" && print_help
-    fi
+    echo "Invalid flags" && print_help && return 1
 }
 
 main
