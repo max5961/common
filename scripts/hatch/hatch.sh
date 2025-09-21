@@ -47,21 +47,7 @@ function args_includes() {
     return 1;
 }
 
-function dispatch_egg() {
-    "$HERE" || DEST="$DEST_BASE/${egg}-test"
-
-    ! args_includes "--${egg}" && return 1
-
-    local template="${SOURCE}/${egg}/template"
-    local dir_is_empty=false
-
-    mkdir -p "$DEST" && cd "$DEST"
-    if "$NEW" || [[ -z "$(ls -A)" ]]; then
-        dir_is_empty=true
-        rm -rf "$DEST"/* "$DEST"/.*
-        cp -r "$template"/* . && cp -r "$template"/.* .
-    fi
-
+function configure_egg() {
     case $egg in
         ts)
             if $dir_is_empty; then
@@ -74,6 +60,11 @@ function dispatch_egg() {
             $EDITOR src/index.ts && exit 0
             ;;
         cpp)
+            if $dir_is_empty; then
+                rm -rf "$DEST"/.* "$DEST"/*
+                cp -r "$template"/* .
+                cp -r "$template"/.* .
+            fi
             $EDITOR src/main.cpp && exit 0
             ;;
         sh)
@@ -82,7 +73,25 @@ function dispatch_egg() {
             ;;
     esac
 
-    return 0
+}
+
+function dispatch_egg() {
+    "$HERE" || DEST="$DEST_BASE/${egg}-test"
+
+    ! args_includes "--${egg}" && return 1
+
+    local template="${SOURCE}/${egg}/template"
+    local dir_is_empty=false
+
+    mkdir -p "$DEST" && cd "$DEST"
+    if "$NEW" || [[ -z "$(ls -A)" ]]; then
+        dir_is_empty=true
+        rm -rf "$DEST"/* "$DEST"/.*
+        cp -r "$template"/* .
+        ls -A "$template/.*" >/dev/null 2>&1 && cp -r "$template"/.* .
+    fi
+
+    configure_egg && return 0
 }
 
 function main() {
