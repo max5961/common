@@ -226,3 +226,5 @@ cmp.setup({
 		end,
 	},
 })
+
+return {}
