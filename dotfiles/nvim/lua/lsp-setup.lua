@@ -56,18 +56,20 @@ require("mason-lspconfig").setup({
 		"ts_ls", -- was "tsserver"
 		"eslint",
 		"html",
-		"cssls",
+		-- "cssls",
 		"emmet_language_server",
 		"emmet_ls",
 		"bashls",
 		"clangd",
 		"pylsp",
 		"stylelint_lsp",
+		-- "stylelint-language-server",
 		"marksman",
 	},
 	handlers = {
 		function(server_name)
-			require("lspconfig")[server_name].setup({ capabilities = lsp_capabilities })
+			-- require("lspconfig")[server_name].setup({ capabilities = lsp_capabilities })
+			vim.lsp.config(server_name).setup({ capabilities = lsp_capabilities })
 		end,
 		stylelint_lsp = function() end,
 		cssls = function()
@@ -76,7 +78,8 @@ require("mason-lspconfig").setup({
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			-- CSS Language Server
-			require("lspconfig").cssls.setup({
+			-- require("lspconfig").cssls.setup({
+			vim.lsp.config("cssls").setup({
 				capabilities = cssCapabilities,
 				filetypes = { "css", "scss" },
 
@@ -109,34 +112,38 @@ local function setup_lang_servers()
 		},
 	})
 
-	require("lspconfig").stylelint_lsp.setup({
-		filetypes = { "css", "scss" },
-		root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
-		settings = {
-			stylelintplus = {
-				-- see available options in stylelint-lsp documentation
-			},
-		},
-		on_attach = function(client)
-			client.server_capabilities.document_formatting = false
-		end,
-	})
+	-- require("lspconfig").stylelint_lsp.setup({
 
-	local function css_lang_server_setup()
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
+	-- vim.lsp.config("stylelint_lsp").setup({
+	-- 	filetypes = { "css", "scss" },
+	-- 	-- root_dir = require("lspconfig").util.root_pattern("package.json", ".stylelintrc.json", ".git"),
+	-- 	root_dir = vim.lsp.config().util.root_pattern("package.json", ".stylelintrc.json"),
+	-- 	settings = {
+	-- 		stylelintplus = {
+	-- 			-- see available options in stylelint-lsp documentation
+	-- 		},
+	-- 	},
+	-- 	on_attach = function(client)
+	-- 		client.server_capabilities.document_formatting = false
+	-- 	end,
+	-- })
 
-		require("lspconfig").cssls.setup({
-			capabilities = cssCapabilities,
-			filetypes = { "css", "scss" },
-
-			-- to get css completions, you need to have stylelint-lsp installed LOCALLY
-			-- for some reason
-			cmd = { "vscode-css-language-server", "--stdio" },
-		})
-	end
-	css_lang_server_setup()
+	-- local function css_lang_server_setup()
+	-- 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	-- 	local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
+	-- 	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	--
+	-- 	-- require("lspconfig").cssls.setup({
+	-- 	vim.lsp.config("cssls").setup({
+	-- 		capabilities = cssCapabilities,
+	-- 		filetypes = { "css", "scss" },
+	--
+	-- 		-- to get css completions, you need to have stylelint-lsp installed LOCALLY
+	-- 		-- for some reason
+	-- 		cmd = { "vscode-css-language-server", "--stdio" },
+	-- 	})
+	-- end
+	-- css_lang_server_setup()
 end
 
 setup_lang_servers()

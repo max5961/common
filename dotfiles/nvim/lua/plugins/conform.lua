@@ -20,6 +20,7 @@ return {
 				less = { "prettier" },
 				json = { "prettier" },
 				jsonc = { "prettier" },
+				cpp = { "clangd" },
 
 				-- You can use a function here to determine the formatters dynamically
 				python = function(bufnr)

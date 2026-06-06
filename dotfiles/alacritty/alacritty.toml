@@ -1,3 +1,4 @@
+[general]
 import = ["/home/max/.config/alacritty/dist/themes/hardhacker.toml"]
 
 [colors]
@@ -10,16 +11,13 @@ size = 11.75
 # WINIT_X11_SCALE_FACTOR = "1.25"
 
 [font.normal]
-family = "MononokiNerdFontMono"
-# family = "SauceCodeProNerdFontMono"
-# family = "MesloLGS NF"
-# family = "LilexNerdFontMono"
+family = "MononokiNerdFont"
 
 [scrolling]
 history = 1000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]
@@ -37,3 +35,6 @@ instance = "Alacritty"
 
 [debug]
 print_events = true
+
+
+[terminal]

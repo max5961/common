@@ -38,6 +38,12 @@ function update_configs() {
     echo "include $HOME/.cache/wal/colors-kitty.conf" > "$HOME/.config/kitty/theme.conf"
     echo -e "[colors]\ninclude-file = $HOME/.cache/wal/colors-polybar" > "$HOME/.config/polybar/theme.ini"
     "$HOME/.config/polybar/launch.sh" &
+
+    # echo -e "set \$borderColor $borderColor" > $forwardFile
+    # echo -e "set \$inactiveBorderColor $inactiveBorderColor" >> $forwardFile
+    # echo -e "default_border pixel 3" >> $forwardFile
+    # echo -e "client.focused \$borderColor \$borderColor \$borderColor \$borderColor" >> $forwardFile
+    # echo -e "client.focused_inactive \$inactiveBorderColor \$inactiveBorderColor \$inactiveBorderColor \$inactiveBorderColor" >> $forwardFile
 }
 
 function main() {

@@ -199,6 +199,7 @@ bindsym $mod+t layout toggle split
 
 # fullscreen
 bindsym $mod+f fullscreen toggle
+bindsym --whole-window button2 fullscreen toggle
 
 # mod + mouse to drag and rearrange windows
 floating_modifier $mod
@@ -380,6 +381,8 @@ bindsym $mod+o mode "move-windows"
 bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3/scripts/minimize/minimize-curr-screen.sh
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/minimize/move-back.sh
 
+bindsym $mod+n exec --no-startup-id ~/void/open-music.sh
+
 # EVERYTHING BELOW THIS COMMENT CAME WITH THE DEFAULT I3 CONFIG
 
 # Start XDG autostart .desktop files using dex. See also
@@ -398,7 +401,6 @@ exec --no-startup-id nm-applet
 
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 
 
 

@@ -30,4 +30,3 @@ mkdir -p $PICTURES
 echo "$@" | grep -Pq "\-\-window" && window && screenshot
 echo "$@" | grep -Pq "\-\-monitor" && monitor && screenshot
 echo "$@" | grep -Pq "\-\-all" && screenshot
-

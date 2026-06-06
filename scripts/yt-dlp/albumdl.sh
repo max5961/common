@@ -27,7 +27,7 @@ function draw_line() {
 # $1: URL
 function yt_dlp_command() {
     [[ -z "$1" ]] && echo "URL not provided to download function" && exit 1
-    yt-dlp -x -f bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "$1"
+    yt-dlp -x -f  bestaudio -o "%(playlist_index)s <<>> %(title)s.%(ext)s" "$1"
 }
 
 function download() {
@@ -85,7 +85,7 @@ function dl_from_csv() {
         if [[ ! -z "$artist" && ! -z "$album" && ! -z "$url" ]]; then
             albumdl "$artist" "$album" "$url"
         else
-            echo "Skipping draw_line $i due to invalid format."
+            echo "Skipping line $i due to invalid format."
         fi
     done < "$csv"
 }

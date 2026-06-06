@@ -1,40 +1,76 @@
+#!/usr/bin/env node
+
 const fs = require("node:fs");
-const os = require("node:os");
 const path = require("node:path");
-const { execSync } = require("node:child_process");
+const os = require("node:os");
+const chproc = require("node:child_process");
 
 const artist = process.env.ARTIST;
 const album = process.env.ALBUM;
-const directory = path.join(os.homedir(), "Music", artist, album);
 
-function setMetaData() {
-    const dcontents = fs.readdirSync(directory);
-    for (const fname of dcontents) {
-        const fpath = path.join(directory, fname);
-        const metadata = getMetaData(fname);
+main(artist, album);
 
-        const title = `-metadata title='${metadata.songName}'`;
-        const track = `-metadata track='${metadata.trackNumber}'`;
-        const artist = `-metadata artist='${metadata.artist}'`;
-        const album = `-metadata album='${metadata.album}'`;
-
-        try {
-            const tmp = path.join(os.tmpdir(), `metadata-${fname}`);
-            execSync(
-                `ffmpeg -i "${fpath}" ${track} ${title} ${artist} ${album} -codec copy "${tmp}"`,
-                { stdio: "ignore" },
-            );
-            fs.renameSync(tmp, fpath);
-            console.log(`Metadata set: \x1b[33m${fname}\x1b[0m`);
-        } catch (err) {
-            console.log(
-                `Error setting metadata for: '${metadata.songName}', ${err.message}`,
-            );
-        }
+function main(artist, album) {
+    if (album) {
+        setMetadata(artist, album);
+    } else {
+        const albums = getDirContents(artist);
+        albums.forEach((album) => setMetadata(artist, album));
     }
 }
 
-function getMetaData(file) {
+/**
+ * @param {string} artist
+ * @param {string | undefined} album
+ * */
+function setMetadata(artist, album) {
+    const files = getDirContents(artist, album);
+
+    files.forEach((fname) => {
+        const fpath = path.join(getDirectory(artist, album), fname);
+        const metadata = getMetaData(fname, album);
+
+        const metaTitle = `-metadata title='${metadata.songName}'`;
+        const metaTrack = `-metadata track='${metadata.trackNumber}'`;
+        const metaArtist = `-metadata artist='${metadata.artist}'`;
+        const metaAlbum = `-metadata album='${metadata.album}'`;
+
+        try {
+            const tmp = path.join(os.tmpdir(), `metadata-${fname}`);
+
+            chproc.execSync(
+                `ffmpeg -y -i ` +
+                    `'${fpath}' ` +
+                    `-map_metadata -1 ` +
+                    `${metaTrack} ` +
+                    `${metaTitle} ` +
+                    `${metaArtist} ` +
+                    `${metaAlbum} ` +
+                    `-codec copy ` +
+                    `'${tmp}'`,
+                { stdio: "ignore" },
+            );
+
+            fs.copyFileSync(tmp, fpath);
+            console.log(`Metadata set: \x1b[33m${fname}\x1b[0m`);
+        } catch (err) {
+            console.log(
+                `Error setting metadata for: '${metadata.songName}'\n\t ${err.message}`,
+            );
+        }
+    });
+}
+
+function getDirContents(artist, album) {
+    return fs.readdirSync(getDirectory(artist, album));
+}
+
+function getDirectory(artist, album) {
+    const args = album ? ["Music", artist, album] : ["Music", artist];
+    return path.join(os.homedir(), ...args);
+}
+
+function getMetaData(file, album) {
     const metaData = {
         artist,
         album,
@@ -84,5 +120,3 @@ function extractSongName(metaData, songName) {
     metaData.songName = songName;
     metaData.album = metaData.album.replace(/\'/g, `'\\''`);
 }
-
-setMetaData();

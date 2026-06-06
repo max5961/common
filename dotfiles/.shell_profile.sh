@@ -39,6 +39,7 @@ alias calc="qalc"
 alias glow="glow -p"
 alias ls="eza --long --no-time --icons --octal-permissions --group-directories-first --git"
 alias tree="eza --tree"
+alias rsync="rsync -av --progress"
 
 # Git
 alias gs='git status'
@@ -48,3 +49,6 @@ alias ga='git add'
 alias gb="git branch -vv"
 alias gl="git log --oneline --graph --all --decorate"
 alias lg="lazygit"
+
+# rsync
+alias rsu='rsync -rsync -av --update --progress'
