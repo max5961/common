@@ -19,10 +19,6 @@ function cd_fzf() {
     [[ -e $file ]] && cd_into_file $file
 }
 
-function _rm() {
-    echo -e "\e[33mUse tr instead\e[0m"
-}
-
 alias cd="cd_into_file"
 alias cdf="cd_fzf"
 alias ta="tmux attach -t"
@@ -32,7 +28,7 @@ alias bat='batcat --theme=Visual\ Studio\ Dark+'
 alias cat='bat'
 alias grep='grep --color=auto'
 alias trr='trash-restore'
-alias rm='_rm'
+alias rm="trash-put"
 alias tr="trash-put"
 alias lf="lfrun"
 alias calc="qalc"
