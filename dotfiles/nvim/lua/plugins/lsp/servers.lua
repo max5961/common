@@ -15,24 +15,28 @@ return {
 		},
 		"neovim/nvim-lspconfig",
 	},
-	opts = {},
+	build = function()
+		local servers = {
+			"lua_ls",
+			"bashls",
+			"clangd",
+			"ts_ls",
+			"eslint",
+			"html",
+			"emmet_language_server",
+			"emmet_ls",
+			"pylsp",
+			"stylelint_lsp",
+			"marksman",
+			"rust_analyzer",
+		}
+
+		for _, server in ipairs({ servers }) do
+			vim.cmd.LspInstall(server)
+		end
+	end,
 	config = function()
 		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-				"bashls",
-				"clangd",
-				"ts_ls",
-				"eslint",
-				"html",
-				"emmet_language_server",
-				"emmet_ls",
-				"pylsp",
-				"stylelint_lsp",
-				"marksman",
-				"rust_analyzer",
-			},
-
 			automatic_enable = true,
 			automatic_installation = true,
 		})
