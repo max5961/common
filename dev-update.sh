@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CURR_BRANCH=$(git branch | grep -E '\* *' | cut -d ' ' -f 2)
+CURR_BRANCH=$(git branch --show-current)
 
 git add .
 git commit -m "automated dev update"
