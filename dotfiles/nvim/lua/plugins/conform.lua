@@ -21,6 +21,7 @@ return {
 				json = { "prettier" },
 				jsonc = { "prettier" },
 				cpp = { "clangd" },
+				c = { "clangd" },
 
 				-- You can use a function here to determine the formatters dynamically
 				python = function(bufnr)
