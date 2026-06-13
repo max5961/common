@@ -27,10 +27,10 @@ vim.api.nvim_create_user_command("Code", function()
 end, {})
 
 vim.keymap.set("n", "gl", function()
-	local file = vim.fn.expand("<cfile>")
-	local isFile = vim.loop.fs_stat(file)
+	local file = vim.fn.expand(vim.fn.expand("<cfile>"))
+	local exists = vim.uv.fs_stat(file)
 
-	if not isFile then
+	if not exists then
 		vim.notify("go to link: invalid file '" .. file .. "'", vim.log.levels.WARN)
 	else
 		vim.cmd("e " .. file)
