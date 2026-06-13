@@ -2,6 +2,7 @@
 
 CURR_BRANCH=$(git branch --show-current)
 
+cd "$CURR_BRANCH"
 git add .
 git commit -m "automated dev update"
 git checkout main
