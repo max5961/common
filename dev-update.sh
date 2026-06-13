@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 CURR_BRANCH=$(git branch --show-current)
+ROOT_DIR=$(git rev-parse --show-toplevel)
 
-cd "$CURR_BRANCH"
+cd "$ROOT_DIR"
 git add .
 git commit -m "automated dev update"
 git checkout main
