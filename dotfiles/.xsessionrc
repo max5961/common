@@ -1,6 +1,6 @@
 export EDITOR="neovim"
 export SUDO_EDITOR="neovim"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="brave-browser"
 export PAGER="less -R"
 export GOPATH="$HOME/.local/share/go"
