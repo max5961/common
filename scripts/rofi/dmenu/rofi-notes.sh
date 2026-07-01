@@ -5,7 +5,7 @@ NOTES="$HOME/Documents/notes"
 exec_fzf() {
     cd "$NOTES"
     chosen=$(fzf --style=full --layout=reverse --walker=file,follow)
-    [[ ! -z "${chosen}" ]] && "${editor}" "${chosen}"
+    [[ -n "${chosen}" ]] && "${editor}" "${chosen}"
 }
 
 main() {
