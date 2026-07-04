@@ -107,6 +107,8 @@ bindkey "^?" backward-delete-char
 
 path=('/home/max/.juliaup/bin' $path)
 export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/max/.julia/juliaup/completions/zsh.zsh" ] && source "/home/max/.julia/juliaup/completions/zsh.zsh"
 
 # <<< juliaup initialize <<<
 

@@ -18,3 +18,4 @@ dotfiles/rofi/colors.rasi
 dotfiles/nvim/lazy-lock.json
 **/load-ssh.sh
 dotfiles/git/config
+dotfiles/nvim/lazy-lock.json
