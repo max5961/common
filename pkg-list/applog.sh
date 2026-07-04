@@ -57,7 +57,7 @@ install_cargo() {
 }
 
 install_flatpak() {
-    flatpak install "${1}"
+    flatpak install -y "${1}"
 }
 
 append() {
