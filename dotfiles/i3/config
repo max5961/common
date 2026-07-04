@@ -53,6 +53,7 @@ focus_follows_mouse no
 ### APPS / SHORTCUTS
 # terminal
 bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id alacritty
 
 # browser
 bindsym $mod+i exec --no-startup-id brave-browser
