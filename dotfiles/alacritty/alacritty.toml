@@ -1,5 +1,5 @@
 [general]
-import = ["/home/max/.config/alacritty/dist/themes/hardhacker.toml"]
+import = ["/home/max/.config/alacritty/dist/themes/catppuccin_macchiato.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -35,6 +35,5 @@ instance = "Alacritty"
 
 [debug]
 print_events = true
-
 
 [terminal]

@@ -3,9 +3,8 @@ export SUDO_EDITOR="neovim"
 export TERMINAL="kitty"
 export BROWSER="brave-browser"
 export PAGER="less -R"
+
 export GOPATH="$HOME/.local/share/go"
-
+export GOPATH="$GOPATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/share/go"
-export PATH="$PATH:/usr/local/go/bin"
-
+export PATH="$PATH:GOPATH"

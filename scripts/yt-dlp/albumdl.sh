@@ -92,7 +92,7 @@ function dl_from_csv() {
 
 function main() {
     check_deps
-    yt-dlp-precheck
+    pipx upgrade yt-dlp
 
     if [[ "$INPUT_ARTIST" == "--csv" || "$INPUT_ARTIST" == "-c" ]]; then
         dl_from_csv

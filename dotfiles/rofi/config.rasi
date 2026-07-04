@@ -25,7 +25,7 @@ configuration {
 }
 
 window {
-    height: 224px;
+    height: 202px;
     width: 600px;
     border: 2px;
     border-color: @fg;
@@ -37,14 +37,13 @@ inputbar {
     text-color: @fg;
 }
 prompt {
-    padding: 10px 3px 10px 10px;
+    padding: 1px;
     text-color: inherit;
     background-color: inherit;
 }
 entry {
     text-color: inherit;
     background-color: inherit;
-    padding: 10px 10px 10px 3px;
 }
 case-indicator  {
     background-color: inherit;
@@ -56,7 +55,7 @@ listview {
     background-color: @bg-alt;
 }
 element {
-    padding: 5px;
+    padding: 1px;
     background-color: transparent;
 }
 element selected {

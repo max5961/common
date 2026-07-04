@@ -1,6 +1,6 @@
 * {
-    bg: #323d43;
-    bg-alt: #505a60;
+    bg: #323d4365;
+    bg-alt: #505a6065;
     fg: #a7c080;
     selected-bg: #a7c080;
     selected-text: #475258;
