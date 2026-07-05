@@ -4,7 +4,7 @@ NOTES="$HOME/Documents/notes"
 
 exec_fzf() {
     cd "$NOTES"
-    chosen=$(fzf --style=full --layout=reverse --walker=file,follow)
+    chosen=$(fzf --style=full --layout=reverse --walker=file,follow --preview='batcat --color=always {} --style=numbers' --input-label=' Notes ')
     [[ -n "${chosen}" ]] && "${editor}" "${chosen}"
 }
 

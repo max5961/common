@@ -13,19 +13,30 @@ cd_into_file() {
     fi
 }
 
-get_file_fzf() {
-    cd_into_file "${1:-$(pwd)}"
-    local file=$(fzf --walker=file,hidden)
-    [[ -n "${file}" ]] && realpath -- "${file}"
+fzf_styled_with_preview() {
+    fzf "${@}" --style=full --layout=reverse --preview='batcat {} --color=always --style=numbers'
 }
 
-find_files_fzf() {
-    local file="$(get_file_fzf "${@}")"
+get_file_fzf() {
+    local input_label="${1}"
+    local root_dir="${2:-$(pwd)}"
+    if [[ -f "${root_dir}" ]]; then root_dir="$(dirname "${root_dir}")"; fi
+    local full_label=" ${input_label} - ${$(realpath "${root_dir}" | sed -e "s|^$HOME|~|")%/}/ "
+
+    cd_into_file "${root_dir}"
+    if [ "$?" -eq 0 ]; then
+        local file=$(fzf_styled_with_preview --walker=file,hidden --input-label="${full_label}")
+        [[ -n "${file}" ]] && realpath -- "${file}"
+    fi
+}
+
+fzf_find_files() {
+    local file="$(get_file_fzf 'Find Files' "${@}")"
     [[ -e "${file}" || -d "${file}" ]] && cd_into_file "${file}"
 }
 
-edit_files_fzf() {
-    local file="$(get_file_fzf "${@}")"
+fzf_edit_files() {
+    local file="$(get_file_fzf 'Edit Files' "${@}")"
 
     # Using exit 0 would exit the entire shell.  These are not scripts.
     [[ -e "${file}" || -d "${file}" ]] || return 0
@@ -38,6 +49,17 @@ edit_files_fzf() {
     fi
 }
 
+fzf_grep_files() {
+    # RG_PREFIX="rg   --column   --line-number   --no-heading    --color=always
+    #    --smart-case "
+    # INITIAL_QUERY="*"
+    # FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
+        #     fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+        #     --ansi --disabled --query "$INITIAL_QUERY"
+
+    rg "foobar" | fzf_styled_with_preview --bind "change:reload:rg {q} || true"
+}
+
 trash_restore_fzf() {
     local file="$(trash-list | fzf)"
     [[ -z "${file}" ]] && return 0
@@ -47,15 +69,15 @@ trash_restore_fzf() {
 notes() {
     local cwd="$(pwd)"
     cd "$HOME/Documents/notes"
-    local chosen="$(fzf --walker=file)"
+    local chosen="$(fzf --walker=file --input-label=' Notes ')"
     [[ -n "${chosen}" ]] && glow -p "${chosen}"
     cd "${cwd}"
 }
 
 alias cd='cd_into_file'
-alias fzf='fzf --style=full --layout=reverse'
-alias ff='find_files_fzf'
-alias ffe='edit_files_fzf'
+alias fzf='fzf_styled_with_preview'
+alias ff='fzf_find_files'
+alias ffe='fzf_edit_files'
 alias ta='tmux attach -t'
 alias vim='neovim'
 alias journalctl='journalctl --reverse'
