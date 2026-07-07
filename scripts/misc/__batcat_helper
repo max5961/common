@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+FILE="$1"
+FOCUS_LINE="$2"
+# - 2 to account for borders
+STDOUT_LINES=$((LINES - 2))
+# lines in file
+LINE_COUNT="$(wc -l "$FILE" | cut -d ' ' -f 1)"
+
+find_range() {
+    local win_size=$((LINES - 2))
+    local padding=$((win_size / 2))
+    local end=$((FOCUS_LINE + padding))
+    local start=$((FOCUS_LINE - padding))
+
+    if ((start < 1)); then
+        end=$((end - start))
+        start=""
+
+        if ((end > LINE_COUNT)); then
+            end=$LINE_COUNT
+        fi
+    fi
+
+    if ((end > LINE_COUNT)); then
+        local diff=$((end - LINE_COUNT))
+        start=$((start - diff))
+        end=""
+
+        if ((start < 1)); then
+            start=1
+        fi
+    fi
+
+    echo "${start}:${end}"
+}
+
+main() {
+    batcat "$FILE" \
+        --color=always \
+        --style=numbers \
+        --highlight-line "$FOCUS_LINE" \
+        --line-range=$(find_range)
+}
+
+main
+
+

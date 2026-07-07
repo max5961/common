@@ -49,15 +49,32 @@ fzf_edit_files() {
     fi
 }
 
-fzf_grep_files() {
-    # RG_PREFIX="rg   --column   --line-number   --no-heading    --color=always
-    #    --smart-case "
-    # INITIAL_QUERY="*"
-    # FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
-        #     fzf --bind "change:reload:$RG_PREFIX {q} || true" \
-        #     --ansi --disabled --query "$INITIAL_QUERY"
+fzf_for_grep() {
+    fzf "$@" \
+        --style=full \
+        --layout=reverse \
+        --delimiter ':' \
+        --preview "$HOME/common/scripts/misc/__batcat_helper {1} {2}"
+}
 
-    rg "foobar" | fzf_styled_with_preview --bind "change:reload:rg {q} || true"
+fzf_grep_files() {
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case"
+    IGNORE_GLOBS="--glob '!node_modules/**' --glob '!.git/**' --glob '!dist/**' --glob '!target/**'"
+    INITIAL_QUERY=""
+
+    if [[ "$1" == "hidden" ]]; then
+        RG_PREFIX="${RG_PREFIX} --hidden --no-ignore-vcs"
+    else
+        RG_PREFIX="${RG_PREFIX} ${IGNORE_GLOBS}"
+    fi
+
+    if [[ -f "${2}" || -d "${2}" ]]; then
+        cd_into_file "${2}"
+    fi
+
+    eval "$RG_PREFIX '$INITIAL_QUERY'" | \
+        fzf_for_grep --bind "change:reload:$RG_PREFIX {q} || true,ctrl-h:" \
+        --ansi --disabled --query "$INITIAL_QUERY"
 }
 
 trash_restore_fzf() {
@@ -78,6 +95,8 @@ alias cd='cd_into_file'
 alias fzf='fzf_styled_with_preview'
 alias ff='fzf_find_files'
 alias ffe='fzf_edit_files'
+alias ffg='fzf_grep_files non-hidden'
+alias ffgh="fzf_grep_files hidden"
 alias ta='tmux attach -t'
 alias vim='neovim'
 alias journalctl='journalctl --reverse'
