@@ -68,13 +68,30 @@ fzf_grep_files() {
         RG_PREFIX="${RG_PREFIX} ${IGNORE_GLOBS}"
     fi
 
-    if [[ -f "${2}" || -d "${2}" ]]; then
-        cd_into_file "${2}"
+    if [[ -f "${3}" || -d "${3}" ]]; then
+        cd_into_file "${3}"
     fi
 
-    eval "$RG_PREFIX '$INITIAL_QUERY'" | \
-        fzf_for_grep --bind "change:reload:$RG_PREFIX {q} || true,ctrl-h:" \
-        --ansi --disabled --query "$INITIAL_QUERY"
+    local file="$(eval "$RG_PREFIX '$INITIAL_QUERY'" | \
+            fzf_for_grep --bind "change:reload:$RG_PREFIX {q} || true,ctrl-h:" \
+        --ansi --disabled --query "$INITIAL_QUERY")"
+
+    local line_num=$(echo "${file}" | cut -d ':' -f 2)
+    local col=$(echo "${file}" | cut -d ':' -f 3)
+    file="$(echo "${file}" | cut -d ':' -f 1)"
+    file="$(realpath -- "${file}")"
+
+    if [[ "$2" == "edit" ]]; then
+        # ****todo**** --- this was copy/pasted from fzf_edit_files
+        if [[ "${file}" == "$HOME"/* || "${file}" == "$HOME" ]]; then
+            cd_into_file "${file}"
+            "$EDITOR" "+$line_num" "${file}"
+        else
+            sudoedit "+$line_num" "${file}"
+        fi
+    else
+        cd_into_file "${file}"
+    fi
 }
 
 trash_restore_fzf() {
@@ -95,8 +112,10 @@ alias cd='cd_into_file'
 alias fzf='fzf_styled_with_preview'
 alias ff='fzf_find_files'
 alias ffe='fzf_edit_files'
-alias ffg='fzf_grep_files non-hidden'
-alias ffgh="fzf_grep_files hidden"
+alias ffg='fzf_grep_files non-hidden noedit'
+alias ffgh="fzf_grep_files hidden noedit"
+alias ffge="fzf_grep_files non-hidden edit"
+alias ffghe="fzf_grep_files hidden edit"
 alias ta='tmux attach -t'
 alias vim='neovim'
 alias journalctl='journalctl --reverse'
