@@ -79,12 +79,19 @@ fzf_grep_files() {
     local line_num=$(echo "${file}" | cut -d ':' -f 2)
     local col=$(echo "${file}" | cut -d ':' -f 3)
     file="$(echo "${file}" | cut -d ':' -f 1)"
+
+    if [[ -z "${file}" ]]; then return; fi
+
     file="$(realpath -- "${file}")"
+
 
     if [[ "$2" == "edit" ]]; then
         # ****todo**** --- this was copy/pasted from fzf_edit_files
         if [[ "${file}" == "$HOME"/* || "${file}" == "$HOME" ]]; then
-            cd_into_file "${file}"
+            cd_into_file "${file}" >/dev/null 2>&1
+            if [[ ! "$(git rev-parse --show-toplevel)" == "fatal:*" ]]; then
+                cd_into_file "$(git rev-parse --show-toplevel)"
+            fi
             "$EDITOR" "+$line_num" "${file}"
         else
             sudoedit "+$line_num" "${file}"
