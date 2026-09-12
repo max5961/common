@@ -7,6 +7,7 @@ configuration {
     show-icons: true;
     icon-theme: "Papirus";
     matching: "fuzzy";
+    drun-match-fields: "name";
 
     kb-mode-next: "Alt+l";
     kb-mode-previous: "Alt+h";

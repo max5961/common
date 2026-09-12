@@ -60,7 +60,7 @@ bindsym $mod+i exec --no-startup-id brave-browser
 bindsym $mod+q exec --no-startup-id qutebrowser
 
 # file manager gui
-bindsym $mod+e exec --no-startup-id thunar
+bindsym $mod+e exec --no-startup-id dolphin
 
 # rofi
 # bindsym $mod+d exec --no-startup-id rofimonitor -show drun
@@ -181,6 +181,11 @@ mode "resize" {
     bindsym r mode "default"
 }
 bindsym $mod+r mode "resize"
+
+mode "unbind all" {
+    bindsym $mod+u mode "default"
+}
+bindsym $mod+u mode "unbind all"
 
 # change next split direction
 # NOTE: vim vsplit (vertical split) opens a window with the delineator running

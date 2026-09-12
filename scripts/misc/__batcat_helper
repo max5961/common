@@ -40,7 +40,8 @@ main() {
         --color=always \
         --style=numbers \
         --highlight-line "$FOCUS_LINE" \
-        --line-range=$(find_range)
+        --line-range=$(find_range) \
+        --theme=gruvbox-dark
 }
 
 main

@@ -14,7 +14,7 @@ cd_into_file() {
 }
 
 fzf_styled_with_preview() {
-    fzf "${@}" --style=full --layout=reverse --preview='batcat {} --color=always --style=numbers'
+    fzf "${@}" --style=full --layout=reverse --preview='batcat {} --color=always --style=numbers --theme=gruvbox-dark'
 }
 
 get_file_fzf() {
@@ -126,7 +126,7 @@ alias ffghe="fzf_grep_files hidden edit"
 alias ta='tmux attach -t'
 alias vim='neovim'
 alias journalctl='journalctl --reverse'
-alias bat='batcat --theme=Visual\ Studio\ Dark+'
+alias bat='batcat --theme=gruvbox-dark'
 alias cat='bat'
 alias grep='grep --color=auto'
 alias trr='trash_restore_fzf'
